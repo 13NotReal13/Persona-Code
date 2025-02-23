@@ -20,34 +20,44 @@ struct BackgroundView: View {
             )
             
             RotatingNumberRingView(
-                sizeOfRing: 0.6,
-                fontSize: 17,
+                sizeOfRing: 0.67,
+                fontSize: 15,
                 direction: .left,
                 colorOfCircle: Color.ringColor1
             )
-                .offset(y: -100)
+            .offset(y: -155)
             
             RotatingNumberRingView(
-                sizeOfRing: 0.45,
-                fontSize: 15,
+                sizeOfRing: 0.51,
+                fontSize: 14,
                 direction: .right,
                 colorOfCircle: Color.ringColor2
             )
-                .offset(y: -100)
+            .offset(y: -155)
             
             RotatingNumberRingView(
-                sizeOfRing: 0.3,
+                sizeOfRing: 0.35,
                 fontSize: 13,
                 direction: .left,
                 colorOfCircle: Color.ringColor1
             )
-                .offset(y: -100)
+                .offset(y: -155)
             
-            Image(.persona2Clipped)
+            Image(.personaBackground)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: UIScreen.main.bounds.width * 1.3)
-                .offset(y: +23)
+                .offset(y: -70)
+//                .mask {
+//                    LinearGradient(
+//                        gradient: Gradient(stops: [
+//                            .init(color: .white, location: 0.8),
+//                            .init(color: .clear, location: 1)
+//                            ]
+//                        ),
+//                        startPoint: .top,
+//                        endPoint: .bottom
+//                    )
+//                }
         }
         .ignoresSafeArea()
     }

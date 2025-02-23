@@ -11,7 +11,8 @@ import SwiftUI
 struct Persona_CodeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
+                .preferredColorScheme(.dark)
         }
     }
 }
