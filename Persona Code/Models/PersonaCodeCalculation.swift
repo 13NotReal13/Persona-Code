@@ -11,25 +11,25 @@ struct PersonaCodeCalculation {
     let name: String
     let dateOfBirthday: Date
     
-//    var matrixData: PersonaCodeModel {
-//        return PersonaCodeModel(
-//            name: name,
-//            dateOfBirthday: dateOfBirthday,
-//            
-//            destinyNumber: DestinyNumberArkans.allArkans[destinyNumberValue]!,
-//            lifePath: LifePathArkans.allArkans[lifePathValue]!,
-//            relationships: RelationshipsArkans.allArkans[relationshipsValue]!,
-//            finances: FinancesArkans.allArkans[financesValue]!,
-//            career: CareerArkans.allArkans[careerValue]!,
-//            health: HealthArkans.allArkans[healthValue]!,
-//            talents: TalentsArkans.allArkans[talentsValue]!,
-//            challenges: ChallengesArkans.allArkans[challengesValue]!,
-//            personalGrowth: PersonalGrowthArkans.allArkans[personalGrowthValue]!,
-//            innerSelf: InnerSelfArkans.allArkans[innerSelfValue]!,
-//            purpose: PurposeArkans.allArkans[purposeValue]!,
-//            karmicLessons: KarmicLessonsArkans.allArkans[karmicLessonsValue]!
-//        )
-//    }
+    var matrixData: PersonaCodeModel {
+        return PersonaCodeModel(
+            name: name,
+            dateOfBirthday: dateOfBirthday,
+            
+            destinyNumber: DestinyNumberEnergies.allEnergies[destinyNumberValue]!,
+            lifePath: LifePathEnergies.allEnergies[lifePathValue]!,
+            relationships: RelationshipsEnergies.allEnergies[relationshipsValue]!,
+            finances: FinancesEnergies.allEnergies[financesValue]!,
+            career: CareerEnergies.allEnergies[careerValue]!,
+            health: HealthEnergies.allEnergies[healthValue]!,
+            talents: TalentsEnergies.allEnergies[talentsValue]!,
+            challenges: ChallengesEnergies.allEnergies[challengesValue]!,
+            personalGrowth: PersonalGrowthEnergies.allEnergies[personalGrowthValue]!,
+            innerSelf: InnerSelfEnergies.allEnergies[innerSelfValue]!,
+            purpose: PurposeEnergies.allEnergies[purposeValue]!,
+            karmicLessons: KarmicLessonsEnergies.allEnergies[karmicLessonsValue]!
+        )
+    }
     
     private let day: Int
     private let month: Int
