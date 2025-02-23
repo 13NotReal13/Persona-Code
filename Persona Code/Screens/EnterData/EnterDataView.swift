@@ -21,10 +21,26 @@ struct EnterDataView: View {
                 EnterDataFormView(enterDataViewModel: enterDataViewModel)
             }
         }
+        .onTapGesture {
+            UIApplication.shared.connectedScenes
+                .compactMap { ($0 as? UIWindowScene)?.keyWindow }
+                .first?
+                .endEditing(true)
+        } 
         .sheet(isPresented: $enterDataViewModel.isDatePickerPresented) {
             DatePickerModalView(enterDataViewModel: enterDataViewModel)
                 .preferredColorScheme(.light)
         }
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                NavigationBackButtonView { dismiss() }
+            }
+            
+            ToolbarItem(placement: .principal) {
+                CustomNavigationTitleView(title: "Ввод Данных")
+            }
+        }
+        .navigationBarBackButtonHidden()
     }
 }
 

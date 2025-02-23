@@ -17,8 +17,7 @@ struct HomeView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Text("Код Личности")
-                        .customText(fontSize: 32)
+                    CustomNavigationTitleView(title: "Код Личности")
                 }
             }
         }

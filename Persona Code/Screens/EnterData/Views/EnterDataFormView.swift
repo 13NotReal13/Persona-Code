@@ -28,5 +28,13 @@ struct EnterDataFormView: View {
 }
 
 #Preview {
-    EnterDataFormView(enterDataViewModel: EnterDataViewModel())
+    ZStack {
+        BackgroundView()
+        
+        VStack {
+            Spacer()
+            
+            EnterDataFormView(enterDataViewModel: EnterDataViewModel())
+        }
+    }
 }
