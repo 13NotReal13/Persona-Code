@@ -16,8 +16,9 @@ struct RotatingNumberRingView: View {
     var sizeOfRing: CGFloat
     var fontSize: CGFloat
     var direction: Direction
+    var colorOfCircle: Color
     
-    @State private var angleOffset: Double = 0
+    @State private var angleOffset: Double = 10
     
     private let numbers = Array(1...22)
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -28,6 +29,15 @@ struct RotatingNumberRingView: View {
             let radius = size / 2
             
             ZStack {
+                Circle()
+                    .foregroundStyle(colorOfCircle)
+                    .frame(width: geometry.size.width * (sizeOfRing + 0.08))
+                    .overlay {
+                        Circle()
+                            .stroke(lineWidth: 1)
+                            .foregroundStyle(.white)
+                    }
+                
                 ForEach(0..<numbers.count, id: \.self) { index in
                     let angle = (Double(index) * 360.0 / 22) + angleOffset
                     let x = cos(angle * .pi / 180) * radius
@@ -35,10 +45,12 @@ struct RotatingNumberRingView: View {
                     
                     Text("\(numbers[index])")
                         .font(.system(size: fontSize))
-                        .foregroundStyle(.black)
+                        .bold()
+                        .foregroundStyle(.white)
                         .position(x: geometry.size.width / 2 + x, y: geometry.size.height / 2 + y)
                 }
             }
+            .shadow(color: .white, radius: 10)
             .onReceive(timer) { _ in
                 withAnimation(.easeInOut(duration: 0.5)) {
                     switch direction {
@@ -55,9 +67,30 @@ struct RotatingNumberRingView: View {
 }
 
 #Preview {
-    RotatingNumberRingView(
-        sizeOfRing: CGFloat(0.8),
-        fontSize: CGFloat(21),
-        direction: Direction.left
-    )
+    ZStack {
+        RotatingNumberRingView(
+            sizeOfRing: 0.6,
+            fontSize: 17,
+            direction: .left,
+            colorOfCircle: Color.ringColor1
+        )
+            .offset(y: -120)
+        
+        RotatingNumberRingView(
+            sizeOfRing: 0.45,
+            fontSize: 15,
+            direction: .right,
+            colorOfCircle: Color.ringColor2
+        )
+            .offset(y: -120)
+        
+        RotatingNumberRingView(
+            sizeOfRing: 0.3,
+            fontSize: 13,
+            direction: .left,
+            colorOfCircle: Color.ringColor1
+        )
+            .offset(y: -120)
+    }
+    .background(Color.black)
 }

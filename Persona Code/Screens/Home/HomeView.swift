@@ -9,10 +9,22 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        ZStack {
-            RotatingNumberRingView(sizeOfRing: 0.8, fontSize: 21, direction: .left)
-            RotatingNumberRingView(sizeOfRing: 0.65, fontSize: 18, direction: .right)
-            RotatingNumberRingView(sizeOfRing: 0.5, fontSize: 15, direction: .left)
+        NavigationView {
+            ZStack {
+                BackgroundView()
+                
+                VStack {
+                    
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("Код Личности")
+                        .font(.system(size: 32))
+                        .bold()
+                        .foregroundStyle(.white)
+                }
+            }
         }
     }
 }
