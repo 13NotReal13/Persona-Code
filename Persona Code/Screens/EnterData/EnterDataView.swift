@@ -21,6 +21,10 @@ struct EnterDataView: View {
                 EnterDataFormView(enterDataViewModel: enterDataViewModel)
             }
         }
+        .sheet(isPresented: $enterDataViewModel.isDatePickerPresented) {
+            DatePickerModalView(enterDataViewModel: enterDataViewModel)
+                .preferredColorScheme(.light)
+        }
     }
 }
 
