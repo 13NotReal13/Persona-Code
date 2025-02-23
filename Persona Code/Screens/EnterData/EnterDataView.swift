@@ -8,11 +8,18 @@
 import SwiftUI
 
 struct EnterDataView: View {
+    @Environment(\.dismiss) var dismiss
+    @StateObject var enterDataViewModel = EnterDataViewModel()
+    
     var body: some View {
         ZStack {
             BackgroundView()
             
-            
+            VStack {
+                Spacer()
+                
+                EnterDataFormView(enterDataViewModel: enterDataViewModel)
+            }
         }
     }
 }
