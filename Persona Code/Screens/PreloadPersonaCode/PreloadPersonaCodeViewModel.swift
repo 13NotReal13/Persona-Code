@@ -11,6 +11,7 @@ import SwiftUI
 final class PreloadPersonaCodeViewModel: ObservableObject {
     @Published var progress: CGFloat = 0.0
     @Published var statusText: String = "Получаю ваш код личности..."
+    @Published var loadWasFinished: Bool = false
     @Published var showPurchaseModal: Bool = false
     
     private var totalDuration: TimeInterval = 25.0
@@ -29,6 +30,7 @@ final class PreloadPersonaCodeViewModel: ObservableObject {
                 }
                 
                 if index == delays.count - 1 {
+                    self.loadWasFinished = true
                     self.showPurchaseModal = true
                 }
             }
