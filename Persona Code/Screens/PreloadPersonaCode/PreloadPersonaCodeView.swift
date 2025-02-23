@@ -32,10 +32,8 @@ struct PreloadPersonaCodeView: View {
                                 .customButtonStyle(width: UIScreen.main.bounds.width * 0.6, shape: .capsule)
                         }
                     } else {
-//                        LoadProgressView(viewModel: viewModel)
+                        LoadProgressView(viewModel: viewModel)
                     }
-                    
-                    Spacer()
                 }
             }
             .toolbar {
