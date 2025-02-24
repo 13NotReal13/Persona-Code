@@ -13,7 +13,7 @@ struct PreloadPersonaCodeView: View {
     let personaCode: ShortPersonaCodeData
     
     @StateObject private var viewModel = PreloadPersonaCodeViewModel()
-    @State private var navigateToMatrix = false
+    @State private var navigateToPersonaCode = false
     
     var body: some View {
         NavigationView {
@@ -65,23 +65,19 @@ struct PreloadPersonaCodeView: View {
 //                    EmptyView()
 //                }
 //            )
-//            .sheet(isPresented: $viewModel.showPurchaseModal) {
+            .sheet(isPresented: $viewModel.showPurchaseModal) {
 //                PurchaseModalView(
 //                    isPresented: $viewModel.showPurchaseModal,
 //                    navigateToMatrix: $navigateToMatrix
 //                )
-//            }
-        }
-        .navigationBarHidden(true)
-        .onChange(of: navigateToMatrix) { isNavigating in
-            if isNavigating {
-                saveMatrix()
             }
         }
-    }
-    
-    private func saveMatrix() {
-        StorageManager().add(shortPersonaCodeData: personaCode)
+        .navigationBarHidden(true)
+        .onChange(of: navigateToPersonaCode) { isNavigating in
+            if isNavigating {
+                viewModel.saveMatrix(personaCode: personaCode)
+            }
+        }
     }
 }
 
