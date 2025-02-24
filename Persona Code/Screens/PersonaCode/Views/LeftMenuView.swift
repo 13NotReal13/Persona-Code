@@ -1,8 +1,8 @@
 //
 //  LeftMenuView.swift
-//  DestinyMatrix
+//  Persona Code
 //
-//  Created by Иван Семикин on 09/12/2024.
+//  Created by Иван Семикин on 24/02/2025.
 //
 
 import SwiftUI
@@ -23,7 +23,7 @@ struct LeftMenuView: View {
                     .frame(width: 282)
                 
                 HStack(spacing: 0) {
-                    LeftNavigationButtonsView(matrixViewModel: viewModel)
+                    LeftNavigationButtonsView(personaCodeViewModel: viewModel)
                         .frame(width: 250)
                         .padding(.horizontal)
                     

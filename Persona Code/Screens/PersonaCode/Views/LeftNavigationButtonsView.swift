@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LeftNavigationButtonsView: View {
-    @StateObject var matrixViewModel: PersonaCodeViewModel
+    @StateObject var personaCodeViewModel: PersonaCodeViewModel
     
     var body: some View {
         VStack(alignment: .leading) {
