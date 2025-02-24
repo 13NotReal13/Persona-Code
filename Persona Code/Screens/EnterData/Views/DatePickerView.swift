@@ -26,9 +26,8 @@ struct DatePickerView: View {
             }) {
                 ZStack {
                     Color.clear
-                        .frame(width: UIScreen.main.bounds.width * 0.5)
                         .frame(height: UIScreen.main.bounds.height * 0.02)
-                        .customButtonStyle(width: UIScreen.main.bounds.width * 0.8, shape: .capsule)
+                        .customButtonStyle(width: UIScreen.main.bounds.width * 0.7, shape: .capsule)
                         .opacity(0.7)
                     
                     HStack {
@@ -42,7 +41,7 @@ struct DatePickerView: View {
                         }
                     }
                 }
-                .frame(width: UIScreen.main.bounds.width * 0.5)
+                .frame(width: UIScreen.main.bounds.width * 0.7)
             }
             
             VStack {

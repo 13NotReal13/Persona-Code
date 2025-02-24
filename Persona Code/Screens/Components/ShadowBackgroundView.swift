@@ -11,8 +11,8 @@ struct ShadowBackgroundView: View {
     var body: some View {
         LinearGradient(
             stops: [
-                .init(color: .black.opacity(0.8), location: 0),
-                .init(color: .black.opacity(0.4), location: 1)
+                .init(color: .black.opacity(0.7), location: 0),
+                .init(color: .black.opacity(0.3), location: 1)
             ],
             startPoint: .top,
             endPoint: .bottom

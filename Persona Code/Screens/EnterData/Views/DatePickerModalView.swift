@@ -12,7 +12,9 @@ struct DatePickerModalView: View {
     
     var body: some View {
         ZStack {
-            BackgroundView()
+            BackgroundView(isAnimated: false)
+            
+            ShadowBackgroundView()
             
             VStack {
                 Spacer()
@@ -34,10 +36,9 @@ struct DatePickerModalView: View {
                     enterDataViewModel.isDatePickerPresented = false
                 } label: {
                     Text("Готово")
-                        .frame(width: UIScreen.main.bounds.width * 0.2)
                         .customText(fontSize: 16)
                         .customButtonStyle(
-                            width: UIScreen.main.bounds.width * 0.5,
+                            width: UIScreen.main.bounds.width * 0.4,
                             shape: .capsule
                         )
                 }

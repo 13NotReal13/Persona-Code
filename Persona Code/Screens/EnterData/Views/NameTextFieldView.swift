@@ -20,11 +20,9 @@ struct NameTextFieldView: View {
             
             ZStack {
                 Color.clear
-                    .frame(width: UIScreen.main.bounds.width * 0.5)
                     .frame(height: UIScreen.main.bounds.height * 0.02)
-                    .customButtonStyle(width: UIScreen.main.bounds.width * 0.8, shape: .capsule)
+                    .customButtonStyle(width: UIScreen.main.bounds.width * 0.7, shape: .capsule)
                     .opacity(0.7)
-                
                 
                 TextField(
                     "",
@@ -41,7 +39,7 @@ struct NameTextFieldView: View {
                     validateName()
                 }
             }
-            .frame(width: UIScreen.main.bounds.width * 0.5)
+            .frame(width: UIScreen.main.bounds.width * 0.7)
             
             VStack {
                 if !isNameValid {
