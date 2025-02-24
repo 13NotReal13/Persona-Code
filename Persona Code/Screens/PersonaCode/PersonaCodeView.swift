@@ -1,18 +1,16 @@
 //
 //  MatrixView.swift
-//  DestinyMatrix
+//  Persona Code
 //
 //  Created by Иван Семикин on 11/11/2024.
 //
 
 import SwiftUI
 
-struct MatrixView: View {
-    @EnvironmentObject var navigationManager: NavigationManager
+struct PersonaCodeView: View {
+    @Environment(\.dismiss) private var dismiss
     
-    @Environment(\.presentationMode) private var presentationMode
-    
-    @State var matrixData: MatrixData
+    @State var personaCodeData: PersonaCodeModel
     var isFromPreload: Bool
     
     @StateObject private var viewModel = PersonaCodeViewModel()
@@ -22,15 +20,14 @@ struct MatrixView: View {
         ZStack {
             NavigationView {
                 ZStack(alignment: .leading) {
-                    AnimatedStarryBackgroundView()
-                    ShadowBackgroundView()
+                    BackgroundView()
                     
                     VStack {
-                        PersonalTitleView(matrixData: matrixData)
+                        PersonalTitleView(personaCodeData: personaCodeData)
                         
-                        MatrixScrollView(
+                        PersonaCodeScrollView(
                             viewModel: viewModel,
-                            matrixData: matrixData
+                            personaCodeData: personaCodeData
                         )
                     }
                 }
@@ -39,10 +36,10 @@ struct MatrixView: View {
                         Button {
                             if isFromPreload {
                                 // Сбрасываем навигацию к корню (HomeView)
-                                navigationManager.isRootActive = false
+//                                navigationManager.isRootActive = false
                             } else {
                                 // Возвращаемся на предыдущий экран
-                                presentationMode.wrappedValue.dismiss()
+                                dismiss()
                             }
                         } label: {
                             Image(systemName: isFromPreload ? "house" : "chevron.left")
@@ -51,12 +48,10 @@ struct MatrixView: View {
                     }
                     
                     ToolbarItem(placement: .topBarTrailing) {
-                        DownloadPDFButtonView(viewModel: viewModel, matrixData: matrixData)
+                        DownloadPDFButtonView(viewModel: viewModel, personaCodeData: personaCodeData)
                     }
                 }
                 .onAppear {
-                    FirebaseLogManager.shared.logScreenView(screenName: "matrix")
-                    
                     if !ReviewRequestManager.shared.reviewPromptWasShowing() {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                             checkReviewConditions()
@@ -74,9 +69,9 @@ struct MatrixView: View {
     }
     
     private func checkReviewConditions() {
-        let matricesCount = storageManager.historyMatrixData.count
+        let personaCodesCount = storageManager.historyPersonaCodeData.count
         
-        ReviewRequestManager.shared.checkReviewConditions(matricesCount: matricesCount)
+        ReviewRequestManager.shared.checkReviewConditions(personaCodesCount: personaCodesCount)
     }
 }
 
@@ -85,10 +80,7 @@ struct MatrixView: View {
     let calendar = Calendar.current
     let date = calendar.date(from: dateComponents)!
     
-    let matrixData = MatrixCalculation(
-        name: "Иван",
-        dateOfBirthday: date
-    )
+    let personaCodeData = PersonaCodeCalculation(name: "Иван", dateOfBirthday: date)
     
-    MatrixView(matrixData: matrixData.matrixData, isFromPreload: true)
+    PersonaCodeView(personaCodeData: personaCodeData.personaCodeData, isFromPreload: true)
 }
