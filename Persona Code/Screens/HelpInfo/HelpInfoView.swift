@@ -8,19 +8,16 @@
 import SwiftUI
 
 struct HelpInfoView: View {
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) var dismiss
     
     private let categories = HelpInfoViewModel().categories
     
     var body: some View {
         NavigationView {
             ZStack {
-                AnimatedStarryBackgroundView()
-                ShadowBackgroundView()
+                BackgroundView()
                 
                 VStack(alignment: .center) {
-                    CustomSpacerView(height: 0.01)
-                    
                     HelpInfoCategoriesView(categories: categories)
                         .padding(.top, -16)
                     
@@ -38,15 +35,12 @@ struct HelpInfoView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    CustomBackButtonView { presentationMode.wrappedValue.dismiss() }
+                    NavigationBackButtonView { dismiss() }
                 }
                 
                 ToolbarItem(placement: .principal) {
                     CustomNavigationTitleView(title: "Содержание")
                 }
-            }
-            .onAppear {
-                FirebaseLogManager.shared.logScreenView(screenName: "help_info")
             }
         }
         .navigationBarHidden(true)
