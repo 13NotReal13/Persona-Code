@@ -21,7 +21,7 @@ struct LeftNavigationButtonsView: View {
                     .padding(.vertical, 8)
                     .padding(.horizontal, 12)
                     .overlay {
-                        if num == matrixViewModel.selectedSectionForLeftButtons {
+                        if num == personaCodeViewModel.selectedSectionForLeftButtons {
                             Capsule()
                                 .stroke(Color.white, lineWidth: 1)
                         }
@@ -29,8 +29,8 @@ struct LeftNavigationButtonsView: View {
                     .onTapGesture {
                         
                         withAnimation {
-                            matrixViewModel.isMenuOpen = false
-                            matrixViewModel.selectedSection = num
+                            personaCodeViewModel.isMenuOpen = false
+                            personaCodeViewModel.selectedSection = num
                         }
                     }
                 
@@ -46,7 +46,7 @@ struct LeftNavigationButtonsView: View {
 
 #Preview {
     ZStack {
-        AnimatedStarryBackgroundView()
+        BackgroundView()
         
         LeftNavigationButtonsView(matrixViewModel: PersonaCodeViewModel())
     }
