@@ -1,14 +1,14 @@
 //
 //  LeftOpenMenuButtonView.swift
-//  DestinyMatrix
+//  Persona Code
 //
-//  Created by Иван Семикин on 09/12/2024.
+//  Created by Иван Семикин on 24/02/2025.
 //
 
 import SwiftUI
 
 struct LeftOpenMenuButtonView: View {
-    @StateObject var matrixViewModel: PersonaCodeViewModel
+    @StateObject var personaCodeViewModel: PersonaCodeViewModel
     
     @State private var iconIsLeft: Bool = false
     
@@ -23,12 +23,12 @@ struct LeftOpenMenuButtonView: View {
         .ignoresSafeArea()
         .onTapGesture {
             withAnimation {
-                matrixViewModel.isMenuOpen.toggle()
+                personaCodeViewModel.isMenuOpen.toggle()
             }
         }
-        .onChange(of: matrixViewModel.isMenuOpen) { newValue in
+        .onChange(of: personaCodeViewModel.isMenuOpen) { newValue in
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                iconIsLeft = matrixViewModel.isMenuOpen
+                iconIsLeft = personaCodeViewModel.isMenuOpen
             }
         }
     }
