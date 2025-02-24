@@ -1,26 +1,25 @@
 //
 //  DownloadPDFButtonView.swift
-//  DestinyMatrix
+//  Persona Code
 //
-//  Created by Иван Семикин on 24/12/2024.
+//  Created by Иван Семикин on 24/02/2025.
 //
 
 import SwiftUI
 
 struct DownloadPDFButtonView: View {
     @ObservedObject var viewModel: PersonaCodeViewModel
-    let matrixData: MatrixData
+    let personaCodeData: PersonaCodeModel
     
     var body: some View {
         Button {
-            viewModel.generatePDF(matrixData: matrixData)
-            FirebaseLogManager.shared.logSharePDFFile()
+            viewModel.generatePDF(personaCodeData: personaCodeData)
         } label: {
             HStack {
                 Image(systemName: "square.and.arrow.down")
                 Text("Скачать .pdf")
             }
-            .customText(fontSize: 17, textColor: .white)
+            .customText(fontSize: 17)
         }
     }
 }

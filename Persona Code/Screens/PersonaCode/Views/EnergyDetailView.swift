@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ArkanDetailView: View {
+struct EnergyDetailView: View {
     @State var energyInfo: EnergyInfo
     
     var body: some View {
@@ -34,6 +34,6 @@ struct ArkanDetailView: View {
     ZStack {
         BackgroundView()
         
-        ArkanDetailView(energyInfo: DestinyNumberEnergies.allEnergies[1]!)
+        EnergyDetailView(energyInfo: DestinyNumberEnergies.allEnergies[1]!)
     }
 }
