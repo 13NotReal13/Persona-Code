@@ -1,22 +1,22 @@
 //
 //  ArkanDetailView.swift
-//  DestinyMatrix
+//  Persona Code
 //
-//  Created by Иван Семикин on 11/11/2024.
+//  Created by Иван Семикин on 24/02/2025.
 //
 
 import SwiftUI
 
 struct ArkanDetailView: View {
-    @State var arkanInfo: ArkanInfo
+    @State var energyInfo: EnergyInfo
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text(arkanInfo.title)
+            Text(energyInfo.title)
                 .font(.system(size: 21))
                 .bold()
             
-            ForEach(arkanInfo.subcategories, id: \.self) { subcategorie in
+            ForEach(energyInfo.subcategories, id: \.self) { subcategorie in
                 Text(subcategorie.title)
                     .font(.title3)
                     .bold()
@@ -32,8 +32,8 @@ struct ArkanDetailView: View {
 
 #Preview {
     ZStack {
-        AnimatedStarryBackgroundView()
+        BackgroundView()
         
-        ArkanDetailView(arkanInfo: DestinyNumberArkans.allArkans[1]!)
+        ArkanDetailView(energyInfo: DestinyNumberEnergies.allEnergies[1]!)
     }
 }
