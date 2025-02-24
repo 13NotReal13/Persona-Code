@@ -15,18 +15,13 @@ final class PersonaCodeViewModel: ObservableObject {
     
     @Published var shareItems: [Any] = []
     
-    func generatePDF(personaCodeModel: PersonaCodeModel) {
+    func generatePDF(personaCodeData: PersonaCodeModel) {
         let pdfManager = PDFManager()
-        if let pdfURL = pdfManager.savePDF(matrixData: personaCodeModel) {
+        if let pdfURL = pdfManager.savePDF(personaCodeData: personaCodeData) {
             DispatchQueue.main.async {
                 self.shareItems = [pdfURL]
                 self.showShareSheet = true
             }
-        } else {
-            FirebaseLogManager.shared.logError(
-                message: "Failed to generate PDF file",
-                details: "Error occurred while saving PDF for matrix with name '\(personaCodeData.name)' and date of birth '\(personaCodeData.dateOfBirthday)'"
-            )
         }
     }
 }
