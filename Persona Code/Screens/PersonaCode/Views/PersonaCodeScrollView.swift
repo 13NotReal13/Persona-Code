@@ -1,8 +1,8 @@
 //
-//  MatrixScrollView.swift
-//  DestinyMatrix
+//  PersonaCodeScrollView.swift
+//  Persona Code
 //
-//  Created by Иван Семикин on 24/12/2024.
+//  Created by Иван Семикин on 24/02/2025.
 //
 
 import SwiftUI

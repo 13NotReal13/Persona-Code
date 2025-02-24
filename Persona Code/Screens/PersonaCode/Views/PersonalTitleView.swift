@@ -1,22 +1,22 @@
 //
 //  PersonalDataView.swift
-//  DestinyMatrix
+//  Persona Code
 //
-//  Created by Иван Семикин on 09/12/2024.
+//  Created by Иван Семикин on 24/02/2025.
 //
 
 import SwiftUI
 
 struct PersonalTitleView: View {
-    @State var matrixData: MatrixData
+    @State var personaCodeData: PersonaCodeModel
     
     var body: some View {
         HStack {
-            Text(matrixData.name)
+            Text(personaCodeData.name)
             Text(" - ")
-            Text(matrixData.dateOfBirthday.formattedDate())
+            Text(personaCodeData.dateOfBirthday.formattedDate())
         }
-        .customText(fontSize: 24, textColor: .white)
+        .customText(fontSize: 24)
         .padding(.horizontal)
         .padding(.top, 8)
         .frame(maxWidth: .infinity)
