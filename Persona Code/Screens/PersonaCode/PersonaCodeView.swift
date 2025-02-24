@@ -1,5 +1,5 @@
 //
-//  MatrixView.swift
+//  PersonaCodeView.swift
 //  Persona Code
 //
 //  Created by Иван Семикин on 11/11/2024.
@@ -20,7 +20,7 @@ struct PersonaCodeView: View {
         ZStack {
             NavigationView {
                 ZStack(alignment: .leading) {
-                    BackgroundView()
+                    BackgroundView(isAnimated: false)
                     
                     VStack {
                         PersonalTitleView(personaCodeData: personaCodeData)
@@ -43,7 +43,7 @@ struct PersonaCodeView: View {
                             }
                         } label: {
                             Image(systemName: isFromPreload ? "house" : "chevron.left")
-                                .customText(fontSize: 17, textColor: .white)
+                                .customText(fontSize: 17)
                         }
                     }
                     
@@ -75,12 +75,12 @@ struct PersonaCodeView: View {
     }
 }
 
-#Preview {
-    let dateComponents = DateComponents(year: 1994, month: 1, day: 19)
-    let calendar = Calendar.current
-    let date = calendar.date(from: dateComponents)!
-    
-    let personaCodeData = PersonaCodeCalculation(name: "Иван", dateOfBirthday: date)
-    
-    PersonaCodeView(personaCodeData: personaCodeData.personaCodeData, isFromPreload: true)
-}
+//#Preview {
+//    let dateComponents = DateComponents(year: 1994, month: 1, day: 19)
+//    let calendar = Calendar.current
+//    let date = calendar.date(from: dateComponents)!
+//    
+//    let personaCodeData = PersonaCodeCalculation(name: "Иван", dateOfBirthday: date)
+//    
+//    PersonaCodeView(personaCodeData: personaCodeData.personaCodeData, isFromPreload: true)
+//}

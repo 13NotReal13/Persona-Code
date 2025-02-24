@@ -16,7 +16,7 @@ final class PreloadPersonaCodeViewModel: ObservableObject {
     
     private var totalDuration: TimeInterval = 25.0
     
-    func saveMatrix(personaCode: ShortPersonaCodeData) {
+    func savePersonaCode(personaCode: ShortPersonaCodeData) {
         StorageManager().add(shortPersonaCodeData: personaCode)
     }
     

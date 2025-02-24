@@ -75,7 +75,7 @@ struct PreloadPersonaCodeView: View {
         .navigationBarHidden(true)
         .onChange(of: navigateToPersonaCode) { isNavigating in
             if isNavigating {
-                viewModel.saveMatrix(personaCode: personaCode)
+                viewModel.savePersonaCode(personaCode: personaCode)
             }
         }
     }

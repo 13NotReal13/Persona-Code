@@ -15,7 +15,9 @@ struct HelpInfoView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                BackgroundView()
+                BackgroundView(isAnimated: false)
+                
+                ShadowBackgroundView()
                 
                 VStack(alignment: .center) {
                     HelpInfoCategoriesView(categories: categories)

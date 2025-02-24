@@ -16,18 +16,18 @@ struct PersonaCodeCalculation {
             name: name,
             dateOfBirthday: dateOfBirthday,
             
-            destinyNumber: DestinyNumberEnergies.allEnergies[destinyNumberValue]!,
-            lifePath: LifePathEnergies.allEnergies[lifePathValue]!,
-            relationships: RelationshipsEnergies.allEnergies[relationshipsValue]!,
-            finances: FinancesEnergies.allEnergies[financesValue]!,
-            career: CareerEnergies.allEnergies[careerValue]!,
-            health: HealthEnergies.allEnergies[healthValue]!,
-            talents: TalentsEnergies.allEnergies[talentsValue]!,
-            challenges: ChallengesEnergies.allEnergies[challengesValue]!,
-            personalGrowth: PersonalGrowthEnergies.allEnergies[personalGrowthValue]!,
-            innerSelf: InnerSelfEnergies.allEnergies[innerSelfValue]!,
-            purpose: PurposeEnergies.allEnergies[purposeValue]!,
-            karmicLessons: KarmicLessonsEnergies.allEnergies[karmicLessonsValue]!
+            destinyNumber: DestinyNumberEnergies.allCodes[destinyNumberValue]!,
+            lifePath: LifePathEnergies.allCodes[lifePathValue]!,
+            relationships: RelationshipsEnergies.allCodes[relationshipsValue]!,
+            finances: FinancesEnergies.allCodes[financesValue]!,
+            career: CareerEnergies.allCodes[careerValue]!,
+            health: HealthEnergies.allCodes[healthValue]!,
+            talents: TalentsEnergies.allCodes[talentsValue]!,
+            challenges: ChallengesEnergies.allCodes[challengesValue]!,
+            personalGrowth: PersonalGrowthEnergies.allCodes[personalGrowthValue]!,
+            innerSelf: InnerSelfEnergies.allCodes[innerSelfValue]!,
+            purpose: PurposeEnergies.allCodes[purposeValue]!,
+            karmicLessons: KarmicLessonsEnergies.allCodes[karmicLessonsValue]!
         )
     }
     
@@ -45,8 +45,8 @@ struct PersonaCodeCalculation {
         self.year = calendar.component(.year, from: dateOfBirthday)
     }
     
-    // Функция для приведения числа к энергии (1-22)
-    private func reduceToEnergy(_ number: Int) -> Int {
+    // Функция для приведения числа к коду (1-22)
+    private func reduceToCode(_ number: Int) -> Int {
         var num = number
         while num > 22 {
             num = String(num).compactMap { $0.wholeNumberValue }.reduce(0, +)
@@ -69,53 +69,53 @@ struct PersonaCodeCalculation {
     private var destinyNumberValue: Int {
         let sumDateString = "\(day)\(month)\(year)"
         let sumDateInt = Int(sumDateString) ?? 0
-        return reduceToEnergy(sumDateInt)
+        return reduceToCode(sumDateInt)
     }
     
     // Жизненный Путь
     private var lifePathValue: Int {
-        return reduceToEnergy(day + month + year)
+        return reduceToCode(day + month + year)
     }
     
     // Остальные берём из описанных формул выше:
     private var relationshipsValue: Int {
-        return reduceToEnergy(destinyNumberValue + day)
+        return reduceToCode(destinyNumberValue + day)
     }
     
     private var financesValue: Int {
-        return reduceToEnergy(lifePathValue + month)
+        return reduceToCode(lifePathValue + month)
     }
     
     private var careerValue: Int {
-        return reduceToEnergy(destinyNumberValue + year)
+        return reduceToCode(destinyNumberValue + year)
     }
     
     private var healthValue: Int {
-        return reduceToEnergy(day + month + year + destinyNumberValue)
+        return reduceToCode(day + month + year + destinyNumberValue)
     }
     
     private var talentsValue: Int {
-        return reduceToEnergy(nameSum)
+        return reduceToCode(nameSum)
     }
     
     private var challengesValue: Int {
-        return reduceToEnergy(day + nameSum)
+        return reduceToCode(day + nameSum)
     }
     
     private var personalGrowthValue: Int {
-        return reduceToEnergy(lifePathValue + nameSum)
+        return reduceToCode(lifePathValue + nameSum)
     }
     
     private var innerSelfValue: Int {
-        return reduceToEnergy(destinyNumberValue + nameSum)
+        return reduceToCode(destinyNumberValue + nameSum)
     }
     
     private var purposeValue: Int {
-        return reduceToEnergy(destinyNumberValue + lifePathValue + nameSum)
+        return reduceToCode(destinyNumberValue + lifePathValue + nameSum)
     }
     
     private var karmicLessonsValue: Int {
-        return reduceToEnergy((day + month) + destinyNumberValue)
+        return reduceToCode((day + month) + destinyNumberValue)
     }
 }
 

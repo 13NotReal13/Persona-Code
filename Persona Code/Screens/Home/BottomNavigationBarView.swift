@@ -45,7 +45,7 @@ struct BottomNavigationBarView: View {
             }
             
             NavigationLink {
-                EmptyView()
+                HelpInfoView()
             } label: {
                 Text("Как это работает?")
                     .customText(fontSize: 17)

@@ -12,11 +12,11 @@ struct LeftNavigationButtonsView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            ForEach(1..<13) { num in
+            ForEach(1..<HelpInfoViewModel().categories.count, id: \.self) { num in
                 Spacer()
                 
                 Text(HelpInfoViewModel().categories[num - 1].title)
-                    .customText(fontSize: 17, textColor: .white)
+                    .customText(fontSize: 17)
                     .foregroundStyle(.white)
                     .padding(.vertical, 8)
                     .padding(.horizontal, 12)

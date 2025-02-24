@@ -8,9 +8,9 @@
 import Foundation
 
 struct TalentsEnergies {
-    static let allEnergies: EnergyDictionary = [
-        1: EnergyInfo(
-            energyNumber: 1,
+    static let allCodes: CodeDictionary = [
+        1: CodeInfo(
+            codeNumber: 1,
             title: "",
             subcategories: []
         )

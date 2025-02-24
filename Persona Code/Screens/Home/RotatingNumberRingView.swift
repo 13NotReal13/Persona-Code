@@ -17,11 +17,13 @@ struct RotatingNumberRingView: View {
     var fontSize: CGFloat
     var direction: Direction
     var colorOfCircle: Color
+    var isAnimated: Bool
+    var rotationInterval: TimeInterval
     
     @State private var angleOffset: Double = 10
     
     private let numbers = Array(1...22)
-    private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         GeometryReader { geometry in
@@ -44,7 +46,7 @@ struct RotatingNumberRingView: View {
                     let y = sin(angle * .pi / 180) * radius
                     
                     Text("\(numbers[index])")
-                        .font(.system(size: fontSize))
+                        .customText(fontSize: fontSize)
                         .bold()
                         .foregroundStyle(.white)
                         .position(x: geometry.size.width / 2 + x, y: geometry.size.height / 2 + y)
@@ -52,14 +54,19 @@ struct RotatingNumberRingView: View {
             }
             .shadow(color: .white, radius: 10)
             .onReceive(timer) { _ in
-                withAnimation(.easeInOut(duration: 0.5)) {
-                    switch direction {
-                    case .left:
-                        angleOffset -= 360 / 22
-                    case .right:
-                        angleOffset += 360 / 22
+                if isAnimated {
+                    withAnimation(.easeInOut(duration: 0.5)) {
+                        switch direction {
+                        case .left:
+                            angleOffset -= 360 / 22
+                        case .right:
+                            angleOffset += 360 / 22
+                        }
                     }
                 }
+            }
+            .onAppear {
+                timer = Timer.publish(every: rotationInterval, on: .main, in: .common).autoconnect()
             }
         }
         .background(Color.clear.ignoresSafeArea())
@@ -72,7 +79,9 @@ struct RotatingNumberRingView: View {
             sizeOfRing: 0.6,
             fontSize: 17,
             direction: .left,
-            colorOfCircle: Color.ringColor1
+            colorOfCircle: Color.ringColor1,
+            isAnimated: true,
+            rotationInterval: 3
         )
             .offset(y: -120)
         
@@ -80,7 +89,9 @@ struct RotatingNumberRingView: View {
             sizeOfRing: 0.45,
             fontSize: 15,
             direction: .right,
-            colorOfCircle: Color.ringColor2
+            colorOfCircle: Color.ringColor2,
+            isAnimated: true,
+            rotationInterval: 2
         )
             .offset(y: -120)
         
@@ -88,7 +99,9 @@ struct RotatingNumberRingView: View {
             sizeOfRing: 0.3,
             fontSize: 13,
             direction: .left,
-            colorOfCircle: Color.ringColor1
+            colorOfCircle: Color.ringColor1,
+            isAnimated: true,
+            rotationInterval: 1
         )
             .offset(y: -120)
     }

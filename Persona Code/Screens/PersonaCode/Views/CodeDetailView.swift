@@ -1,5 +1,5 @@
 //
-//  ArkanDetailView.swift
+//  CodeDetailView.swift
 //  Persona Code
 //
 //  Created by Иван Семикин on 24/02/2025.
@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct EnergyDetailView: View {
-    @State var energyInfo: EnergyInfo
+struct CodeDetailView: View {
+    @State var codeInfo: CodeInfo
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text(energyInfo.title)
+            Text(codeInfo.title)
                 .font(.system(size: 21))
                 .bold()
             
-            ForEach(energyInfo.subcategories, id: \.self) { subcategorie in
+            ForEach(codeInfo.subcategories, id: \.self) { subcategorie in
                 Text(subcategorie.title)
                     .font(.title3)
                     .bold()
@@ -34,6 +34,6 @@ struct EnergyDetailView: View {
     ZStack {
         BackgroundView()
         
-        EnergyDetailView(energyInfo: DestinyNumberEnergies.allEnergies[1]!)
+        CodeDetailView(codeInfo: DestinyNumberEnergies.allCodes[1]!)
     }
 }

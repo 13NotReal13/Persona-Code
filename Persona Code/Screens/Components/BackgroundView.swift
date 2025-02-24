@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct BackgroundView: View {
+    var isAnimated: Bool = true
+    
     var body: some View {
         ZStack {
             LinearGradient(
@@ -21,25 +23,31 @@ struct BackgroundView: View {
             
             RotatingNumberRingView(
                 sizeOfRing: 0.67,
-                fontSize: 15,
+                fontSize: 16,
                 direction: .left,
-                colorOfCircle: Color.ringColor1
+                colorOfCircle: Color.ringColor1,
+                isAnimated: isAnimated,
+                rotationInterval: 3
             )
             .offset(y: -155)
             
             RotatingNumberRingView(
                 sizeOfRing: 0.51,
-                fontSize: 14,
+                fontSize: 15,
                 direction: .right,
-                colorOfCircle: Color.ringColor2
+                colorOfCircle: Color.ringColor2,
+                isAnimated: isAnimated,
+                rotationInterval: 2
             )
             .offset(y: -155)
             
             RotatingNumberRingView(
                 sizeOfRing: 0.35,
-                fontSize: 13,
+                fontSize: 14,
                 direction: .left,
-                colorOfCircle: Color.ringColor1
+                colorOfCircle: Color.ringColor1,
+                isAnimated: isAnimated,
+                rotationInterval: 1
             )
                 .offset(y: -155)
             
@@ -47,17 +55,7 @@ struct BackgroundView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .offset(y: -70)
-//                .mask {
-//                    LinearGradient(
-//                        gradient: Gradient(stops: [
-//                            .init(color: .white, location: 0.8),
-//                            .init(color: .clear, location: 1)
-//                            ]
-//                        ),
-//                        startPoint: .top,
-//                        endPoint: .bottom
-//                    )
-//                }
+                .shadow(color: .white, radius: 10)
         }
         .ignoresSafeArea()
     }

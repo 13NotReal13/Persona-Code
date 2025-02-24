@@ -16,16 +16,16 @@ final class ReviewRequestManager: NSObject, ObservableObject, MFMailComposeViewC
     
     @AppStorage("hasSeenReviewPrompt") private var hasSeenReviewPrompt: Bool = false
     
-    private let minMatricesCount = 2
+    private let minPersonaCodesCount = 2
     
     func reviewPromptWasShowing() -> Bool {
         return hasSeenReviewPrompt
     }
     
-    func checkReviewConditions(matricesCount: Int) {
+    func checkReviewConditions(personaCodesCount: Int) {
         guard !hasSeenReviewPrompt else { return }
      
-        if matricesCount >= minMatricesCount {
+        if personaCodesCount >= minPersonaCodesCount {
             showFeedbackAlert()
         }
     }

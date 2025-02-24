@@ -11,20 +11,20 @@ struct PersonaCodeModel: Hashable {
     var name: String
     var dateOfBirthday: Date
     
-    var destinyNumber: EnergyInfo // Число Судьбы
-    var lifePath: EnergyInfo // Жизненный Путь
-    var relationships: EnergyInfo // Отношения
-    var finances: EnergyInfo // Деньги и Финансы
-    var career: EnergyInfo // Карьера и Профессия
-    var health: EnergyInfo // Здоровье
-    var talents: EnergyInfo // Таланты и Способности
-    var challenges: EnergyInfo // Испытания и Препятствия
-    var personalGrowth: EnergyInfo // Личностный Рост
-    var innerSelf: EnergyInfo // Внутренний Мир
-    var purpose: EnergyInfo // Предназначение
-    var karmicLessons: EnergyInfo // Кармические Уроки
+    var destinyNumber: CodeInfo // Число Судьбы
+    var lifePath: CodeInfo // Жизненный Путь
+    var relationships: CodeInfo // Отношения
+    var finances: CodeInfo // Деньги и Финансы
+    var career: CodeInfo // Карьера и Профессия
+    var health: CodeInfo // Здоровье
+    var talents: CodeInfo // Таланты и Способности
+    var challenges: CodeInfo // Испытания и Препятствия
+    var personalGrowth: CodeInfo // Личностный Рост
+    var innerSelf: CodeInfo // Внутренний Мир
+    var purpose: CodeInfo // Предназначение
+    var karmicLessons: CodeInfo // Кармические Уроки
     
-    var allEnergies: [EnergyInfo] {
+    var allCodes: [CodeInfo] {
         return [
             destinyNumber,
             lifePath,
@@ -41,15 +41,15 @@ struct PersonaCodeModel: Hashable {
         ]
     }
     
-    var energyNumbers: [Int] {
-        return allEnergies.map { $0.energyNumber }
+    var codeNumbers: [Int] {
+        return allCodes.map { $0.codeNumber }
     }
 }
 
-typealias EnergyDictionary = [Int: EnergyInfo]
+typealias CodeDictionary = [Int: CodeInfo]
 
-struct EnergyInfo: Hashable {
-    let energyNumber: Int
+struct CodeInfo: Hashable {
+    let codeNumber: Int
     let title: String
     let subcategories: [Subcategory]
 }

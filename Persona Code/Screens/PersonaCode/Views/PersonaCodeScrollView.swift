@@ -15,10 +15,10 @@ struct PersonaCodeScrollView: View {
         ScrollViewReader { proxy in
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 30) {
-                    ForEach(1..<14) { energy in
+                    ForEach(1..<14) { code in
                         SectionView(
-                            number: energy,
-                            energyInfo: personaCodeData.allEnergies[energy - 1]
+                            number: code,
+                            codeInfo: personaCodeData.allCodes[code - 1]
                         )
                     }
                 }
@@ -44,11 +44,11 @@ struct PersonaCodeScrollView: View {
 
 struct SectionView: View {
     let number: Int
-    let energyInfo: EnergyInfo
+    let codeInfo: CodeInfo
     
     var body: some View {
         VStack {
-            EnergyDetailView(energyInfo: energyInfo)
+            CodeDetailView(codeInfo: codeInfo)
         }
         .id(number)
         .background(

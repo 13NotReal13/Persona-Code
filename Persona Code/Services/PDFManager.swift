@@ -57,11 +57,11 @@ final class PDFManager {
         currentY += 30
         
         // Проходим по всем энергиям
-        for energy in personaCodeData.allEnergies {
+        for code in personaCodeData.allCodes {
             // Заголовок энергии
-            drawAttributedTextLineByLine(NSAttributedString(string: energy.title, attributes: titleAttrs))
+            drawAttributedTextLineByLine(NSAttributedString(string: code.title, attributes: titleAttrs))
             
-            for subcat in energy.subcategories {
+            for subcat in code.subcategories {
                 currentY += 20
                 drawAttributedTextLineByLine(NSAttributedString(string: subcat.title, attributes: subtitleAttrs))
                 currentY += 5

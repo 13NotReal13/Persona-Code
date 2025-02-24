@@ -19,6 +19,8 @@ struct EnterDataView: View {
                 Spacer()
                 
                 EnterDataFormView(enterDataViewModel: enterDataViewModel)
+                
+                NextButtonView(enterDataViewModel: enterDataViewModel)
             }
         }
         .onTapGesture {

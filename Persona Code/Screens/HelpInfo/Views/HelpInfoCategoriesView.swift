@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HelpInfoCategoriesView: View {
-    let categories: [EnergyInfo]
+    let categories: [CodeInfo]
     
     var body: some View {
         ScrollView(showsIndicators: false) {
