@@ -7,18 +7,18 @@
 
 import SwiftUI
 
-struct MatrixScrollView: View {
+struct PersonaCodeScrollView: View {
     @StateObject var viewModel: PersonaCodeViewModel
-    @State var matrixData: MatrixData
+    @State var personaCodeData: PersonaCodeModel
     
     var body: some View {
         ScrollViewReader { proxy in
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 30) {
-                    ForEach(1..<14) { arkan in
+                    ForEach(1..<14) { energy in
                         SectionView(
-                            number: arkan,
-                            arkanInfo: matrixData.allArkans[arkan - 1]
+                            number: energy,
+                            energyInfo: personaCodeData.allEnergies[energy - 1]
                         )
                     }
                 }
@@ -44,11 +44,11 @@ struct MatrixScrollView: View {
 
 struct SectionView: View {
     let number: Int
-    let arkanInfo: ArkanInfo
+    let energyInfo: EnergyInfo
     
     var body: some View {
         VStack {
-            ArkanDetailView(arkanInfo: arkanInfo)
+            EnergyDetailView(energyInfo: energyInfo)
         }
         .id(number)
         .background(
@@ -73,11 +73,11 @@ struct SectionPositionPreferenceKey: PreferenceKey {
 
 #Preview {
     ZStack {
-        AnimatedStarryBackgroundView()
+        BackgroundView()
         
-        MatrixScrollView(
+        PersonaCodeScrollView(
             viewModel: PersonaCodeViewModel(),
-            matrixData: MatrixCalculation(name: "Иван", dateOfBirthday: .now).matrixData
+            personaCodeData: PersonaCodeCalculation(name: "Иван", dateOfBirthday: .now).personaCodeData
         )
     }
 }

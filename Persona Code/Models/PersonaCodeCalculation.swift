@@ -11,7 +11,7 @@ struct PersonaCodeCalculation {
     let name: String
     let dateOfBirthday: Date
     
-    var matrixData: PersonaCodeModel {
+    var personaCodeData: PersonaCodeModel {
         return PersonaCodeModel(
             name: name,
             dateOfBirthday: dateOfBirthday,

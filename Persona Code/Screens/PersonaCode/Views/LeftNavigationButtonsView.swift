@@ -1,8 +1,8 @@
 //
 //  LeftNavigationButtonView.swift
-//  DestinyMatrix
+//  Persona Code
 //
-//  Created by Иван Семикин on 12/11/2024.
+//  Created by Иван Семикин on 24/02/2025.
 //
 
 import SwiftUI
@@ -12,7 +12,7 @@ struct LeftNavigationButtonsView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            ForEach(1..<14) { num in
+            ForEach(1..<13) { num in
                 Spacer()
                 
                 Text(HelpInfoViewModel().categories[num - 1].title)
@@ -48,6 +48,6 @@ struct LeftNavigationButtonsView: View {
     ZStack {
         BackgroundView()
         
-        LeftNavigationButtonsView(matrixViewModel: PersonaCodeViewModel())
+        LeftNavigationButtonsView(personaCodeViewModel: PersonaCodeViewModel())
     }
 }
