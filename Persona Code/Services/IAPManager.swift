@@ -44,7 +44,6 @@ final class IAPManager: NSObject, SKProductsRequestDelegate, SKPaymentTransactio
                 SKPaymentQueue.default().finishTransaction(transaction)
                 onPurchaseSuccess?()
             case .failed:
-                let errorMessage = transaction.error?.localizedDescription ?? "Transaction was cancelled by user"
                 SKPaymentQueue.default().finishTransaction(transaction)
                 onPurchaseFailure?(transaction.error)
             default:

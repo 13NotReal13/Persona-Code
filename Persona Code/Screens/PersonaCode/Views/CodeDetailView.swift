@@ -34,6 +34,6 @@ struct CodeDetailView: View {
     ZStack {
         BackgroundView()
         
-        CodeDetailView(codeInfo: DestinyNumberEnergies.allCodes[1]!)
+        CodeDetailView(codeInfo: PersonaCodeCodes.allCodes[1]!)
     }
 }
