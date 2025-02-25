@@ -50,26 +50,26 @@ struct PreloadPersonaCodeView: View {
             .onAppear {
                 viewModel.startLoading()
             }
-//            .background(
-//                NavigationLink(
-//                    destination: MatrixView(
-//                        matrixData: MatrixCalculation(
-//                            name: matrix.name,
-//                            dateOfBirthday: matrix.dateOfBirthday
-//                        ).matrixData,
-//                        isFromPreload: true
-//                    )
-//                    .environmentObject(navigationManager),
-//                    isActive: $navigateToMatrix
-//                ) {
-//                    EmptyView()
-//                }
-//            )
+            .background(
+                NavigationLink(
+                    destination: PersonaCodeView(
+                        personaCodeData: PersonaCodeCalculation(
+                            name: personaCode.name,
+                            dateOfBirthday: personaCode.dateOfBirthday
+                        ).personaCodeData,
+                        isFromPreload: true
+                    ),
+                    isActive: $navigateToPersonaCode
+                    
+                ) {
+                    EmptyView()
+                }
+            )
             .sheet(isPresented: $viewModel.showPurchaseModal) {
-//                PurchaseModalView(
-//                    isPresented: $viewModel.showPurchaseModal,
-//                    navigateToMatrix: $navigateToMatrix
-//                )
+                PurchaseModalView(
+                    isPresented: $viewModel.showPurchaseModal,
+                    navigateToPersonaCode: $navigateToPersonaCode
+                )
             }
         }
         .navigationBarHidden(true)
@@ -81,16 +81,16 @@ struct PreloadPersonaCodeView: View {
     }
 }
 
-#Preview {
-    ZStack {
-        BackgroundView()
-        
-        PreloadPersonaCodeView(
-            personaCode: ShortPersonaCodeData(
-                name: "Иван",
-                dateOfBirthday: .now,
-                dateCreationPersonaCode: .now
-            )
-        )
-    }
-}
+//#Preview {
+//    ZStack {
+//        BackgroundView()
+//        
+//        PreloadPersonaCodeView(
+//            personaCode: ShortPersonaCodeData(
+//                name: "Иван",
+//                dateOfBirthday: .now,
+//                dateCreationPersonaCode: .now
+//            )
+//        )
+//    }
+//}
