@@ -19,7 +19,7 @@ struct PersonaCodeCalculation {
             destinyNumber: PersonaCodeCodes.allCodes[destinyNumberValue]!,
             lifePath: LifePathEnergies.allCodes[lifePathValue]!,
             relationships: RelationshipsEnergies.allCodes[relationshipsValue]!,
-            finances: FinancesEnergies.allCodes[financesValue]!,
+            finances: FinancesCodes.allCodes[financesValue]!,
             career: CareerCodes.allCodes[careerValue]!,
             health: HealthEnergies.allCodes[healthValue]!,
             talents: TalentsEnergies.allCodes[talentsValue]!,
