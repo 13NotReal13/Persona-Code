@@ -21,7 +21,7 @@ struct PersonaCodeCalculation {
             relationships: RelationshipsEnergies.allCodes[relationshipsValue]!,
             finances: FinancesCodes.allCodes[financesValue]!,
             career: CareerCodes.allCodes[careerValue]!,
-            health: HealthEnergies.allCodes[healthValue]!,
+            health: ResourceStateCodes.allCodes[healthValue]!,
             talents: TalentsEnergies.allCodes[talentsValue]!,
             challenges: RiskZoneCodes.allCodes[challengesValue]!,
             personalGrowth: PersonalGrowthEnergies.allCodes[personalGrowthValue]!,
