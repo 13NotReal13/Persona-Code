@@ -24,7 +24,7 @@ struct PersonaCodeCalculation {
             health: ResourceStateCodes.allCodes[healthValue]!,
             talents: TalentsEnergies.allCodes[talentsValue]!,
             challenges: RiskZoneCodes.allCodes[challengesValue]!,
-            personalGrowth: PersonalGrowthEnergies.allCodes[personalGrowthValue]!,
+            personalGrowth: SelfDevelopmentCodes.allCodes[personalGrowthValue]!,
             innerSelf: InnerBalanceCodes.allCodes[innerSelfValue]!,
             purpose: PurposeEnergies.allCodes[purposeValue]!,
             karmicLessons: ExperienceAndEvolutionCodes.allCodes[karmicLessonsValue]!
