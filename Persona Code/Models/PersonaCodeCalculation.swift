@@ -27,7 +27,7 @@ struct PersonaCodeCalculation {
             personalGrowth: PersonalGrowthEnergies.allCodes[personalGrowthValue]!,
             innerSelf: InnerBalanceCodes.allCodes[innerSelfValue]!,
             purpose: PurposeEnergies.allCodes[purposeValue]!,
-            karmicLessons: KarmicLessonsEnergies.allCodes[karmicLessonsValue]!
+            karmicLessons: ExperienceAndEvolutionCodes.allCodes[karmicLessonsValue]!
         )
     }
     
