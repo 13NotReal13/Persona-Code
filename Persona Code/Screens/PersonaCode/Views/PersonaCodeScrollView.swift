@@ -15,7 +15,7 @@ struct PersonaCodeScrollView: View {
         ScrollViewReader { proxy in
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 30) {
-                    ForEach(1..<14) { code in
+                    ForEach(1..<13) { code in
                         SectionView(
                             number: code,
                             codeInfo: personaCodeData.allCodes[code - 1]

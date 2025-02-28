@@ -12,7 +12,7 @@ struct LeftNavigationButtonsView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            ForEach(1..<HelpInfoViewModel().categories.count, id: \.self) { num in
+            ForEach(1..<HelpInfoViewModel().categories.count + 1, id: \.self) { num in
                 Spacer()
                 
                 Text(HelpInfoViewModel().categories[num - 1].title)
@@ -34,7 +34,7 @@ struct LeftNavigationButtonsView: View {
                         }
                     }
                 
-                if num != 13 {
+                if num != 12 {
                     Divider()
                         .frame(height: 1)
                         .background(.white.opacity(0.4))
