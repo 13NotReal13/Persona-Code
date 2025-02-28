@@ -29,7 +29,7 @@ struct BottomNavigationBarView: View {
             }
             
             NavigationLink {
-                EmptyView()
+                HistoryView()
             } label: {
                 Text("История")
                     .customText(fontSize: 17)
