@@ -78,7 +78,7 @@ struct PersonaCodeListView: View {
     return PersonaCodeListView(
         personaCodeList: testPersonaCodeList,
         onLongPress: { _ in
-        } // Действие при долгом нажатии: testMatrices,
+        }
     )
     .background(.black)
 }

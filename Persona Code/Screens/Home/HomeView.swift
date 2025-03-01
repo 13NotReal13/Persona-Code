@@ -11,7 +11,7 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                BackgroundView(isAnimated: false)
+                BackgroundView()
                 
                 BottomNavigationBarView()
             }
