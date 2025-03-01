@@ -19,10 +19,12 @@ final class EnterDataViewModel: ObservableObject {
     
     @Published var isDatePickerPresented: Bool = false
     
+    @MainActor
     func validateName() {
         isNameValid = name.isCyrillicOnly
     }
     
+    @MainActor
     func validateDate() {
         isDateValid = displayedDateText.lowercased() != "Выбрать дату".lowercased()
     }

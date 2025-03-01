@@ -36,7 +36,9 @@ struct NameTextFieldView: View {
                 .customText(fontSize: 16)
                 .onChange(of: name) { newValue in
                     name = newValue.replacingOccurrences(of: " ", with: "")
-                    validateName()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        validateName()
+                    }
                 }
             }
             .frame(width: UIScreen.main.bounds.width * 0.7)

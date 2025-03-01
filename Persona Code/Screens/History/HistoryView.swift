@@ -61,6 +61,7 @@ struct HistoryView: View {
             )
         }
         .navigationBarBackButtonHidden()
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

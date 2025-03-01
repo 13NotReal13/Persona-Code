@@ -18,53 +18,52 @@ struct PersonaCodeView: View {
     
     var body: some View {
         ZStack {
-            NavigationView {
-                ZStack(alignment: .leading) {
-                    BackgroundView(isAnimated: false)
+            ZStack(alignment: .leading) {
+                BackgroundView(isAnimated: false)
+                
+                ShadowBackgroundView(isHighShadowLevel: true)
+                
+                VStack {
+                    PersonalTitleView(personaCodeData: personaCodeData)
                     
-                    ShadowBackgroundView(isHighShadowLevel: true)
-                    
-                    VStack {
-                        PersonalTitleView(personaCodeData: personaCodeData)
-                        
-                        PersonaCodeScrollView(
-                            viewModel: viewModel,
-                            personaCodeData: personaCodeData
-                        )
+                    PersonaCodeScrollView(
+                        viewModel: viewModel,
+                        personaCodeData: personaCodeData
+                    )
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        if isFromPreload {
+                            // Сбрасываем навигацию к корню (HomeView)
+                            //                                navigationManager.isRootActive = false
+                        } else {
+                            // Возвращаемся на предыдущий экран
+                            dismiss()
+                        }
+                    } label: {
+                        Image(systemName: isFromPreload ? "house" : "chevron.left")
+                            .customText(fontSize: 17)
                     }
                 }
-                .toolbar {
-                    ToolbarItem(placement: .topBarLeading) {
-                        Button {
-                            if isFromPreload {
-                                // Сбрасываем навигацию к корню (HomeView)
-//                                navigationManager.isRootActive = false
-                            } else {
-                                // Возвращаемся на предыдущий экран
-                                dismiss()
-                            }
-                        } label: {
-                            Image(systemName: isFromPreload ? "house" : "chevron.left")
-                                .customText(fontSize: 17)
-                        }
-                    }
-                    
-                    ToolbarItem(placement: .topBarTrailing) {
-                        DownloadPDFButtonView(viewModel: viewModel, personaCodeData: personaCodeData)
-                    }
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    DownloadPDFButtonView(viewModel: viewModel, personaCodeData: personaCodeData)
                 }
-                .onAppear {
-                    if !ReviewRequestManager.shared.reviewPromptWasShowing() {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                            checkReviewConditions()
-                        }
+            }
+            .onAppear {
+                if !ReviewRequestManager.shared.reviewPromptWasShowing() {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        checkReviewConditions()
                     }
                 }
             }
-            .navigationBarHidden(true)
             
             LeftMenuView(viewModel: viewModel)
         }
+        .navigationBarBackButtonHidden()
+        .navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $viewModel.showShareSheet) {
             ShareSheet(items: viewModel.shareItems)
         }

@@ -53,6 +53,7 @@ struct RotatingNumberRingView: View {
                 }
             }
             .shadow(color: .white, radius: 10)
+            .drawingGroup()
             .onReceive(timer) { _ in
                 if isAnimated {
                     withAnimation(.easeInOut(duration: 0.5)) {

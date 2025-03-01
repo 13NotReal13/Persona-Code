@@ -58,6 +58,7 @@ struct BottomNavigationBarView: View {
                     .customButtonStyle(width: UIScreen.main.bounds.width * 0.5, shape: .capsule)
             }
         }
+        .padding()
         .navigationDestination(isPresented: $navigateToGetCode) {
             EnterDataView()
         }

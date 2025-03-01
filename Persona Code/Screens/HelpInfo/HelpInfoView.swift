@@ -54,11 +54,12 @@ struct HelpInfoView: View {
                 }
                 
                 ToolbarItem(placement: .principal) {
-                    CustomNavigationTitleView(title: "Содержание")
+                    CustomNavigationTitleView(title: "Информация")
                 }
             }
         }
         .navigationBarBackButtonHidden()
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

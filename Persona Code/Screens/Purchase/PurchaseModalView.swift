@@ -18,10 +18,6 @@ struct PurchaseModalView: View {
             VStack(spacing: 16) {
                 Spacer()
                 
-                Text("Код Личности")
-                    .customText(fontSize: 29)
-                    .ignoresSafeArea()
-                
                 DescriptionPurchaseView()
                 
                 VStack(spacing: 8) {
@@ -119,5 +115,5 @@ struct PurchaseModalView: View {
 
 #Preview {
     PurchaseModalView(isPresented: .constant(true), navigateToPersonaCode: .constant(false))
-        .preferredColorScheme(.dark)
+//        .preferredColorScheme(.dark)
 }
