@@ -15,7 +15,7 @@ struct HistoryView: View {
     @State private var selectedPersonaCode: ShortPersonaCodeData? = nil
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 BackgroundView(isAnimated: false)
                 
@@ -60,7 +60,7 @@ struct HistoryView: View {
                 }
             )
         }
-        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden()
     }
 }
 

@@ -11,15 +11,7 @@ struct NextButtonView: View {
     @ObservedObject var enterDataViewModel: EnterDataViewModel
     
     var body: some View {
-        NavigationLink(
-            destination: PreloadPersonaCodeView(
-                personaCode: ShortPersonaCodeData(
-                name: enterDataViewModel.name,
-                dateOfBirthday: enterDataViewModel.dateBirthday,
-                dateCreationPersonaCode: .now)
-            ),
-            isActive: $enterDataViewModel.canNavigate
-        ) {
+        VStack {
             Button {
                 enterDataViewModel.validateName()
                 enterDataViewModel.validateDate()
@@ -33,6 +25,15 @@ struct NextButtonView: View {
                     .customButtonStyle(width: UIScreen.main.bounds.width * 0.4, shape: .capsule)
                     .padding(.top, 16)
             }
+        }
+        .navigationDestination(isPresented: $enterDataViewModel.canNavigate) {
+            PreloadPersonaCodeView(
+                personaCode: ShortPersonaCodeData(
+                    name: enterDataViewModel.name,
+                    dateOfBirthday: enterDataViewModel.dateBirthday,
+                    dateCreationPersonaCode: .now
+                )
+            )
         }
     }
 }
