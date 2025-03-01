@@ -19,7 +19,7 @@ struct HistoryView: View {
             ZStack {
                 BackgroundView(isAnimated: false)
                 
-                ShadowBackgroundView(isHighShadowLevel: true)
+                ShadowBackgroundView()
                 
                 VStack {
                     if storageManager.historyPersonaCodeData.isEmpty {

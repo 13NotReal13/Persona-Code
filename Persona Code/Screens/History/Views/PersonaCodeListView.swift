@@ -11,6 +11,9 @@ struct PersonaCodeListView: View {
     let personaCodeList: [ShortPersonaCodeData]
     var onLongPress: (ShortPersonaCodeData) -> Void
     
+    @State private var selectedPersonaCode: ShortPersonaCodeData? = nil
+    @State private var navigateToDetail = false
+    
     var body: some View {
         ScrollView {
             ForEach(personaCodeList) { personaCode in
@@ -28,32 +31,39 @@ struct PersonaCodeListView: View {
                         Text("Дата создания: \(personaCode.dateCreationPersonaCode.formattedDate())")
                             .customText(fontSize: 11)
                     }
-                    .frame(maxWidth: .infinity)
-//                    .customButtonStyle(shape: .capsule)
+                    .customButtonStyle(
+                        width: UIScreen.main.bounds.width * 0.8,
+                        shape: .capsule
+                    )
+                    .onTapGesture {
+                        selectedPersonaCode = personaCode
+                        navigateToDetail = true
+                    }
                     
                     HStack {
                         Spacer()
-                        
-                        NavigationLink(
-                            destination: PersonaCodeView(
-                                personaCodeData: PersonaCodeCalculation(
-                                    name: personaCode.name,
-                                    dateOfBirthday: personaCode.dateOfBirthday
-                                ).personaCodeData,
-                                isFromPreload: false
-                            )
-                        ) {
-                                Image(systemName: "chevron.right")
-                                    .customText(fontSize: 17)
-                                    .padding()
-                            }
+                        Image(systemName: "chevron.right")
+                            .customText(fontSize: 17)
+                            .padding()
                     }
                 }
                 .padding(.horizontal)
                 .padding(.bottom, 16)
             }
         }
+        .scrollIndicators(.hidden)
         .listStyle(.plain)
+        .navigationDestination(isPresented: $navigateToDetail) {
+            if let personaCode = selectedPersonaCode {
+                PersonaCodeView(
+                    personaCodeData: PersonaCodeCalculation(
+                        name: personaCode.name,
+                        dateOfBirthday: personaCode.dateOfBirthday
+                    ).personaCodeData,
+                    isFromPreload: false
+                )
+            }
+        }
     }
 }
 
@@ -80,6 +90,6 @@ struct PersonaCodeListView: View {
         onLongPress: { _ in
         }
     )
-    .background(.black)
+    .background(.gray)
 }
 
