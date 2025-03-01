@@ -11,7 +11,7 @@ struct HelpInfoCategoriesView: View {
     let categories: [CodeInfo]
     
     var body: some View {
-        ScrollView(showsIndicators: false) {
+        ScrollView {
             VStack(spacing: 8) {
                 ForEach(categories, id: \.title) { category in
                     Text(category.title)
@@ -37,7 +37,7 @@ struct HelpInfoCategoriesView: View {
                                     .foregroundStyle(.white)
                                 // Описание подкатегории
                                 Text(subcategory.shortDescription)
-                                    .foregroundStyle(.white.opacity(0.7))
+                                    .foregroundStyle(.white.opacity(0.8))
                             }
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -45,13 +45,15 @@ struct HelpInfoCategoriesView: View {
                 }
             }
         }
-        .padding(.horizontal)
+        .scrollIndicators(.hidden)
     }
 }
 
 #Preview {
     ZStack {
         BackgroundView()
+        
+        ShadowBackgroundView()
         
         HelpInfoCategoriesView(categories: HelpInfoViewModel().categories)
     }

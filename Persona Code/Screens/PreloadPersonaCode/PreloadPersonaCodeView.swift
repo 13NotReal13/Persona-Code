@@ -16,14 +16,14 @@ struct PreloadPersonaCodeView: View {
     @State private var navigateToPersonaCode = false
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 BackgroundView()
                 
                 VStack {
                     Spacer()
                     
-                    if viewModel.showPurchaseModal {
+                    if viewModel.loadWasFinished {
                         Button {
                             viewModel.showPurchaseModal = true
                         } label: {
@@ -44,27 +44,21 @@ struct PreloadPersonaCodeView: View {
                 }
                 
                 ToolbarItem(placement: .principal) {
-                    CustomNavigationTitleView(title: "Код Личности")
+                    CustomNavigationTitleView(title: "Загрузка Данных")
                 }
             }
             .onAppear {
                 viewModel.startLoading()
             }
-            .background(
-                NavigationLink(
-                    destination: PersonaCodeView(
-                        personaCodeData: PersonaCodeCalculation(
-                            name: personaCode.name,
-                            dateOfBirthday: personaCode.dateOfBirthday
-                        ).personaCodeData,
-                        isFromPreload: true
-                    ),
-                    isActive: $navigateToPersonaCode
-                    
-                ) {
-                    EmptyView()
-                }
-            )
+            .navigationDestination(isPresented: $navigateToPersonaCode) {
+                PersonaCodeView(
+                    personaCodeData: PersonaCodeCalculation(
+                        name: personaCode.name,
+                        dateOfBirthday: personaCode.dateOfBirthday
+                    ).personaCodeData,
+                    isFromPreload: true
+                )
+            }
             .sheet(isPresented: $viewModel.showPurchaseModal) {
                 PurchaseModalView(
                     isPresented: $viewModel.showPurchaseModal,
@@ -72,7 +66,7 @@ struct PreloadPersonaCodeView: View {
                 )
             }
         }
-        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden()
         .onChange(of: navigateToPersonaCode) { isNavigating in
             if isNavigating {
                 viewModel.savePersonaCode(personaCode: personaCode)
@@ -81,16 +75,16 @@ struct PreloadPersonaCodeView: View {
     }
 }
 
-//#Preview {
-//    ZStack {
-//        BackgroundView()
-//        
-//        PreloadPersonaCodeView(
-//            personaCode: ShortPersonaCodeData(
-//                name: "Иван",
-//                dateOfBirthday: .now,
-//                dateCreationPersonaCode: .now
-//            )
-//        )
-//    }
-//}
+#Preview {
+    ZStack {
+        BackgroundView()
+        
+        PreloadPersonaCodeView(
+            personaCode: ShortPersonaCodeData(
+                name: "Иван",
+                dateOfBirthday: .now,
+                dateCreationPersonaCode: .now
+            )
+        )
+    }
+}
