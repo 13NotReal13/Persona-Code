@@ -23,7 +23,7 @@ struct BottomNavigationBarView: View {
             } label: {
                 Text("Получить Код")
                     .customText(fontSize: 17)
-                    .customButtonStyle(width: UIScreen.main.bounds.width * 0.65, shape: .capsule)
+                    .customButtonStyle(width: UIScreen.main.bounds.width * 0.7, shape: .capsule)
             }
             
             Button {
