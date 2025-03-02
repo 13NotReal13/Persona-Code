@@ -63,7 +63,13 @@ struct BottomNavigationBarView: View {
             EnterDataView()
         }
         .navigationDestination(isPresented: $navigateToAffirmations) {
-            EmptyView()
+            PersonaCodeView(
+                personaCodeData: PersonaCodeCalculation(
+                    name: "Иван",
+                    dateOfBirthday: .now
+                ).personaCodeData,
+                isFromPreload: false
+            )
         }
         .navigationDestination(isPresented: $navigateToHistory) {
             HistoryView()

@@ -15,28 +15,26 @@ struct HistoryView: View {
     @State private var selectedPersonaCode: ShortPersonaCodeData? = nil
     
     var body: some View {
-        NavigationStack {
-            ZStack {
-                BackgroundView(isAnimated: false)
-                
-                ShadowBackgroundView()
-                
-                VStack {
-                    if storageManager.historyPersonaCodeData.isEmpty {
-                        EmptyHistoryView()
-                    } else {
-                        Text("Удерживайте имя, чтобы удалить запись из истории")
-                            .font(.custom("CorrectionBrush", size: 10))
-                            .foregroundStyle(.gray)
-                        
-                        PersonaCodeListView(
-                            personaCodeList: storageManager.historyPersonaCodeData,
-                            onLongPress: { personaCode in
-                                selectedPersonaCode = personaCode
-                                showDeleteAlert = true
-                            }
-                        )
-                    }
+        ZStack {
+            BackgroundView(isAnimated: false)
+            
+            ShadowBackgroundView()
+            
+            VStack {
+                if storageManager.historyPersonaCodeData.isEmpty {
+                    EmptyHistoryView()
+                } else {
+                    Text("Удерживайте имя, чтобы удалить запись из истории")
+                        .font(.custom("CorrectionBrush", size: 10))
+                        .foregroundStyle(.gray)
+                    
+                    PersonaCodeListView(
+                        personaCodeList: storageManager.historyPersonaCodeData,
+                        onLongPress: { personaCode in
+                            selectedPersonaCode = personaCode
+                            showDeleteAlert = true
+                        }
+                    )
                 }
             }
             .toolbar {

@@ -13,6 +13,10 @@ struct Persona_CodeApp: App {
         WindowGroup {
             HomeView()
                 .preferredColorScheme(.dark)
+                .onAppear {
+                    IAPManager.shared.startObserving()
+                    IAPManager.shared.fetchProducts()
+                }
         }
     }
 }
