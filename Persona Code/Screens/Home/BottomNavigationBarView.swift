@@ -8,18 +8,14 @@
 import SwiftUI
 
 struct BottomNavigationBarView: View {
-    @State private var navigateToGetCode = false
-    @State private var navigateToAffirmations = false
-    @State private var navigateToHistory = false
-    @State private var navigateToSettings = false
-    @State private var navigateToHelpInfoView = false
+    @EnvironmentObject private var coordinator: NavigationCoordinator
     
     var body: some View {
         VStack {
             Spacer()
             
             Button {
-                navigateToGetCode = true
+                coordinator.push(.enterData)
             } label: {
                 Text("Получить Код")
                     .customText(fontSize: 17)
@@ -27,7 +23,7 @@ struct BottomNavigationBarView: View {
             }
             
             Button {
-                navigateToAffirmations = true
+                coordinator.push(.affirmation)
             } label: {
                 Text("Аффирмации")
                     .customText(fontSize: 17)
@@ -35,7 +31,7 @@ struct BottomNavigationBarView: View {
             }
             
             Button {
-                navigateToHistory = true
+                coordinator.push(.history)
             } label: {
                 Text("История")
                     .customText(fontSize: 17)
@@ -43,7 +39,7 @@ struct BottomNavigationBarView: View {
             }
             
             Button {
-                navigateToSettings = true
+                coordinator.push(.settings)
             } label: {
                 Text("Настройки")
                     .customText(fontSize: 17)
@@ -51,7 +47,7 @@ struct BottomNavigationBarView: View {
             }
             
             Button {
-                navigateToHelpInfoView = true
+                coordinator.push(.helpInfo)
             } label: {
                 Text("Как это работает?")
                     .customText(fontSize: 17)
@@ -59,27 +55,6 @@ struct BottomNavigationBarView: View {
             }
         }
         .padding()
-        .navigationDestination(isPresented: $navigateToGetCode) {
-            EnterDataView()
-        }
-        .navigationDestination(isPresented: $navigateToAffirmations) {
-            PersonaCodeView(
-                personaCodeData: PersonaCodeCalculation(
-                    name: "Иван",
-                    dateOfBirthday: .now
-                ).personaCodeData,
-                isFromPreload: false
-            )
-        }
-        .navigationDestination(isPresented: $navigateToHistory) {
-            HistoryView()
-        }
-        .navigationDestination(isPresented: $navigateToSettings) {
-            EmptyView()
-        }
-        .navigationDestination(isPresented: $navigateToHelpInfoView) {
-            HelpInfoView()
-        }
     }
 }
 

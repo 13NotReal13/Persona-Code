@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct PersonaCodeView: View {
-    @Environment(\.dismiss) private var dismiss
-    
     @State var personaCodeData: PersonaCodeModel
     var isFromPreload: Bool
     
+    @EnvironmentObject private var coordinator: NavigationCoordinator
     @StateObject private var viewModel = PersonaCodeViewModel()
-    @ObservedObject private var storageManager = StorageManager()
+    @ObservedObject private var storageManager = StorageManager.shared
     
     var body: some View {
         ZStack {
@@ -36,11 +35,9 @@ struct PersonaCodeView: View {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
                         if isFromPreload {
-                            // Сбрасываем навигацию к корню (HomeView)
-                            //                                navigationManager.isRootActive = false
+                            coordinator.popToRoot()
                         } else {
-                            // Возвращаемся на предыдущий экран
-                            dismiss()
+                            coordinator.pop()
                         }
                     } label: {
                         Image(systemName: isFromPreload ? "house" : "chevron.left")

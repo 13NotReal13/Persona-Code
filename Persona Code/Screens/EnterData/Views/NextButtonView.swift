@@ -8,16 +8,24 @@
 import SwiftUI
 
 struct NextButtonView: View {
-    @ObservedObject var enterDataViewModel: EnterDataViewModel
+    @ObservedObject var viewModel: EnterDataViewModel
+    
+    @EnvironmentObject private var coordinator: NavigationCoordinator
     
     var body: some View {
         VStack {
             Button {
-                enterDataViewModel.validateName()
-                enterDataViewModel.validateDate()
+                viewModel.validateName()
+                viewModel.validateDate()
                 
-                if enterDataViewModel.isNameValid && enterDataViewModel.isDateValid {
-                    enterDataViewModel.canNavigate = true
+                if viewModel.isNameValid && viewModel.isDateValid {
+                    let shortPersonaCode = ShortPersonaCodeData(
+                        name: viewModel.name,
+                        dateOfBirthday: viewModel.dateBirthday,
+                        dateCreationPersonaCode: .now
+                    )
+                    
+                    coordinator.push(.preload(shortPersonaCode))
                 }
             } label: {
                 Text("Далее")
@@ -26,18 +34,9 @@ struct NextButtonView: View {
                     .padding(.top, 16)
             }
         }
-        .navigationDestination(isPresented: $enterDataViewModel.canNavigate) {
-            PreloadPersonaCodeView(
-                personaCode: ShortPersonaCodeData(
-                    name: enterDataViewModel.name,
-                    dateOfBirthday: enterDataViewModel.dateBirthday,
-                    dateCreationPersonaCode: .now
-                )
-            )
-        }
     }
 }
 
 #Preview {
-    NextButtonView(enterDataViewModel: EnterDataViewModel())
+    NextButtonView(viewModel: EnterDataViewModel())
 }

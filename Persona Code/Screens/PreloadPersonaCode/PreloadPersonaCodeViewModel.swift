@@ -12,16 +12,16 @@ final class PreloadPersonaCodeViewModel: ObservableObject {
     @Published var progress: CGFloat = 0.0
     @Published var statusText: String = "Получаю ваш код личности..."
     @Published var loadWasFinished: Bool = false
-    @Published var showPurchaseModal: Bool = false
     
     private var totalDuration: TimeInterval = 25.0
+    private let coordinator = NavigationCoordinator.shared
     
     func savePersonaCode(personaCode: ShortPersonaCodeData) {
-        StorageManager().add(shortPersonaCodeData: personaCode)
+        StorageManager.shared.add(shortPersonaCodeData: personaCode)
     }
     
     // Начинает загрузку прогресса
-    func startLoading() {
+    func startLoading(for personaCode: ShortPersonaCodeData) {
         progress = 0.0
         let steps = Int.random(in: 15...30)
         let delays = generateRandomDelays(totalDuration: totalDuration, steps: steps)
@@ -35,7 +35,7 @@ final class PreloadPersonaCodeViewModel: ObservableObject {
                 
                 if index == delays.count - 1 {
                     self.loadWasFinished = true
-                    self.showPurchaseModal = true
+                    self.coordinator.present(.purchase(personaCode: personaCode))
                 }
             }
         }

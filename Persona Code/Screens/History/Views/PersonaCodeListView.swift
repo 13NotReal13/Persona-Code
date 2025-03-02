@@ -11,66 +11,49 @@ struct PersonaCodeListView: View {
     let personaCodeList: [ShortPersonaCodeData]
     var onLongPress: (ShortPersonaCodeData) -> Void
     
-    @State private var selectedPersonaCode: PersonaCodeModel? = nil
-    @State private var navigateToDetail = false
+    @EnvironmentObject private var coordinator: NavigationCoordinator
     
     var body: some View {
-        NavigationStack {
-            ScrollView {
-                ForEach(personaCodeList) { personaCode in
-                    ZStack {
-                        VStack(spacing: 8) {
-                            HStack {
-                                Text("\(personaCode.name)")
-                                    .onLongPressGesture {
-                                        onLongPress(personaCode)
-                                    }
-                                Text(" - \(personaCode.dateOfBirthday.formattedDate())")
-                            }
-                            .customText(fontSize: 17)
-                            
-                            Text("Дата создания: \(personaCode.dateCreationPersonaCode.formattedDate())")
-                                .customText(fontSize: 11)
-                        }
-                        .customButtonStyle(
-                            width: UIScreen.main.bounds.width * 0.8,
-                            shape: .capsule
-                        )
-                        
+        ScrollView {
+            ForEach(personaCodeList) { personaCode in
+                ZStack {
+                    VStack(spacing: 8) {
                         HStack {
-                            Spacer()
+                            Text("\(personaCode.name)")
+                                .onLongPressGesture {
+                                    onLongPress(personaCode)
+                                }
+                            Text(" - \(personaCode.dateOfBirthday.formattedDate())")
+                        }
+                        .customText(fontSize: 17)
+                        
+                        Text("Дата создания: \(personaCode.dateCreationPersonaCode.formattedDate())")
+                            .customText(fontSize: 11)
+                    }
+                    .customButtonStyle(
+                        width: UIScreen.main.bounds.width * 0.8,
+                        shape: .capsule
+                    )
+                    
+                    HStack {
+                        Spacer()
+                        
+                        Button {
+                            let calculatedData = PersonaCodeCalculation(
+                                name: personaCode.name,
+                                dateOfBirthday: personaCode.dateOfBirthday
+                            ).personaCodeData
                             
-                            Button {
-                                selectedPersonaCode = PersonaCodeCalculation(
-                                    name: personaCode.name,
-                                    dateOfBirthday: personaCode.dateOfBirthday
-                                ).personaCodeData
-                                
-                                navigateToDetail = true
-                            } label: {
-                                Image(systemName: "chevron.right")
-                                    .customText(fontSize: 17)
-                                    .padding()
-                                    .onAppear {
-                                        selectedPersonaCode = PersonaCodeCalculation(
-                                            name: personaCode.name,
-                                            dateOfBirthday: personaCode.dateOfBirthday
-                                        ).personaCodeData
-                                    }
-                            }
+                            coordinator.push(.personaCode(calculatedData, isFromPreload: false))
+                        } label: {
+                            Image(systemName: "chevron.right")
+                                .customText(fontSize: 17)
+                                .padding()
                         }
                     }
-                    .padding(.horizontal)
-                    .padding(.bottom, 16)
                 }
-            }
-            .navigationDestination(isPresented: $navigateToDetail) {
-                if let personaCode = selectedPersonaCode {
-                    PersonaCodeView(
-                        personaCodeData: personaCode,
-                        isFromPreload: false
-                    )
-                }
+                .padding(.horizontal)
+                .padding(.bottom, 16)
             }
         }
         .scrollIndicators(.hidden)

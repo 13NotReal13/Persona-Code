@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct HelpInfoView: View {
-    @Environment(\.dismiss) var dismiss
-    
+    @EnvironmentObject private var coordinator: NavigationCoordinator
     @State private var selectedTab = 0
     
     private let categories = HelpInfoViewModel().categories
@@ -50,7 +49,7 @@ struct HelpInfoView: View {
             .padding(.horizontal)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    NavigationBackButtonView { dismiss() }
+                    NavigationBackButtonView { coordinator.pop() }
                 }
                 
                 ToolbarItem(placement: .principal) {

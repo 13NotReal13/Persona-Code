@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import StoreKit
 
 struct PurchaseModalView: View {
-    @Binding var isPresented: Bool
-    @Binding var navigateToPersonaCode: Bool
+    let personaCode: ShortPersonaCodeData
+    
+    @EnvironmentObject private var coordinator: NavigationCoordinator
+    @StateObject private var viewModel = PreloadPersonaCodeViewModel()
     
     var body: some View {
         ZStack {
@@ -22,58 +25,15 @@ struct PurchaseModalView: View {
                 
                 VStack(spacing: 8) {
                     HStack(spacing: 16) {
-                        Button {
-                            IAPManager.shared.restorePurchases()
-                        } label: {
-                            Text("Восстановить покупки")
-                                .font(.footnote)
-                                .foregroundColor(.gray)
-                        }
-                        
-                        Button(action: {
-                            if let url = URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/") {
-                                UIApplication.shared.open(url)
-                            }
-                        }) {
-                            Text("Условия использования")
-                                .font(.footnote)
-                                .foregroundColor(.gray)
-                        }
+                        restorePurchasesButton()
+                        termsOfUseButton()
                     }
-                    
-                    Button(action: {
-                        if let url = URL(string: "https://13notreal13.github.io/privacy-policy-destiny-matrix/privacy.html") {
-                            UIApplication.shared.open(url)
-                        }
-                    }) {
-                        Text("Политика конфиденциальности")
-                            .font(.footnote)
-                            .foregroundColor(.gray)
-                    }
+                    privacyPolicyButton()
                 }
                 
                 ZStack {
                     if let product = IAPManager.shared.getProducts().first {
-                        Button(action: {
-                            IAPManager.shared.purchase(
-                                productID: product.productIdentifier,
-                                success: {
-                                    DispatchQueue.main.async {
-                                        navigateToPersonaCode = true
-                                        isPresented = false
-                                    }
-                                },
-                                failure: { error in
-                                    showErrorAlert(error: error)
-                                }
-                            )
-                        }) {
-                            Text("Приобрести за \(product.localizedPrice ?? "N/A")")
-                                .frame(width: UIScreen.main.bounds.width * 0.95)
-                                .frame(height: 50)
-                                .foregroundColor(.white)
-                                .cornerRadius(20)
-                        }
+                        purchaseButton(for: product)
                     } else {
                         Text("Загрузка цены...")
                             .frame(width: UIScreen.main.bounds.width * 0.95)
@@ -85,18 +45,88 @@ struct PurchaseModalView: View {
                     OutlineGradientView()
                 }
                 
-                Button(action: {
-                    isPresented = false
-                }) {
-                    Text("Отмена")
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .foregroundColor(.blue)
-                }
-                
+                cancelButton()
             }
         }
         .ignoresSafeArea(edges: .top)
+    }
+    
+    private func purchaseButton(for product: SKProduct) -> some View {
+        Button(action: {
+            handlePurchase(for: product)
+        }) {
+            Text("Приобрести за \(product.localizedPrice ?? "N/A")")
+                .frame(width: UIScreen.main.bounds.width * 0.95)
+                .frame(height: 50)
+                .foregroundColor(.white)
+                .cornerRadius(20)
+        }
+    }
+    
+    private func handlePurchase(for product: SKProduct) {
+        IAPManager.shared.purchase(
+            productID: product.productIdentifier,
+            success: {
+                DispatchQueue.main.async {
+                    let calculatedData = PersonaCodeCalculation(
+                        name: personaCode.name,
+                        dateOfBirthday: personaCode.dateOfBirthday
+                    ).personaCodeData
+                    
+                    viewModel.savePersonaCode(personaCode: personaCode)
+                    coordinator.dismissModal()
+                    coordinator.push(.personaCode(calculatedData, isFromPreload: true))
+                }
+            },
+            failure: { error in
+                showErrorAlert(error: error)
+            }
+        )
+    }
+    
+    private func restorePurchasesButton() -> some View {
+        Button {
+            IAPManager.shared.restorePurchases()
+        } label: {
+            Text("Восстановить покупки")
+                .font(.footnote)
+                .foregroundColor(.gray)
+        }
+    }
+    
+    private func termsOfUseButton() -> some View {
+        Button(action: {
+            if let url = URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/") {
+                UIApplication.shared.open(url)
+            }
+        }) {
+            Text("Условия использования")
+                .font(.footnote)
+                .foregroundColor(.gray)
+        }
+    }
+    
+    private func privacyPolicyButton() -> some View {
+        Button(action: {
+            if let url = URL(string: "https://13notreal13.github.io/privacy-policy-destiny-matrix/privacy.html") {
+                UIApplication.shared.open(url)
+            }
+        }) {
+            Text("Политика конфиденциальности")
+                .font(.footnote)
+                .foregroundColor(.gray)
+        }
+    }
+    
+    private func cancelButton() -> some View {
+        Button(action: {
+            coordinator.dismissModal()
+        }) {
+            Text("Отмена")
+                .frame(maxWidth: .infinity)
+                .padding()
+                .foregroundColor(.blue)
+        }
     }
     
     private func showErrorAlert(error: Error?) {
@@ -113,7 +143,8 @@ struct PurchaseModalView: View {
     }
 }
 
-#Preview {
-    PurchaseModalView(isPresented: .constant(true), navigateToPersonaCode: .constant(false))
-//        .preferredColorScheme(.dark)
-}
+
+//#Preview {
+//    PurchaseModalView(isPresented: .constant(true), personaCode: .constant(false))
+////        .preferredColorScheme(.dark)
+//}

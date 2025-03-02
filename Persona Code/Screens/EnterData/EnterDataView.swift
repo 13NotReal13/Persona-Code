@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct EnterDataView: View {
-    @Environment(\.dismiss) var dismiss
     @StateObject var enterDataViewModel = EnterDataViewModel()
+    
+    @EnvironmentObject private var coordinator: NavigationCoordinator
     
     var body: some View {
         ZStack {
@@ -22,7 +23,7 @@ struct EnterDataView: View {
                 
                 EnterDataFormView(enterDataViewModel: enterDataViewModel)
                 
-                NextButtonView(enterDataViewModel: enterDataViewModel)
+                NextButtonView(viewModel: enterDataViewModel)
             }
         }
         .onTapGesture {
@@ -37,7 +38,7 @@ struct EnterDataView: View {
         }
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
-                NavigationBackButtonView { dismiss() }
+                NavigationBackButtonView { coordinator.pop() }
             }
             
             ToolbarItem(placement: .principal) {

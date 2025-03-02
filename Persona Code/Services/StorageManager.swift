@@ -16,11 +16,12 @@ struct ShortPersonaCodeData: Codable, Hashable, Identifiable {
 }
 
 final class StorageManager: ObservableObject {
+    static let shared = StorageManager()
+    
     @AppStorage("historyPersonaCodeData") private var storedData: String = ""
-
     @Published var historyPersonaCodeData: [ShortPersonaCodeData] = []
     
-    init() {
+    private init() {
         load()
     }
     

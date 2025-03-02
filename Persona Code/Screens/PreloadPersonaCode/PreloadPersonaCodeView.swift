@@ -8,70 +8,46 @@
 import SwiftUI
 
 struct PreloadPersonaCodeView: View {
-    @Environment(\.dismiss) var dismiss
-    
     let personaCode: ShortPersonaCodeData
     
+    @EnvironmentObject private var coordinator: NavigationCoordinator
     @StateObject private var viewModel = PreloadPersonaCodeViewModel()
-    @State private var navigateToPersonaCode = false
     
     var body: some View {
-        NavigationStack {
-            ZStack {
-                BackgroundView()
+        ZStack {
+            BackgroundView()
+            
+            VStack {
+                Spacer()
                 
-                VStack {
-                    Spacer()
-                    
-                    if viewModel.loadWasFinished {
-                        Button {
-                            viewModel.showPurchaseModal = true
-                        } label: {
-                            Text("Открыть")
-                                .customText(fontSize: 17)
-                                .customButtonStyle(width: UIScreen.main.bounds.width * 0.6, shape: .capsule)
-                        }
-                    } else {
-                        LoadProgressView(viewModel: viewModel)
+                if viewModel.loadWasFinished {
+                    Button {
+                        coordinator.present(.purchase(personaCode: personaCode))
+                    } label: {
+                        Text("Открыть")
+                            .customText(fontSize: 17)
+                            .customButtonStyle(width: UIScreen.main.bounds.width * 0.6, shape: .capsule)
                     }
-                }
-            }
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    if viewModel.loadWasFinished {
-                        NavigationBackButtonView { dismiss() }
-                    }
-                }
-                
-                ToolbarItem(placement: .principal) {
-                    CustomNavigationTitleView(title: "Загрузка Данных")
+                } else {
+                    LoadProgressView(viewModel: viewModel)
                 }
             }
             .onAppear {
-                viewModel.startLoading()
+                viewModel.startLoading(for: personaCode)
             }
-            .navigationDestination(isPresented: $navigateToPersonaCode) {
-                PersonaCodeView(
-                    personaCodeData: PersonaCodeCalculation(
-                        name: personaCode.name,
-                        dateOfBirthday: personaCode.dateOfBirthday
-                    ).personaCodeData,
-                    isFromPreload: true
-                )
+        }
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                if viewModel.loadWasFinished {
+                    NavigationBackButtonView { coordinator.pop() }
+                }
             }
-            .sheet(isPresented: $viewModel.showPurchaseModal) {
-                PurchaseModalView(
-                    isPresented: $viewModel.showPurchaseModal,
-                    navigateToPersonaCode: $navigateToPersonaCode
-                )
+            
+            ToolbarItem(placement: .principal) {
+                CustomNavigationTitleView(title: "Загрузка Данных")
             }
         }
         .navigationBarBackButtonHidden()
-        .onChange(of: navigateToPersonaCode) { isNavigating in
-            if isNavigating {
-                viewModel.savePersonaCode(personaCode: personaCode)
-            }
-        }
     }
 }
 

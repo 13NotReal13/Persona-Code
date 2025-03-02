@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct HistoryView: View {
-    @Environment(\.dismiss) private var dismiss
-    @ObservedObject private var storageManager = StorageManager()
+    @EnvironmentObject private var coordinator: NavigationCoordinator
+    @ObservedObject private var storageManager = StorageManager.shared
     
     @State private var showDeleteAlert = false
     @State private var selectedPersonaCode: ShortPersonaCodeData? = nil
@@ -39,7 +39,7 @@ struct HistoryView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    NavigationBackButtonView { dismiss() }
+                    NavigationBackButtonView { coordinator.pop() }
                 }
                 
                 ToolbarItem(placement: .principal) {
