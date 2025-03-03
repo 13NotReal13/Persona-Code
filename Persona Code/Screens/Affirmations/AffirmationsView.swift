@@ -9,12 +9,11 @@ import SwiftUI
 
 struct AffirmationsView: View {
     @EnvironmentObject private var coordinator: NavigationCoordinator
-    @StateObject private var viewModel = AffirmationsViewModel()
+    @StateObject private var viewModel = AffirmationsViewModel.shared
     
     var body: some View {
         ZStack {
             BackgroundView(isAnimated: false)
-            
             ShadowBackgroundView()
             
             VStack {
@@ -34,12 +33,28 @@ struct AffirmationsView: View {
                                         .foregroundColor(viewModel.selectedCategory == category ? .white : .gray)
                                 }
                                 .padding()
-                                .background(viewModel.selectedCategory == category ? Color.blue.opacity(0.2) : Color.clear)
+                                .background(viewModel.selectedCategory == category ? Color.brown.opacity(0.2) : Color.clear)
                                 .cornerRadius(10)
                             }
                         }
                     }
                     .padding(.horizontal)
+                }
+                
+                // Тоггл с напоминаниями
+                Toggle(isOn: $viewModel.isReminderEnabled) {
+                    Text("Напоминание прочитать аффирмации")
+                        .font(.caption)
+                        .foregroundColor(.white)
+                }
+                .tint(.brown)
+                .padding(.horizontal)
+                .onChange(of: viewModel.isReminderEnabled) { isOn in
+                    if isOn {
+                        coordinator.present(.reminderPicker)
+                    } else {
+                        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                    }
                 }
                 
                 // Переключатель для избранного
@@ -48,6 +63,7 @@ struct AffirmationsView: View {
                         .font(.caption)
                         .foregroundColor(.white)
                 }
+                .tint(.brown)
                 .padding(.horizontal)
                 
                 // Список аффирмаций

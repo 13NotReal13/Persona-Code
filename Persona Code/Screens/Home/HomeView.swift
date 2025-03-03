@@ -46,6 +46,11 @@ struct HomeView: View {
                 switch modal {
                 case .purchase(let personaCode):
                     PurchaseModalView(personaCode: personaCode)
+                case .reminderPicker:
+                    ReminderPickerView()
+                        .environmentObject(AffirmationsViewModel.shared)
+                        .presentationDetents([.fraction(0.5)])
+                        .presentationDragIndicator(.visible)
                 }
             }
         }

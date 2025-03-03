@@ -12,7 +12,14 @@ final class AffirmationsViewModel: ObservableObject {
     @Published var showFavoritesOnly: Bool = false
     @Published var affirmations: [Affirmation] = AffirmationStorage.shared.allAffirmations
     
+    @Published var reminderTime = Date()
+    @Published var isReminderEnabled = false
+    @Published var selectedDays: Set<Int> = []
+    
+    static let shared = AffirmationsViewModel()
+    
     let categories = AffirmationCategoryType.allCases
+    let weekDays = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"]
     
     // Фильтрация аффирмаций по избранному и категории
     var filteredAffirmations: [Affirmation] {
@@ -25,6 +32,27 @@ final class AffirmationsViewModel: ObservableObject {
         } else {
             return filteredByFavorites.filter { $0.category == selectedCategory }
         }
+    }
+    
+    private init() {
+        NotificationManager.shared.requestAuthorization()
+    }
+    
+    func updateReminders() {
+        if isReminderEnabled && !selectedDays.isEmpty {
+            NotificationManager.shared.scheduleWeeklyReminders(on: Array(selectedDays), at: reminderTime)
+        } else {
+            NotificationManager.shared.removeAllReminders()
+        }
+    }
+    
+    func toggleDaySelection(_ day: Int) {
+        if selectedDays.contains(day) {
+            selectedDays.remove(day)
+        } else {
+            selectedDays.insert(day)
+        }
+        updateReminders()
     }
     
     // Переключение избранного

@@ -21,6 +21,7 @@ enum AppPage: Hashable {
 
 enum AppModal: Identifiable, Hashable {
     case purchase(personaCode: ShortPersonaCodeData)
+    case reminderPicker
     
     var id: Int { self.hashValue }
 }
