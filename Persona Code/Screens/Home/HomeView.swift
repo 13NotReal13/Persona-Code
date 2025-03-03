@@ -33,7 +33,7 @@ struct HomeView: View {
                 case .personaCode(let model, let isFromPreload):
                     PersonaCodeView(personaCodeData: model, isFromPreload: isFromPreload)
                 case .affirmation:
-                    EmptyView()
+                    AffirmationsView()
                 case .history:
                     HistoryView()
                 case .settings:

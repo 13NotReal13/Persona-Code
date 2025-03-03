@@ -74,6 +74,7 @@ struct PurchaseModalView: View {
                     ).personaCodeData
                     
                     viewModel.savePersonaCode(personaCode: personaCode)
+                    
                     coordinator.dismissModal()
                     coordinator.push(.personaCode(calculatedData, isFromPreload: true))
                 }
