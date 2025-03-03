@@ -37,7 +37,7 @@ struct HomeView: View {
                 case .history:
                     HistoryView()
                 case .settings:
-                    EmptyView()
+                    SettingsView()
                 case .helpInfo:
                     HelpInfoView()
                 }

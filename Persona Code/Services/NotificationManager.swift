@@ -14,15 +14,7 @@ final class NotificationManager {
     private init() {}
     
     func requestAuthorization() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-            if let error = error {
-                     print("Ошибка при запросе разрешения: \(error.localizedDescription)")
-                 } else if granted {
-                     print("Разрешение на уведомления получено.")
-                 } else {
-                     print("Уведомления не разрешены.")
-                 }
-        }
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in }
     }
     
     func scheduleWeeklyReminders(on days: [Int], at time: Date) {
@@ -44,13 +36,7 @@ final class NotificationManager {
                 trigger: trigger
             )
             
-            UNUserNotificationCenter.current().add(request) { error in
-                if let error = error {
-                    print("Ошибка при добавлении уведомления: \(error.localizedDescription)")
-                } else {
-                    print("Напоминание добавлено на день \(day).")
-                }
-            }
+            UNUserNotificationCenter.current().add(request) { error in }
         }
     }
     

@@ -17,7 +17,6 @@ struct HistoryView: View {
     var body: some View {
         ZStack {
             BackgroundView(isAnimated: false)
-            
             ShadowBackgroundView()
             
             VStack {
@@ -28,15 +27,19 @@ struct HistoryView: View {
                         .font(.custom("CorrectionBrush", size: 10))
                         .foregroundStyle(.gray)
                     
-                    PersonaCodeListView(
-                        personaCodeList: storageManager.historyPersonaCodeData,
-                        onLongPress: { personaCode in
-                            selectedPersonaCode = personaCode
-                            showDeleteAlert = true
+                    ScrollView {
+                        ForEach(storageManager.historyPersonaCodeData) { personaCode in
+                            HistoryCardView(personaCode: personaCode) {
+                                selectedPersonaCode = personaCode
+                                showDeleteAlert = true
+                            }
                         }
-                    )
+                        .padding(.horizontal)
+                        .padding(.bottom, 8)
+                    }
                 }
             }
+            .padding(.top, 10)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     NavigationBackButtonView { coordinator.pop() }
@@ -64,5 +67,7 @@ struct HistoryView: View {
 }
 
 #Preview {
-    HistoryView()
+    NavigationStack {
+        HistoryView()
+    }
 }

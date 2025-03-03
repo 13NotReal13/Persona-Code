@@ -103,7 +103,7 @@ final class AffirmationsViewModel: ObservableObject {
     func toggleFavorite(for affirmation: Affirmation) {
         if let index = affirmations.firstIndex(where: { $0.id == affirmation.id }) {
             affirmations[index].isFavorite.toggle()
-            saveFavorites()  // Сохраняем при переключении избранного
+            saveFavorites()
         }
     }
 }
