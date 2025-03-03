@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum AffirmationCategoryType: String, CaseIterable, Identifiable {
+enum AffirmationCategoryType: String, CaseIterable, Identifiable, Codable {
     case all = "Все"
     case confidence = "Уверенность"
     case health = "Здоровье"
@@ -35,8 +35,8 @@ enum AffirmationCategoryType: String, CaseIterable, Identifiable {
     }
 }
 
-struct Affirmation: Identifiable {
-    let id = UUID()
+struct Affirmation: Identifiable, Codable {
+    var id = UUID()
     let text: String
     let category: AffirmationCategoryType
     var isFavorite: Bool = false

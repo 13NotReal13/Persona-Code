@@ -27,13 +27,25 @@ struct AffirmationsView: View {
                                 VStack {
                                     Image(systemName: category.icon)
                                         .font(.title)
-                                        .foregroundColor(viewModel.selectedCategory == category ? .white : .gray)
+                                        .foregroundColor(
+                                            viewModel.selectedCategory == category
+                                            ? .white
+                                            : .gray
+                                        )
                                     Text(category.displayName)
                                         .font(.caption)
-                                        .foregroundColor(viewModel.selectedCategory == category ? .white : .gray)
+                                        .foregroundColor(
+                                            viewModel.selectedCategory == category
+                                            ? .white
+                                            : .gray
+                                        )
                                 }
                                 .padding()
-                                .background(viewModel.selectedCategory == category ? Color.brown.opacity(0.2) : Color.clear)
+                                .background(
+                                    viewModel.selectedCategory == category
+                                    ? Color.brown.opacity(0.2)
+                                    : Color.clear
+                                )
                                 .cornerRadius(10)
                             }
                         }
@@ -78,7 +90,7 @@ struct AffirmationsView: View {
                             viewModel.toggleFavorite(for: affirmation)
                         }) {
                             Image(systemName: affirmation.isFavorite ? "star.fill" : "star")
-                                .foregroundColor(affirmation.isFavorite ? .yellow : .gray)
+                                .foregroundColor(affirmation.isFavorite ? .brown : .gray)
                         }
                     }
                     .padding()
@@ -116,5 +128,7 @@ struct AffirmationsView: View {
     NavigationStack {
         AffirmationsView()
             .preferredColorScheme(.dark)
+            .environmentObject(NavigationCoordinator.shared)
+            .environmentObject(AffirmationsViewModel.shared)
     }
 }

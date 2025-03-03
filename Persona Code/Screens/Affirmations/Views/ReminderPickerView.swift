@@ -41,7 +41,7 @@ struct ReminderPickerView: View {
                 // Выбор времени
                 DatePicker(
                     "Время напоминания",
-                    selection: $viewModel.reminderTime,
+                    selection: $viewModel.reminderDate,
                     displayedComponents: .hourAndMinute
                 )
                 .datePickerStyle(.wheel)
