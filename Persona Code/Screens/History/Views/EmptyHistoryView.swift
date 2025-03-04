@@ -12,7 +12,7 @@ struct EmptyHistoryView: View {
         VStack {
             Spacer()
             Text("Нет истории")
-                .font(.headline)
+                .font(.custom("CorrectionBrush", size: 17))
                 .foregroundColor(.gray)
             Spacer()
         }

@@ -34,17 +34,6 @@ struct HelpInfoView: View {
                 } else {
                     HelpInfoCategoriesView(categories: categories)
                 }
-                
-                Button(action: {
-                    if let url = URL(string: "https://13notreal13.github.io/privacy-policy-destiny-matrix/privacy.html") {
-                        UIApplication.shared.open(url)
-                    }
-                }) {
-                    Text("Политика конфиденциальности")
-                        .font(.footnote)
-                        .foregroundColor(.white)
-                }
-                .padding()
             }
             .padding(.horizontal)
             .toolbar {
