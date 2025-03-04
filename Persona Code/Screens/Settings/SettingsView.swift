@@ -9,89 +9,78 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject private var coordinator: NavigationCoordinator
-    @StateObject private var affirmationViewModel = AffirmationsViewModel.shared
+    @AppStorage("selectedLanguage") private var selectedLanguage = "Русский"
+    
+    let languages = ["Русский", "Польский", "Английский"]
     
     var body: some View {
         ZStack {
             BackgroundView(isAnimated: false)
-            ShadowBackgroundView()
+            ShadowBackgroundView(isHighShadowLevel: true)
             
-            VStack {
-                VStack {
-                    Toggle(isOn: $affirmationViewModel.isReminderEnabled) {
-                        Text("Ежедневные PUSH пожелания")
-                            .font(.caption)
-                            .foregroundStyle(.white)
-                    }
-                    .tint(.brown)
-                    .padding(.horizontal)
-                    .onChange(of: affirmationViewModel.isReminderEnabled) { _ in
-                        affirmationViewModel.updateReminders()
-                    }
-                }
-                .padding(.vertical)
-                .background(.white.opacity(0.1))
-                .cornerRadius(radius: 10, corners: .allCorners)
-                .padding(.horizontal)
-                
-                VStack {
-                    Toggle(isOn: $affirmationViewModel.isReminderEnabled) {
-                        Text("Напоминание прочитать аффирмации")
-                            .font(.caption)
-                            .foregroundStyle(.white)
-                    }
-                    .tint(.brown)
-                    .padding(.horizontal)
-                    .onChange(of: affirmationViewModel.isReminderEnabled) { _ in
-                        affirmationViewModel.updateReminders()
-                    }
+            Form {
+                Section(header: Text("Уведомления")) {
+                    Toggle("Напоминания об аффирмациях", isOn: .constant(true))
+                        .onTapGesture {
+                            coordinator.present(.reminderPicker)
+                        }
                     
-                    // Выбор дней недели
-                    if affirmationViewModel.isReminderEnabled {
-                        HStack {
-                            ForEach(1...7, id: \.self) { day in
-                                Button {
-                                    affirmationViewModel.toggleDaySelection(day)
-                                } label: {
-                                    Text(affirmationViewModel.weekDays[day - 1])
-                                        .padding(8)
-                                        .background(
-                                            affirmationViewModel.selectedDays.contains(day)
-                                            ? Color.brown
-                                            : .gray.opacity(0.5)
-                                        )
-                                        .cornerRadius(radius: 5, corners: .allCorners)
-                                        .foregroundStyle(.white)
-                                }
-                            }
-                        }
-                        .padding(.horizontal)
-                        
-                        DatePicker(
-                            "Время напоминания",
-                            selection: $affirmationViewModel.reminderDate,
-                            displayedComponents: .hourAndMinute
-                        )
-                        .datePickerStyle(.wheel)
-                        .labelsHidden()
-                        .onChange(of: affirmationViewModel.reminderTime) { _ in
-                            affirmationViewModel.updateReminders()
-                        }
-                        
+                    Toggle("Ежедневные вдохновения", isOn: .constant(true))
+                    
+                    Button("Отправить тестовое уведомление") {
+//                        NotificationManager.shared.sendTestNotification()
                     }
                 }
-                .padding(.vertical)
-                .background(.white.opacity(0.1))
-                .cornerRadius(radius: 10, corners: .allCorners)
-                .padding(.horizontal)
+                .listRowBackground(Color.white.opacity(0.1))
+                .background(Color.clear)
                 
-                Spacer()
+                Section(header: Text("Язык")) {
+                    Picker("Язык интерфейса", selection: $selectedLanguage) {
+                        ForEach(languages, id: \.self) { language in
+                            Text(language).tag(language)
+                        }
+                    }
+                }
+                .listRowBackground(Color.white.opacity(0.1))
+                .background(Color.clear)
+                
+                Section(header: Text("Конфиденциальность")) {
+                    Button("Политика конфиденциальности") {
+                        if let url = URL(string: "https://example.com/privacy") {
+                            UIApplication.shared.open(url)
+                        }
+                    }
+                    Button("Условия использования") {
+                        if let url = URL(string: "https://example.com/terms") {
+                            UIApplication.shared.open(url)
+                        }
+                    }
+                }
+                .listRowBackground(Color.white.opacity(0.1))
+                .background(Color.clear)
+                
+                Section(header: Text("Покупки")) {
+                    Button("Восстановить покупки") {
+                        IAPManager.shared.restorePurchases()
+                    }
+                }
+                .listRowBackground(Color.white.opacity(0.1))
+                .background(Color.clear)
+                
+                Section(header: Text("Оценки и отзывы")) {
+                    Button("Оценить приложение") {
+//                        SKStoreReviewController.requestReview()
+                    }
+                }
+                .listRowBackground(Color.white.opacity(0.1))
+                .background(Color.clear)
             }
+            .scrollContentBackground(.hidden)
+            .background(Color.clear)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     NavigationBackButtonView { coordinator.pop() }
                 }
-                
                 ToolbarItem(placement: .principal) {
                     CustomNavigationTitleView(title: "Настройки")
                 }
