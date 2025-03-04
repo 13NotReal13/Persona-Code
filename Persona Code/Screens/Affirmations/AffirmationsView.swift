@@ -54,21 +54,7 @@ struct AffirmationsView: View {
                     .padding(.horizontal)
                 }
                 
-                // Тоггл с напоминаниями
-                Toggle(isOn: $settings.isReminderEnabled) {
-                    Text("Напоминание прочитать аффирмации")
-                        .font(.caption)
-                        .foregroundColor(.white)
-                }
-                .tint(.brown)
-                .padding(.horizontal)
-                .onChange(of: settings.isReminderEnabled) { isOn in
-                    if isOn {
-                        coordinator.present(.reminderPicker(type: ReminderType.affirmation))
-                    } else {
-                        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-                    }
-                }
+                ReminderToggleView(isReminderEnabled: $settings.isReminderEnabled)
                 
                 // Переключатель для избранного
                 Toggle(isOn: $viewModel.showFavoritesOnly) {
@@ -131,5 +117,6 @@ struct AffirmationsView: View {
             .preferredColorScheme(.dark)
             .environmentObject(NavigationCoordinator.shared)
             .environmentObject(AffirmationsViewModel.shared)
+            .environmentObject(SettingsViewModel.shared)
     }
 }

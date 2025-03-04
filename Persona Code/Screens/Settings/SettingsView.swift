@@ -73,7 +73,6 @@ struct SettingsView: View {
                             UIApplication.shared.open(url)
                         }
                     }
-//                    .foregroundStyle(.brown)
                 }
                 .listRowBackground(Color.white.opacity(0.1))
                 

@@ -100,7 +100,7 @@ final class SettingsViewModel: ObservableObject {
         let allDays = Set(1...7)
         setSelectedDays(allDays, for: .wish)
         
-        if let tenAM = Calendar.current.date(bySettingHour: 15, minute: 56, second: 0, of: Date()) {
+        if let tenAM = Calendar.current.date(bySettingHour: 10, minute: 0, second: 0, of: Date()) {
             wishTime = tenAM.timeIntervalSince1970
         }
         
