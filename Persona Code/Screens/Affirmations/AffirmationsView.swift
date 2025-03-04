@@ -27,36 +27,10 @@ struct AffirmationsView: View {
                 
                 FavoritesToggleView(showFavoritesOnly: $viewModel.showFavoritesOnly)
                 
-                // Список аффирмаций
-                List(viewModel.filteredAffirmations) { affirmation in
-                    HStack {
-                        Text(affirmation.text)
-                            .lineLimit(2)
-                        
-                        Spacer()
-                        
-                        Button(action: {
-                            viewModel.toggleFavorite(for: affirmation)
-                        }) {
-                            Image(systemName: affirmation.isFavorite ? "star.fill" : "star")
-                                .foregroundColor(affirmation.isFavorite ? .brown : .gray)
-                        }
-                    }
-                    .padding()
-                    .listRowInsets(
-                        EdgeInsets(
-                            top: 4,
-                            leading: 16,
-                            bottom: 4,
-                            trailing: 16
-                        )
-                    )
-                    .listRowBackground(Color.clear)
-                    .background(Color.white.opacity(0.1))
-                    .cornerRadius(radius: 10, corners: .allCorners)
-                }
-                .scrollContentBackground(.hidden)
-                .listStyle(PlainListStyle())
+                AffirmationsListView(
+                    affirmations: viewModel.filteredAffirmations,
+                    toggleFavorite: viewModel.toggleFavorite(for:)
+                )
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {

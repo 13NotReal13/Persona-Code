@@ -37,6 +37,7 @@ struct ReminderToggleView: View {
                     .font(.caption)
                     .foregroundColor(.brown)
                     .padding(.horizontal)
+                    .padding(.vertical, 4)
                     
                     Spacer()
                 }
