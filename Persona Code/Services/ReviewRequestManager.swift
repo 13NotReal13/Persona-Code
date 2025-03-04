@@ -60,7 +60,7 @@ final class ReviewRequestManager: NSObject, ObservableObject, MFMailComposeViewC
         }
     }
     
-    private func requestReview() {
+    func requestReview() {
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
             SKStoreReviewController.requestReview(in: windowScene)
             hasSeenReviewPrompt = true
