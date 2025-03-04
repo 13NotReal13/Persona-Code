@@ -18,16 +18,8 @@ struct SettingsView: View {
             
             Form {
                 NotificationTogglesView()
-                    .environmentObject(viewModel)
                 
-                Section(header: Text("Язык")) {
-                    Picker("Язык интерфейса", selection: $viewModel.selectedLanguage) {
-                        ForEach(viewModel.availableLanguages, id: \.self) { language in
-                            Text(language).tag(language)
-                        }
-                    }
-                }
-                .listRowBackground(Color.white.opacity(0.1))
+                LanguagePickerView()
                 
                 Section(header: Text("Конфиденциальность")) {
                     Button("Политика конфиденциальности") {
@@ -73,6 +65,7 @@ struct SettingsView: View {
                     CustomNavigationTitleView(title: "Настройки")
                 }
             }
+            .environmentObject(viewModel)
         }
         .navigationBarBackButtonHidden()
         .navigationBarTitleDisplayMode(.inline)
