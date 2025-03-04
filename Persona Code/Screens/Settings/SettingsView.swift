@@ -23,12 +23,7 @@ struct SettingsView: View {
                 
                 ConfidentialityButtonsView()
                 
-                Section(header: Text("Покупки")) {
-                    Button("Восстановить покупки") {
-                        IAPManager.shared.restorePurchases()
-                    }
-                }
-                .listRowBackground(Color.white.opacity(0.1))
+                RestorePurchasesButtonView()
                 
                 Section(header: Text("Оценки и отзывы")) {
                     Button("Оценить приложение") {
