@@ -7,27 +7,36 @@
 
 import SwiftUI
 
+enum ReminderType {
+    case affirmation
+    case wish
+}
+
 struct ReminderPickerView: View {
     @EnvironmentObject private var coordinator: NavigationCoordinator
-    @EnvironmentObject private var viewModel: AffirmationsViewModel
+    @EnvironmentObject private var viewModel: SettingsViewModel
+    
+    let reminderType: ReminderType
     
     var body: some View {
         VStack(spacing: 20) {
-            Text("Настройки напоминаний")
+            Text(reminderType == .affirmation ? "Напоминания об аффирмациях" : "Ежедневные вдохновения")
                 .font(.headline)
                 .padding(.top)
             
-            if viewModel.isReminderEnabled {
+            if (reminderType == .affirmation && viewModel.isReminderEnabled) ||
+               (reminderType == .wish && viewModel.isWishNotificationEnabled) {
+                
                 // Выбор дней недели
                 HStack {
                     ForEach(1...7, id: \.self) { day in
                         Button {
-                            viewModel.toggleDaySelection(day)
+                            viewModel.toggleDaySelection(day, for: reminderType)
                         } label: {
                             Text(viewModel.weekDays[day - 1])
                                 .padding(8)
                                 .background(
-                                    viewModel.selectedDays.contains(day)
+                                    viewModel.selectedDays(for: reminderType).contains(day)
                                     ? Color.brown
                                     : .gray.opacity(0.5)
                                 )
@@ -41,7 +50,7 @@ struct ReminderPickerView: View {
                 // Выбор времени
                 DatePicker(
                     "Время напоминания",
-                    selection: $viewModel.reminderDate,
+                    selection: reminderType == .affirmation ? $viewModel.reminderDate : $viewModel.wishDate,
                     displayedComponents: .hourAndMinute
                 )
                 .datePickerStyle(.wheel)
@@ -50,7 +59,11 @@ struct ReminderPickerView: View {
             }
             
             Button("Сохранить") {
-                viewModel.updateReminders()
+                if reminderType == .affirmation {
+                    viewModel.updateReminders()
+                } else {
+                    viewModel.updateWishNotifications()
+                }
                 coordinator.dismissModal()
             }
             .customText(fontSize: 17)
@@ -61,7 +74,11 @@ struct ReminderPickerView: View {
         }
         .background(Color.clear)
         .onAppear {
-            viewModel.updateReminders()
+            if reminderType == .affirmation {
+                viewModel.updateReminders()
+            } else {
+                viewModel.updateWishNotifications()
+            }
         }
     }
 }
@@ -71,7 +88,7 @@ struct ReminderPickerView: View {
         BackgroundView(isAnimated: false)
         ShadowBackgroundView(isHighShadowLevel: true)
         
-        ReminderPickerView()
+        ReminderPickerView(reminderType: ReminderType.affirmation)
             .preferredColorScheme(.dark)
             .environmentObject(NavigationCoordinator())
             .environmentObject(AffirmationsViewModel.shared)

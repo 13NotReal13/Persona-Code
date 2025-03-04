@@ -13,10 +13,16 @@ final class NotificationManager {
     
     private init() {}
     
-    func requestAuthorization() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in }
+    // 🔄 Запрос на авторизацию уведомлений
+    func requestAuthorization(completion: @escaping (Bool) -> Void) {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            DispatchQueue.main.async {
+                completion(granted)
+            }
+        }
     }
     
+    // 🔄 Еженедельные напоминания об аффирмациях
     func scheduleWeeklyReminders(on days: [Int], at time: Date) {
         removeAllReminders()
         
@@ -25,6 +31,7 @@ final class NotificationManager {
             content.title = "Аффирмации дня"
             content.body = "Не забудьте прочитать свои аффирмации!"
             content.sound = .default
+            content.categoryIdentifier = "AFFIRMATION_CATEGORY"
             
             var dateComponents = Calendar.current.dateComponents([.hour, .minute], from: time)
             dateComponents.weekday = day
@@ -40,8 +47,43 @@ final class NotificationManager {
         }
     }
     
+    // 🔄 Ежедневные уведомления с пожеланиями
+    func scheduleDailyWishNotification(at time: Date) {
+        removeWishNotifications()  // Сначала удаляем старые уведомления
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Пожелание на день"
+        content.body = WishStorage.shared.getRandomWish()
+        content.sound = .default
+        content.categoryIdentifier = "WISH_CATEGORY"
+        
+        var dateComponents = Calendar.current.dateComponents([.hour, .minute], from: time)
+        dateComponents.second = 0
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        let request = UNNotificationRequest(
+            identifier: "dailyWishNotification",
+            content: content,
+            trigger: trigger
+        )
+        
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Ошибка при добавлении уведомления: \(error.localizedDescription)")
+            } else {
+                print("✅ Уведомление запланировано на \(time)")
+            }
+        }
+    }
+    
+    // 🔄 Удаляем все напоминания об аффирмациях
     func removeAllReminders() {
-        let identifiers = (1...7).map { "affirmationReminder-\($0)" }
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: identifiers)
+        let affirmationIdentifiers = (1...7).map { "affirmationReminder-\($0)" }
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: affirmationIdentifiers)
+    }
+    
+    // 🔄 Удаляем все ежедневные пожелания
+    func removeWishNotifications() {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["dailyWishNotification"])
     }
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AffirmationsView: View {
     @EnvironmentObject private var coordinator: NavigationCoordinator
+    @EnvironmentObject private var settings: SettingsViewModel
     @StateObject private var viewModel = AffirmationsViewModel.shared
     
     var body: some View {
@@ -54,16 +55,16 @@ struct AffirmationsView: View {
                 }
                 
                 // Тоггл с напоминаниями
-                Toggle(isOn: $viewModel.isReminderEnabled) {
+                Toggle(isOn: $settings.isReminderEnabled) {
                     Text("Напоминание прочитать аффирмации")
                         .font(.caption)
                         .foregroundColor(.white)
                 }
                 .tint(.brown)
                 .padding(.horizontal)
-                .onChange(of: viewModel.isReminderEnabled) { isOn in
+                .onChange(of: settings.isReminderEnabled) { isOn in
                     if isOn {
-                        coordinator.present(.reminderPicker)
+                        coordinator.present(.reminderPicker(type: ReminderType.affirmation))
                     } else {
                         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
                     }

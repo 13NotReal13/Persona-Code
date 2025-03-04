@@ -9,9 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject private var coordinator: NavigationCoordinator
-    @AppStorage("selectedLanguage") private var selectedLanguage = "Русский"
-    
-    let languages = ["Русский", "Польский", "Английский"]
+    @StateObject private var viewModel = SettingsViewModel.shared
     
     var body: some View {
         ZStack {
@@ -20,29 +18,49 @@ struct SettingsView: View {
             
             Form {
                 Section(header: Text("Уведомления")) {
-                    Toggle("Напоминания об аффирмациях", isOn: .constant(true))
-                        .onTapGesture {
-                            coordinator.present(.reminderPicker)
+                    Toggle("Напоминания об аффирмациях", isOn: $viewModel.isReminderEnabled)
+                        .tint(.brown)
+                        .onChange(of: viewModel.isReminderEnabled) { isOn in
+                            viewModel.updateReminders()
                         }
                     
-                    Toggle("Ежедневные вдохновения", isOn: .constant(true))
+                    if viewModel.isReminderEnabled {
+                        Button("Настройки уведомлений") {
+                            coordinator.present(.reminderPicker(type: ReminderType.affirmation))
+                        }
+                        .font(.caption)
+                        .foregroundColor(.brown)
+                    }
+                    
+                    Toggle("Ежедневные вдохновения", isOn: $viewModel.isWishNotificationEnabled)
+                        .tint(.brown)
+                        .onChange(of: viewModel.isWishNotificationEnabled) { isOn in
+                            viewModel.updateWishNotifications()
+                        }
+                    
+                    if viewModel.isWishNotificationEnabled {
+                        Button("Настройки уведомлений") {
+                            coordinator.present(.reminderPicker(type: ReminderType.wish))
+                        }
+                        .font(.caption)
+                        .foregroundColor(.brown)
+                    }
                     
                     Button("Отправить тестовое уведомление") {
-//                        NotificationManager.shared.sendTestNotification()
+                        // NotificationManager.shared.sendTestNotification()
                     }
+                    .foregroundStyle(.brown)
                 }
                 .listRowBackground(Color.white.opacity(0.1))
-                .background(Color.clear)
                 
                 Section(header: Text("Язык")) {
-                    Picker("Язык интерфейса", selection: $selectedLanguage) {
-                        ForEach(languages, id: \.self) { language in
+                    Picker("Язык интерфейса", selection: $viewModel.selectedLanguage) {
+                        ForEach(viewModel.availableLanguages, id: \.self) { language in
                             Text(language).tag(language)
                         }
                     }
                 }
                 .listRowBackground(Color.white.opacity(0.1))
-                .background(Color.clear)
                 
                 Section(header: Text("Конфиденциальность")) {
                     Button("Политика конфиденциальности") {
@@ -55,9 +73,9 @@ struct SettingsView: View {
                             UIApplication.shared.open(url)
                         }
                     }
+//                    .foregroundStyle(.brown)
                 }
                 .listRowBackground(Color.white.opacity(0.1))
-                .background(Color.clear)
                 
                 Section(header: Text("Покупки")) {
                     Button("Восстановить покупки") {
@@ -65,7 +83,6 @@ struct SettingsView: View {
                     }
                 }
                 .listRowBackground(Color.white.opacity(0.1))
-                .background(Color.clear)
                 
                 Section(header: Text("Оценки и отзывы")) {
                     Button("Оценить приложение") {
@@ -73,10 +90,8 @@ struct SettingsView: View {
                     }
                 }
                 .listRowBackground(Color.white.opacity(0.1))
-                .background(Color.clear)
             }
             .scrollContentBackground(.hidden)
-            .background(Color.clear)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     NavigationBackButtonView { coordinator.pop() }

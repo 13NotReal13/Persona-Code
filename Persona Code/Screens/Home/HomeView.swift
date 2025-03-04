@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject private var coordinator = NavigationCoordinator.shared
+    @StateObject private var settings = SettingsViewModel.shared
     
     var body: some View {
         NavigationStack(path: $coordinator.path) {
@@ -46,8 +47,8 @@ struct HomeView: View {
                 switch modal {
                 case .purchase(let personaCode):
                     PurchaseModalView(personaCode: personaCode)
-                case .reminderPicker:
-                    ReminderPickerView()
+                case .reminderPicker(let reminderType):
+                    ReminderPickerView(reminderType: reminderType)
                         .environmentObject(AffirmationsViewModel.shared)
                         .presentationDetents([.fraction(0.5)])
                         .presentationDragIndicator(.visible)
@@ -55,6 +56,7 @@ struct HomeView: View {
             }
         }
         .environmentObject(coordinator)
+        .environmentObject(settings)
     }
 }
 
