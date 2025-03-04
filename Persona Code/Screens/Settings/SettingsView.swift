@@ -25,12 +25,7 @@ struct SettingsView: View {
                 
                 RestorePurchasesButtonView()
                 
-                Section(header: Text("Оценки и отзывы")) {
-                    Button("Оценить приложение") {
-                        ReviewRequestManager.shared.requestReview()
-                    }
-                }
-                .listRowBackground(Color.white.opacity(0.1))
+                RequestReviewButtonView()
                 
                 Section(header: Text("Поддержка")) {
                     Button("Связаться с разработчиком") {
