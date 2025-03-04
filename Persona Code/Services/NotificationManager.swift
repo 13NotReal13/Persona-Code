@@ -11,15 +11,39 @@ import UserNotifications
 final class NotificationManager {
     static let shared = NotificationManager()
     
+    private let appGroupUserDefaults = UserDefaults(suiteName: "group.Ivan-Semikin.Persona-Code")
+    private let dailyWishKey = "dailyWish"
+    
     private init() {}
     
     // 🔄 Запрос на авторизацию уведомлений
     func requestAuthorization(completion: @escaping (Bool) -> Void) {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             DispatchQueue.main.async {
+                if granted {
+                    self.registerNotificationCategories()
+                }
                 completion(granted)
             }
         }
+    }
+    
+    func registerNotificationCategories() {
+        let wishCategory = UNNotificationCategory(
+            identifier: "WISH_CATEGORY",
+            actions: [],
+            intentIdentifiers: [],
+            options: []
+        )
+        
+        let affirmationCategory = UNNotificationCategory(
+            identifier: "AFFIRMATION_CATEGORY",
+            actions: [],
+            intentIdentifiers: [],
+            options: []
+        )
+        
+        UNUserNotificationCenter.current().setNotificationCategories([wishCategory, affirmationCategory])
     }
     
     // 🔄 Еженедельные напоминания об аффирмациях
@@ -49,13 +73,16 @@ final class NotificationManager {
     
     // 🔄 Ежедневные уведомления с пожеланиями
     func scheduleDailyWishNotification(at time: Date) {
-        removeWishNotifications()  // Сначала удаляем старые уведомления
+        removeWishNotifications()
         
         let content = UNMutableNotificationContent()
         content.title = "Пожелание на день"
-        content.body = WishStorage.shared.getRandomWish()
+        let wish = WishStorage.shared.getRandomWish()
+        content.body = wish
         content.sound = .default
         content.categoryIdentifier = "WISH_CATEGORY"
+        
+        appGroupUserDefaults?.set(wish, forKey: dailyWishKey)
         
         var dateComponents = Calendar.current.dateComponents([.hour, .minute], from: time)
         dateComponents.second = 0
@@ -67,13 +94,7 @@ final class NotificationManager {
             trigger: trigger
         )
         
-        UNUserNotificationCenter.current().add(request) { error in
-            if let error = error {
-                print("Ошибка при добавлении уведомления: \(error.localizedDescription)")
-            } else {
-                print("✅ Уведомление запланировано на \(time)")
-            }
-        }
+        UNUserNotificationCenter.current().add(request) { error in }
     }
     
     // 🔄 Удаляем все напоминания об аффирмациях
