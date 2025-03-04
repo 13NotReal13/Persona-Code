@@ -49,6 +49,13 @@ struct ReminderToggleView: View {
     }
 }
 
-//#Preview {
-//    ReminderButtonView(isReminderEnabled: true)
-//}
+#Preview {
+    ZStack {
+        BackgroundView(isAnimated: false)
+        
+        ShadowBackgroundView()
+        
+        ReminderToggleView(isReminderEnabled: .constant(true))
+    }
+    .preferredColorScheme(.dark)
+}

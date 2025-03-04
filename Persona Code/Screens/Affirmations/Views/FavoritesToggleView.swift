@@ -8,11 +8,25 @@
 import SwiftUI
 
 struct FavoritesToggleView: View {
+    @Binding var showFavoritesOnly: Bool
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Toggle(isOn: $showFavoritesOnly) {
+            Text("Показывать только избранное")
+                .font(.caption)
+                .foregroundColor(.white)
+        }
+        .tint(.brown)
+        .padding(.horizontal, 32)
     }
 }
 
 #Preview {
-    FavoritesToggleView()
+    ZStack {
+        BackgroundView(isAnimated: false)
+        
+        ShadowBackgroundView()
+        
+        FavoritesToggleView(showFavoritesOnly: .constant(true))
+    }
 }

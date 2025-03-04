@@ -56,14 +56,7 @@ struct AffirmationsView: View {
                 
                 ReminderToggleView(isReminderEnabled: $settings.isReminderEnabled)
                 
-                // Переключатель для избранного
-                Toggle(isOn: $viewModel.showFavoritesOnly) {
-                    Text("Показывать только избранное")
-                        .font(.caption)
-                        .foregroundColor(.white)
-                }
-                .tint(.brown)
-                .padding(.horizontal)
+                FavoritesToggleView(showFavoritesOnly: $viewModel.showFavoritesOnly)
                 
                 // Список аффирмаций
                 List(viewModel.filteredAffirmations) { affirmation in
