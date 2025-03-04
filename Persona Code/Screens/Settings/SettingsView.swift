@@ -27,12 +27,7 @@ struct SettingsView: View {
                 
                 RequestReviewButtonView()
                 
-                Section(header: Text("Поддержка")) {
-                    Button("Связаться с разработчиком") {
-                        ReviewRequestManager.shared.showFeedbackForm()
-                    }
-                }
-                .listRowBackground(Color.white.opacity(0.1))
+                SupportButtonView()
             }
             .scrollContentBackground(.hidden)
             .toolbar {
