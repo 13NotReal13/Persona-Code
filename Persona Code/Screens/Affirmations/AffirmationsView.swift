@@ -18,41 +18,10 @@ struct AffirmationsView: View {
             ShadowBackgroundView()
             
             VStack {
-                // Горизонтальный список категорий
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 1) {
-                        ForEach(viewModel.categories) { category in
-                            Button(action: {
-                                viewModel.selectedCategory = category
-                            }) {
-                                VStack {
-                                    Image(systemName: category.icon)
-                                        .font(.title)
-                                        .foregroundColor(
-                                            viewModel.selectedCategory == category
-                                            ? .white
-                                            : .gray
-                                        )
-                                    Text(category.displayName)
-                                        .font(.caption)
-                                        .foregroundColor(
-                                            viewModel.selectedCategory == category
-                                            ? .white
-                                            : .gray
-                                        )
-                                }
-                                .padding()
-                                .background(
-                                    viewModel.selectedCategory == category
-                                    ? Color.brown.opacity(0.2)
-                                    : Color.clear
-                                )
-                                .cornerRadius(10)
-                            }
-                        }
-                    }
-                    .padding(.horizontal)
-                }
+                ScrollCategoriesView(
+                    selectedCategory: $viewModel.selectedCategory,
+                    categories: viewModel.categories
+                )
                 
                 ReminderToggleView(isReminderEnabled: $settings.isReminderEnabled)
                 
