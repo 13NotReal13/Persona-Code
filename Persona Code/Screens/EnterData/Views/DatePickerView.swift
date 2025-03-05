@@ -33,7 +33,7 @@ struct DatePickerView: View {
                     HStack {
                         if displayedDateText.lowercased() == "Выбрать дату".lowercased() {
                             Text(displayedDateText)
-                                .font(.custom("CorrectionBrush", size: 16))
+                                .font(.custom(CustomFont.correctionBrush.rawValue, size: 16))
                                 .foregroundStyle(Color.white.opacity(0.6))
                         } else {
                             Text(displayedDateText)
@@ -47,7 +47,7 @@ struct DatePickerView: View {
             VStack {
                 if !isDateValid {
                     Text("Выберите дату")
-                        .font(.custom("CorrectionBrush", size: 12))
+                        .font(.custom(CustomFont.correctionBrush.rawValue, size: 12))
                         .foregroundStyle(.red)
                 }
             }

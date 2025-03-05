@@ -24,7 +24,7 @@ struct HistoryView: View {
                     EmptyHistoryView()
                 } else {
                     Text("Удерживайте имя, чтобы удалить запись из истории")
-                        .font(.custom("CorrectionBrush", size: 10))
+                        .font(.custom(CustomFont.correctionBrush.rawValue, size: 10))
                         .foregroundStyle(.gray)
                     
                     ScrollView {

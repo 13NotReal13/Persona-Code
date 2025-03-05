@@ -46,7 +46,7 @@ struct NameTextFieldView: View {
             VStack {
                 if !isNameValid {
                     Text("Допустимые символы: \"А-Я\"")
-                        .font(.custom("CorrectionBrush", size: 12))
+                        .font(.custom(CustomFont.correctionBrush.rawValue, size: 12))
                         .foregroundStyle(.red)
                 }
             }

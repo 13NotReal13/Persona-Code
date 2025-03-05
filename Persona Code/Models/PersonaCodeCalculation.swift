@@ -16,18 +16,18 @@ struct PersonaCodeCalculation {
             name: name,
             dateOfBirthday: dateOfBirthday,
             
-            destinyNumber: PersonaCodeCodes.allCodes[destinyNumberValue]!,
-            lifePath: PathOfDevelopmentCodes.allCodes[lifePathValue]!,
-            relationships: CommunicationCodes.allCodes[relationshipsValue]!,
-            finances: FinancesCodes.allCodes[financesValue]!,
-            career: CareerCodes.allCodes[careerValue]!,
-            health: ResourceStateCodes.allCodes[healthValue]!,
-            talents: StrengthsCodes.allCodes[talentsValue]!,
-            challenges: RiskZoneCodes.allCodes[challengesValue]!,
-            personalGrowth: SelfDevelopmentCodes.allCodes[personalGrowthValue]!,
-            innerSelf: InnerBalanceCodes.allCodes[innerSelfValue]!,
-            purpose: LifeGoalsCodes.allCodes[purposeValue]!,
-            karmicLessons: ExperienceAndEvolutionCodes.allCodes[karmicLessonsValue]!
+            personaCode: PersonaCodeCodes.allCodes[getPersonaCodeValue]!,
+            pathOfDevelopment: PathOfDevelopmentCodes.allCodes[getPathOfDevelopmentValue]!,
+            communication: CommunicationCodes.allCodes[getCommunicationValue]!,
+            finances: FinancesCodes.allCodes[getFinancesValue]!,
+            career: CareerCodes.allCodes[getCareerValue]!,
+            resourceState: ResourceStateCodes.allCodes[getResourceStateValue]!,
+            strengths: StrengthsCodes.allCodes[getStrengthsValue]!,
+            riskZone: RiskZoneCodes.allCodes[getRiskZoneValue]!,
+            selfDevelopment: SelfDevelopmentCodes.allCodes[getSelfDevelopmentValue]!,
+            innerBalance: InnerBalanceCodes.allCodes[getInnerBalanceValue]!,
+            lifeGoals: LifeGoalsCodes.allCodes[getLifeGoalsValue]!,
+            experienceAndEvolution: ExperienceAndEvolutionCodes.allCodes[getExperienceAndEvolutionValue]!
         )
     }
     
@@ -56,7 +56,7 @@ struct PersonaCodeCalculation {
     }
     
     // Числовое значение имени (примерная логика)
-    private var nameSum: Int {
+    private var getNameSum: Int {
         // Допустим суммируем юникод значения только букв имени
         // Можно придумать любую логику
         return name.unicodeScalars
@@ -65,57 +65,54 @@ struct PersonaCodeCalculation {
             .reduce(0, +)
     }
     
-    // Число Судьбы
-    private var destinyNumberValue: Int {
+    private var getPersonaCodeValue: Int {
         let sumDateString = "\(day)\(month)\(year)"
         let sumDateInt = Int(sumDateString) ?? 0
         return reduceToCode(sumDateInt)
     }
     
-    // Жизненный Путь
-    private var lifePathValue: Int {
+    private var getPathOfDevelopmentValue: Int {
         return reduceToCode(day + month + year)
     }
     
-    // Остальные берём из описанных формул выше:
-    private var relationshipsValue: Int {
-        return reduceToCode(destinyNumberValue + day)
+    private var getCommunicationValue: Int {
+        return reduceToCode(getPersonaCodeValue + day)
     }
     
-    private var financesValue: Int {
-        return reduceToCode(lifePathValue + month)
+    private var getFinancesValue: Int {
+        return reduceToCode(getPathOfDevelopmentValue + month)
     }
     
-    private var careerValue: Int {
-        return reduceToCode(destinyNumberValue + year)
+    private var getCareerValue: Int {
+        return reduceToCode(getPersonaCodeValue + year)
     }
     
-    private var healthValue: Int {
-        return reduceToCode(day + month + year + destinyNumberValue)
+    private var getResourceStateValue: Int {
+        return reduceToCode(day + month + year + getPersonaCodeValue)
     }
     
-    private var talentsValue: Int {
-        return reduceToCode(nameSum)
+    private var getStrengthsValue: Int {
+        return reduceToCode(getNameSum)
     }
     
-    private var challengesValue: Int {
-        return reduceToCode(day + nameSum)
+    private var getRiskZoneValue: Int {
+        return reduceToCode(day + getNameSum)
     }
     
-    private var personalGrowthValue: Int {
-        return reduceToCode(lifePathValue + nameSum)
+    private var getSelfDevelopmentValue: Int {
+        return reduceToCode(getPathOfDevelopmentValue + getNameSum)
     }
     
-    private var innerSelfValue: Int {
-        return reduceToCode(destinyNumberValue + nameSum)
+    private var getInnerBalanceValue: Int {
+        return reduceToCode(getPersonaCodeValue + getNameSum)
     }
     
-    private var purposeValue: Int {
-        return reduceToCode(destinyNumberValue + lifePathValue + nameSum)
+    private var getLifeGoalsValue: Int {
+        return reduceToCode(getPersonaCodeValue + getPathOfDevelopmentValue + getNameSum)
     }
     
-    private var karmicLessonsValue: Int {
-        return reduceToCode((day + month) + destinyNumberValue)
+    private var getExperienceAndEvolutionValue: Int {
+        return reduceToCode((day + month) + getPersonaCodeValue)
     }
 }
 

@@ -11,33 +11,33 @@ struct PersonaCodeModel: Hashable {
     var name: String
     var dateOfBirthday: Date
     
-    var destinyNumber: CodeInfo // Число Судьбы
-    var lifePath: CodeInfo // Жизненный Путь
-    var relationships: CodeInfo // Отношения
-    var finances: CodeInfo // Деньги и Финансы
-    var career: CodeInfo // Карьера и Профессия
-    var health: CodeInfo // Здоровье
-    var talents: CodeInfo // Таланты и Способности
-    var challenges: CodeInfo // Испытания и Препятствия
-    var personalGrowth: CodeInfo // Личностный Рост
-    var innerSelf: CodeInfo // Внутренний Мир
-    var purpose: CodeInfo // Предназначение
-    var karmicLessons: CodeInfo // Кармические Уроки
+    var personaCode: CodeInfo
+    var pathOfDevelopment: CodeInfo
+    var communication: CodeInfo
+    var finances: CodeInfo
+    var career: CodeInfo
+    var resourceState: CodeInfo
+    var strengths: CodeInfo
+    var riskZone: CodeInfo
+    var selfDevelopment: CodeInfo
+    var innerBalance: CodeInfo
+    var lifeGoals: CodeInfo
+    var experienceAndEvolution: CodeInfo
     
     var allCodes: [CodeInfo] {
         return [
-            destinyNumber,
-            lifePath,
-            relationships,
+            personaCode,
+            pathOfDevelopment,
+            communication,
             finances,
             career,
-            health,
-            talents,
-            challenges,
-            personalGrowth,
-            innerSelf,
-            purpose,
-            karmicLessons
+            resourceState,
+            strengths,
+            riskZone,
+            selfDevelopment,
+            innerBalance,
+            lifeGoals,
+            experienceAndEvolution
         ]
     }
     

@@ -13,7 +13,7 @@ struct CustomFontModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .font(.custom("CorrectionBrush", size: fontSize))
+            .font(.custom(CustomFont.correctionBrush.rawValue, size: fontSize))
             .foregroundStyle(.white)
     }
 }
