@@ -25,7 +25,7 @@ struct BottomNavigationBarView: View {
             Button {
                 coordinator.push(.affirmation)
             } label: {
-                Text("Аффирмации")
+                Text("Affirmations")
                     .customText(fontSize: 17)
                     .customButtonStyle(width: UIScreen.main.bounds.width * 0.65, shape: .capsule)
             }

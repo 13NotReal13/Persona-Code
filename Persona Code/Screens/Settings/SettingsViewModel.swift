@@ -12,8 +12,8 @@ final class SettingsViewModel: ObservableObject {
     static let shared = SettingsViewModel()
     
     // MARK: - Настройки языка
-    @AppStorage("selectedLanguage") var selectedLanguage = "Русский"
-    let availableLanguages = ["Русский", "Польский", "Английский"]
+    @AppStorage("currentLanguage") var currentLanguage: String = "en"
+    @Published var locale = Locale(identifier: "ru")
     
     // MARK: - Настройки уведомлений
     @AppStorage("isReminderEnabled") var isReminderEnabled: Bool = false
@@ -82,6 +82,7 @@ final class SettingsViewModel: ObservableObject {
     }
     
     private init() {
+        // MARK: - Notifications
         NotificationManager.shared.requestAuthorization { granted in
             if granted {
                 if self.isFirstLaunch {
@@ -93,6 +94,15 @@ final class SettingsViewModel: ObservableObject {
             }
         }
         
+        // MARK: - AppLanguage
+        let deviceLanguage = Locale.preferredLanguages.first?.prefix(2).description ?? "en"
+        
+        if ["en", "pl", "ru"].contains(deviceLanguage) {
+            currentLanguage = deviceLanguage
+        } else {
+            currentLanguage = "en"
+        }
+        locale = Locale(identifier: currentLanguage)
     }
     
     private func setupDefaultWishNotifications() {
@@ -105,5 +115,12 @@ final class SettingsViewModel: ObservableObject {
         }
         
         updateWishNotifications()
+    }
+}
+
+extension SettingsViewModel {
+    func changeLanguage(to language: String) {
+        currentLanguage = language
+        locale = Locale(identifier: language)
     }
 }

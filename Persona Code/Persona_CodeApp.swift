@@ -9,10 +9,14 @@ import SwiftUI
 
 @main
 struct Persona_CodeApp: App {
+    @StateObject private var appSettings = SettingsViewModel.shared
+    
     var body: some Scene {
         WindowGroup {
             HomeView()
                 .preferredColorScheme(.dark)
+                .environmentObject(appSettings)
+                .environment(\.locale, appSettings.locale)
                 .onAppear {
                     IAPManager.shared.startObserving()
                     IAPManager.shared.fetchProducts()
