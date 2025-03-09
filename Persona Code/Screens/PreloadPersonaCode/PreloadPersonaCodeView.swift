@@ -44,7 +44,7 @@ struct PreloadPersonaCodeView: View {
             }
             
             ToolbarItem(placement: .principal) {
-                CustomNavigationTitleView(title: "Загрузка Данных")
+                CustomNavigationTitleView(title: localizedString("Data Loading"))
             }
         }
         .navigationBarBackButtonHidden()

@@ -38,7 +38,7 @@ struct AffirmationsView: View {
                 }
                 
                 ToolbarItem(placement: .principal) {
-                    CustomNavigationTitleView(title: "Аффирмации")
+                    CustomNavigationTitleView(title: localizedString("Affirmations"))
                 }
             }
         }

@@ -42,7 +42,7 @@ struct HelpInfoView: View {
                 }
                 
                 ToolbarItem(placement: .principal) {
-                    CustomNavigationTitleView(title: "Информация")
+                    CustomNavigationTitleView(title: localizedString("Information"))
                 }
             }
         }

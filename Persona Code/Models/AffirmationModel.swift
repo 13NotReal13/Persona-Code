@@ -8,19 +8,19 @@
 import Foundation
 
 enum AffirmationCategoryType: String, CaseIterable, Identifiable, Codable {
-    case all = "Все"
-    case confidence = "Уверенность"
-    case health = "Здоровье"
-    case finance = "Финансы"
-    case career = "Карьера"
-    case relationships = "Отношения"
+    case all = "All"
+    case confidence = "Confidence"
+    case health = "Health"
+    case finance = "Finance"
+    case career = "Career"
+    case relationships = "Relationships"
     
     var id: String {
         rawValue
     }
     
     var displayName: String {
-        rawValue
+        localizedString(rawValue)
     }
     
     var icon: String {

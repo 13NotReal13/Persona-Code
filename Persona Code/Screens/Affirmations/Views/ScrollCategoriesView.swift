@@ -13,7 +13,7 @@ struct ScrollCategoriesView: View {
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 1) {
+            HStack(alignment: .bottom, spacing: 1) {
                 ForEach(categories) { category in
                     Button(action: {
                         selectedCategory = category

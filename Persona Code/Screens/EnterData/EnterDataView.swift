@@ -42,7 +42,7 @@ struct EnterDataView: View {
             }
             
             ToolbarItem(placement: .principal) {
-                CustomNavigationTitleView(title: "Ввод Данных")
+                CustomNavigationTitleView(title: localizedString("Data Entry"))
             }
         }
         .navigationBarBackButtonHidden()

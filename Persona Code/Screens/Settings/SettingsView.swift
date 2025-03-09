@@ -35,7 +35,7 @@ struct SettingsView: View {
                     NavigationBackButtonView { coordinator.pop() }
                 }
                 ToolbarItem(placement: .principal) {
-                    CustomNavigationTitleView(title: "Настройки")
+                    CustomNavigationTitleView(title: localizedString("Settings"))
                 }
             }
             .environmentObject(viewModel)

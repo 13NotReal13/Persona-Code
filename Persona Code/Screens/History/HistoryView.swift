@@ -46,7 +46,7 @@ struct HistoryView: View {
                 }
                 
                 ToolbarItem(placement: .principal) {
-                    CustomNavigationTitleView(title: "История")
+                    CustomNavigationTitleView(title: localizedString("History"))
                 }
             }
             .deletePersonaCodeAlert(

@@ -103,6 +103,23 @@
         }
       }
     },
+    "All" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wszystko"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Все"
+          }
+        }
+      }
+    },
     "All you need is to enter your data. The system analyzes it using AI algorithms and creates a personal profile based on 12 categories." : {
       "localizations" : {
         "pl" : {
@@ -223,6 +240,23 @@
         }
       }
     },
+    "Career" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kariera"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Карьера"
+          }
+        }
+      }
+    },
     "Choose a date" : {
       "localizations" : {
         "en" : {
@@ -241,6 +275,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Выбрать дату"
+          }
+        }
+      }
+    },
+    "Confidence" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pewność siebie"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Уверенность"
           }
         }
       }
@@ -329,6 +380,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ежедневные вдохновения"
+          }
+        }
+      }
+    },
+    "Data Entry" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wprowadzanie danych"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ввод Данных"
+          }
+        }
+      }
+    },
+    "Data Loading" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ładowanie Danych"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Загрузка Данных"
           }
         }
       }
@@ -451,6 +536,23 @@
         }
       }
     },
+    "Finance" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finanse"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Финансы"
+          }
+        }
+      }
+    },
     "FULL NAME" : {
       "localizations" : {
         "pl" : {
@@ -495,6 +597,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Перейти в настройки"
+          }
+        }
+      }
+    },
+    "Health" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zdrowie"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Здоровье"
           }
         }
       }
@@ -559,6 +678,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Как это работает?"
+          }
+        }
+      }
+    },
+    "Information" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Informacje"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Информация"
           }
         }
       }
@@ -707,6 +843,23 @@
         }
       }
     },
+    "Persona Code" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kod Osobowości"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Код Личности"
+          }
+        }
+      }
+    },
     "Polish" : {
       "localizations" : {
         "pl" : {
@@ -799,6 +952,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Оценки и отзывы"
+          }
+        }
+      }
+    },
+    "Relationships" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Relacje"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отношения"
           }
         }
       }
