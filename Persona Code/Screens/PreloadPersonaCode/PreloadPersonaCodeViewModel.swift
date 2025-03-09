@@ -10,7 +10,7 @@ import SwiftUI
 
 final class PreloadPersonaCodeViewModel: ObservableObject {
     @Published var progress: CGFloat = 0.0
-    @Published var statusText: String = localizedString("Retrieving your persona code...")
+    @Published var statusText: String = localizedString("Retrieving your persona code . . .")
     @Published var loadWasFinished: Bool = false
     
     private var totalDuration: TimeInterval = 20.0

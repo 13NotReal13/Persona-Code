@@ -136,22 +136,6 @@
         }
       }
     },
-    "Allowed characters: \"A-Z\"" : {
-      "localizations" : {
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dozwolone znaki: “A-Z”"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Допустимые символы: “А-Я”"
-          }
-        }
-      }
-    },
     "Are you sure you want to delete the Persona Code %@ - %@?" : {
       "localizations" : {
         "en" : {
@@ -1021,19 +1005,19 @@
         }
       }
     },
-    "Retrieving your persona code…" : {
+    "Retrieving your persona code . . ." : {
       "extractionState" : "manual",
       "localizations" : {
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Otrzymuję twój kod osobowości…"
+            "value" : "Otrzymuję twój kod osobowości . . ."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Получаю ваш код личности…"
+            "value" : "Получаю ваш код личности . . ."
           }
         }
       }
@@ -1178,6 +1162,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "22 кода — это символы, отражающие разные грани вашей личности. Благодаря использованию передовых технологий искусственного интеллекта, приложение “Код Личности” способно предложить вам максимально точные и практичные рекомендации."
+          }
+        }
+      }
+    },
+    "The name can only contain letters" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Imię może zawierać tylko litery"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Имя может содержать только буквы"
           }
         }
       }

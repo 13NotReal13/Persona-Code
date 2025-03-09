@@ -45,7 +45,7 @@ struct NameTextFieldView: View {
             
             VStack {
                 if !isNameValid {
-                    Text("Allowed characters: \"A-Z\"")
+                    Text("The name can only contain letters")
                         .font(.custom(CustomFont.correctionBrush.rawValue, size: 12))
                         .foregroundStyle(.red)
                 }
