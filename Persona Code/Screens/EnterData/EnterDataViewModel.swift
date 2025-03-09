@@ -10,7 +10,7 @@ import Foundation
 final class EnterDataViewModel: ObservableObject {
     @Published var name: String = ""
     @Published var dateBirthday: Date = Date()
-    @Published var displayedDateText: String = "Choose a date"
+    @Published var displayedDateText: String = localizedString("Choose a date")
     
     @Published var isNameValid: Bool = true
     @Published var isDateValid: Bool = true
@@ -24,7 +24,7 @@ final class EnterDataViewModel: ObservableObject {
     
     @MainActor
     func validateDate() {
-        isDateValid = displayedDateText.lowercased() != "Choose a date".lowercased()
+        isDateValid = displayedDateText.lowercased() != localizedString("Choose a date").lowercased()
     }
     
     func updateDisplayedDate() {

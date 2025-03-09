@@ -85,15 +85,13 @@ final class SettingsViewModel: ObservableObject {
         let deviceLanguage = Locale.preferredLanguages.first?.prefix(2).description ?? "en"
 
         if let savedLanguage = savedLanguage {
-            print("🌍 Сохранённый язык: \(savedLanguage)")
-            currentLanguage = savedLanguage  // Используем сохранённый язык
+            currentLanguage = savedLanguage
         } else {
             if ["en", "pl", "ru"].contains(deviceLanguage) {
                 currentLanguage = deviceLanguage
             } else {
                 currentLanguage = "en"
             }
-            print("🌍 Язык устройства: \(deviceLanguage), установлен язык: \(currentLanguage)")
         }
 
         locale = Locale(identifier: currentLanguage)

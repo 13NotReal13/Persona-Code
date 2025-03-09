@@ -31,7 +31,7 @@ struct DatePickerView: View {
                         .opacity(0.7)
                     
                     HStack {
-                        if displayedDateText.lowercased() == "Choose a date".lowercased() {
+                        if displayedDateText.lowercased() == localizedString("Choose a date").lowercased() {
                             Text(displayedDateText)
                                 .font(.custom(CustomFont.correctionBrush.rawValue, size: 16))
                                 .foregroundStyle(Color.white.opacity(0.6))
