@@ -18,6 +18,7 @@ struct HelpInfoCategoriesView: View {
                     Text(localizedString(category.title))
                         .font(.title2)
                         .bold()
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     
                     VStack(alignment: .leading, spacing: 16) {
                         ForEach(category.subcategories, id: \.title) { subcategory in
@@ -26,9 +27,11 @@ struct HelpInfoCategoriesView: View {
                                 Text(localizedString(subcategory.title))
                                     .font(.headline)
                                     .bold()
+                                    .frame(maxWidth: .infinity, alignment: .leading)
                                 // Описание подкатегории
                                 Text(localizedString(subcategory.shortDescription))
                                     .foregroundStyle(.white.opacity(0.8))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
                             }
                         }
                     }
@@ -47,4 +50,5 @@ struct HelpInfoCategoriesView: View {
         
         HelpInfoCategoriesView(categories: HelpInfoContentData().categories)
     }
+    .preferredColorScheme(.dark)
 }
