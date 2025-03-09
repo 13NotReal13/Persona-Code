@@ -11,7 +11,7 @@ struct HelpInfoView: View {
     @EnvironmentObject private var coordinator: NavigationCoordinator
     @State private var selectedTab = 0
     
-    private let categories = HelpInfoViewModel().categories
+    private let categories = HelpInfoContentData().categories
     
     var body: some View {
         ZStack {

@@ -15,7 +15,7 @@ struct HelpInfoCategoriesView: View {
             VStack(spacing: 16) {
                 ForEach(categories, id: \.title) { category in
                     // Заголовок категории
-                    Text(category.title)
+                    Text(localizedString(category.title))
                         .font(.title2)
                         .bold()
                     
@@ -23,11 +23,11 @@ struct HelpInfoCategoriesView: View {
                         ForEach(category.subcategories, id: \.title) { subcategory in
                             VStack(alignment: .leading, spacing: 4) {
                                 // Заголовок подкатегории
-                                Text(subcategory.title)
+                                Text(localizedString(subcategory.title))
                                     .font(.headline)
                                     .bold()
                                 // Описание подкатегории
-                                Text(subcategory.shortDescription)
+                                Text(localizedString(subcategory.shortDescription))
                                     .foregroundStyle(.white.opacity(0.8))
                             }
                         }
@@ -45,6 +45,6 @@ struct HelpInfoCategoriesView: View {
         
         ShadowBackgroundView()
         
-        HelpInfoCategoriesView(categories: HelpInfoViewModel().categories)
+        HelpInfoCategoriesView(categories: HelpInfoContentData().categories)
     }
 }
