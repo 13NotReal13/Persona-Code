@@ -11,7 +11,16 @@ struct HelpInfoView: View {
     @EnvironmentObject private var coordinator: NavigationCoordinator
     @State private var selectedTab = 0
     
-    private let categories = HelpInfoContentData().categories
+    private var categories: [CodeInfo] {
+        switch UserDefaults.standard.string(forKey: "currentLanguage") {
+        case "ru":
+            return InfoContentData_RU().categories
+        case "pl":
+            return InfoContentData_PL().categories
+        default:
+            return InfoContentData_EN().categories
+        }
+    }
     
     var body: some View {
         ZStack {

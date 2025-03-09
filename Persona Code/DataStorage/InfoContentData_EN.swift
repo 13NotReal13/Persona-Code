@@ -1,5 +1,5 @@
 //
-//  HelpInfoViewModel.swift
+//  InfoContentData_EN.swift
 //  Persona Code
 //
 //  Created by Иван Семикин on 24/02/2025.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class HelpInfoContentData {
+final class InfoContentData_EN {
     let categories: [CodeInfo] = [
         CodeInfo(codeNumber: 0, title: "1. Persona Code", subcategories: [
             Subcategory(title: "Code Meaning", shortDescription: "Your key characteristics and personality traits."),

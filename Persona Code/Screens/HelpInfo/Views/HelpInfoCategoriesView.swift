@@ -48,7 +48,7 @@ struct HelpInfoCategoriesView: View {
         
         ShadowBackgroundView()
         
-        HelpInfoCategoriesView(categories: HelpInfoContentData().categories)
+        HelpInfoCategoriesView(categories: InfoContentData_EN().categories)
     }
     .preferredColorScheme(.dark)
 }
