@@ -1021,6 +1021,23 @@
         }
       }
     },
+    "Retrieving your persona code…" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otrzymuję twój kod osobowości…"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Получаю ваш код личности…"
+          }
+        }
+      }
+    },
     "Russian" : {
       "localizations" : {
         "pl" : {

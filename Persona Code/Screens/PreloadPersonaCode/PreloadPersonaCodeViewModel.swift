@@ -10,10 +10,10 @@ import SwiftUI
 
 final class PreloadPersonaCodeViewModel: ObservableObject {
     @Published var progress: CGFloat = 0.0
-    @Published var statusText: String = "Получаю ваш код личности..."
+    @Published var statusText: String = localizedString("Retrieving your persona code...")
     @Published var loadWasFinished: Bool = false
     
-    private var totalDuration: TimeInterval = 25.0
+    private var totalDuration: TimeInterval = 20.0
     private let coordinator = NavigationCoordinator.shared
     
     func savePersonaCode(personaCode: ShortPersonaCodeData) {
@@ -23,7 +23,7 @@ final class PreloadPersonaCodeViewModel: ObservableObject {
     // Начинает загрузку прогресса
     func startLoading(for personaCode: ShortPersonaCodeData) {
         progress = 0.0
-        let steps = Int.random(in: 15...30)
+        let steps = Int.random(in: 15...25)
         let delays = generateRandomDelays(totalDuration: totalDuration, steps: steps)
         
         for (index, delay) in delays.enumerated() {

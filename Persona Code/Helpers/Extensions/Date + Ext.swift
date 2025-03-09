@@ -9,9 +9,11 @@ import Foundation
 
 extension Date {
     func formattedDate() -> String {
+        let currentLanguage = UserDefaults.standard.string(forKey: "currentLanguage") ?? "en"
+        
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
-        formatter.locale = Locale(identifier: "ru")
+        formatter.locale = Locale(identifier: currentLanguage)
         
         return formatter.string(from: self)
     }

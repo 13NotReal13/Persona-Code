@@ -21,7 +21,6 @@ struct DatePickerModalView: View {
                 
                 // Выбор даты
                 DatePicker("Birth date", selection: $enterDataViewModel.dateBirthday, displayedComponents: .date)
-                    .environment(\.locale, Locale(identifier: "ru"))
                     .datePickerStyle(.wheel)
                     .colorInvert()
                     .colorMultiply(Color.white)
