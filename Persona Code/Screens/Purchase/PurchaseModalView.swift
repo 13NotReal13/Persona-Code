@@ -35,7 +35,7 @@ struct PurchaseModalView: View {
                     if let product = IAPManager.shared.getProducts().first {
                         purchaseButton(for: product)
                     } else {
-                        Text("Загрузка цены...")
+                        Text("Loading price…")
                             .frame(width: UIScreen.main.bounds.width * 0.95)
                             .frame(height: 50)
                             .foregroundColor(.white)
@@ -55,7 +55,7 @@ struct PurchaseModalView: View {
         Button(action: {
             handlePurchase(for: product)
         }) {
-            Text("Приобрести за \(product.localizedPrice ?? "N/A")")
+            Text("Buy for \(product.localizedPrice ?? "N/A")")
                 .frame(width: UIScreen.main.bounds.width * 0.95)
                 .frame(height: 50)
                 .foregroundColor(.white)
@@ -89,7 +89,7 @@ struct PurchaseModalView: View {
         Button {
             IAPManager.shared.restorePurchases()
         } label: {
-            Text("Восстановить покупки")
+            Text("Restore purchases")
                 .font(.footnote)
                 .foregroundColor(.gray)
         }
@@ -101,7 +101,7 @@ struct PurchaseModalView: View {
                 UIApplication.shared.open(url)
             }
         }) {
-            Text("Условия использования")
+            Text("Terms of Use")
                 .font(.footnote)
                 .foregroundColor(.gray)
         }
@@ -113,7 +113,7 @@ struct PurchaseModalView: View {
                 UIApplication.shared.open(url)
             }
         }) {
-            Text("Политика конфиденциальности")
+            Text("Privacy Policy")
                 .font(.footnote)
                 .foregroundColor(.gray)
         }
@@ -123,7 +123,7 @@ struct PurchaseModalView: View {
         Button(action: {
             coordinator.dismissModal()
         }) {
-            Text("Отмена")
+            Text("Cancel")
                 .frame(maxWidth: .infinity)
                 .padding()
                 .foregroundColor(.blue)

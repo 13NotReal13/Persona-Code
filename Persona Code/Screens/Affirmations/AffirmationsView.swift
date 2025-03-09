@@ -53,6 +53,5 @@ struct AffirmationsView: View {
             .preferredColorScheme(.dark)
             .environmentObject(NavigationCoordinator.shared)
             .environmentObject(AffirmationsViewModel.shared)
-            .environmentObject(SettingsViewModel.shared)
     }
 }

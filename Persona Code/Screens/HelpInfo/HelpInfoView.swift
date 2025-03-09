@@ -21,8 +21,8 @@ struct HelpInfoView: View {
             
             VStack(alignment: .center) {
                 Picker(selection: $selectedTab) {
-                    Text("Как это работает?").tag(0)
-                    Text("Содержимое").tag(1)
+                    Text("How does it work?").tag(0)
+                    Text("Content").tag(1)
                 } label: {
                     Text("")
                 }

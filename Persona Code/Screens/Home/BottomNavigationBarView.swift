@@ -17,7 +17,7 @@ struct BottomNavigationBarView: View {
             Button {
                 coordinator.push(.enterData)
             } label: {
-                Text("Получить Код")
+                Text("Get the Code")
                     .customText(fontSize: 17)
                     .customButtonStyle(width: UIScreen.main.bounds.width * 0.7, shape: .capsule)
             }
@@ -33,7 +33,7 @@ struct BottomNavigationBarView: View {
             Button {
                 coordinator.push(.history)
             } label: {
-                Text("История")
+                Text("History")
                     .customText(fontSize: 17)
                     .customButtonStyle(width: UIScreen.main.bounds.width * 0.6, shape: .capsule)
             }
@@ -41,7 +41,7 @@ struct BottomNavigationBarView: View {
             Button {
                 coordinator.push(.settings)
             } label: {
-                Text("Настройки")
+                Text("Settings")
                     .customText(fontSize: 17)
                     .customButtonStyle(width: UIScreen.main.bounds.width * 0.55, shape: .capsule)
             }
@@ -49,7 +49,7 @@ struct BottomNavigationBarView: View {
             Button {
                 coordinator.push(.helpInfo)
             } label: {
-                Text("Как это работает?")
+                Text("How does it work?")
                     .customText(fontSize: 17)
                     .customButtonStyle(width: UIScreen.main.bounds.width * 0.5, shape: .capsule)
             }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject private var coordinator: NavigationCoordinator
-    @StateObject private var viewModel = SettingsViewModel.shared
+    @EnvironmentObject private var viewModel: SettingsViewModel
     
     var body: some View {
         ZStack {

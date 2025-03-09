@@ -15,7 +15,7 @@ struct NameTextFieldView: View {
     
     var body: some View {
         VStack {
-            Text("Введите ваше полное имя (только имя)")
+            Text("Enter your full name (first name only)")
                 .customText(fontSize: 12)
             
             ZStack {
@@ -27,7 +27,7 @@ struct NameTextFieldView: View {
                 TextField(
                     "",
                     text: $name,
-                    prompt: Text("ПОЛНОЕ ИМЯ")
+                    prompt: Text("FULL NAME")
                         .foregroundColor(Color.white.opacity(0.65))
                 )
                 .textContentType(.none)
@@ -45,7 +45,7 @@ struct NameTextFieldView: View {
             
             VStack {
                 if !isNameValid {
-                    Text("Допустимые символы: \"А-Я\"")
+                    Text("Allowed characters: \"A-Z\"")
                         .font(.custom(CustomFont.correctionBrush.rawValue, size: 12))
                         .foregroundStyle(.red)
                 }

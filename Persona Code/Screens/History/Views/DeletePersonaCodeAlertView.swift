@@ -14,14 +14,14 @@ struct DeletePersonaCodeAlertView: ViewModifier {
     
     func body(content: Content) -> some View {
         content.alert(
-            "Удалить Код Личности?",
+            "Delete Persona Code?",
             isPresented: $isPresented,
             actions: {
-                Button("Удалить", role: .destructive, action: onDelete)
-                Button("Отмена", role: .cancel) {}
+                Button("Delete", role: .destructive, action: onDelete)
+                Button("Cancel", role: .cancel) {}
             },
             message: {
-                Text("Вы уверены, что хотите удалить Код Личности \(personaCode?.name ?? "неизвестно") - \(personaCode?.dateOfBirthday.formattedDate() ?? "неизвестно")?")
+                Text("Are you sure you want to delete the Persona Code \(personaCode?.name ?? "неизвестно") - \(personaCode?.dateOfBirthday.formattedDate() ?? "неизвестно")?")
             }
         )
     }

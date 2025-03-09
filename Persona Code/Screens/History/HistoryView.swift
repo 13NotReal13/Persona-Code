@@ -23,7 +23,7 @@ struct HistoryView: View {
                 if storageManager.historyPersonaCodeData.isEmpty {
                     EmptyHistoryView()
                 } else {
-                    Text("Удерживайте имя, чтобы удалить запись из истории")
+                    Text("Hold the name to delete the entry from history")
                         .font(.custom(CustomFont.correctionBrush.rawValue, size: 10))
                         .foregroundStyle(.gray)
                     

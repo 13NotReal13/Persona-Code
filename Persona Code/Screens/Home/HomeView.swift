@@ -9,7 +9,6 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject private var coordinator = NavigationCoordinator.shared
-    @StateObject private var settings = SettingsViewModel.shared
     
     var body: some View {
         NavigationStack(path: $coordinator.path) {
@@ -56,7 +55,6 @@ struct HomeView: View {
             }
         }
         .environmentObject(coordinator)
-        .environmentObject(settings)
     }
 }
 

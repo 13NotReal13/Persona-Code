@@ -10,7 +10,7 @@ import SwiftUI
 struct DescriptionPurchaseView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text("Что вы получите:")
+            Text("What you will get:")
                 .customText(fontSize: 15)
                 .padding(.leading, 6)
             

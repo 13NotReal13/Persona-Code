@@ -29,7 +29,7 @@ struct HistoryCardView: View {
                     }
                     
                     
-                    Text("Создано: \(personaCode.dateCreationPersonaCode.formattedDate())")
+                    Text("Created: \(personaCode.dateCreationPersonaCode.formattedDate())")
                         .font(.footnote)
                         .foregroundColor(.white.opacity(0.7))
                 }

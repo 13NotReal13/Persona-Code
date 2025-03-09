@@ -14,8 +14,8 @@ struct NotificationTogglesView: View {
     @State private var notificationStatus: UNAuthorizationStatus = .notDetermined
     
     var body: some View {
-        Section(header: Text("Уведомления")) {
-            Toggle("Напоминания об аффирмациях", isOn: $viewModel.isReminderEnabled)
+        Section(header: Text("Notifications")) {
+            Toggle("Affirmation reminders", isOn: $viewModel.isReminderEnabled)
                 .tint(.brown)
                 .disabled(notificationStatus == .denied)
                 .onChange(of: viewModel.isReminderEnabled) { isOn in
@@ -23,14 +23,14 @@ struct NotificationTogglesView: View {
                 }
             
             if viewModel.isReminderEnabled {
-                Button("Настройки уведомлений") {
+                Button("Notification settings") {
                     coordinator.present(.reminderPicker(type: ReminderType.affirmation))
                 }
                 .font(.caption)
                 .foregroundColor(.brown)
             }
             
-            Toggle("Ежедневные вдохновения", isOn: $viewModel.isWishNotificationEnabled)
+            Toggle("Daily inspirations", isOn: $viewModel.isWishNotificationEnabled)
                 .tint(.brown)
                 .disabled(notificationStatus == .denied)
                 .onChange(of: viewModel.isWishNotificationEnabled) { isOn in
@@ -38,7 +38,7 @@ struct NotificationTogglesView: View {
                 }
             
             if viewModel.isWishNotificationEnabled {
-                Button("Настройки уведомлений") {
+                Button("Notification settings") {
                     coordinator.present(.reminderPicker(type: ReminderType.wish))
                 }
                 .font(.caption)
@@ -50,11 +50,11 @@ struct NotificationTogglesView: View {
                     Spacer()
                     
                     VStack(alignment: .center, spacing: 16) {
-                        Text("Уведомления отключены")
+                        Text("Notifications disabled")
                             .font(.caption)
                             .foregroundStyle(.red)
                         
-                        Button("Перейти в настройки") {
+                        Button("Go to Settings") {
                             openAppSettings()
                         }
                     }
@@ -92,5 +92,5 @@ struct NotificationTogglesView: View {
 #Preview {
     NotificationTogglesView()
         .environmentObject(NavigationCoordinator.shared)
-        .environmentObject(SettingsViewModel.shared)
+        .environmentObject(SettingsViewModel())
 }

@@ -24,7 +24,7 @@ struct PreloadPersonaCodeView: View {
                     Button {
                         coordinator.present(.purchase(personaCode: personaCode))
                     } label: {
-                        Text("Открыть")
+                        Text("Open")
                             .customText(fontSize: 17)
                             .customButtonStyle(width: UIScreen.main.bounds.width * 0.6, shape: .capsule)
                     }

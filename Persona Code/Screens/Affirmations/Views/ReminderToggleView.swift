@@ -15,7 +15,7 @@ struct ReminderToggleView: View {
         VStack {
             // Тоггл с напоминаниями
             Toggle(isOn: $isReminderEnabled) {
-                Text("Напоминание прочитать аффирмации")
+                Text("Reminder to read affirmations")
                     .font(.caption)
                     .foregroundColor(.white)
             }
@@ -31,7 +31,7 @@ struct ReminderToggleView: View {
             
             if isReminderEnabled {
                 HStack {
-                    Button("Настройки уведомлений") {
+                    Button("Notification settings") {
                         coordinator.present(.reminderPicker(type: ReminderType.affirmation))
                     }
                     .font(.caption)

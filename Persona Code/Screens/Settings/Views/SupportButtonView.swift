@@ -9,8 +9,8 @@ import SwiftUI
 
 struct SupportButtonView: View {
     var body: some View {
-        Section(header: Text("Поддержка")) {
-            Button("Связаться с разработчиком") {
+        Section(header: Text("Support")) {
+            Button("Contact the Developer") {
                 ReviewRequestManager.shared.showFeedbackForm()
             }
         }

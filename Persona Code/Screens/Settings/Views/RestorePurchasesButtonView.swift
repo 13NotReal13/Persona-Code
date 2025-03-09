@@ -9,8 +9,8 @@ import SwiftUI
 
 struct RestorePurchasesButtonView: View {
     var body: some View {
-        Section(header: Text("Покупки")) {
-            Button("Восстановить покупки") {
+        Section(header: Text("Purchases")) {
+            Button("Restore purchases") {
                 IAPManager.shared.restorePurchases()
             }
         }

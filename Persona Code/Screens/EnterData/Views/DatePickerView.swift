@@ -14,7 +14,7 @@ struct DatePickerView: View {
     
     var body: some View {
         VStack {
-            Text("Выберите вашу дату рождения")
+            Text("Select your birth date")
                 .customText(fontSize: 12)
             
             Button(action: {
@@ -31,7 +31,7 @@ struct DatePickerView: View {
                         .opacity(0.7)
                     
                     HStack {
-                        if displayedDateText.lowercased() == "Выбрать дату".lowercased() {
+                        if displayedDateText.lowercased() == "Choose a date".lowercased() {
                             Text(displayedDateText)
                                 .font(.custom(CustomFont.correctionBrush.rawValue, size: 16))
                                 .foregroundStyle(Color.white.opacity(0.6))
@@ -46,7 +46,7 @@ struct DatePickerView: View {
             
             VStack {
                 if !isDateValid {
-                    Text("Выберите дату")
+                    Text("Choose a date")
                         .font(.custom(CustomFont.correctionBrush.rawValue, size: 12))
                         .foregroundStyle(.red)
                 }

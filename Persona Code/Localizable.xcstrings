@@ -2,10 +2,36 @@
   "sourceLanguage" : "en",
   "strings" : {
     "" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(Empty string)"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(Empty string)"
+          }
+        }
+      }
     },
     " - " : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " - "
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " - "
+          }
+        }
+      }
     },
     "%@ - %@" : {
       "localizations" : {
@@ -14,20 +40,61 @@
             "state" : "new",
             "value" : "%1$@ - %2$@"
           }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ - %2$@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ - %2$@"
+          }
         }
       }
     },
     "%lld" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        }
+      }
     },
-    "22 кода — это символы, отражающие разные грани вашей личности. Благодаря использованию передовых технологий искусственного интеллекта, приложение \"Код Личности\" способно предложить вам максимально точные и практичные рекомендации." : {
-
-    },
-    "22 кода помогают исследовать разные стороны личности: от врождённых талантов и сильных сторон до скрытых потенциалов и возможных препятствий. Искусственный интеллект помогает выявлять скрытые связи и предоставлять точные рекомендации." : {
-
+    "Affirmation reminders" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Przypomnienia o afirmacjach"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Напоминания об аффирмациях"
+          }
+        }
+      }
     },
     "Affirmations" : {
       "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afirmacje"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -36,8 +103,260 @@
         }
       }
     },
+    "All you need is to enter your data. The system analyzes it using AI algorithms and creates a personal profile based on 12 categories." : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wystarczy, że wprowadzisz swoje dane. System przeanalizuje je za pomocą algorytmów AI i stworzy osobisty profil oparty na 12 kategoriach, z których każda zawiera 22 możliwe scenariusze rozwoju."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Всё, что вам нужно — это ввести свои данные. Система проанализирует их с помощью алгоритмов ИИ и составит персональный профиль на основе 12 категорий, каждая из которых включает 22 возможных сценария развития."
+          }
+        }
+      }
+    },
+    "Allowed characters: \"A-Z\"" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dozwolone znaki: “A-Z”"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Допустимые символы: “А-Я”"
+          }
+        }
+      }
+    },
+    "Are you sure you want to delete the Persona Code %@ - %@?" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Are you sure you want to delete the Persona Code %1$@ - %2$@?"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Czy na pewno chcesz usunąć Kod Osobowości %@ - %@?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вы уверены, что хотите удалить Код Личности %1$@ - %2$@?"
+          }
+        }
+      }
+    },
+    "Birth date" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data urodzenia"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дата рождения"
+          }
+        }
+      }
+    },
+    "Buy for %@" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kup za %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Приобрести за %@"
+          }
+        }
+      }
+    },
+    "Cancel" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anuluj"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отмена"
+          }
+        }
+      }
+    },
+    "Choose a date" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wybierz datę"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выберите дату"
+          }
+        }
+      }
+    },
+    "Contact the Developer" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skontaktuj się z deweloperem"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Связаться с разработчиком"
+          }
+        }
+      }
+    },
+    "Content" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zawartość"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Содержимое"
+          }
+        }
+      }
+    },
+    "Created: %@" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utworzono: %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Создано: %@"
+          }
+        }
+      }
+    },
+    "Daily inspirations" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Codzienne inspiracje"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ежедневные вдохновения"
+          }
+        }
+      }
+    },
+    "Delete" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usuń"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete"
+          }
+        }
+      }
+    },
+    "Delete Persona Code?" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usunąć Kod Osobowości?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Удалить Код Личности?"
+          }
+        }
+      }
+    },
+    "Done" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gotowe"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Готово"
+          }
+        }
+      }
+    },
+    "Download .pdf" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pobierz .pdf"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скачать .pdf"
+          }
+        }
+      }
+    },
     "English" : {
       "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Angielski"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -46,8 +365,174 @@
         }
       }
     },
+    "Enter your full name (first name only)" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wpisz swoje pełne imię (tylko imię)"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Введите ваше полное имя (только имя)"
+          }
+        }
+      }
+    },
+    "Final thought" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Końcowa myśl"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Итоговая мысль"
+          }
+        }
+      }
+    },
+    "FULL NAME" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PEŁNE IMIĘ"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ПОЛНОЕ ИМЯ"
+          }
+        }
+      }
+    },
+    "Get the Code" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uzyskaj Kod"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Получить Код"
+          }
+        }
+      }
+    },
+    "Go to Settings" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Przejdź do ustawień"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перейти в настройки"
+          }
+        }
+      }
+    },
+    "Here you can learn more about yourself and your potential through a unique system of 22 codes. The “Persona Code” app is developed using the most advanced AI model, capable of analyzing data with high accuracy and providing personalized recommendations.\n\nThe system of 22 codes was not chosen by chance. It covers all key aspects of personality and life path, providing a comprehensive understanding of your talents, goals, and opportunities." : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tutaj możesz dowiedzieć się więcej o sobie i swoim potencjale dzięki unikalnemu systemowi 22 kodów. Aplikacja “Kod Osobowości” została opracowana z wykorzystaniem najnowocześniejszego modelu AI, który analizuje dane z wysoką precyzją i oferuje spersonalizowane rekomendacje.\n\nSystem 22 kodów nie został wybrany przypadkowo. Obejmuje wszystkie kluczowe aspekty osobowości i ścieżki życiowej, zapewniając kompleksowe zrozumienie talentów, celów i możliwości."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Здесь вы сможете узнать больше о себе и своём потенциале через уникальную систему из 22 кодов. Программа “Код Личности” разработана с использованием самой совершенной модели искусственного интеллекта, способной анализировать данные с высокой точностью и предоставлять вам персонализированные рекомендации.\n\nСистема из 22 кодов выбрана не случайно. Она охватывает все ключевые аспекты личности и жизненного пути, предоставляя целостное понимание ваших талантов, целей и возможностей."
+          }
+        }
+      }
+    },
+    "History" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Historia"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "История"
+          }
+        }
+      }
+    },
+    "Hold the name to delete the entry from history" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Przytrzymaj nazwę, aby usunąć wpis z historii"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Удерживайте имя, чтобы удалить запись из истории"
+          }
+        }
+      }
+    },
+    "How does it work?" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jak to działa?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Как это работает?"
+          }
+        }
+      }
+    },
+    "Interface Language" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Język interfejsu"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Язык интерфейса"
+          }
+        }
+      }
+    },
     "Language" : {
       "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Język"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -56,8 +541,126 @@
         }
       }
     },
+    "Loading price…" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ładowanie ceny…"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Загрузка цены…"
+          }
+        }
+      }
+    },
+    "Next" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dalej"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Далее"
+          }
+        }
+      }
+    },
+    "No history" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Brak historii"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нет истории"
+          }
+        }
+      }
+    },
+    "Notification settings" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ustawienia powiadomień"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Настройки уведомлений"
+          }
+        }
+      }
+    },
+    "Notifications" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Powiadomienia"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Уведомления"
+          }
+        }
+      }
+    },
+    "Notifications disabled" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Powiadomienia wyłączone"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Уведомления отключены"
+          }
+        }
+      }
+    },
+    "Open" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otwórz"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Открыть"
+          }
+        }
+      }
+    },
     "Polish" : {
       "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Polski"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -66,8 +669,142 @@
         }
       }
     },
+    "Privacy" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prywatność"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Конфиденциальность"
+          }
+        }
+      }
+    },
+    "Privacy Policy" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Polityka prywatności"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Политика конфиденциальности"
+          }
+        }
+      }
+    },
+    "Purchases" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zakupy"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Покупки"
+          }
+        }
+      }
+    },
+    "Rate the app" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oceń aplikację"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Оценить приложение"
+          }
+        }
+      }
+    },
+    "Ratings and reviews" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oceny i opinie"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Оценки и отзывы"
+          }
+        }
+      }
+    },
+    "Reminder time" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Czas przypomnienia"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Время напоминания"
+          }
+        }
+      }
+    },
+    "Reminder to read affirmations" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Przypomnienie, aby przeczytać afirmacje"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Напоминание прочитать аффирмации"
+          }
+        }
+      }
+    },
+    "Restore purchases" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Przywróć zakupy"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Восстановить покупки"
+          }
+        }
+      }
+    },
     "Russian" : {
       "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rosyjski"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -76,162 +813,181 @@
         }
       }
     },
-    "Введите ваше полное имя (только имя)" : {
-
-    },
-    "Восстановить покупки" : {
-
-    },
-    "Время напоминания" : {
-
-    },
-    "Всё, что вам нужно — это ввести свои данные. Система проанализирует их с помощью алгоритмов ИИ и составит персональный профиль на основе 12 категорий, каждая из которых включает 22 возможных сценария развития." : {
-
-    },
-    "Вы уверены, что хотите удалить Код Личности %@ - %@?" : {
+    "Save" : {
       "localizations" : {
-        "en" : {
+        "pl" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Вы уверены, что хотите удалить Код Личности %1$@ - %2$@?"
+            "state" : "translated",
+            "value" : "Zapisz"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сохранить"
           }
         }
       }
     },
-    "Выберите вашу дату рождения" : {
-
+    "Select your birth date" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wybierz swoją datę urodzenia"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выберите вашу дату рождения"
+          }
+        }
+      }
     },
-    "Выберите дату" : {
-
+    "Settings" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ustawienia"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Настройки"
+          }
+        }
+      }
     },
-    "Готово" : {
-
+    "Show only Favorites" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pokaż tylko ulubione"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показывать только избранное"
+          }
+        }
+      }
     },
-    "Далее" : {
-
+    "Support" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wsparcie"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поддержка"
+          }
+        }
+      }
     },
-    "Дата рождения" : {
-
+    "Terms of Use" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Warunki użytkowania"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Условия использования"
+          }
+        }
+      }
     },
-    "Добро пожаловать в приложение \"Код Личности\"!" : {
-
+    "The 22 codes help explore different aspects of personality, from innate talents and strengths to hidden potentials and obstacles. AI reveals hidden connections and provides accurate recommendations." : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "22 kody pomagają badać różne aspekty osobowości: od wrodzonych talentów i mocnych stron po ukryte potencjały i przeszkody. AI ujawnia ukryte powiązania i dostarcza trafne rekomendacje."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "22 кода помогают исследовать разные стороны личности: от врождённых талантов и сильных сторон до скрытых потенциалов и возможных препятствий. Искусственный интеллект помогает выявлять скрытые связи и предоставлять точные рекомендации."
+          }
+        }
+      }
     },
-    "Допустимые символы: \"А-Я\"" : {
-
+    "The 22 codes symbolize different facets of your personality. Thanks to advanced AI technology, the “Persona Code” app can offer you precise and practical recommendations." : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "22 kody to symbole, które odzwierciedlają różne aspekty twojej osobowości. Dzięki zaawansowanej technologii AI aplikacja “Kod Osobowości” oferuje dokładne i praktyczne rekomendacje."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "22 кода — это символы, отражающие разные грани вашей личности. Благодаря использованию передовых технологий искусственного интеллекта, приложение “Код Личности” способно предложить вам максимально точные и практичные рекомендации."
+          }
+        }
+      }
     },
-    "Ежедневные вдохновения" : {
-
+    "Welcome to the \"Persona Code\" app!" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Witamy w aplikacji “Kod Osobowości”!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Добро пожаловать в приложение “Код Личности\"!"
+          }
+        }
+      }
     },
-    "Загрузка цены..." : {
-
+    "What you will get:" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Co otrzymasz:"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Что вы получите:"
+          }
+        }
+      }
     },
-    "Здесь вы сможете узнать больше о себе и своём потенциале через уникальную систему из 22 кодов. Программа \"Код Личности\" разработана с использованием самой совершенной модели искусственного интеллекта, способной анализировать данные с высокой точностью и предоставлять вам персонализированные рекомендации.\n\nСистема из 22 кодов выбрана не случайно. Она охватывает все ключевые аспекты личности и жизненного пути, предоставляя целостное понимание ваших талантов, целей и возможностей." : {
-
-    },
-    "История" : {
-
-    },
-    "Итоговая мысль" : {
-
-    },
-    "Как это работает?" : {
-
-    },
-    "Конфиденциальность" : {
-
-    },
-    "Напоминание прочитать аффирмации" : {
-
-    },
-    "Напоминания об аффирмациях" : {
-
-    },
-    "Настройки" : {
-
-    },
-    "Настройки уведомлений" : {
-
-    },
-    "Нет истории" : {
-
-    },
-    "Открыть" : {
-
-    },
-    "Отмена" : {
-
-    },
-    "Оценить приложение" : {
-
-    },
-    "Оценки и отзывы" : {
-
-    },
-    "Перейти в настройки" : {
-
-    },
-    "Поддержка" : {
-
-    },
-    "Показывать только избранное" : {
-
-    },
-    "Покупки" : {
-
-    },
-    "Политика конфиденциальности" : {
-
-    },
-    "ПОЛНОЕ ИМЯ" : {
-
-    },
-    "Получить Код" : {
-
-    },
-    "Почему именно 22 кода?" : {
-
-    },
-    "Приобрести за %@" : {
-
-    },
-    "Связаться с разработчиком" : {
-
-    },
-    "Скачать .pdf" : {
-
-    },
-    "Содержимое" : {
-
-    },
-    "Создано: %@" : {
-
-    },
-    "Сохранить" : {
-
-    },
-    "Уведомления" : {
-
-    },
-    "Уведомления отключены" : {
-
-    },
-    "Удалить" : {
-
-    },
-    "Удалить Код Личности?" : {
-
-    },
-    "Удерживайте имя, чтобы удалить запись из истории" : {
-
-    },
-    "Условия использования" : {
-
-    },
-    "Что вы получите:" : {
-
-    },
-    "Язык интерфейса" : {
-
+    "Why 22 codes?" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dlaczego właśnie 22 kody?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Почему именно 22 кода?"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

@@ -20,7 +20,7 @@ struct ReminderPickerView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            Text(reminderType == .affirmation ? "Напоминания об аффирмациях" : "Ежедневные вдохновения")
+            Text(reminderType == .affirmation ? "Affirmation reminders" : "Daily inspirations")
                 .font(.headline)
                 .padding(.top)
             
@@ -49,7 +49,7 @@ struct ReminderPickerView: View {
                 
                 // Выбор времени
                 DatePicker(
-                    "Время напоминания",
+                    "Reminder time",
                     selection: reminderType == .affirmation ? $viewModel.reminderDate : $viewModel.wishDate,
                     displayedComponents: .hourAndMinute
                 )
@@ -58,7 +58,7 @@ struct ReminderPickerView: View {
                 .padding(.horizontal)
             }
             
-            Button("Сохранить") {
+            Button("Save") {
                 if reminderType == .affirmation {
                     viewModel.updateReminders()
                 } else {

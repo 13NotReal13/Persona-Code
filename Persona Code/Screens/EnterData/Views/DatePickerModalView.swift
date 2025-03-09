@@ -20,7 +20,7 @@ struct DatePickerModalView: View {
                 Spacer()
                 
                 // Выбор даты
-                DatePicker("Дата рождения", selection: $enterDataViewModel.dateBirthday, displayedComponents: .date)
+                DatePicker("Birth date", selection: $enterDataViewModel.dateBirthday, displayedComponents: .date)
                     .environment(\.locale, Locale(identifier: "ru"))
                     .datePickerStyle(.wheel)
                     .colorInvert()
@@ -35,7 +35,7 @@ struct DatePickerModalView: View {
                 Button {
                     enterDataViewModel.isDatePickerPresented = false
                 } label: {
-                    Text("Готово")
+                    Text("Done")
                         .customText(fontSize: 16)
                         .customButtonStyle(
                             width: UIScreen.main.bounds.width * 0.4,

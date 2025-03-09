@@ -9,8 +9,8 @@ import SwiftUI
 
 struct RequestReviewButtonView: View {
     var body: some View {
-        Section(header: Text("Оценки и отзывы")) {
-            Button("Оценить приложение") {
+        Section(header: Text("Ratings and reviews")) {
+            Button("Rate the app") {
                 ReviewRequestManager.shared.requestReview()
             }
         }

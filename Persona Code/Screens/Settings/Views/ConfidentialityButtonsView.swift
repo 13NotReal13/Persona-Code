@@ -9,13 +9,13 @@ import SwiftUI
 
 struct ConfidentialityButtonsView: View {
     var body: some View {
-        Section(header: Text("Конфиденциальность")) {
-            Button("Политика конфиденциальности") {
+        Section(header: Text("Privacy")) {
+            Button("Privacy Policy") {
                 if let url = URL(string: "https://example.com/privacy") {
                     UIApplication.shared.open(url)
                 }
             }
-            Button("Условия использования") {
+            Button("Terms of Use") {
                 if let url = URL(string: "https://example.com/terms") {
                     UIApplication.shared.open(url)
                 }

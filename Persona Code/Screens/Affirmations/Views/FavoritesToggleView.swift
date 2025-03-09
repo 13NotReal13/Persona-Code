@@ -12,7 +12,7 @@ struct FavoritesToggleView: View {
     
     var body: some View {
         Toggle(isOn: $showFavoritesOnly) {
-            Text("Показывать только избранное")
+            Text("Show only Favorites")
                 .font(.caption)
                 .foregroundColor(.white)
         }

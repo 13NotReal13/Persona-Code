@@ -28,7 +28,7 @@ struct NextButtonView: View {
                     coordinator.push(.preload(shortPersonaCode))
                 }
             } label: {
-                Text("Далее")
+                Text("Next")
                     .customText(fontSize: 16)
                     .customButtonStyle(width: UIScreen.main.bounds.width * 0.4, shape: .capsule)
                     .padding(.top, 16)

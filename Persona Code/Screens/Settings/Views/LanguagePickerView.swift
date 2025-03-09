@@ -12,7 +12,7 @@ struct LanguagePickerView: View {
     
     var body: some View {
         Section(header: Text("Language")) {
-            Picker("Язык интерфейса", selection: $viewModel.currentLanguage) {
+            Picker("Interface Language", selection: $viewModel.currentLanguage) {
                 Text("English").tag("en")
                 Text("Russian").tag("ru")
                 Text("Polish").tag("pl")
@@ -27,5 +27,5 @@ struct LanguagePickerView: View {
 
 #Preview {
     LanguagePickerView()
-        .environmentObject(SettingsViewModel.shared)
+        .environmentObject(SettingsViewModel())
 }

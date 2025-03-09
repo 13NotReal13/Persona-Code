@@ -9,11 +9,9 @@ import Foundation
 import SwiftUI
 
 final class SettingsViewModel: ObservableObject {
-    static let shared = SettingsViewModel()
-    
     // MARK: - Настройки языка
     @AppStorage("currentLanguage") var currentLanguage: String = "en"
-    @Published var locale = Locale(identifier: "ru")
+    @Published var locale = Locale(identifier: "en")
     
     // MARK: - Настройки уведомлений
     @AppStorage("isReminderEnabled") var isReminderEnabled: Bool = false
@@ -81,7 +79,25 @@ final class SettingsViewModel: ObservableObject {
         }
     }
     
-    private init() {
+    init() {
+        // MARK: - AppLanguage
+        let savedLanguage = UserDefaults.standard.string(forKey: "currentLanguage")
+        let deviceLanguage = Locale.preferredLanguages.first?.prefix(2).description ?? "en"
+
+        if let savedLanguage = savedLanguage {
+            print("🌍 Сохранённый язык: \(savedLanguage)")
+            currentLanguage = savedLanguage  // Используем сохранённый язык
+        } else {
+            if ["en", "pl", "ru"].contains(deviceLanguage) {
+                currentLanguage = deviceLanguage
+            } else {
+                currentLanguage = "en"
+            }
+            print("🌍 Язык устройства: \(deviceLanguage), установлен язык: \(currentLanguage)")
+        }
+
+        locale = Locale(identifier: currentLanguage)
+        
         // MARK: - Notifications
         NotificationManager.shared.requestAuthorization { granted in
             if granted {
@@ -93,16 +109,6 @@ final class SettingsViewModel: ObservableObject {
                 self.isWishNotificationEnabled = false
             }
         }
-        
-        // MARK: - AppLanguage
-        let deviceLanguage = Locale.preferredLanguages.first?.prefix(2).description ?? "en"
-        
-        if ["en", "pl", "ru"].contains(deviceLanguage) {
-            currentLanguage = deviceLanguage
-        } else {
-            currentLanguage = "en"
-        }
-        locale = Locale(identifier: currentLanguage)
     }
     
     private func setupDefaultWishNotifications() {
@@ -122,5 +128,6 @@ extension SettingsViewModel {
     func changeLanguage(to language: String) {
         currentLanguage = language
         locale = Locale(identifier: language)
+        print("🌍 Сменили язык на: \(language), текущая локаль: \(locale.identifier)")
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct Persona_CodeApp: App {
-    @StateObject private var appSettings = SettingsViewModel.shared
+    @StateObject private var appSettings = SettingsViewModel()
     
     var body: some Scene {
         WindowGroup {

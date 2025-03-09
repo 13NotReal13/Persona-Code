@@ -17,7 +17,7 @@ struct DownloadPDFButtonView: View {
         } label: {
             HStack {
                 Image(systemName: "square.and.arrow.down")
-                Text("Скачать .pdf")
+                Text("Download .pdf")
             }
             .customText(fontSize: 17)
         }
