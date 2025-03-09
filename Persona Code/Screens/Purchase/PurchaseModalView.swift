@@ -56,6 +56,8 @@ struct PurchaseModalView: View {
             handlePurchase(for: product)
         }) {
             Text("Buy for \(product.localizedPrice ?? "N/A")")
+                .font(.system(size: 19))
+                .bold()
                 .frame(width: UIScreen.main.bounds.width * 0.95)
                 .frame(height: 50)
                 .foregroundColor(.white)
@@ -147,5 +149,5 @@ struct PurchaseModalView: View {
 
 //#Preview {
 //    PurchaseModalView(isPresented: .constant(true), personaCode: .constant(false))
-////        .preferredColorScheme(.dark)
+//        .preferredColorScheme(.dark)
 //}

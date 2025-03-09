@@ -71,6 +71,23 @@
         }
       }
     },
+    "12 aspects of personality" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "12 aspektów osobowości"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "12 аспектов личности"
+          }
+        }
+      }
+    },
     "Affirmation reminders" : {
       "localizations" : {
         "pl" : {
@@ -472,6 +489,23 @@
         }
       }
     },
+    "Download the complete analysis of your Persona Code in a convenient format." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pobierz pełną analizę Twojego Kodu Osobowości w wygodnym formacie."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скачивайте полный разбор вашего Кода Личности в удобном формате."
+          }
+        }
+      }
+    },
     "English" : {
       "localizations" : {
         "pl" : {
@@ -666,6 +700,40 @@
         }
       }
     },
+    "Includes key areas: self-realization, career, relationships, finances, strengths, and much more." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obejmuje kluczowe obszary: samorealizację, karierę, relacje, finanse, mocne strony i wiele więcej."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Включает ключевые сферы: самореализацию, карьеру, отношения, финансы, сильные стороны и многое другое."
+          }
+        }
+      }
+    },
+    "Individual calculation and in-depth analysis of your Persona Code." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indywidualne obliczenia i dogłębna analiza Twojego Kodu Osobowości."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Индивидуальный рассчёт и глубокий анализ вашего Кода Личности."
+          }
+        }
+      }
+    },
     "Information" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -844,6 +912,40 @@
         }
       }
     },
+    "Personal analysis" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indywidualna analiza"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Персональный разбор"
+          }
+        }
+      }
+    },
+    "Personal PDF report" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indywidualny raport PDF"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Персональный PDF-отчёт"
+          }
+        }
+      }
+    },
     "Polish" : {
       "localizations" : {
         "pl" : {
@@ -856,6 +958,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Польский"
+          }
+        }
+      }
+    },
+    "Practical recommendations" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Praktyczne zalecenia"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Практические рекомендации"
           }
         }
       }
@@ -1178,6 +1297,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Имя может содержать только буквы"
+          }
+        }
+      }
+    },
+    "Tips and strategies for harmonious development, unlocking potential, and achieving goals." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Porady i strategie dla harmonijnego rozwoju, odkrywania potencjału i osiągania celów."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Советы и стратегии для гармоничного развития, раскрытия потенциала и достижения целей."
           }
         }
       }

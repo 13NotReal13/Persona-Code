@@ -20,8 +20,8 @@ struct DescriptionPurchaseView: View {
                         .foregroundColor(.green)
                     
                     PurchaseFeatureView(
-                        title: "Персональный разбор",
-                        description: "Глубокий анализ вашего Кода Личности на основе имени и даты рождения."
+                        title: localizedString("Personal analysis"),
+                        description: localizedString("Individual calculation and in-depth analysis of your Persona Code.")
                     )
                 }
                 HStack {
@@ -29,8 +29,8 @@ struct DescriptionPurchaseView: View {
                         .foregroundColor(.green)
                     
                     PurchaseFeatureView(
-                        title: "12 аспектов личности",
-                        description: "Включает ключевые сферы: самореализацию, карьеру, отношения, финансы, сильные стороны и многое другое."
+                        title: localizedString("12 aspects of personality"),
+                        description: localizedString("Includes key areas: self-realization, career, relationships, finances, strengths, and much more.")
                     )
                 }
                 HStack {
@@ -38,8 +38,8 @@ struct DescriptionPurchaseView: View {
                         .foregroundColor(.green)
                     
                     PurchaseFeatureView(
-                        title: "Практические рекомендации",
-                        description: "Советы и стратегии для гармоничного развития, раскрытия потенциала и достижения целей."
+                        title: localizedString("Practical recommendations"),
+                        description: localizedString("Tips and strategies for harmonious development, unlocking potential, and achieving goals.")
                     )
                 }
                 HStack {
@@ -47,8 +47,8 @@ struct DescriptionPurchaseView: View {
                         .foregroundStyle(.green)
                     
                     PurchaseFeatureView(
-                        title: "Персональный PDF-отчёт",
-                        description: "Скачивайте полный разбор вашего Кода Личности в удобном формате."
+                        title: localizedString("Personal PDF report"),
+                        description: localizedString("Download the complete analysis of your Persona Code in a convenient format.")
                     )
                 }
             }
