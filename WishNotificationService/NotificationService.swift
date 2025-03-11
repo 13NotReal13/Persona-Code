@@ -15,20 +15,23 @@ class NotificationService: UNNotificationServiceExtension {
             return
         }
         
-        if bestAttemptContent.categoryIdentifier == "WISH_CATEGORY" {
+        if bestAttemptContent.categoryIdentifier == "DAILY_FACTS_CATEGORY" {
             let appGroupUserDefaults = UserDefaults(suiteName: "group.Ivan-Semikin.Persona-Code")
-            let dailyWishKey = "dailyWish"
+            let dailyFactsKey = "dailyFactsKey"
             
-            let wish = WishStorage.shared.getRandomWish()
-            bestAttemptContent.body = wish
+            let language = UserDefaults.standard.string(forKey: "currentLanguage") ?? "en"
+            let fact: String
             
-            appGroupUserDefaults?.set(wish, forKey: dailyWishKey)
+            switch language {
+            case "ru": fact = DailyFactsStorage_RU.shared.getRandomFact()
+            case "pl": fact = DailyFactsStorage_PL.shared.getRandomFact()
+            default: fact = DailyFactsStorage_EN.shared.getRandomFact()
+            }
+            
+            bestAttemptContent.body = fact
+            appGroupUserDefaults?.set(fact, forKey: dailyFactsKey)
         }
         
         contentHandler(bestAttemptContent)
-    }
-    
-    override func serviceExtensionTimeWillExpire() {
-        // Вызывается, если время истекает до завершения обработки уведомления
     }
 }

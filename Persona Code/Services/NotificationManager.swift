@@ -12,7 +12,7 @@ final class NotificationManager {
     static let shared = NotificationManager()
     
     private let appGroupUserDefaults = UserDefaults(suiteName: "group.Ivan-Semikin.Persona-Code")
-    private let dailyWishKey = "dailyWish"
+    private let dailyFactsKey = "dailyFactsKey"
     
     private init() {}
     
@@ -30,7 +30,7 @@ final class NotificationManager {
     
     func registerNotificationCategories() {
         let wishCategory = UNNotificationCategory(
-            identifier: "WISH_CATEGORY",
+            identifier: "DAILY_FACTS_CATEGORY",
             actions: [],
             intentIdentifiers: [],
             options: []
@@ -72,24 +72,24 @@ final class NotificationManager {
     }
     
     // 🔄 Ежедневные уведомления с пожеланиями
-    func scheduleDailyWishNotification(at time: Date) {
+    func scheduleDailyFactsNotification(at time: Date) {
         removeWishNotifications()
         
         let content = UNMutableNotificationContent()
-        content.title = "Пожелание на день"
-        let wish = WishStorage.shared.getRandomWish()
-        content.body = wish
+        content.title = localizedString("Amazing Fact")
+        let fact = getLocalizedFactStorage()
+        content.body = fact
         content.sound = .default
-        content.categoryIdentifier = "WISH_CATEGORY"
+        content.categoryIdentifier = "DAILY_FACTS_CATEGORY"
         
-        appGroupUserDefaults?.set(wish, forKey: dailyWishKey)
+        appGroupUserDefaults?.set(fact, forKey: dailyFactsKey)
         
         var dateComponents = Calendar.current.dateComponents([.hour, .minute], from: time)
         dateComponents.second = 0
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         let request = UNNotificationRequest(
-            identifier: "dailyWishNotification",
+            identifier: "dailyFactsNotification",
             content: content,
             trigger: trigger
         )
@@ -105,6 +105,15 @@ final class NotificationManager {
     
     // 🔄 Удаляем все ежедневные пожелания
     func removeWishNotifications() {
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["dailyWishNotification"])
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["dailyFactsNotification"])
+    }
+    
+    private func getLocalizedFactStorage() -> String {
+        let language = UserDefaults.standard.string(forKey: "currentLanguage") ?? "en"
+        switch language {
+        case "ru": return DailyFactsStorage_RU.shared.getRandomFact()
+        case "pl": return DailyFactsStorage_PL.shared.getRandomFact()
+        default: return DailyFactsStorage_EN.shared.getRandomFact()
+        }
     }
 }

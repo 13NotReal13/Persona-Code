@@ -15,11 +15,11 @@ final class SettingsViewModel: ObservableObject {
     
     // MARK: - Настройки уведомлений
     @AppStorage("isReminderEnabled") var isReminderEnabled: Bool = false
-    @AppStorage("isWishNotificationEnabled") var isWishNotificationEnabled: Bool = false
+    @AppStorage("isFactNotificationEnabled") var isFactNotificationEnabled: Bool = false
     @AppStorage("selectedDays") var selectedDaysData: Data = Data()
-    @AppStorage("selectedWishDays") var selectedWishDaysData: Data = Data()
+    @AppStorage("selectedFactsDays") var selectedFactsDaysData: Data = Data()
     @AppStorage("reminderTime") var reminderTime: Double = Date().timeIntervalSince1970
-    @AppStorage("wishTime") var wishTime: Double = Date().timeIntervalSince1970
+    @AppStorage("factTime") var factTime: Double = Date().timeIntervalSince1970
     @AppStorage("isFirstLaunch") private var isFirstLaunch = true
 
     let weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
@@ -30,12 +30,12 @@ final class SettingsViewModel: ObservableObject {
     }
     
     var wishDate: Date {
-        get { Date(timeIntervalSince1970: wishTime) }
-        set { wishTime = newValue.timeIntervalSince1970 }
+        get { Date(timeIntervalSince1970: factTime) }
+        set { factTime = newValue.timeIntervalSince1970 }
     }
     
     func selectedDays(for type: ReminderType) -> Set<Int> {
-        let data = (type == .affirmation) ? selectedDaysData : selectedWishDaysData
+        let data = (type == .affirmation) ? selectedDaysData : selectedFactsDaysData
         if let decoded = try? JSONDecoder().decode(Set<Int>.self, from: data) {
             return decoded
         }
@@ -48,8 +48,8 @@ final class SettingsViewModel: ObservableObject {
             selectedDaysData = encoded ?? Data()
             updateReminders()
         } else {
-            selectedWishDaysData = encoded ?? Data()
-            updateWishNotifications()
+            selectedFactsDaysData = encoded ?? Data()
+            updateFactsNotifications()
         }
     }
     
@@ -71,9 +71,9 @@ final class SettingsViewModel: ObservableObject {
         }
     }
     
-    func updateWishNotifications() {
-        if isWishNotificationEnabled && !selectedDays(for: .wish).isEmpty {
-            NotificationManager.shared.scheduleDailyWishNotification(at: wishDate)
+    func updateFactsNotifications() {
+        if isFactNotificationEnabled && !selectedDays(for: .dailyFact).isEmpty {
+            NotificationManager.shared.scheduleDailyFactsNotification(at: wishDate)
         } else {
             NotificationManager.shared.removeWishNotifications()
         }
@@ -104,21 +104,21 @@ final class SettingsViewModel: ObservableObject {
                     self.isFirstLaunch = false
                 }
             } else {
-                self.isWishNotificationEnabled = false
+                self.isFactNotificationEnabled = false
             }
         }
     }
     
     private func setupDefaultWishNotifications() {
-        isWishNotificationEnabled = true
+        isFactNotificationEnabled = true
         let allDays = Set(1...7)
-        setSelectedDays(allDays, for: .wish)
+        setSelectedDays(allDays, for: .dailyFact)
         
         if let tenAM = Calendar.current.date(bySettingHour: 10, minute: 0, second: 0, of: Date()) {
-            wishTime = tenAM.timeIntervalSince1970
+            factTime = tenAM.timeIntervalSince1970
         }
         
-        updateWishNotifications()
+        updateFactsNotifications()
     }
 }
 
@@ -126,6 +126,7 @@ extension SettingsViewModel {
     func changeLanguage(to language: String) {
         currentLanguage = language
         locale = Locale(identifier: language)
-        print("🌍 Сменили язык на: \(language), текущая локаль: \(locale.identifier)")
+        
+        updateFactsNotifications()
     }
 }

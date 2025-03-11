@@ -50,7 +50,9 @@
 		791023272D7755F800E9CBB8 /* Exceptions for "Persona Code" folder in "WishNotificationService" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				DataStorage/WishStorage.swift,
+				DataStorage/DailyFacts/DailyFactsStorage_EN.swift,
+				DataStorage/DailyFacts/DailyFactsStorage_PL.swift,
+				DataStorage/DailyFacts/DailyFactsStorage_RU.swift,
 			);
 			target = 791023122D77452500E9CBB8 /* WishNotificationService */;
 		};

@@ -140,6 +140,39 @@
         }
       }
     },
+    "Amazing Fact" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zadziwiający Fakt"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Удивительный факт"
+          }
+        }
+      }
+    },
+    "Amazing facts about the capabilities of the body and mind" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zadziwiające fakty o możliwościach ciała i mózgu"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Удивительные факты о возможностях тела и мозга"
+          }
+        }
+      }
+    },
     "Are you sure you want to delete the Persona Code %@ - %@?" : {
       "localizations" : {
         "en" : {
@@ -350,24 +383,18 @@
         }
       }
     },
-    "Daily inspirations" : {
+    "Daily facts" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Daily inspirations"
-          }
-        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Codzienne inspiracje"
+            "value" : "Codzienne fakty"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ежедневные вдохновения"
+            "value" : "Ежедневные факты"
           }
         }
       }

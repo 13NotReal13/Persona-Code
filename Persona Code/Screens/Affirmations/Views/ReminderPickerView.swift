@@ -9,7 +9,7 @@ import SwiftUI
 
 enum ReminderType {
     case affirmation
-    case wish
+    case dailyFact
 }
 
 struct ReminderPickerView: View {
@@ -20,12 +20,12 @@ struct ReminderPickerView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            Text(reminderType == .affirmation ? "Affirmation reminders" : "Daily inspirations")
+            Text(reminderType == .affirmation ? "Affirmation reminders" : "Daily facts")
                 .font(.headline)
                 .padding(.top)
             
             if (reminderType == .affirmation && viewModel.isReminderEnabled) ||
-               (reminderType == .wish && viewModel.isWishNotificationEnabled) {
+               (reminderType == .dailyFact && viewModel.isFactNotificationEnabled) {
                 
                 // Выбор дней недели
                 HStack {
@@ -62,7 +62,7 @@ struct ReminderPickerView: View {
                 if reminderType == .affirmation {
                     viewModel.updateReminders()
                 } else {
-                    viewModel.updateWishNotifications()
+                    viewModel.updateFactsNotifications()
                 }
                 coordinator.dismissModal()
             }
@@ -77,7 +77,7 @@ struct ReminderPickerView: View {
             if reminderType == .affirmation {
                 viewModel.updateReminders()
             } else {
-                viewModel.updateWishNotifications()
+                viewModel.updateFactsNotifications()
             }
         }
     }

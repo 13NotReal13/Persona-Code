@@ -30,16 +30,16 @@ struct NotificationTogglesView: View {
                 .foregroundColor(.brown)
             }
             
-            Toggle("Daily inspirations", isOn: $viewModel.isWishNotificationEnabled)
+            Toggle("Amazing facts about the capabilities of the body and mind", isOn: $viewModel.isFactNotificationEnabled)
                 .tint(.brown)
                 .disabled(notificationStatus == .denied)
-                .onChange(of: viewModel.isWishNotificationEnabled) { isOn in
-                    viewModel.updateWishNotifications()
+                .onChange(of: viewModel.isFactNotificationEnabled) { isOn in
+                    viewModel.updateFactsNotifications()
                 }
             
-            if viewModel.isWishNotificationEnabled {
+            if viewModel.isFactNotificationEnabled {
                 Button("Notification settings") {
-                    coordinator.present(.reminderPicker(type: ReminderType.wish))
+                    coordinator.present(.reminderPicker(type: ReminderType.dailyFact))
                 }
                 .font(.caption)
                 .foregroundColor(.brown)
