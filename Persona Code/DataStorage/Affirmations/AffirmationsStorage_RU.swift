@@ -1,5 +1,5 @@
 //
-//  AffirmationStorage.swift
+//  AffirmationsStorage_RU.swift
 //  Persona Code
 //
 //  Created by Иван Семикин on 03/03/2025.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-final class AffirmationStorage {
-    static let shared = AffirmationStorage()
+final class AffirmationsStorage_RU {
+    static let shared = AffirmationsStorage_RU()
     
     private init() {}
     

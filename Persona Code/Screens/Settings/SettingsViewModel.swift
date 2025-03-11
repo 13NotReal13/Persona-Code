@@ -128,5 +128,7 @@ extension SettingsViewModel {
         locale = Locale(identifier: language)
         
         updateFactsNotifications()
+        
+        AffirmationsViewModel.shared.loadAffirmations()
     }
 }

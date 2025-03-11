@@ -36,8 +36,37 @@ enum AffirmationCategoryType: String, CaseIterable, Identifiable, Codable {
 }
 
 struct Affirmation: Identifiable, Codable {
-    var id = UUID()
+    let id: UUID
     let text: String
     let category: AffirmationCategoryType
     var isFavorite: Bool = false
+
+    init(text: String, category: AffirmationCategoryType) {
+        self.text = text
+        self.category = category
+        self.id = UUID(uuidString: UUIDGenerator.shared.uuid(for: text)) ?? UUID()
+    }
+}
+
+final class UUIDGenerator {
+    static let shared = UUIDGenerator()
+
+    private var uuidCache: [String: String] = [:]
+
+    private init() {
+        if let savedData = UserDefaults.standard.dictionary(forKey: "affirmationUUIDs") as? [String: String] {
+            uuidCache = savedData
+        }
+    }
+
+    func uuid(for text: String) -> String {
+        if let existingUUID = uuidCache[text] {
+            return existingUUID
+        } else {
+            let newUUID = UUID().uuidString
+            uuidCache[text] = newUUID
+            UserDefaults.standard.set(uuidCache, forKey: "affirmationUUIDs")
+            return newUUID
+        }
+    }
 }
