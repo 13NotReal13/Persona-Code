@@ -33,7 +33,7 @@ struct ReminderPickerView: View {
                         Button {
                             viewModel.toggleDaySelection(day, for: reminderType)
                         } label: {
-                            Text(viewModel.weekDays[day - 1])
+                            Text(localizedString(viewModel.weekDays[day - 1]))
                                 .padding(8)
                                 .background(
                                     viewModel.selectedDays(for: reminderType).contains(day)
@@ -91,6 +91,6 @@ struct ReminderPickerView: View {
         ReminderPickerView(reminderType: ReminderType.affirmation)
             .preferredColorScheme(.dark)
             .environmentObject(NavigationCoordinator())
-            .environmentObject(AffirmationsViewModel.shared)
+            .environmentObject(SettingsViewModel())
     }
 }

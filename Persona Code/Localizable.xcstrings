@@ -2,20 +2,7 @@
   "sourceLanguage" : "en",
   "strings" : {
     "" : {
-      "localizations" : {
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "(Empty string)"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "(Empty string)"
-          }
-        }
-      }
+      "shouldTranslate" : false
     },
     " - " : {
       "localizations" : {
@@ -571,6 +558,23 @@
         }
       }
     },
+    "Fri" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pt"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пт"
+          }
+        }
+      }
+    },
     "FULL NAME" : {
       "localizations" : {
         "pl" : {
@@ -795,6 +799,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Загрузка цены…"
+          }
+        }
+      }
+    },
+    "Mon" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pn"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пн"
           }
         }
       }
@@ -1157,6 +1178,23 @@
         }
       }
     },
+    "Sat" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "So"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сб"
+          }
+        }
+      }
+    },
     "Save" : {
       "localizations" : {
         "pl" : {
@@ -1217,6 +1255,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Показывать только избранное"
+          }
+        }
+      }
+    },
+    "Sun" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nd"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вс"
           }
         }
       }
@@ -1301,6 +1356,23 @@
         }
       }
     },
+    "Thu" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cz"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Чт"
+          }
+        }
+      }
+    },
     "Tips and strategies for harmonious development, unlocking potential, and achieving goals." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1314,6 +1386,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Советы и стратегии для гармоничного развития, раскрытия потенциала и достижения целей."
+          }
+        }
+      }
+    },
+    "Tue" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wt"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вт"
+          }
+        }
+      }
+    },
+    "Wed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Śr"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ср"
           }
         }
       }

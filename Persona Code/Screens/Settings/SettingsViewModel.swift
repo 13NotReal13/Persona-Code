@@ -22,7 +22,7 @@ final class SettingsViewModel: ObservableObject {
     @AppStorage("wishTime") var wishTime: Double = Date().timeIntervalSince1970
     @AppStorage("isFirstLaunch") private var isFirstLaunch = true
 
-    let weekDays = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"]
+    let weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     
     var reminderDate: Date {
         get { Date(timeIntervalSince1970: reminderTime) }
