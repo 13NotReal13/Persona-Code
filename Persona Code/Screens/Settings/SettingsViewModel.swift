@@ -29,7 +29,7 @@ final class SettingsViewModel: ObservableObject {
         set { reminderTime = newValue.timeIntervalSince1970 }
     }
     
-    var wishDate: Date {
+    var factsDate: Date {
         get { Date(timeIntervalSince1970: factTime) }
         set { factTime = newValue.timeIntervalSince1970 }
     }
@@ -73,7 +73,7 @@ final class SettingsViewModel: ObservableObject {
     
     func updateFactsNotifications() {
         if isFactNotificationEnabled && !selectedDays(for: .dailyFact).isEmpty {
-            NotificationManager.shared.scheduleDailyFactsNotification(at: wishDate)
+            NotificationManager.shared.scheduleDailyFactsNotification(at: factsDate)
         } else {
             NotificationManager.shared.removeWishNotifications()
         }
@@ -127,6 +127,7 @@ extension SettingsViewModel {
         currentLanguage = language
         locale = Locale(identifier: language)
         
+        updateReminders()
         updateFactsNotifications()
         
         AffirmationsViewModel.shared.loadAffirmations()

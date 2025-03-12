@@ -1124,6 +1124,23 @@
         }
       }
     },
+    "Remind yourself of your potential – take a minute for affirmations!" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Przypomnij sobie swój potencjał – poświęć chwilę na afirmacje!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Напомните себе о своём потенциале - уделите минутку аффирмациям!"
+          }
+        }
+      }
+    },
     "Reminder time" : {
       "localizations" : {
         "pl" : {
@@ -1379,6 +1396,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Имя может содержать только буквы"
+          }
+        }
+      }
+    },
+    "The Time Has Come!" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Czas nadszedł!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Время пришло!"
           }
         }
       }

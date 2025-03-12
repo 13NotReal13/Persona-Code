@@ -50,7 +50,7 @@ struct ReminderPickerView: View {
                 // Выбор времени
                 DatePicker(
                     "Reminder time",
-                    selection: reminderType == .affirmation ? $viewModel.reminderDate : $viewModel.wishDate,
+                    selection: reminderType == .affirmation ? $viewModel.reminderDate : $viewModel.factsDate,
                     displayedComponents: .hourAndMinute
                 )
                 .datePickerStyle(.wheel)

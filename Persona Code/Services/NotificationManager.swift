@@ -52,8 +52,8 @@ final class NotificationManager {
         
         for day in days {
             let content = UNMutableNotificationContent()
-            content.title = "Аффирмации дня"
-            content.body = "Не забудьте прочитать свои аффирмации!"
+            content.title = localizedString("The Time Has Come!")
+            content.body = localizedString("Remind yourself of your potential – take a minute for affirmations!")
             content.sound = .default
             content.categoryIdentifier = "AFFIRMATION_CATEGORY"
             
