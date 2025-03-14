@@ -36,6 +36,6 @@ struct CodeDetailView: View {
     ZStack {
         BackgroundView()
         
-        CodeDetailView(codeInfo: PersonaCodeCodes.allCodes[1]!)
+        CodeDetailView(codeInfo: PersonaCodeCodes_RU.allCodes[1]!)
     }
 }
