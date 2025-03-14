@@ -1,5 +1,5 @@
 //
-//  ExperienceAndEvolutionCodes.swift
+//  ExperienceAndEvolutionCodes_RU.swift
 //  Persona Code
 //
 //  Created by Иван Семикин on 23/02/2025.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ExperienceAndEvolutionCodes {
+struct ExperienceAndEvolutionCodes_RU {
     static let allCodes: CodeDictionary = [
         // MARK: - 1 Код
         1: CodeInfo(
