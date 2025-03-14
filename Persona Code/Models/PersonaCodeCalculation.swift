@@ -19,7 +19,7 @@ struct PersonaCodeCalculation {
             personaCode: PersonaCodeCodes.allCodes[getPersonaCodeValue]!,
             pathOfDevelopment: PathOfDevelopmentCodes.allCodes[getPathOfDevelopmentValue]!,
             communication: CommunicationCodes_RU.allCodes[getCommunicationValue]!,
-            finances: FinancesCodes.allCodes[getFinancesValue]!,
+            finances: FinancesCodes_RU.allCodes[getFinancesValue]!,
             career: CareerCodes_RU.allCodes[getCareerValue]!,
             resourceState: ResourceStateCodes.allCodes[getResourceStateValue]!,
             strengths: StrengthsCodes.allCodes[getStrengthsValue]!,

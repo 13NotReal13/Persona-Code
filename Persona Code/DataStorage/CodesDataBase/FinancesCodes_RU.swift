@@ -1,5 +1,5 @@
 //
-//  FinancesCodes.swift
+//  FinancesCodes_RU.swift
 //  Persona Code
 //
 //  Created by Иван Семикин on 23/02/2025.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FinancesCodes {
+struct FinancesCodes_RU {
     static let allCodes: CodeDictionary = [
         // MARK: - 1 Код
         1: CodeInfo(
