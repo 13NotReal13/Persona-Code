@@ -6,29 +6,71 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct PersonaCodeCalculation {
+    @AppStorage("currentLanguage") var currentLanguage = "en"
+    
     let name: String
     let dateOfBirthday: Date
     
     var personaCodeData: PersonaCodeModel {
-        return PersonaCodeModel(
-            name: name,
-            dateOfBirthday: dateOfBirthday,
-            
-            personaCode: PersonaCodeCodes_RU.allCodes[getPersonaCodeValue]!,
-            pathOfDevelopment: PathOfDevelopmentCodes_RU.allCodes[getPathOfDevelopmentValue]!,
-            communication: CommunicationCodes_RU.allCodes[getCommunicationValue]!,
-            finances: FinancesCodes_RU.allCodes[getFinancesValue]!,
-            career: CareerCodes_RU.allCodes[getCareerValue]!,
-            resourceState: ResourceStateCodes_RU.allCodes[getResourceStateValue]!,
-            strengths: StrengthsCodes_RU.allCodes[getStrengthsValue]!,
-            riskZone: RiskZoneCodes_RU.allCodes[getRiskZoneValue]!,
-            selfDevelopment: SelfDevelopmentCodes_RU.allCodes[getSelfDevelopmentValue]!,
-            innerBalance: InnerBalanceCodes_RU.allCodes[getInnerBalanceValue]!,
-            lifeGoals: LifeGoalsCodes_RU.allCodes[getLifeGoalsValue]!,
-            experienceAndEvolution: ExperienceAndEvolutionCodes_RU.allCodes[getExperienceAndEvolutionValue]!
-        )
+        switch currentLanguage {
+        case "pl":
+            return PersonaCodeModel(
+                name: name,
+                dateOfBirthday: dateOfBirthday,
+                
+                personaCode: PersonaCodeCodes_RU.allCodes[getPersonaCodeValue]!,
+                pathOfDevelopment: PathOfDevelopmentCodes_RU.allCodes[getPathOfDevelopmentValue]!,
+                communication: CommunicationCodes_RU.allCodes[getCommunicationValue]!,
+                finances: FinancesCodes_RU.allCodes[getFinancesValue]!,
+                career: CareerCodes_RU.allCodes[getCareerValue]!,
+                resourceState: ResourceStateCodes_RU.allCodes[getResourceStateValue]!,
+                strengths: StrengthsCodes_RU.allCodes[getStrengthsValue]!,
+                riskZone: RiskZoneCodes_RU.allCodes[getRiskZoneValue]!,
+                selfDevelopment: SelfDevelopmentCodes_RU.allCodes[getSelfDevelopmentValue]!,
+                innerBalance: InnerBalanceCodes_RU.allCodes[getInnerBalanceValue]!,
+                lifeGoals: LifeGoalsCodes_RU.allCodes[getLifeGoalsValue]!,
+                experienceAndEvolution: ExperienceAndEvolutionCodes_RU.allCodes[getExperienceAndEvolutionValue]!
+            )
+        case "ru":
+            return PersonaCodeModel(
+                name: name,
+                dateOfBirthday: dateOfBirthday,
+                
+                personaCode: PersonaCodeCodes_RU.allCodes[getPersonaCodeValue]!,
+                pathOfDevelopment: PathOfDevelopmentCodes_RU.allCodes[getPathOfDevelopmentValue]!,
+                communication: CommunicationCodes_RU.allCodes[getCommunicationValue]!,
+                finances: FinancesCodes_RU.allCodes[getFinancesValue]!,
+                career: CareerCodes_RU.allCodes[getCareerValue]!,
+                resourceState: ResourceStateCodes_RU.allCodes[getResourceStateValue]!,
+                strengths: StrengthsCodes_RU.allCodes[getStrengthsValue]!,
+                riskZone: RiskZoneCodes_RU.allCodes[getRiskZoneValue]!,
+                selfDevelopment: SelfDevelopmentCodes_RU.allCodes[getSelfDevelopmentValue]!,
+                innerBalance: InnerBalanceCodes_RU.allCodes[getInnerBalanceValue]!,
+                lifeGoals: LifeGoalsCodes_RU.allCodes[getLifeGoalsValue]!,
+                experienceAndEvolution: ExperienceAndEvolutionCodes_RU.allCodes[getExperienceAndEvolutionValue]!
+            )
+        default:
+            return PersonaCodeModel(
+                name: name,
+                dateOfBirthday: dateOfBirthday,
+                
+                personaCode: PersonaCodeCodes_EN.allCodes[getPersonaCodeValue]!,
+                pathOfDevelopment: PathOfDevelopmentCodes_EN.allCodes[getPathOfDevelopmentValue]!,
+                communication: CommunicationCodes_EN.allCodes[getCommunicationValue]!,
+                finances: FinancesCodes_EN.allCodes[getFinancesValue]!,
+                career: CareerCodes_EN.allCodes[getCareerValue]!,
+                resourceState: ResourceStateCodes_EN.allCodes[getResourceStateValue]!,
+                strengths: StrengthsCodes_EN.allCodes[getStrengthsValue]!,
+                riskZone: RiskZoneCodes_EN.allCodes[getRiskZoneValue]!,
+                selfDevelopment: SelfDevelopmentCodes_EN.allCodes[getSelfDevelopmentValue]!,
+                innerBalance: InnerBalanceCodes_EN.allCodes[getInnerBalanceValue]!,
+                lifeGoals: LifeGoalsCodes_EN.allCodes[getLifeGoalsValue]!,
+                experienceAndEvolution: ExperienceAndEvolutionCodes_EN.allCodes[getExperienceAndEvolutionValue]!
+            )
+        }
     }
     
     private let day: Int
