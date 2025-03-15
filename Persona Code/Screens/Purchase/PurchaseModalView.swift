@@ -66,25 +66,35 @@ struct PurchaseModalView: View {
     }
     
     private func handlePurchase(for product: SKProduct) {
-        IAPManager.shared.purchase(
-            productID: product.productIdentifier,
-            success: {
-                DispatchQueue.main.async {
-                    let calculatedData = PersonaCodeCalculation(
-                        name: personaCode.name,
-                        dateOfBirthday: personaCode.dateOfBirthday
-                    ).personaCodeData
-                    
-                    viewModel.savePersonaCode(personaCode: personaCode)
-                    
-                    coordinator.dismissModal()
-                    coordinator.push(.personaCode(calculatedData, isFromPreload: true))
-                }
-            },
-            failure: { error in
-                showErrorAlert(error: error)
-            }
-        )
+        let calculatedData = PersonaCodeCalculation(
+            name: personaCode.name,
+            dateOfBirthday: personaCode.dateOfBirthday
+        ).personaCodeData
+        
+        viewModel.savePersonaCode(personaCode: personaCode)
+        
+        coordinator.dismissModal()
+        coordinator.push(.personaCode(calculatedData, isFromPreload: true))
+        
+//        IAPManager.shared.purchase(
+//            productID: product.productIdentifier,
+//            success: {
+//                DispatchQueue.main.async {
+//                    let calculatedData = PersonaCodeCalculation(
+//                        name: personaCode.name,
+//                        dateOfBirthday: personaCode.dateOfBirthday
+//                    ).personaCodeData
+//                    
+//                    viewModel.savePersonaCode(personaCode: personaCode)
+//                    
+//                    coordinator.dismissModal()
+//                    coordinator.push(.personaCode(calculatedData, isFromPreload: true))
+//                }
+//            },
+//            failure: { error in
+//                showErrorAlert(error: error)
+//            }
+//        )
     }
     
     private func restorePurchasesButton() -> some View {
