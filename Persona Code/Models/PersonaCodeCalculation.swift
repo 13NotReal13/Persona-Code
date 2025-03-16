@@ -29,7 +29,7 @@ struct PersonaCodeCalculation {
                 resourceState: ResourceStateCodes_PL.allCodes[getResourceStateValue]!,
                 strengths: StrengthsCodes_RU.allCodes[getStrengthsValue]!,
                 riskZone: RiskZoneCodes_PL.allCodes[getRiskZoneValue]!,
-                selfDevelopment: SelfDevelopmentCodes_RU.allCodes[getSelfDevelopmentValue]!,
+                selfDevelopment: SelfDevelopmentCodes_PL.allCodes[getSelfDevelopmentValue]!,
                 innerBalance: InnerBalanceCodes_PL.allCodes[getInnerBalanceValue]!,
                 lifeGoals: LifeGoalsCodes_PL.allCodes[getLifeGoalsValue]!,
                 experienceAndEvolution: ExperienceAndEvolutionCodes_PL.allCodes[getExperienceAndEvolutionValue]!
