@@ -32,7 +32,7 @@ struct PersonaCodeCalculation {
                 selfDevelopment: SelfDevelopmentCodes_RU.allCodes[getSelfDevelopmentValue]!,
                 innerBalance: InnerBalanceCodes_RU.allCodes[getInnerBalanceValue]!,
                 lifeGoals: LifeGoalsCodes_RU.allCodes[getLifeGoalsValue]!,
-                experienceAndEvolution: ExperienceAndEvolutionCodes_RU.allCodes[getExperienceAndEvolutionValue]!
+                experienceAndEvolution: ExperienceAndEvolutionCodes_PL.allCodes[getExperienceAndEvolutionValue]!
             )
         case "ru":
             return PersonaCodeModel(
