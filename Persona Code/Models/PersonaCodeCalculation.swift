@@ -30,8 +30,8 @@ struct PersonaCodeCalculation {
                 strengths: StrengthsCodes_RU.allCodes[getStrengthsValue]!,
                 riskZone: RiskZoneCodes_RU.allCodes[getRiskZoneValue]!,
                 selfDevelopment: SelfDevelopmentCodes_RU.allCodes[getSelfDevelopmentValue]!,
-                innerBalance: InnerBalanceCodes_RU.allCodes[getInnerBalanceValue]!,
-                lifeGoals: LifeGoalsCodes_RU.allCodes[getLifeGoalsValue]!,
+                innerBalance: InnerBalanceCodes_PL.allCodes[getInnerBalanceValue]!,
+                lifeGoals: LifeGoalsCodes_PL.allCodes[getLifeGoalsValue]!,
                 experienceAndEvolution: ExperienceAndEvolutionCodes_PL.allCodes[getExperienceAndEvolutionValue]!
             )
         case "ru":
