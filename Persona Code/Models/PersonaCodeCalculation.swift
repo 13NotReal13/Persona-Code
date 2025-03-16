@@ -22,7 +22,7 @@ struct PersonaCodeCalculation {
                 dateOfBirthday: dateOfBirthday,
                 
                 personaCode: PersonaCodeCodes_RU.allCodes[getPersonaCodeValue]!,
-                pathOfDevelopment: PathOfDevelopmentCodes_RU.allCodes[getPathOfDevelopmentValue]!,
+                pathOfDevelopment: PathOfDevelopmentCodes_PL.allCodes[getPathOfDevelopmentValue]!,
                 communication: CommunicationCodes_PL.allCodes[getCommunicationValue]!,
                 finances: FinancesCodes_PL.allCodes[getFinancesValue]!,
                 career: CareerCodes_PL.allCodes[getCareerValue]!,
