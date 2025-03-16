@@ -471,6 +471,40 @@
         }
       }
     },
+    "Describe your issue or suggestion here…" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opisz swój problem lub sugestię tutaj…"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Опишите вашу проблему или предложение здесь…"
+          }
+        }
+      }
+    },
+    "Do you find this app useful?" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Czy uważasz tę aplikację za przydatną?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Находите ли вы это приложение полезным?"
+          }
+        }
+      }
+    },
     "Done" : {
       "localizations" : {
         "pl" : {
@@ -548,6 +582,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Введите ваше полное имя (только имя)"
+          }
+        }
+      }
+    },
+    "Feedback from the app - Personality Code" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opinie z aplikacji - Kod Osobowości"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обратная связь из приложения - Код Личности"
           }
         }
       }
@@ -830,6 +881,23 @@
         }
       }
     },
+    "Mail is unavailable" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Poczta jest niedostępna"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Почта недоступна"
+          }
+        }
+      }
+    },
     "Mon" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -859,6 +927,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Далее"
+          }
+        }
+      }
+    },
+    "No" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nie"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нет"
           }
         }
       }
@@ -923,6 +1008,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Уведомления отключены"
+          }
+        }
+      }
+    },
+    "OK" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ок"
           }
         }
       }
@@ -1384,6 +1486,23 @@
         }
       }
     },
+    "The mail client is not set up on the device. You can write to us at i.semikin.94@icloud.com" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nie skonfigurowano klienta poczty na urządzeniu. Możesz napisać do nas na i.semikin.94@icloud.com"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "На устройстве не настроен почтовый клиент. Вы можете написать нам на i.semikin.94@icloud.com"
+          }
+        }
+      }
+    },
     "The name can only contain letters" : {
       "localizations" : {
         "pl" : {
@@ -1468,6 +1587,23 @@
         }
       }
     },
+    "We value your opinion" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cenimy twoją opinię"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нам важно ваше мнение"
+          }
+        }
+      }
+    },
     "Wed" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1529,6 +1665,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Почему именно 22 кода?"
+          }
+        }
+      }
+    },
+    "Yes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tak"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Да"
           }
         }
       }

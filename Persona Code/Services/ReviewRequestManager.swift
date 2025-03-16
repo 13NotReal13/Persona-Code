@@ -37,8 +37,8 @@ final class ReviewRequestManager: NSObject, ObservableObject, MFMailComposeViewC
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
             mail.setToRecipients(["i.semikin.94@icloud.com"])
-            mail.setSubject("Обратная связь из приложения - Код Личности")
-            mail.setMessageBody("Опишите вашу проблему или предложение здесь...", isHTML: false)
+            mail.setSubject(localizedString("Feedback from the app - Personality Code"))
+            mail.setMessageBody(localizedString("Describe your issue or suggestion here…"), isHTML: false)
             
             if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                let rootVC = windowScene.windows.first?.rootViewController {
@@ -47,11 +47,11 @@ final class ReviewRequestManager: NSObject, ObservableObject, MFMailComposeViewC
         } else {
             // Если почта недоступна
             let alert = UIAlertController(
-                title: "Почта недоступна",
-                message: "На устройстве не настроен почтовый клиент. Вы можете написать нам на i.semikin.94@icloud.com",
+                title: localizedString("Mail is unavailable"),
+                message: localizedString("The mail client is not set up on the device. You can write to us at i.semikin.94@icloud.com"),
                 preferredStyle: .alert
             )
-            alert.addAction(UIAlertAction(title: "Ок", style: .default))
+            alert.addAction(UIAlertAction(title: localizedString("OK"), style: .default))
             
             if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                let rootVC = windowScene.windows.first?.rootViewController {
@@ -69,18 +69,17 @@ final class ReviewRequestManager: NSObject, ObservableObject, MFMailComposeViewC
     
     private func showFeedbackAlert() {
         let alert = UIAlertController(
-            title: "Нам важно ваше мнение",
-            message: "Находите ли вы это приложение полезным?",
+            title: localizedString("We value your opinion"),
+            message: localizedString("Do you find this app useful?"),
             preferredStyle: .alert
         )
         
-        alert.addAction(UIAlertAction(title: "Да", style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: localizedString("Yes"), style: .default, handler: { _ in
             self.requestReview()
         }))
         
-        alert.addAction(UIAlertAction(title: "Нет", style: .cancel, handler: { _ in
+        alert.addAction(UIAlertAction(title: localizedString("No"), style: .cancel, handler: { _ in
             self.hasSeenReviewPrompt = true
-            self.showFeedbackForm() // Переход к форме обратной связи
         }))
         
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
