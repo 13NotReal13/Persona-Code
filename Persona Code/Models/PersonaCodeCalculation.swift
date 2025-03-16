@@ -28,7 +28,7 @@ struct PersonaCodeCalculation {
                 career: CareerCodes_PL.allCodes[getCareerValue]!,
                 resourceState: ResourceStateCodes_PL.allCodes[getResourceStateValue]!,
                 strengths: StrengthsCodes_RU.allCodes[getStrengthsValue]!,
-                riskZone: RiskZoneCodes_RU.allCodes[getRiskZoneValue]!,
+                riskZone: RiskZoneCodes_PL.allCodes[getRiskZoneValue]!,
                 selfDevelopment: SelfDevelopmentCodes_RU.allCodes[getSelfDevelopmentValue]!,
                 innerBalance: InnerBalanceCodes_PL.allCodes[getInnerBalanceValue]!,
                 lifeGoals: LifeGoalsCodes_PL.allCodes[getLifeGoalsValue]!,
