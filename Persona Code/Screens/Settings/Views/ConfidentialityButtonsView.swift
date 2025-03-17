@@ -11,12 +11,12 @@ struct ConfidentialityButtonsView: View {
     var body: some View {
         Section(header: Text("Privacy")) {
             Button("Privacy Policy") {
-                if let url = URL(string: "https://example.com/privacy") {
+                if let url = URL(string: "https://13notreal13.github.io/privacy-policy-persona-code/privacy.html") {
                     UIApplication.shared.open(url)
                 }
             }
             Button("Terms of Use") {
-                if let url = URL(string: "https://example.com/terms") {
+                if let url = URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/") {
                     UIApplication.shared.open(url)
                 }
             }

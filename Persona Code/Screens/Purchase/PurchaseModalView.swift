@@ -121,7 +121,7 @@ struct PurchaseModalView: View {
     
     private func privacyPolicyButton() -> some View {
         Button(action: {
-            if let url = URL(string: "https://13notreal13.github.io/privacy-policy-destiny-matrix/privacy.html") {
+            if let url = URL(string: "https://13notreal13.github.io/privacy-policy-persona-code/privacy.html") {
                 UIApplication.shared.open(url)
             }
         }) {

@@ -18,6 +18,13 @@
 			remoteGlobalIDString = 791023122D77452500E9CBB8;
 			remoteInfo = WishNotificationService;
 		};
+		7936E33F2D88A4340079B1E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 792B32DB2D6A417700A9A498 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 792B32E22D6A417700A9A498;
+			remoteInfo = "Persona Code";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +44,7 @@
 /* Begin PBXFileReference section */
 		791023132D77452500E9CBB8 /* WishNotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WishNotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		792B32E32D6A417700A9A498 /* Persona Code.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Persona Code.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7936E33B2D88A4330079B1E0 /* PersonaCodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PersonaCodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -75,6 +83,11 @@
 			path = "Persona Code";
 			sourceTree = "<group>";
 		};
+		7936E33C2D88A4340079B1E0 /* PersonaCodeTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = PersonaCodeTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +105,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7936E3382D88A4330079B1E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -100,6 +120,7 @@
 			children = (
 				792B32E52D6A417700A9A498 /* Persona Code */,
 				791023142D77452500E9CBB8 /* WishNotificationService */,
+				7936E33C2D88A4340079B1E0 /* PersonaCodeTests */,
 				792B32E42D6A417700A9A498 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -109,6 +130,7 @@
 			children = (
 				792B32E32D6A417700A9A498 /* Persona Code.app */,
 				791023132D77452500E9CBB8 /* WishNotificationService.appex */,
+				7936E33B2D88A4330079B1E0 /* PersonaCodeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,6 +184,29 @@
 			productReference = 792B32E32D6A417700A9A498 /* Persona Code.app */;
 			productType = "com.apple.product-type.application";
 		};
+		7936E33A2D88A4330079B1E0 /* PersonaCodeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7936E3432D88A4340079B1E0 /* Build configuration list for PBXNativeTarget "PersonaCodeTests" */;
+			buildPhases = (
+				7936E3372D88A4330079B1E0 /* Sources */,
+				7936E3382D88A4330079B1E0 /* Frameworks */,
+				7936E3392D88A4330079B1E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7936E3402D88A4340079B1E0 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				7936E33C2D88A4340079B1E0 /* PersonaCodeTests */,
+			);
+			name = PersonaCodeTests;
+			packageProductDependencies = (
+			);
+			productName = PersonaCodeTests;
+			productReference = 7936E33B2D88A4330079B1E0 /* PersonaCodeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -177,6 +222,10 @@
 					};
 					792B32E22D6A417700A9A498 = {
 						CreatedOnToolsVersion = 16.2;
+					};
+					7936E33A2D88A4330079B1E0 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 792B32E22D6A417700A9A498;
 					};
 				};
 			};
@@ -197,6 +246,7 @@
 			targets = (
 				792B32E22D6A417700A9A498 /* Persona Code */,
 				791023122D77452500E9CBB8 /* WishNotificationService */,
+				7936E33A2D88A4330079B1E0 /* PersonaCodeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -210,6 +260,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		792B32E12D6A417700A9A498 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7936E3392D88A4330079B1E0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -233,6 +290,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7936E3372D88A4330079B1E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -240,6 +304,11 @@
 			isa = PBXTargetDependency;
 			target = 791023122D77452500E9CBB8 /* WishNotificationService */;
 			targetProxy = 791023182D77452500E9CBB8 /* PBXContainerItemProxy */;
+		};
+		7936E3402D88A4340079B1E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 792B32E22D6A417700A9A498 /* Persona Code */;
+			targetProxy = 7936E33F2D88A4340079B1E0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -493,6 +562,42 @@
 			};
 			name = Release;
 		};
+		7936E3412D88A4340079B1E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GNN7DQ637Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Ivan-Semikin.PersonaCodeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Persona Code.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Persona Code";
+			};
+			name = Debug;
+		};
+		7936E3422D88A4340079B1E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GNN7DQ637Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Ivan-Semikin.PersonaCodeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Persona Code.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Persona Code";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -519,6 +624,15 @@
 			buildConfigurations = (
 				792B32F22D6A417900A9A498 /* Debug */,
 				792B32F32D6A417900A9A498 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7936E3432D88A4340079B1E0 /* Build configuration list for PBXNativeTarget "PersonaCodeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7936E3412D88A4340079B1E0 /* Debug */,
+				7936E3422D88A4340079B1E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
