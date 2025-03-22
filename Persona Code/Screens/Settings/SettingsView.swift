@@ -12,35 +12,33 @@ struct SettingsView: View {
     @EnvironmentObject private var viewModel: SettingsViewModel
     
     var body: some View {
-        ZStack {
-            BackgroundView(isShadow: true)
+        Form {
+            NotificationTogglesView()
             
-            Form {
-                NotificationTogglesView()
-                
-                LanguagePickerView()
-                
-                ConfidentialityButtonsView()
-                
-                RestorePurchasesButtonView()
-                
-                RequestReviewButtonView()
-                
-                SupportButtonView()
-            }
-            .scrollContentBackground(.hidden)
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    NavigationBackButtonView { coordinator.pop() }
-                }
-                ToolbarItem(placement: .principal) {
-                    CustomNavigationTitleView(title: localizedString("Settings"))
-                }
-            }
-            .environmentObject(viewModel)
+            LanguagePickerView()
+            
+            ConfidentialityButtonsView()
+            
+            RestorePurchasesButtonView()
+            
+            RequestReviewButtonView()
+            
+            SupportButtonView()
         }
+        .scrollContentBackground(.hidden)
         .navigationBarBackButtonHidden()
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                NavigationBackButtonView { coordinator.pop() }
+            }
+            ToolbarItem(placement: .principal) {
+                CustomNavigationTitleView(title: localizedString("Settings"))
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(BackgroundView(shadowLevel: .high))
+        .environmentObject(viewModel)
     }
 }
 

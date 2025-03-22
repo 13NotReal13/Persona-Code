@@ -14,27 +14,24 @@ struct PreloadPersonaCodeView: View {
     @StateObject private var viewModel = PreloadPersonaCodeViewModel()
     
     var body: some View {
-        ZStack {
-            BackgroundView()
+        VStack {
+            Spacer()
             
-            VStack {
-                Spacer()
-                
-                if viewModel.loadWasFinished {
-                    Button {
-                        coordinator.present(.purchase(personaCode: personaCode))
-                    } label: {
-                        Text("Open")
-                            .customText(fontSize: 17)
-                            .customButtonStyle(width: UIScreen.main.bounds.width * 0.6, shape: .capsule)
-                    }
-                } else {
-                    LoadProgressView(viewModel: viewModel)
+            if viewModel.loadWasFinished {
+                Button {
+                    coordinator.present(.purchase(personaCode: personaCode))
+                } label: {
+                    Text("Open")
+                        .customText(fontSize: 17)
+                        .customButtonStyle(width: UIScreen.main.bounds.width * 0.6, shape: .capsule)
                 }
+            } else {
+                LoadProgressView(viewModel: viewModel)
             }
-            .onAppear {
-                viewModel.startLoading(for: personaCode)
-            }
+        }
+        .navigationBarBackButtonHidden()
+        .onAppear {
+            viewModel.startLoading(for: personaCode)
         }
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
@@ -47,7 +44,8 @@ struct PreloadPersonaCodeView: View {
                 CustomNavigationTitleView(title: localizedString("Data Loading"))
             }
         }
-        .navigationBarBackButtonHidden()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(BackgroundView())
     }
 }
 

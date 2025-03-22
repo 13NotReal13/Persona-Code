@@ -35,7 +35,6 @@ final class PreloadPersonaCodeViewModel: ObservableObject {
                 
                 if index == delays.count - 1 {
                     self.loadWasFinished = true
-                    self.coordinator.present(.purchase(personaCode: personaCode))
                 }
             }
         }

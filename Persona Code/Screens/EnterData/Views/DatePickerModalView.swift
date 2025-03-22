@@ -8,40 +8,32 @@
 import SwiftUI
 
 struct DatePickerModalView: View {
+    @EnvironmentObject private var coordinator: NavigationCoordinator
     @ObservedObject var enterDataViewModel: EnterDataViewModel
     
     var body: some View {
-        ZStack {
-            BackgroundView(isShadow: true)
-            
-            VStack {
-                Spacer()
-                
-                // Выбор даты
-                DatePicker("Birth date", selection: $enterDataViewModel.dateBirthday, displayedComponents: .date)
-                    .datePickerStyle(.wheel)
-                    .colorInvert()
-                    .colorMultiply(Color.white)
-                    .labelsHidden()
-                    .padding()
-                    .onChange(of: enterDataViewModel.dateBirthday) { _ in
-                        enterDataViewModel.updateDisplayedDate()
-                    }
-                
-                // Кнопка закрытия
-                Button {
-                    enterDataViewModel.isDatePickerPresented = false
-                } label: {
-                    Text("Done")
-                        .customText(fontSize: 16)
-                        .customButtonStyle(
-                            width: UIScreen.main.bounds.width * 0.4,
-                            shape: .capsule
-                        )
+        VStack {
+            // Выбор даты
+            DatePicker("Birth date", selection: $enterDataViewModel.dateBirthday, displayedComponents: .date)
+                .datePickerStyle(.wheel)
+                .labelsHidden()
+                .padding()
+                .onChange(of: enterDataViewModel.dateBirthday) { _ in
+                    enterDataViewModel.updateDisplayedDate()
                 }
+            
+            Button {
+                coordinator.dismissModal()
+            } label: {
+                Text("Save")
+                    .customText(fontSize: 16)
+                    .customButtonStyle(
+                        width: UIScreen.main.bounds.width * 0.4,
+                        shape: .capsule
+                    )
             }
-            .padding()
         }
+//        .background(Color.clear)
     }
 }
 

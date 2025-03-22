@@ -17,7 +17,7 @@ struct BottomNavigationBarView: View {
             Button {
                 coordinator.push(.enterData)
             } label: {
-                Text("Get the Code")
+                Text("Persona Code")
                     .customText(fontSize: 17)
                     .customButtonStyle(width: UIScreen.main.bounds.width * 0.7, shape: .capsule)
             }

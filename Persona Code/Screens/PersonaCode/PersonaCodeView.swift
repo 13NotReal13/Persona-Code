@@ -16,52 +16,50 @@ struct PersonaCodeView: View {
     @ObservedObject private var storageManager = StorageManager.shared
     
     var body: some View {
-        ZStack {
-            ZStack(alignment: .leading) {
-                BackgroundView(isShadow: true)
+        ZStack(alignment: .leading) {
+            VStack {
+                PersonalTitleView(personaCodeData: personaCodeData)
                 
-                VStack {
-                    PersonalTitleView(personaCodeData: personaCodeData)
-                    
-                    PersonaCodeScrollView(
-                        viewModel: viewModel,
-                        personaCodeData: personaCodeData
-                    )
-                }
-            }
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        if isFromPreload {
-                            coordinator.popToRoot()
-                        } else {
-                            coordinator.pop()
-                        }
-                    } label: {
-                        Image(systemName: isFromPreload ? "house" : "chevron.left")
-                            .customText(fontSize: 17)
-                    }
-                }
-                
-                ToolbarItem(placement: .topBarTrailing) {
-                    DownloadPDFButtonView(viewModel: viewModel, personaCodeData: personaCodeData)
-                }
-            }
-            .onAppear {
-                if !ReviewRequestManager.shared.reviewPromptWasShowing() {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        checkReviewConditions()
-                    }
-                }
+                PersonaCodeScrollView(
+                    viewModel: viewModel,
+                    personaCodeData: personaCodeData
+                )
             }
             
             LeftMenuView(viewModel: viewModel)
         }
         .navigationBarBackButtonHidden()
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            if !ReviewRequestManager.shared.reviewPromptWasShowing() {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    checkReviewConditions()
+                }
+            }
+        }
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    if isFromPreload {
+                        coordinator.popToRoot()
+                    } else {
+                        coordinator.pop()
+                    }
+                } label: {
+                    Image(systemName: isFromPreload ? "house" : "chevron.left")
+                        .customText(fontSize: 17)
+                }
+            }
+            
+            ToolbarItem(placement: .topBarTrailing) {
+                DownloadPDFButtonView(viewModel: viewModel, personaCodeData: personaCodeData)
+            }
+        }
         .sheet(isPresented: $viewModel.showShareSheet) {
             ShareSheet(items: viewModel.shareItems)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(BackgroundView(shadowLevel: .high))
     }
     
     private func checkReviewConditions() {

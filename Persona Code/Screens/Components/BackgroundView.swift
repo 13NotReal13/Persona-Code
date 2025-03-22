@@ -7,8 +7,14 @@
 
 import SwiftUI
 
+enum ShadowLevel: CGFloat {
+    case none = 0
+    case medium = 0.5
+    case high = 0.7
+}
+
 struct BackgroundView: View {
-    var isShadow: Bool = false
+    var shadowLevel: ShadowLevel = .none
     
     var body: some View {
         ZStack {
@@ -39,8 +45,8 @@ struct BackgroundView: View {
             }
             .padding(.bottom, 50)
             
-            if isShadow {
-                Color.black.opacity(0.7)
+            if shadowLevel != .none {
+                Color.black.opacity(shadowLevel.rawValue)
             }
         }
         .ignoresSafeArea()

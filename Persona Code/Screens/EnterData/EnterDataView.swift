@@ -13,28 +13,17 @@ struct EnterDataView: View {
     @EnvironmentObject private var coordinator: NavigationCoordinator
     
     var body: some View {
-        ZStack {
-            BackgroundView(isShadow: true)
+        VStack {
+            Spacer()
+            Spacer()
             
-            VStack {
-                Spacer()
-                
-                EnterDataFormView(enterDataViewModel: enterDataViewModel)
-                
-                NextButtonView(viewModel: enterDataViewModel)
-                
-                Spacer()
-                
-                Spacer()
-            }
-        }
-        .ignoresSafeArea(.keyboard)
-        .onTapGesture {
-            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-        }
-        .sheet(isPresented: $enterDataViewModel.isDatePickerPresented) {
-            DatePickerModalView(enterDataViewModel: enterDataViewModel)
-                .preferredColorScheme(.light)
+            EnterDataFormView(enterDataViewModel: enterDataViewModel)
+            
+            NextButtonView(viewModel: enterDataViewModel)
+            
+            Spacer()
+            Spacer()
+            Spacer()
         }
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
@@ -46,6 +35,14 @@ struct EnterDataView: View {
             }
         }
         .navigationBarBackButtonHidden()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(
+            BackgroundView(shadowLevel: .medium)
+                .onTapGesture {
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                }
+        )
+        .ignoresSafeArea(.keyboard)
     }
 }
 

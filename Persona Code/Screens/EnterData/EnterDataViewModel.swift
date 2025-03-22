@@ -15,8 +15,6 @@ final class EnterDataViewModel: ObservableObject {
     @Published var isNameValid: Bool = true
     @Published var isDateValid: Bool = true
     
-    @Published var isDatePickerPresented: Bool = false
-    
     @MainActor
     func validateName() {
         let allowedCharacters = CharacterSet.letters
@@ -31,9 +29,5 @@ final class EnterDataViewModel: ObservableObject {
     func updateDisplayedDate() {
         displayedDateText = dateBirthday.formattedDate()
         isDateValid = true
-    }
-
-    func toggleDatePicker() {
-        isDatePickerPresented.toggle()
     }
 }

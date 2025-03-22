@@ -13,36 +13,34 @@ struct AffirmationsView: View {
     @StateObject private var viewModel = AffirmationsViewModel.shared
     
     var body: some View {
-        ZStack {
-            BackgroundView(isShadow: true)
+        VStack {
+            ScrollCategoriesView(
+                selectedCategory: $viewModel.selectedCategory,
+                categories: viewModel.categories
+            )
             
-            VStack {
-                ScrollCategoriesView(
-                    selectedCategory: $viewModel.selectedCategory,
-                    categories: viewModel.categories
-                )
-                
-                ReminderToggleView(isReminderEnabled: $settings.isReminderEnabled)
-                
-                FavoritesToggleView(showFavoritesOnly: $viewModel.showFavoritesOnly)
-                
-                AffirmationsListView(
-                    affirmations: viewModel.filteredAffirmations,
-                    toggleFavorite: viewModel.toggleFavorite(for:)
-                )
-            }
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    NavigationBackButtonView { coordinator.pop() }
-                }
-                
-                ToolbarItem(placement: .principal) {
-                    CustomNavigationTitleView(title: localizedString("Affirmations"))
-                }
-            }
+            ReminderToggleView(isReminderEnabled: $settings.isReminderEnabled)
+            
+            FavoritesToggleView(showFavoritesOnly: $viewModel.showFavoritesOnly)
+            
+            AffirmationsListView(
+                affirmations: viewModel.filteredAffirmations,
+                toggleFavorite: viewModel.toggleFavorite(for:)
+            )
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(BackgroundView(shadowLevel: .high))
         .navigationBarBackButtonHidden()
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                NavigationBackButtonView { coordinator.pop() }
+            }
+            
+            ToolbarItem(placement: .principal) {
+                CustomNavigationTitleView(title: localizedString("Affirmations"))
+            }
+        }
     }
 }
 

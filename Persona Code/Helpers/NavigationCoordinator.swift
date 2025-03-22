@@ -22,6 +22,7 @@ enum AppPage: Hashable {
 enum AppModal: Identifiable, Hashable {
     case purchase(personaCode: ShortPersonaCodeData)
     case reminderPicker(type: ReminderType)
+    case datePicker
     
     var id: Int { self.hashValue }
 }
@@ -29,6 +30,7 @@ enum AppModal: Identifiable, Hashable {
 final class NavigationCoordinator: ObservableObject {
     @Published var path = NavigationPath()
     @Published var activeModal: AppModal? = nil
+    @Published var enterDataViewModel: EnterDataViewModel? = nil
     
     static let shared = NavigationCoordinator()
     

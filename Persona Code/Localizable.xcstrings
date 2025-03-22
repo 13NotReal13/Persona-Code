@@ -42,23 +42,6 @@
         }
       }
     },
-    "%lld" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld"
-          }
-        }
-      }
-    },
     "12 aspects of personality" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -507,6 +490,7 @@
       }
     },
     "Done" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pl" : {
           "stringUnit" : {
@@ -666,22 +650,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ПОЛНОЕ ИМЯ"
-          }
-        }
-      }
-    },
-    "Get the Code" : {
-      "localizations" : {
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Uzyskaj Kod"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Получить Код"
           }
         }
       }

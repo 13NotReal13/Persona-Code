@@ -23,38 +23,36 @@ struct HelpInfoView: View {
     }
     
     var body: some View {
-        ZStack {
-            BackgroundView(isShadow: true)
-            
-            VStack(alignment: .center) {
-                Picker(selection: $selectedTab) {
-                    Text("How does it work?").tag(0)
-                    Text("Content").tag(1)
-                } label: {
-                    Text("")
-                }
-                .pickerStyle(SegmentedPickerStyle())
-                .padding()
-                
-                if selectedTab == 0 {
-                    HowItWorksView()
-                } else {
-                    HelpInfoCategoriesView(categories: categories)
-                }
+        VStack(alignment: .center) {
+            Picker(selection: $selectedTab) {
+                Text("How does it work?").tag(0)
+                Text("Content").tag(1)
+            } label: {
+                Text("")
             }
-            .padding(.horizontal)
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    NavigationBackButtonView { coordinator.pop() }
-                }
-                
-                ToolbarItem(placement: .principal) {
-                    CustomNavigationTitleView(title: localizedString("Information"))
-                }
+            .pickerStyle(SegmentedPickerStyle())
+            .padding()
+            
+            if selectedTab == 0 {
+                HowItWorksView()
+            } else {
+                HelpInfoCategoriesView(categories: categories)
             }
         }
         .navigationBarBackButtonHidden()
         .navigationBarTitleDisplayMode(.inline)
+        .padding(.horizontal)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                NavigationBackButtonView { coordinator.pop() }
+            }
+            
+            ToolbarItem(placement: .principal) {
+                CustomNavigationTitleView(title: localizedString("Information"))
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(BackgroundView(shadowLevel: .high))
     }
 }
 

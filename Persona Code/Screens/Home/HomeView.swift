@@ -12,15 +12,8 @@ struct HomeView: View {
     
     var body: some View {
         NavigationStack(path: $coordinator.path) {
-            ZStack {
-                BackgroundView()
-                
+            VStack {
                 BottomNavigationBarView()
-            }
-            .toolbar {
-//                ToolbarItem(placement: .principal) {
-//                    CustomNavigationTitleView(title: localizedString("Persona Code"))
-//                }
             }
             .navigationDestination(for: AppPage.self) { page in
                 switch page {
@@ -51,8 +44,16 @@ struct HomeView: View {
                         .environmentObject(AffirmationsViewModel.shared)
                         .presentationDetents([.fraction(0.5)])
                         .presentationDragIndicator(.visible)
+                case .datePicker:
+                    if let viewModel = coordinator.enterDataViewModel {
+                        DatePickerModalView(enterDataViewModel: viewModel)
+                            .presentationDetents([.fraction(0.35)])
+                            .presentationDragIndicator(.visible)
+                    }
                 }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(BackgroundView())
         }
         .environmentObject(coordinator)
     }

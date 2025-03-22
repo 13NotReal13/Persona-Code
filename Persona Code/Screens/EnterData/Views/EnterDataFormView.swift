@@ -18,11 +18,7 @@ struct EnterDataFormView: View {
                 validateName: { enterDataViewModel.validateName() }
             )
             
-            DatePickerView(
-                isDatePickerPresented: $enterDataViewModel.isDatePickerPresented,
-                displayedDateText: $enterDataViewModel.displayedDateText,
-                isDateValid: $enterDataViewModel.isDateValid
-            )
+            DatePickerView(enterDataViewModel: enterDataViewModel)
         }
     }
 }
