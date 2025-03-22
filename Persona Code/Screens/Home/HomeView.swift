@@ -18,9 +18,9 @@ struct HomeView: View {
                 BottomNavigationBarView()
             }
             .toolbar {
-                ToolbarItem(placement: .principal) {
-                    CustomNavigationTitleView(title: localizedString("Persona Code"))
-                }
+//                ToolbarItem(placement: .principal) {
+//                    CustomNavigationTitleView(title: localizedString("Persona Code"))
+//                }
             }
             .navigationDestination(for: AppPage.self) { page in
                 switch page {

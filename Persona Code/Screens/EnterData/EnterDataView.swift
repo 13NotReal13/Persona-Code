@@ -14,7 +14,7 @@ struct EnterDataView: View {
     
     var body: some View {
         ZStack {
-            BackgroundView()
+            BackgroundView(isShadow: true)
             
             VStack {
                 Spacer()
@@ -22,14 +22,16 @@ struct EnterDataView: View {
                 EnterDataFormView(enterDataViewModel: enterDataViewModel)
                 
                 NextButtonView(viewModel: enterDataViewModel)
+                
+                Spacer()
+                
+                Spacer()
             }
         }
+        .ignoresSafeArea(.keyboard)
         .onTapGesture {
-            UIApplication.shared.connectedScenes
-                .compactMap { ($0 as? UIWindowScene)?.keyWindow }
-                .first?
-                .endEditing(true)
-        } 
+            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        }
         .sheet(isPresented: $enterDataViewModel.isDatePickerPresented) {
             DatePickerModalView(enterDataViewModel: enterDataViewModel)
                 .preferredColorScheme(.light)

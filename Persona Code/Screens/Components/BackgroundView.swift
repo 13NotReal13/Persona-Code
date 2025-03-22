@@ -17,7 +17,6 @@ struct BackgroundView: View {
                 startPoint: .bottom,
                 endPoint: .top
             )
-            .ignoresSafeArea()
             
             GeometryReader { geo in
                 Image(.test2)
@@ -38,14 +37,13 @@ struct BackgroundView: View {
                         )
                     )
             }
-            .ignoresSafeArea()
             .padding(.bottom, 50)
             
             if isShadow {
-                Color.black.opacity(0.6)
-                    .ignoresSafeArea()
+                Color.black.opacity(0.7)
             }
         }
+        .ignoresSafeArea()
     }
 }
 
