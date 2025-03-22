@@ -20,8 +20,6 @@ final class PDFManager {
     var stars: [(CGPoint, CGFloat)] = [] // (позиция, прозрачность)
     
     func createPDF(personaCodeData: PersonaCodeModel) -> Data? {
-        generateStars(in: pageRect.size)
-        
         let pdfData = NSMutableData()
         UIGraphicsBeginPDFContextToData(pdfData, pageRect, nil)
         
@@ -97,19 +95,30 @@ final class PDFManager {
     private func beginNewPage() {
         UIGraphicsBeginPDFPage()
         currentY = topPadding
-        
-        // Рисуем однотонный фон
-        if let context = UIGraphicsGetCurrentContext() {
-            let backgroundColor = UIColor(Color.ringColor2)
-            context.setFillColor(backgroundColor.cgColor)
-            context.fill(pageRect)
+
+        if let context = UIGraphicsGetCurrentContext(),
+           let image = UIImage(named: "backgroundForPDF") {
             
-            // Рисуем звёзды
-            for (position, brightness) in stars {
-                let starColor = UIColor.white.withAlphaComponent(brightness)
-                context.setFillColor(starColor.cgColor)
-                context.fillEllipse(in: CGRect(x: position.x, y: position.y, width: 2, height: 2))
-            }
+            let imageSize = image.size
+            let pageSize = pageRect.size
+            
+            let scale = max(pageSize.width / imageSize.width, pageSize.height / imageSize.height)
+            let scaledWidth = imageSize.width * scale
+            let scaledHeight = imageSize.height * scale
+            let x = (pageSize.width - scaledWidth) / 2
+            let y = (pageSize.height - scaledHeight) / 2
+            
+            context.saveGState()
+            context.translateBy(x: 0, y: pageSize.height)
+            context.scaleBy(x: 1.0, y: -1.0)
+            
+            let flippedRect = CGRect(x: x, y: y, width: scaledWidth, height: scaledHeight)
+            context.setAlpha(0.25)
+            context.draw(image.cgImage!, in: flippedRect)
+            context.restoreGState()
+            
+            context.setFillColor(UIColor.black.withAlphaComponent(0.65).cgColor)
+            context.fill(pageRect)
         }
     }
     
@@ -162,21 +171,6 @@ final class PDFManager {
             
             currentY += lineRect.height
             glyphIndex = NSMaxRange(lineRange)
-        }
-    }
-    
-    private func generateStars(in size: CGSize) {
-        let screenWidth = size.width
-        let screenHeight = size.height
-        
-        stars = (0..<100).map { _ in
-            (
-                CGPoint(
-                    x: CGFloat.random(in: 0...screenWidth),
-                    y: CGFloat.random(in: 0...screenHeight)
-                ),
-                CGFloat.random(in: 0.5...1.0) // яркость
-            )
         }
     }
 }
