@@ -20,12 +20,13 @@ class NotificationService: UNNotificationServiceExtension {
             let dailyFactsKey = "dailyFactsKey"
             
             let language = UserDefaults.standard.string(forKey: "currentLanguage") ?? "en"
-            let fact: String
+            let lastFact = appGroupUserDefaults?.string(forKey: dailyFactsKey)
             
+            let fact: String
             switch language {
-            case "ru": fact = DailyFactsStorage_RU.shared.getRandomFact()
-            case "pl": fact = DailyFactsStorage_PL.shared.getRandomFact()
-            default: fact = DailyFactsStorage_EN.shared.getRandomFact()
+            case "ru": fact = DailyFactsStorage_RU.shared.getRandomFact(excluding: lastFact)
+            case "pl": fact = DailyFactsStorage_PL.shared.getRandomFact(excluding: lastFact)
+            default: fact = DailyFactsStorage_EN.shared.getRandomFact(excluding: lastFact)
             }
             
             bestAttemptContent.body = fact

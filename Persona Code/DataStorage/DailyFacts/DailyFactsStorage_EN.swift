@@ -133,8 +133,9 @@ final class DailyFactsStorage_EN {
     
     private init() {}
     
-    func getRandomFact() -> String {
-        return wishes.randomElement() ?? "The brain can predict the future by building probability models based on experience."
+    func getRandomFact(excluding lastFact: String?) -> String {
+        let filtered = wishes.filter { $0 != lastFact }
+        return filtered.randomElement() ?? wishes.randomElement()!
     }
 }
 

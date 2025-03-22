@@ -133,7 +133,8 @@ final class DailyFactsStorage_RU {
     
     private init() {}
     
-    func getRandomFact() -> String {
-        return wishes.randomElement() ?? "Мозг может предсказывать будущее: он строит вероятностные модели событий на основе опыта."
+    func getRandomFact(excluding lastFact: String?) -> String {
+        let filtered = wishes.filter { $0 != lastFact }
+        return filtered.randomElement() ?? wishes.randomElement()!
     }
 }

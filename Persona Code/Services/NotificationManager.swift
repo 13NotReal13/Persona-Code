@@ -110,10 +110,16 @@ final class NotificationManager {
     
     private func getLocalizedFactStorage() -> String {
         let language = UserDefaults.standard.string(forKey: "currentLanguage") ?? "en"
+        let lastFact = appGroupUserDefaults?.string(forKey: dailyFactsKey)
+        
+        let newFact: String
         switch language {
-        case "ru": return DailyFactsStorage_RU.shared.getRandomFact()
-        case "pl": return DailyFactsStorage_PL.shared.getRandomFact()
-        default: return DailyFactsStorage_EN.shared.getRandomFact()
+        case "ru": newFact = DailyFactsStorage_RU.shared.getRandomFact(excluding: lastFact)
+        case "pl": newFact = DailyFactsStorage_PL.shared.getRandomFact(excluding: lastFact)
+        default: newFact = DailyFactsStorage_EN.shared.getRandomFact(excluding: lastFact)
         }
+        
+        appGroupUserDefaults?.set(newFact, forKey: dailyFactsKey)
+        return newFact
     }
 }
