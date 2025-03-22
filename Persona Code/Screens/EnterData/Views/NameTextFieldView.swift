@@ -30,18 +30,17 @@ struct NameTextFieldView: View {
                     prompt: Text("FULL NAME")
                         .foregroundColor(Color.white.opacity(0.65))
                 )
-                .textContentType(.none)
+                .frame(width: UIScreen.main.bounds.width * 0.7)
+                .padding(.vertical, 8)
+                .textContentType(.givenName)
                 .disableAutocorrection(true)
                 .multilineTextAlignment(.center)
+                .submitLabel(.done)
                 .customText(fontSize: 16)
                 .onChange(of: name) { newValue in
                     name = newValue.replacingOccurrences(of: " ", with: "")
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                        validateName()
-                    }
                 }
             }
-            .frame(width: UIScreen.main.bounds.width * 0.7)
             
             VStack {
                 if !isNameValid {
