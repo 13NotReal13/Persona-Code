@@ -64,9 +64,7 @@ struct HowItWorksView: View {
 
 #Preview {
     ZStack {
-        BackgroundView(isAnimated: false)
-        
-        ShadowBackgroundView()
+        BackgroundView()
         
         HowItWorksView()
     }

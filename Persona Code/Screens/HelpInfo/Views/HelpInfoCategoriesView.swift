@@ -46,8 +46,6 @@ struct HelpInfoCategoriesView: View {
     ZStack {
         BackgroundView()
         
-        ShadowBackgroundView()
-        
         HelpInfoCategoriesView(categories: InfoContentData_EN().categories)
     }
     .preferredColorScheme(.dark)

@@ -23,9 +23,7 @@ struct FavoritesToggleView: View {
 
 #Preview {
     ZStack {
-        BackgroundView(isAnimated: false)
-        
-        ShadowBackgroundView()
+        BackgroundView()
         
         FavoritesToggleView(showFavoritesOnly: .constant(true))
     }

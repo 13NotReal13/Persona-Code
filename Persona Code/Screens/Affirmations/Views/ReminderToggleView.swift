@@ -52,9 +52,7 @@ struct ReminderToggleView: View {
 
 #Preview {
     ZStack {
-        BackgroundView(isAnimated: false)
-        
-        ShadowBackgroundView()
+        BackgroundView()
         
         ReminderToggleView(isReminderEnabled: .constant(true))
     }

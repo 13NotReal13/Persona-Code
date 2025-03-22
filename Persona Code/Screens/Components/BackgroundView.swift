@@ -8,56 +8,44 @@
 import SwiftUI
 
 struct BackgroundView: View {
-    var isAnimated: Bool = true
+    var isShadow: Bool = false
     
     var body: some View {
         ZStack {
             LinearGradient(
-                colors: [
-                    .ringColor1,
-                    .ringColor2
-                ],
+                colors: [.ringColor1, .ringColor2],
                 startPoint: .bottom,
                 endPoint: .top
             )
+            .ignoresSafeArea()
             
-            RotatingNumberRingView(
-                sizeOfRing: 0.67,
-                fontSize: 16,
-                direction: .left,
-                colorOfCircle: Color.ringColor1,
-                isAnimated: isAnimated,
-                rotationInterval: 3
-            )
-            .offset(y: -155)
+            GeometryReader { geo in
+                Image(.test2)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: geo.size.width, height: geo.size.height)
+                    .clipped()
+                    .opacity(0.3)
+                    .mask(
+                        LinearGradient(
+                            gradient: Gradient(stops: [
+                                .init(color: .black, location: 0.0),
+                                .init(color: .black, location: 0.8),
+                                .init(color: .clear, location: 1.0)
+                            ]),
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                    )
+            }
+            .ignoresSafeArea()
+            .padding(.bottom, 50)
             
-            RotatingNumberRingView(
-                sizeOfRing: 0.51,
-                fontSize: 15,
-                direction: .right,
-                colorOfCircle: Color.ringColor2,
-                isAnimated: isAnimated,
-                rotationInterval: 2
-            )
-            .offset(y: -155)
-            
-            RotatingNumberRingView(
-                sizeOfRing: 0.35,
-                fontSize: 14,
-                direction: .left,
-                colorOfCircle: Color.ringColor1,
-                isAnimated: isAnimated,
-                rotationInterval: 1
-            )
-                .offset(y: -155)
-            
-            Image(.personaBackground)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .offset(y: -70)
-                .shadow(color: .white, radius: 10)
+            if isShadow {
+                Color.black.opacity(0.6)
+                    .ignoresSafeArea()
+            }
         }
-        .ignoresSafeArea()
     }
 }
 

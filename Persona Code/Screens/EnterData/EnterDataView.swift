@@ -14,9 +14,7 @@ struct EnterDataView: View {
     
     var body: some View {
         ZStack {
-            BackgroundView(isAnimated: false)
-            
-            ShadowBackgroundView()
+            BackgroundView()
             
             VStack {
                 Spacer()

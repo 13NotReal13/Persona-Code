@@ -85,8 +85,7 @@ struct ReminderPickerView: View {
 
 #Preview {
     ZStack {
-        BackgroundView(isAnimated: false)
-        ShadowBackgroundView(isHighShadowLevel: true)
+        BackgroundView()
         
         ReminderPickerView(reminderType: ReminderType.affirmation)
             .preferredColorScheme(.dark)

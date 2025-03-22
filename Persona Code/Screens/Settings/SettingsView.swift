@@ -13,8 +13,7 @@ struct SettingsView: View {
     
     var body: some View {
         ZStack {
-            BackgroundView(isAnimated: false)
-            ShadowBackgroundView(isHighShadowLevel: true)
+            BackgroundView(isShadow: true)
             
             Form {
                 NotificationTogglesView()

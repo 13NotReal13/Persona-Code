@@ -18,9 +18,7 @@ struct PersonaCodeView: View {
     var body: some View {
         ZStack {
             ZStack(alignment: .leading) {
-                BackgroundView(isAnimated: false)
-                
-                ShadowBackgroundView(isHighShadowLevel: true)
+                BackgroundView(isShadow: true)
                 
                 VStack {
                     PersonalTitleView(personaCodeData: personaCodeData)

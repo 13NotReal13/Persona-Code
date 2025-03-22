@@ -14,8 +14,7 @@ struct AffirmationsView: View {
     
     var body: some View {
         ZStack {
-            BackgroundView(isAnimated: false)
-            ShadowBackgroundView()
+            BackgroundView(isShadow: true)
             
             VStack {
                 ScrollCategoriesView(

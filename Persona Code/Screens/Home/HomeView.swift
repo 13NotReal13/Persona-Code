@@ -13,9 +13,7 @@ struct HomeView: View {
     var body: some View {
         NavigationStack(path: $coordinator.path) {
             ZStack {
-//                BackgroundView()
-                TestNewBackground(opacity: 0.3)
-                    .ignoresSafeArea()
+                BackgroundView()
                 
                 BottomNavigationBarView()
             }

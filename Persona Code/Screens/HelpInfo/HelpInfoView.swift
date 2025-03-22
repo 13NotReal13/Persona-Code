@@ -24,9 +24,7 @@ struct HelpInfoView: View {
     
     var body: some View {
         ZStack {
-            BackgroundView(isAnimated: false)
-            
-            ShadowBackgroundView()
+            BackgroundView(isShadow: true)
             
             VStack(alignment: .center) {
                 Picker(selection: $selectedTab) {
