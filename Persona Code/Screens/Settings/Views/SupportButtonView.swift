@@ -12,6 +12,8 @@ struct SupportButtonView: View {
         Section(header: Text("Support")) {
             Button("Contact the Developer") {
                 ReviewRequestManager.shared.showFeedbackForm()
+                
+                FirebaseLogsManager.shared.logButtonTapped(.contact)
             }
         }
         .listRowBackground(Color.white.opacity(0.1))

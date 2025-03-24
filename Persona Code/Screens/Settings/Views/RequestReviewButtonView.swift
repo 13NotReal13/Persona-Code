@@ -12,6 +12,8 @@ struct RequestReviewButtonView: View {
         Section(header: Text("Ratings and reviews")) {
             Button("Rate the app") {
                 ReviewRequestManager.shared.requestReview()
+                
+                FirebaseLogsManager.shared.logButtonTapped(.rate)
             }
         }
         .listRowBackground(Color.white.opacity(0.1))

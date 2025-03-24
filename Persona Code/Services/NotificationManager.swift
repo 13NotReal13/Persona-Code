@@ -11,9 +11,6 @@ import UserNotifications
 final class NotificationManager {
     static let shared = NotificationManager()
     
-    private let appGroupUserDefaults = UserDefaults(suiteName: "group.Ivan-Semikin.Persona-Code")
-    private let dailyFactsKey = "dailyFactsKey"
-    
     private init() {}
     
     // 🔄 Запрос на авторизацию уведомлений
@@ -72,17 +69,12 @@ final class NotificationManager {
     }
     
     // 🔄 Ежедневные уведомления с пожеланиями
-    func scheduleDailyFactsNotification(at time: Date) {
+    func scheduleDailyFactTrigger(at time: Date) {
         removeWishNotifications()
         
         let content = UNMutableNotificationContent()
-        content.title = localizedString("Amazing Fact")
-        let fact = getLocalizedFactStorage()
-        content.body = fact
         content.sound = .default
         content.categoryIdentifier = "DAILY_FACTS_CATEGORY"
-        
-        appGroupUserDefaults?.set(fact, forKey: dailyFactsKey)
         
         var dateComponents = Calendar.current.dateComponents([.hour, .minute], from: time)
         dateComponents.second = 0
@@ -106,20 +98,5 @@ final class NotificationManager {
     // 🔄 Удаляем все ежедневные пожелания
     func removeWishNotifications() {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["dailyFactsNotification"])
-    }
-    
-    private func getLocalizedFactStorage() -> String {
-        let language = UserDefaults.standard.string(forKey: "currentLanguage") ?? "en"
-        let lastFact = appGroupUserDefaults?.string(forKey: dailyFactsKey)
-        
-        let newFact: String
-        switch language {
-        case "ru": newFact = DailyFactsStorage_RU.shared.getRandomFact(excluding: lastFact)
-        case "pl": newFact = DailyFactsStorage_PL.shared.getRandomFact(excluding: lastFact)
-        default: newFact = DailyFactsStorage_EN.shared.getRandomFact(excluding: lastFact)
-        }
-        
-        appGroupUserDefaults?.set(newFact, forKey: dailyFactsKey)
-        return newFact
     }
 }

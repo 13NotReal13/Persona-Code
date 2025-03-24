@@ -12,6 +12,8 @@ struct RestorePurchasesButtonView: View {
         Section(header: Text("Purchases")) {
             Button("Restore purchases") {
                 IAPManager.shared.restorePurchases()
+                
+                FirebaseLogsManager.shared.logButtonTapped(.restorePurchase)
             }
         }
         .listRowBackground(Color.white.opacity(0.1))

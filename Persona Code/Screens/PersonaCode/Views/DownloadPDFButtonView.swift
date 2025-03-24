@@ -14,6 +14,8 @@ struct DownloadPDFButtonView: View {
     var body: some View {
         Button {
             viewModel.generatePDF(personaCodeData: personaCodeData)
+            
+            FirebaseLogsManager.shared.logButtonTapped(.downloadPDF)
         } label: {
             HStack {
                 Image(systemName: "square.and.arrow.down")

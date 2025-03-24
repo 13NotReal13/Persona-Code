@@ -75,10 +75,12 @@ final class ReviewRequestManager: NSObject, ObservableObject, MFMailComposeViewC
         )
         
         alert.addAction(UIAlertAction(title: localizedString("Yes"), style: .default, handler: { _ in
+            FirebaseLogsManager.shared.logButtonTapped(.reviewAlertAccepted)
             self.requestReview()
         }))
         
         alert.addAction(UIAlertAction(title: localizedString("No"), style: .cancel, handler: { _ in
+            FirebaseLogsManager.shared.logButtonTapped(.reviewAlertDeclined)
             self.hasSeenReviewPrompt = true
         }))
         

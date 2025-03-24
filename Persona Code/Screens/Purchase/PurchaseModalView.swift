@@ -54,6 +54,8 @@ struct PurchaseModalView: View {
     private func purchaseButton(for product: SKProduct) -> some View {
         Button(action: {
             handlePurchase(for: product)
+            
+            FirebaseLogsManager.shared.logButtonTapped(.confirmPurchase)
         }) {
             Text("Buy for \(product.localizedPrice ?? "N/A")")
                 .font(.system(size: 19))
@@ -77,11 +79,18 @@ struct PurchaseModalView: View {
                     
                     viewModel.savePersonaCode(personaCode: personaCode)
                     
+                    FirebaseLogsManager.shared.logPurchaseSuccess(
+                        name: personaCode.name,
+                        dateBirth: personaCode.dateOfBirthday.formattedDate()
+                    )
+                    
                     coordinator.dismissModal()
                     coordinator.push(.personaCode(calculatedData, isFromPreload: true))
                 }
             },
             failure: { error in
+                FirebaseLogsManager.shared.logPurchaseFailure()
+                
                 showErrorAlert(error: error)
             }
         )
@@ -90,6 +99,8 @@ struct PurchaseModalView: View {
     private func restorePurchasesButton() -> some View {
         Button {
             IAPManager.shared.restorePurchases()
+            
+            FirebaseLogsManager.shared.logButtonTapped(.restorePurchase)
         } label: {
             Text("Restore purchases")
                 .font(.footnote)
@@ -102,6 +113,8 @@ struct PurchaseModalView: View {
             if let url = URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/") {
                 UIApplication.shared.open(url)
             }
+            
+            FirebaseLogsManager.shared.logButtonTapped(.termsOfUse)
         }) {
             Text("Terms of Use")
                 .font(.footnote)
@@ -114,6 +127,8 @@ struct PurchaseModalView: View {
             if let url = URL(string: "https://13notreal13.github.io/privacy-policy-persona-code/privacy.html") {
                 UIApplication.shared.open(url)
             }
+            
+            FirebaseLogsManager.shared.logButtonTapped(.privacyPolicy)
         }) {
             Text("Privacy Policy")
                 .font(.footnote)
@@ -123,6 +138,8 @@ struct PurchaseModalView: View {
     
     private func cancelButton() -> some View {
         Button(action: {
+            FirebaseLogsManager.shared.logButtonTapped(.cancelPurchase)
+            
             coordinator.dismissModal()
         }) {
             Text("Cancel")

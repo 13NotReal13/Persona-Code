@@ -48,6 +48,12 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        if notification.request.content.categoryIdentifier == "AFFIRMATION_CATEGORY" {
+            FirebaseLogsManager.shared.logNotificationShown(.affirmation)
+        } else if notification.request.content.categoryIdentifier == "DAILY_FACTS_CATEGORY" {
+            FirebaseLogsManager.shared.logNotificationShown(.fact)
+        }
+        
         completionHandler([.banner, .sound, .badge])
     }
 }

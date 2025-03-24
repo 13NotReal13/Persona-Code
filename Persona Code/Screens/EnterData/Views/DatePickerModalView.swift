@@ -33,7 +33,6 @@ struct DatePickerModalView: View {
                     )
             }
         }
-//        .background(Color.clear)
     }
 }
 

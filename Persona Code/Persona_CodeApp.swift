@@ -12,6 +12,7 @@ import FirebaseCore
 struct Persona_CodeApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject private var appSettings = SettingsViewModel()
+    @AppStorage("hasLaunchedBefore") private var hasLaunchedBefore: Bool = false
     
     var body: some Scene {
         WindowGroup {
@@ -22,6 +23,11 @@ struct Persona_CodeApp: App {
                 .onAppear {
                     IAPManager.shared.startObserving()
                     IAPManager.shared.fetchProducts()
+                    
+                    if !hasLaunchedBefore {
+                        FirebaseLogsManager.shared.logFirstLaunch()
+                        hasLaunchedBefore = true
+                    }
                 }
         }
     }

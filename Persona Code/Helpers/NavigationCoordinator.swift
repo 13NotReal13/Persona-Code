@@ -36,6 +36,25 @@ final class NavigationCoordinator: ObservableObject {
     
     func push(_ page: AppPage) {
         path.append(page)
+        
+        switch page {
+        case .enterData:
+            FirebaseLogsManager.shared.logScreenShown(.enterData)
+        case .preload:
+            FirebaseLogsManager.shared.logScreenShown(.preload)
+        case .personaCode:
+            FirebaseLogsManager.shared.logScreenShown(.personaCode)
+        case .affirmation:
+            FirebaseLogsManager.shared.logScreenShown(.affirmations)
+        case .history:
+            FirebaseLogsManager.shared.logScreenShown(.history)
+        case .settings:
+            FirebaseLogsManager.shared.logScreenShown(.settings)
+        case .helpInfo:
+            FirebaseLogsManager.shared.logScreenShown(.helpInfo)
+        default:
+            break
+        }
     }
     
     func popToRoot() {
@@ -48,6 +67,13 @@ final class NavigationCoordinator: ObservableObject {
     
     func present(_ modal: AppModal) {
         activeModal = modal
+        
+        switch modal {
+        case .purchase:
+            FirebaseLogsManager.shared.logScreenShown(.purchase)
+        default:
+            break
+        }
     }
     
     func dismissModal() {

@@ -8,6 +8,11 @@
 import Foundation
 import SwiftUI
 
+enum NotificationStateKeys {
+    static let reminderLastState = "reminder_last_state"
+    static let factsLastState = "facts_last_state"
+}
+
 final class SettingsViewModel: ObservableObject {
     // MARK: - Настройки языка
     @AppStorage("currentLanguage") var currentLanguage: String = "en"
@@ -64,18 +69,42 @@ final class SettingsViewModel: ObservableObject {
     }
     
     func updateReminders() {
+        let wasEnabled = UserDefaults.standard.bool(forKey: NotificationStateKeys.reminderLastState)
+        
         if isReminderEnabled && !selectedDays(for: .affirmation).isEmpty {
             NotificationManager.shared.scheduleWeeklyReminders(on: Array(selectedDays(for: .affirmation)), at: reminderDate)
+            
+            if !wasEnabled {
+                FirebaseLogsManager.shared.logNotificationToggled(.affirmation, isEnabled: true)
+                UserDefaults.standard.set(true, forKey: NotificationStateKeys.reminderLastState)
+            }
         } else {
             NotificationManager.shared.removeAllReminders()
+            
+            if wasEnabled {
+                FirebaseLogsManager.shared.logNotificationToggled(.affirmation, isEnabled: false)
+                UserDefaults.standard.set(false, forKey: NotificationStateKeys.reminderLastState)
+            }
         }
     }
     
     func updateFactsNotifications() {
+        let wasEnabled = UserDefaults.standard.bool(forKey: NotificationStateKeys.factsLastState)
+        
         if isFactNotificationEnabled && !selectedDays(for: .dailyFact).isEmpty {
-            NotificationManager.shared.scheduleDailyFactsNotification(at: factsDate)
+            NotificationManager.shared.scheduleDailyFactTrigger(at: factsDate)
+            
+            if !wasEnabled {
+                FirebaseLogsManager.shared.logNotificationToggled(.fact, isEnabled: true)
+                UserDefaults.standard.set(true, forKey: NotificationStateKeys.factsLastState)
+            }
         } else {
             NotificationManager.shared.removeWishNotifications()
+            
+            if wasEnabled {
+                FirebaseLogsManager.shared.logNotificationToggled(.fact, isEnabled: false)
+                UserDefaults.standard.set(false, forKey: NotificationStateKeys.factsLastState)
+            }
         }
     }
     

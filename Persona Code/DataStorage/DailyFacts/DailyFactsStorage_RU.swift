@@ -10,7 +10,7 @@ import Foundation
 final class DailyFactsStorage_RU {
     static let shared = DailyFactsStorage_RU()
     
-    private let wishes = [
+    private let allFacts = [
         "Человеческое тело способно различать до 10 миллионов цветов.",
         "Когда вы учите что-то новое, в мозгу появляются новые нейронные связи за доли секунды.",
         "Мозг может предсказывать будущее. Он строит вероятностные модели событий на основе опыта.",
@@ -127,14 +127,12 @@ final class DailyFactsStorage_RU {
         "Мозг быстрее реагирует на негатив, это механизм защиты.",
         "Во сне мозг активно обрабатывает и сортирует информацию.",
         "Без еды человек может прожить 60 дней, без воды — не более 3.",
-        "Каждую минуту гибнут 300 млн клеток, но столько же создаётся.",
-        "Организм может нормально работать даже с одной почкой."
+        "Каждую минуту гибнут 300 млн клеток, но столько же создаётся."
     ]
     
     private init() {}
     
-    func getRandomFact(excluding lastFact: String?) -> String {
-        let filtered = wishes.filter { $0 != lastFact }
-        return filtered.randomElement() ?? wishes.randomElement()!
+    func getRandomFact() -> String {
+        return allFacts.randomElement() ?? "Кровь человека может менять цвет в зависимости от содержания кислорода."
     }
 }

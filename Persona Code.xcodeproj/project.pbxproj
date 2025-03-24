@@ -66,6 +66,7 @@
 				DataStorage/DailyFacts/DailyFactsStorage_PL.swift,
 				DataStorage/DailyFacts/DailyFactsStorage_RU.swift,
 				"GoogleService-Info.plist",
+				Helpers/LocalizedString.swift,
 			);
 			target = 791023122D77452500E9CBB8 /* WishNotificationService */;
 		};

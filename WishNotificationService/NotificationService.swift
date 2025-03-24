@@ -16,21 +16,17 @@ class NotificationService: UNNotificationServiceExtension {
         }
         
         if bestAttemptContent.categoryIdentifier == "DAILY_FACTS_CATEGORY" {
-            let appGroupUserDefaults = UserDefaults(suiteName: "group.Ivan-Semikin.Persona-Code")
-            let dailyFactsKey = "dailyFactsKey"
-            
             let language = UserDefaults.standard.string(forKey: "currentLanguage") ?? "en"
-            let lastFact = appGroupUserDefaults?.string(forKey: dailyFactsKey)
             
             let fact: String
             switch language {
-            case "ru": fact = DailyFactsStorage_RU.shared.getRandomFact(excluding: lastFact)
-            case "pl": fact = DailyFactsStorage_PL.shared.getRandomFact(excluding: lastFact)
-            default: fact = DailyFactsStorage_EN.shared.getRandomFact(excluding: lastFact)
+            case "ru": fact = DailyFactsStorage_RU.shared.getRandomFact()
+            case "pl": fact = DailyFactsStorage_PL.shared.getRandomFact()
+            default: fact = DailyFactsStorage_EN.shared.getRandomFact()
             }
             
+            bestAttemptContent.title = localizedString("Amazing Fact")
             bestAttemptContent.body = fact
-            appGroupUserDefaults?.set(fact, forKey: dailyFactsKey)
         }
         
         contentHandler(bestAttemptContent)
