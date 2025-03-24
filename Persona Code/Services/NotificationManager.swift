@@ -69,24 +69,50 @@ final class NotificationManager {
     }
     
     // 🔄 Ежедневные уведомления с пожеланиями
-    func scheduleDailyFactTrigger(at time: Date) {
-        removeWishNotifications()
+    func scheduleDailyFactsForMonth(at time: Date, selectedDays: Set<Int>) {
+        removeFactsNotifications()
         
-        let content = UNMutableNotificationContent()
-        content.sound = .default
-        content.categoryIdentifier = "DAILY_FACTS_CATEGORY"
+        let calendar = Calendar.current
+
+        for dayOffset in 0..<31 {
+            guard let targetDate = calendar.date(byAdding: .day, value: dayOffset, to: Date()) else { continue }
+            
+            let weekday = calendar.component(.weekday, from: targetDate)
+
+            if selectedDays.contains(weekday) {
+                var dateComponents = calendar.dateComponents([.hour, .minute], from: time)
+                dateComponents.day = calendar.component(.day, from: targetDate)
+                dateComponents.month = calendar.component(.month, from: targetDate)
+                dateComponents.year = calendar.component(.year, from: targetDate)
+                
+                let content = UNMutableNotificationContent()
+                content.title = localizedString("Amazing Fact")
+                content.body = getRandomFactForCurrentLanguage()
+                content.sound = .default
+                content.categoryIdentifier = "DAILY_FACTS_CATEGORY"
+                
+                let request = UNNotificationRequest(
+                    identifier: "fact-notification-\(calendar.component(.day, from: targetDate))-\(calendar.component(.month, from: targetDate))-\(calendar.component(.year, from: targetDate))",
+                    content: content,
+                    trigger: UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+                )
+                
+                UNUserNotificationCenter.current().add(request)
+            }
+        }
+    }
+    
+    func getRandomFactForCurrentLanguage() -> String {
+        let language = UserDefaults.standard.string(forKey: "currentLanguage") ?? "en"
         
-        var dateComponents = Calendar.current.dateComponents([.hour, .minute], from: time)
-        dateComponents.second = 0
+        let fact: String
+        switch language {
+        case "ru": fact = DailyFactsStorage_RU.shared.getRandomFact()
+        case "pl": fact = DailyFactsStorage_PL.shared.getRandomFact()
+        default: fact = DailyFactsStorage_EN.shared.getRandomFact()
+        }
         
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-        let request = UNNotificationRequest(
-            identifier: "dailyFactsNotification",
-            content: content,
-            trigger: trigger
-        )
-        
-        UNUserNotificationCenter.current().add(request) { error in }
+        return fact
     }
     
     // 🔄 Удаляем все напоминания об аффирмациях
@@ -96,7 +122,12 @@ final class NotificationManager {
     }
     
     // 🔄 Удаляем все ежедневные пожелания
-    func removeWishNotifications() {
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["dailyFactsNotification"])
+    func removeFactsNotifications() {
+        UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
+            let factIDs = requests
+                .filter { $0.identifier.starts(with: "fact-notification-") }
+                .map { $0.identifier }
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: factIDs)
+        }
     }
 }

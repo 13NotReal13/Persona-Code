@@ -73,13 +73,6 @@ struct ReminderPickerView: View {
             )
         }
         .background(Color.clear)
-        .onAppear {
-            if reminderType == .affirmation {
-                viewModel.updateReminders()
-            } else {
-                viewModel.updateFactsNotifications()
-            }
-        }
     }
 }
 

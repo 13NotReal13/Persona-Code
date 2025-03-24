@@ -28,7 +28,18 @@ struct Persona_CodeApp: App {
                         FirebaseLogsManager.shared.logFirstLaunch()
                         hasLaunchedBefore = true
                     }
+                    
+                    refreshFactNotifications()
                 }
         }
     }
+    
+    private func refreshFactNotifications() {
+        // Проверяем включены ли факты и есть ли выбранные дни
+        if appSettings.isFactNotificationEnabled && !appSettings.selectedDays(for: .dailyFact).isEmpty {
+            let days = appSettings.selectedDays(for: .dailyFact)
+            NotificationManager.shared.scheduleDailyFactsForMonth(at: appSettings.factsDate, selectedDays: days)
+        }
+    }
 }
+

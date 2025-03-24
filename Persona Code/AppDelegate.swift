@@ -18,7 +18,6 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
         
         // 🔔 Настройка уведомлений
         UNUserNotificationCenter.current().delegate = self
-        requestNotificationAuthorization()
         Messaging.messaging().delegate = self
         
         return true
