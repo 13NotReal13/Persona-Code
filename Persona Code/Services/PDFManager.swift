@@ -84,9 +84,11 @@ final class PDFManager {
             let pdfURL = documentsURL.appendingPathComponent(fileName)
             do {
                 try pdfData.write(to: pdfURL)
+                
+                FirebaseLogsManager.shared.logPDFEvent(isSuccess: true)
                 return pdfURL
             } catch {
-                print("Ошибка при сохранении PDF: \(error)")
+                FirebaseLogsManager.shared.logPDFEvent(isSuccess: false, errorDescription: error.localizedDescription)
             }
         }
         return nil

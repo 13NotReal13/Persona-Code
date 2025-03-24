@@ -9,13 +9,16 @@ import Foundation
 import FirebaseAnalytics
 
 enum FirebaseLogs: String {
+    case appEvent = "app_event"
+    
     case screenShown = "screen_shown"
     case buttonTapped = "button_tapped"
     case notificationShown = "notification_shown"
     case notificationToggled = "notification_toggled"
     case purchaseSuccess = "purchase_success"
     case purchaseFailure = "purchase_failure"
-    case appEvent = "app_event"
+    
+    case pdfEvent = "pdf_event"
 }
 
 enum ScreenName: String {
@@ -50,39 +53,39 @@ enum NotificationType: String {
     case affirmation = "affirmation_notification"
 }
 
+enum PDFDownload: String {
+    case success = "success"
+    case failure = "failure"
+}
+
 final class FirebaseLogsManager {
     static let shared = FirebaseLogsManager()
     
     private init() {}
 
     func logFirstLaunch() {
-        print("🔥 Logged: First Launch")
         Analytics.logEvent(FirebaseLogs.appEvent.rawValue, parameters: ["event": "First Launch"])
     }
 
     func logScreenShown(_ screen: ScreenName) {
-        print("🔥 Logged: Screen Shown - \(screen.rawValue)")
         Analytics.logEvent(FirebaseLogs.screenShown.rawValue, parameters: [
             "screen_name": screen.rawValue
         ])
     }
 
     func logButtonTapped(_ button: ButtonName) {
-        print("🔥 Logged: Button Tapped - \(button.rawValue)")
         Analytics.logEvent(FirebaseLogs.buttonTapped.rawValue, parameters: [
             "button_name": button.rawValue
         ])
     }
 
     func logNotificationShown(_ type: NotificationType) {
-        print("🔥 Logged: Notification Shown - \(type.rawValue)")
         Analytics.logEvent(FirebaseLogs.notificationShown.rawValue, parameters: [
             "notification_type": type.rawValue
         ])
     }
 
     func logNotificationToggled(_ type: NotificationType, isEnabled: Bool) {
-        print("🔥 Logged: Notification Toggled - \(type.rawValue) to \(isEnabled ? "Enabled" : "Disabled")")
         Analytics.logEvent(FirebaseLogs.notificationToggled.rawValue, parameters: [
             "notification_type": type.rawValue,
             "state": isEnabled ? "Enabled" : "Disabled"
@@ -90,7 +93,6 @@ final class FirebaseLogsManager {
     }
 
     func logPurchaseSuccess(name: String, dateBirth: String) {
-        print("🔥 Logged: Purchase Success - Name: \(name), Date of Birth: \(dateBirth)")
         Analytics.logEvent(
             FirebaseLogs.purchaseSuccess.rawValue,
             parameters: [
@@ -101,8 +103,24 @@ final class FirebaseLogsManager {
     }
 
     func logPurchaseFailure() {
-        print("🔥 Logged: Purchase Failure")
         Analytics.logEvent(FirebaseLogs.purchaseFailure.rawValue, parameters: nil)
+    }
+    
+    func logPDFDownloaded() {
+        Analytics.logEvent(FirebaseLogs.purchaseSuccess.rawValue, parameters: nil)
+    }
+    
+    func logPDFEvent(isSuccess: Bool, errorDescription: String? = nil) {
+        var parameters: [String: Any] = [
+            "pdf_type": "persona_code",
+            "result": isSuccess ? "success" : "failure"
+        ]
+        
+        if let errorDescription = errorDescription {
+            parameters["error"] = errorDescription
+        }
+        
+        Analytics.logEvent(FirebaseLogs.pdfEvent.rawValue, parameters: parameters)
     }
 }
 

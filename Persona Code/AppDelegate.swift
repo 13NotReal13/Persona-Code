@@ -41,7 +41,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
     
     // Получение токена для FCM
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        print("FCM Token: \(fcmToken ?? "")")
+//        print("FCM Token: \(fcmToken ?? "")")
     }
     
     // Отображение пуша при открытом приложении

@@ -19,7 +19,6 @@ final class EnterDataViewModel: ObservableObject {
     func validateName() {
         let allowedCharacters = CharacterSet.letters
         isNameValid = name.rangeOfCharacter(from: allowedCharacters.inverted) == nil && !name.isEmpty
-        print("validate name")
     }
     
     @MainActor
