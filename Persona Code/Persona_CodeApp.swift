@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import FirebaseCore
 
 @main
 struct Persona_CodeApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject private var appSettings = SettingsViewModel()
     
     var body: some Scene {
