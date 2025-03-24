@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7910231A2D77452500E9CBB8 /* WishNotificationService.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 791023132D77452500E9CBB8 /* WishNotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		796A61A42D8F571100390147 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 796A61A32D8F571100390147 /* FirebaseAnalytics */; };
 		796A61A62D8F571100390147 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 796A61A52D8F571100390147 /* FirebaseCore */; };
 		796A61A82D8F571100390147 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 796A61A72D8F571100390147 /* FirebaseCrashlytics */; };
@@ -15,13 +14,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		791023182D77452500E9CBB8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 792B32DB2D6A417700A9A498 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 791023122D77452500E9CBB8;
-			remoteInfo = WishNotificationService;
-		};
 		7936E33F2D88A4340079B1E0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 792B32DB2D6A417700A9A498 /* Project object */;
@@ -38,7 +30,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				7910231A2D77452500E9CBB8 /* WishNotificationService.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,30 +37,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		791023132D77452500E9CBB8 /* WishNotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WishNotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		792B32E32D6A417700A9A498 /* Persona Code.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Persona Code.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7936E33B2D88A4330079B1E0 /* PersonaCodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PersonaCodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		7910231B2D77452500E9CBB8 /* Exceptions for "WishNotificationService" folder in "WishNotificationService" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 791023122D77452500E9CBB8 /* WishNotificationService */;
-		};
-		791023272D7755F800E9CBB8 /* Exceptions for "Persona Code" folder in "WishNotificationService" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				DataStorage/DailyFacts/DailyFactsStorage_EN.swift,
-				DataStorage/DailyFacts/DailyFactsStorage_PL.swift,
-				DataStorage/DailyFacts/DailyFactsStorage_RU.swift,
-				"GoogleService-Info.plist",
-				Helpers/LocalizedString.swift,
-			);
-			target = 791023122D77452500E9CBB8 /* WishNotificationService */;
-		};
 		796A61A12D8F535B00390147 /* Exceptions for "Persona Code" folder in "PersonaCodeTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -80,18 +52,9 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		791023142D77452500E9CBB8 /* WishNotificationService */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				7910231B2D77452500E9CBB8 /* Exceptions for "WishNotificationService" folder in "WishNotificationService" target */,
-			);
-			path = WishNotificationService;
-			sourceTree = "<group>";
-		};
 		792B32E52D6A417700A9A498 /* Persona Code */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				791023272D7755F800E9CBB8 /* Exceptions for "Persona Code" folder in "WishNotificationService" target */,
 				796A61A12D8F535B00390147 /* Exceptions for "Persona Code" folder in "PersonaCodeTests" target */,
 			);
 			path = "Persona Code";
@@ -105,13 +68,6 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		791023102D77452500E9CBB8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		792B32E02D6A417700A9A498 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -137,7 +93,6 @@
 			isa = PBXGroup;
 			children = (
 				792B32E52D6A417700A9A498 /* Persona Code */,
-				791023142D77452500E9CBB8 /* WishNotificationService */,
 				7936E33C2D88A4340079B1E0 /* PersonaCodeTests */,
 				792B32E42D6A417700A9A498 /* Products */,
 			);
@@ -147,7 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				792B32E32D6A417700A9A498 /* Persona Code.app */,
-				791023132D77452500E9CBB8 /* WishNotificationService.appex */,
 				7936E33B2D88A4330079B1E0 /* PersonaCodeTests.xctest */,
 			);
 			name = Products;
@@ -156,28 +110,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		791023122D77452500E9CBB8 /* WishNotificationService */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7910231C2D77452500E9CBB8 /* Build configuration list for PBXNativeTarget "WishNotificationService" */;
-			buildPhases = (
-				7910230F2D77452500E9CBB8 /* Sources */,
-				791023102D77452500E9CBB8 /* Frameworks */,
-				791023112D77452500E9CBB8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				791023142D77452500E9CBB8 /* WishNotificationService */,
-			);
-			name = WishNotificationService;
-			packageProductDependencies = (
-			);
-			productName = WishNotificationService;
-			productReference = 791023132D77452500E9CBB8 /* WishNotificationService.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		792B32E22D6A417700A9A498 /* Persona Code */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 792B32F12D6A417900A9A498 /* Build configuration list for PBXNativeTarget "Persona Code" */;
@@ -190,7 +122,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				791023192D77452500E9CBB8 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				792B32E52D6A417700A9A498 /* Persona Code */,
@@ -239,9 +170,6 @@
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
-					791023122D77452500E9CBB8 = {
-						CreatedOnToolsVersion = 16.2;
-					};
 					792B32E22D6A417700A9A498 = {
 						CreatedOnToolsVersion = 16.2;
 					};
@@ -270,20 +198,12 @@
 			projectRoot = "";
 			targets = (
 				792B32E22D6A417700A9A498 /* Persona Code */,
-				791023122D77452500E9CBB8 /* WishNotificationService */,
 				7936E33A2D88A4330079B1E0 /* PersonaCodeTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		791023112D77452500E9CBB8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		792B32E12D6A417700A9A498 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -301,13 +221,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		7910230F2D77452500E9CBB8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		792B32DF2D6A417700A9A498 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -325,11 +238,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		791023192D77452500E9CBB8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 791023122D77452500E9CBB8 /* WishNotificationService */;
-			targetProxy = 791023182D77452500E9CBB8 /* PBXContainerItemProxy */;
-		};
 		7936E3402D88A4340079B1E0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 792B32E22D6A417700A9A498 /* Persona Code */;
@@ -338,58 +246,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		7910231D2D77452500E9CBB8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = WishNotificationService/WishNotificationService.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GNN7DQ637Y;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WishNotificationService/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = WishNotificationService;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Ivan-Semikin.Persona-Code.WishNotificationService";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		7910231E2D77452500E9CBB8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = WishNotificationService/WishNotificationService.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GNN7DQ637Y;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WishNotificationService/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = WishNotificationService;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Ivan-Semikin.Persona-Code.WishNotificationService";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		792B32EF2D6A417900A9A498 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -626,15 +482,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7910231C2D77452500E9CBB8 /* Build configuration list for PBXNativeTarget "WishNotificationService" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7910231D2D77452500E9CBB8 /* Debug */,
-				7910231E2D77452500E9CBB8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		792B32DE2D6A417700A9A498 /* Build configuration list for PBXProject "Persona Code" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
