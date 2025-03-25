@@ -42,6 +42,22 @@
         }
       }
     },
+    "💬 What are affirmations?" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "💬 Czym są afirmacje?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "💬 Что такое аффирмации?"
+          }
+        }
+      }
+    },
     "12 aspects of personality" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -87,6 +103,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Аффирмации"
+          }
+        }
+      }
+    },
+    "Affirmations are positive statements that help shift your mindset, boost self-confidence, and focus on your goals. By repeating them daily, you create a supportive inner state and program yourself for success." : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afirmacje to pozytywne stwierdzenia, które pomagają zmienić sposób myślenia, wzmocnić pewność siebie i skupić się na swoich celach. Powtarzając je codziennie, tworzysz wspierający stan wewnętrzny i programujesz się na sukces."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Аффирмации — это позитивные утверждения, которые помогают изменить мышление, укрепить уверенность в себе и сфокусироваться на своих целях. Повторяя их каждый день, Вы создаёте поддерживающее внутреннее состояние и программируете себя на успех."
           }
         }
       }
@@ -489,19 +521,18 @@
         }
       }
     },
-    "Done" : {
-      "extractionState" : "stale",
+    "Don't show again" : {
       "localizations" : {
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Gotowe"
+            "value" : "Nie pokazuj ponownie"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Готово"
+            "value" : "Больше не показывать"
           }
         }
       }
@@ -666,6 +697,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Перейти в настройки"
+          }
+        }
+      }
+    },
+    "Got it" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rozumiem"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Понятно"
           }
         }
       }

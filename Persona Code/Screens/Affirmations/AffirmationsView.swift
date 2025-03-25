@@ -12,6 +12,9 @@ struct AffirmationsView: View {
     @EnvironmentObject private var settings: SettingsViewModel
     @StateObject private var viewModel = AffirmationsViewModel.shared
     
+    @AppStorage("hasSeenAffirmationHint") private var hasSeenHint = false
+    @State private var showHint = false
+    
     var body: some View {
         VStack {
             ScrollCategoriesView(
@@ -41,6 +44,56 @@ struct AffirmationsView: View {
                 CustomNavigationTitleView(title: localizedString("Affirmations"))
             }
         }
+        .onAppear {
+            if !hasSeenHint {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {                showHint = true
+                }
+            }
+        }
+        .sheet(isPresented: $showHint) {
+            VStack(spacing: 24) {
+                Text("💬 What are affirmations?")
+                    .font(.title3.bold())
+                    .multilineTextAlignment(.center)
+                    .padding(.top)
+
+                Text("Affirmations are positive statements that help shift your mindset, boost self-confidence, and focus on your goals. By repeating them daily, you create a supportive inner state and program yourself for success.")
+                    .font(.body)
+                    .multilineTextAlignment(.leading)
+                    .padding(.horizontal)
+
+                Toggle(isOn: $hasSeenHint) {
+                    Text("Don't show again")
+                }
+                .toggleStyle(CheckboxToggleStyle())
+                .padding(.horizontal)
+
+                Button("Got it") {
+                    showHint = false
+                }
+                .customText(fontSize: 17)
+                .customButtonStyle(width: UIScreen.main.bounds.width * 0.4, shape: .capsule)
+            }
+            .padding()
+            .presentationDetents([.height(400)])
+            .presentationDragIndicator(.visible)
+        }
+    }
+}
+
+struct CheckboxToggleStyle: ToggleStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        Button(action: { configuration.isOn.toggle() }) {
+            HStack {
+                Image(systemName: configuration.isOn ? "checkmark.square" : "square")
+                    .foregroundColor(.brown)
+                    .font(.title2)
+                configuration.label
+            }
+            .padding(.vertical, 4)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
     }
 }
 
@@ -50,5 +103,6 @@ struct AffirmationsView: View {
             .preferredColorScheme(.dark)
             .environmentObject(NavigationCoordinator.shared)
             .environmentObject(AffirmationsViewModel.shared)
+            .environmentObject(SettingsViewModel())
     }
 }
