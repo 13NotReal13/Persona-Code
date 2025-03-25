@@ -64,7 +64,9 @@ struct BackgroundView: View {
         }
         .ignoresSafeArea()
         .onAppear {
-            isGlowing = true
+            if shadowLevel == .none {
+                isGlowing = true
+            }
         }
     }
 }

@@ -12,25 +12,35 @@ import FirebaseCore
 struct Persona_CodeApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject private var appSettings = SettingsViewModel()
+    
+    @AppStorage("onboardingWasShowing") private var onboardingWasShowing: Bool = false
     @AppStorage("hasLaunchedBefore") private var hasLaunchedBefore: Bool = false
     
     var body: some Scene {
         WindowGroup {
-            HomeView()
-                .preferredColorScheme(.dark)
-                .environmentObject(appSettings)
-                .environment(\.locale, appSettings.locale)
-                .onAppear {
-                    IAPManager.shared.startObserving()
-                    IAPManager.shared.fetchProducts()
-                    
-                    if !hasLaunchedBefore {
-                        FirebaseLogsManager.shared.logFirstLaunch()
-                        hasLaunchedBefore = true
-                    }
-                    
-                    refreshFactNotifications()
+            if !onboardingWasShowing {
+                NavigationStack {
+                    OnboardingView()
+                        .preferredColorScheme(.dark)
                 }
+            } else {
+                HomeView()
+                    .preferredColorScheme(.dark)
+                    .environmentObject(appSettings)
+                    .environment(\.locale, appSettings.locale)
+                    .onAppear {
+                        IAPManager.shared.startObserving()
+                        IAPManager.shared.fetchProducts()
+                        
+                        if !hasLaunchedBefore {
+                            FirebaseLogsManager.shared.logFirstLaunch()
+                            hasLaunchedBefore = true
+                        }
+                        
+                        appSettings.getNotificationRequest()
+                        refreshFactNotifications()
+                    }
+            }
         }
     }
     

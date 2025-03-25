@@ -58,16 +58,19 @@ final class SettingsViewModel: ObservableObject {
         }
         
         locale = Locale(identifier: currentLanguage)
-        
-        // MARK: - Notifications
-        NotificationManager.shared.requestAuthorization { granted in
-            if granted {
-                if self.isFirstLaunch {
-                    self.setupDefaultFactsNotifications()
-                    self.isFirstLaunch = false
+    }
+    
+    func getNotificationRequest() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            NotificationManager.shared.requestAuthorization { granted in
+                if granted {
+                    if self.isFirstLaunch {
+                        self.setupDefaultFactsNotifications()
+                        self.isFirstLaunch = false
+                    }
+                } else {
+                    self.isFactNotificationEnabled = false
                 }
-            } else {
-                self.isFactNotificationEnabled = false
             }
         }
     }
