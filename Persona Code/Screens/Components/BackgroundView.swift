@@ -16,6 +16,8 @@ enum ShadowLevel: CGFloat {
 struct BackgroundView: View {
     var shadowLevel: ShadowLevel = .none
     
+    @State private var isGlowing = false
+    
     var body: some View {
         ZStack {
             LinearGradient(
@@ -25,7 +27,7 @@ struct BackgroundView: View {
             )
             
             GeometryReader { geo in
-                Image(.test2)
+                Image(.backgroundPerson)
                     .resizable()
                     .scaledToFill()
                     .frame(width: geo.size.width, height: geo.size.height)
@@ -45,11 +47,25 @@ struct BackgroundView: View {
             }
             .padding(.bottom, 50)
             
+            GeometryReader { geo in
+                Image(.backgroundSecondLayer)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: geo.size.width, height: geo.size.height)
+                    .shadow(color: .white.opacity(isGlowing ? 0.9 : 0.2), radius: 30)
+                    .opacity(isGlowing ? 0.7 : 0.2)
+                    .animation(.easeInOut(duration: 1.5).repeatForever(autoreverses: true), value: isGlowing)
+            }
+            .padding(.bottom, 50)
+            
             if shadowLevel != .none {
                 Color.black.opacity(shadowLevel.rawValue)
             }
         }
         .ignoresSafeArea()
+        .onAppear {
+            isGlowing = true
+        }
     }
 }
 
