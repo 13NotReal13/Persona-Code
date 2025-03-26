@@ -20,6 +20,9 @@ struct NotificationTogglesView: View {
                 .disabled(notificationStatus == .denied)
                 .onChange(of: viewModel.isReminderEnabled) { isOn in
                     viewModel.updateReminders()
+                    if isOn {
+                        coordinator.present(.reminderPicker(type: ReminderType.affirmation))
+                    }
                 }
             
             if viewModel.isReminderEnabled {
@@ -35,6 +38,9 @@ struct NotificationTogglesView: View {
                 .disabled(notificationStatus == .denied)
                 .onChange(of: viewModel.isFactNotificationEnabled) { isOn in
                     viewModel.updateFactsNotifications()
+                    if isOn {
+                        coordinator.present(.reminderPicker(type: ReminderType.dailyFact))
+                    }
                 }
             
             if viewModel.isFactNotificationEnabled {
