@@ -17,11 +17,11 @@ struct OnboardingPageThreeView: View {
             Spacer()
 
             VStack(spacing: 24) {
-                Text("🧠 УДИВИТЕЛЬНЫЕ ФАКТЫ")
+                Text("🧠 Amazing Facts")
                     .font(.title2.bold())
                     .multilineTextAlignment(.center)
 
-                Text("Узнайте, на что способен человеческий мозг и тело. Каждый день — новый научный факт о возможностях организма, разума и восприятия, которые вдохновляют раскрывать собственный потенциал.")
+                Text("Discover what the human brain and body are capable of. Each day — a new scientific fact about the potential of the mind, body, and perception that inspires you to unlock your inner abilities.")
                     .multilineTextAlignment(.center)
                     .padding(.horizontal)
             }

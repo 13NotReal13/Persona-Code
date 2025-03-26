@@ -51,11 +51,11 @@ struct OnboardingPageFourView: View {
             Spacer()
 
             VStack(spacing: 24) {
-                Text("✨ НАЧНИТЕ СВОЙ ПУТЬ САМОПОЗНАНИЯ")
+                Text("✨ Begin Your Journey")
                     .font(.title2.bold())
                     .multilineTextAlignment(.center)
 
-                Text("Используйте свой Код Личности как персональный путеводитель. Он поможет Вам разобраться в себе, преодолеть внутренние барьеры, справиться с жизненными трудностями и двигаться к своим целям с ясностью, уверенностью и пониманием своего пути.")
+                Text("Use your Personality Code as a personal guide. It will help you understand yourself, overcome internal barriers, deal with life’s challenges, and move toward your goals with clarity and confidence.")
                     .multilineTextAlignment(.center)
                     .padding(.horizontal)
             }

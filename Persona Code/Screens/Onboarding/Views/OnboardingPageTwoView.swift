@@ -59,11 +59,11 @@ struct OnboardingPageTwoView: View {
             Spacer()
 
             VStack(spacing: 24) {
-                Text("💬 АФФИРМАЦИИ")
+                Text("💬 Affirmations")
                     .font(.title2.bold())
                     .multilineTextAlignment(.center)
 
-                Text("Выбирайте подходящие аффирмации из разных категорий и повторяйте их ежедневно. Это поможет Вам сохранять позитивный настрой, укреплять уверенность и двигаться к своим целям. Чтобы не забывать — включите напоминания.")
+                Text("Choose affirmations from various categories and repeat them daily. They help you maintain a positive mindset, boost confidence, and move toward your goals. To stay consistent — enable reminders.")
                     .multilineTextAlignment(.center)
                     .padding(.horizontal)
             }

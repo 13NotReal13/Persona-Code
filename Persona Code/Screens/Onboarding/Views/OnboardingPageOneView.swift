@@ -17,11 +17,11 @@ struct OnboardingPageOneView: View {
             Spacer()
 
             VStack(spacing: 24) {
-                Text("🧬 КОД ЛИЧНОСТИ")
+                Text("🧬 Personality Code")
                     .font(.title2.bold())
                     .multilineTextAlignment(.center)
 
-                Text("Откройте для себя уникальную систему кодов личности, которая помогает глубже понять себя, выявить скрытые блоки и трудности в жизни, раскрыть сильные стороны и найти путь к достижению своих целей.")
+                Text("Discover a unique system of personality codes that helps you understand yourself better, identify hidden blocks and challenges in life, unlock your strengths, and find a path to achieving your goals.")
                     .multilineTextAlignment(.center)
                     .padding(.horizontal)
             }

@@ -47,7 +47,7 @@ struct OnboardingView: View {
                         }
                     }
                 }) {
-                    Text(currentPage < 3 ? "Продолжить" : "Начать")
+                    Text(currentPage < 3 ? "Continue" : "Start")
                         .customText(fontSize: 17)
                         .customButtonStyle(width: UIScreen.main.bounds.width * 0.6, shape: .capsule)
                 }
