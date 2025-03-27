@@ -48,6 +48,7 @@ struct Persona_CodeApp: App {
                     NavigationStack {
                         OnboardingView()
                             .preferredColorScheme(.dark)
+                            .environment(\.locale, appSettings.locale)
                     }
                 }
         }
