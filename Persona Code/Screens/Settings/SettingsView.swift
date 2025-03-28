@@ -19,8 +19,6 @@ struct SettingsView: View {
             
             ConfidentialityButtonsView()
             
-            RestorePurchasesButtonView()
-            
             RequestReviewButtonView()
             
             SupportButtonView()

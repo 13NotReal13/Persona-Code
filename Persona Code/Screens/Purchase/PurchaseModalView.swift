@@ -23,12 +23,9 @@ struct PurchaseModalView: View {
                 
                 DescriptionPurchaseView()
                 
-                VStack(spacing: 8) {
-                    HStack(spacing: 16) {
-                        restorePurchasesButton()
-                        termsOfUseButton()
-                    }
+                VStack(spacing: 16) {
                     privacyPolicyButton()
+                    termsOfUseButton()
                 }
                 
                 ZStack {
@@ -96,18 +93,6 @@ struct PurchaseModalView: View {
         )
     }
     
-    private func restorePurchasesButton() -> some View {
-        Button {
-            IAPManager.shared.restorePurchases()
-            
-            FirebaseLogsManager.shared.logButtonTapped(.restorePurchase)
-        } label: {
-            Text("Restore purchases")
-                .font(.footnote)
-                .foregroundColor(.gray)
-        }
-    }
-    
     private func termsOfUseButton() -> some View {
         Button(action: {
             if let url = URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/") {
@@ -164,7 +149,13 @@ struct PurchaseModalView: View {
 }
 
 
-//#Preview {
-//    PurchaseModalView(isPresented: .constant(true), personaCode: .constant(false))
-//        .preferredColorScheme(.dark)
-//}
+#Preview {
+    PurchaseModalView(
+        personaCode: ShortPersonaCodeData(
+            name: "Иван",
+            dateOfBirthday: Date.now,
+            dateCreationPersonaCode: Date.now
+        )
+    )
+        .preferredColorScheme(.dark)
+}

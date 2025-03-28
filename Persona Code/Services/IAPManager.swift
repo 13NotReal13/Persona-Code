@@ -52,10 +52,6 @@ final class IAPManager: NSObject, SKProductsRequestDelegate, SKPaymentTransactio
         }
     }
     
-    func restorePurchases() {
-        SKPaymentQueue.default().restoreCompletedTransactions()
-    }
-    
     func startObserving() {
         SKPaymentQueue.default().add(self)
     }

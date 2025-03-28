@@ -1305,22 +1305,6 @@
         }
       }
     },
-    "Purchases" : {
-      "localizations" : {
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zakupy"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Покупки"
-          }
-        }
-      }
-    },
     "Rate the app" : {
       "localizations" : {
         "pl" : {
@@ -1415,22 +1399,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Напоминание прочитать аффирмации"
-          }
-        }
-      }
-    },
-    "Restore purchases" : {
-      "localizations" : {
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Przywróć zakupy"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Восстановить покупки"
           }
         }
       }
