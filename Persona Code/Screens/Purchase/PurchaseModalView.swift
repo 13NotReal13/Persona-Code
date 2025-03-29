@@ -14,6 +14,9 @@ struct PurchaseModalView: View {
     @EnvironmentObject private var coordinator: NavigationCoordinator
     @StateObject private var viewModel = PreloadPersonaCodeViewModel()
     
+    @State private var showErrorAlert = false
+    @State private var purchaseErrorMessage: String?
+    
     var body: some View {
         ZStack {
             BackgroundImageView()
@@ -46,6 +49,13 @@ struct PurchaseModalView: View {
             }
         }
         .ignoresSafeArea(edges: .top)
+        .alert(isPresented: $showErrorAlert) {
+            Alert(
+                title: Text("Error"),
+                message: Text(purchaseErrorMessage ?? localizedString("The purchase could not be completed.")),
+                dismissButton: .default(Text("OK"))
+            )
+        }
     }
     
     private func purchaseButton(for product: SKProduct) -> some View {
@@ -87,8 +97,8 @@ struct PurchaseModalView: View {
             },
             failure: { error in
                 FirebaseLogsManager.shared.logPurchaseFailure()
-                
-                showErrorAlert(error: error)
+                purchaseErrorMessage = error?.localizedDescription
+                showErrorAlert = true
             }
         )
     }
@@ -132,19 +142,6 @@ struct PurchaseModalView: View {
                 .padding()
                 .foregroundColor(.blue)
         }
-    }
-    
-    private func showErrorAlert(error: Error?) {
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let rootVC = windowScene.windows.first?.rootViewController else { return }
-        
-        let alert = UIAlertController(
-            title: "Ошибка",
-            message: error?.localizedDescription ?? "Не удалось завершить покупку.",
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(title: "Ок", style: .default))
-        rootVC.present(alert, animated: true)
     }
 }
 

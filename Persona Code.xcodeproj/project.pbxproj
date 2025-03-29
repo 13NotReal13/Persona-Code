@@ -11,6 +11,7 @@
 		796A61A62D8F571100390147 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 796A61A52D8F571100390147 /* FirebaseCore */; };
 		796A61A82D8F571100390147 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 796A61A72D8F571100390147 /* FirebaseCrashlytics */; };
 		796A61AA2D8F571100390147 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 796A61A92D8F571100390147 /* FirebaseMessaging */; };
+		79C9FC092D97FA2F00474F78 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79C9FC082D97FA2F00474F78 /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		792B32E32D6A417700A9A498 /* Persona Code.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Persona Code.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7936E33B2D88A4330079B1E0 /* PersonaCodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PersonaCodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		79C9FC082D97FA2F00474F78 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -74,6 +76,7 @@
 			files = (
 				796A61AA2D8F571100390147 /* FirebaseMessaging in Frameworks */,
 				796A61A82D8F571100390147 /* FirebaseCrashlytics in Frameworks */,
+				79C9FC092D97FA2F00474F78 /* StoreKit.framework in Frameworks */,
 				796A61A62D8F571100390147 /* FirebaseCore in Frameworks */,
 				796A61A42D8F571100390147 /* FirebaseAnalytics in Frameworks */,
 			);
@@ -94,6 +97,7 @@
 			children = (
 				792B32E52D6A417700A9A498 /* Persona Code */,
 				7936E33C2D88A4340079B1E0 /* PersonaCodeTests */,
+				79C9FC072D97FA2F00474F78 /* Frameworks */,
 				792B32E42D6A417700A9A498 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -105,6 +109,14 @@
 				7936E33B2D88A4330079B1E0 /* PersonaCodeTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		79C9FC072D97FA2F00474F78 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				79C9FC082D97FA2F00474F78 /* StoreKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,12 +386,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Persona Code/Persona Code.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Persona Code/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = GNN7DQ637Y;
+				DEVELOPMENT_TEAM = GNN7DQ637Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Persona-Code-Info.plist";
@@ -400,7 +410,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Ivan-Semikin.Persona-Code";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "PersonaCode Distribution";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -418,12 +427,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Persona Code/Persona Code.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Persona Code/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = GNN7DQ637Y;
+				DEVELOPMENT_TEAM = GNN7DQ637Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Persona-Code-Info.plist";
@@ -444,7 +451,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Ivan-Semikin.Persona-Code";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "PersonaCode Distribution";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -463,12 +469,17 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GNN7DQ637Y;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Ivan-Semikin.PersonaCodeTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Persona Code.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Persona Code";
 			};
 			name = Debug;
@@ -481,12 +492,17 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GNN7DQ637Y;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Ivan-Semikin.PersonaCodeTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Persona Code.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Persona Code";
 			};
 			name = Release;

@@ -730,6 +730,22 @@
         }
       }
     },
+    "Error" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Błąd"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ошибка"
+          }
+        }
+      }
+    },
     "Feedback from the app - Personality Code" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1643,6 +1659,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Имя может содержать только буквы"
+          }
+        }
+      }
+    },
+    "The purchase could not be completed." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nie udało się sfinalizować zakupu."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось завершить покупку."
           }
         }
       }

@@ -33,6 +33,9 @@ final class IAPManager: NSObject, SKProductsRequestDelegate, SKPaymentTransactio
     func purchase(productID: String, success: @escaping () -> Void, failure: @escaping (Error?) -> Void) {
         guard let product = products.first(where: { $0.productIdentifier == productID }) else { return }
         
+        onPurchaseSuccess = success
+        onPurchaseFailure = failure
+        
         let payment = SKPayment(product: product)
         SKPaymentQueue.default().add(payment)
     }
