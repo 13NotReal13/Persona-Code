@@ -13,7 +13,7 @@ final class PreloadPersonaCodeViewModel: ObservableObject {
     @Published var statusText: String = localizedString("Retrieving your persona code . . .")
     @Published var loadWasFinished: Bool = false
     
-    private var totalDuration: TimeInterval = 20.0
+    private var totalDuration: TimeInterval = 13.0
     private let coordinator = NavigationCoordinator.shared
     
     func savePersonaCode(personaCode: ShortPersonaCodeData) {

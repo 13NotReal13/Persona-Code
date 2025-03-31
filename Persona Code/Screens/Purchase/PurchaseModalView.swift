@@ -14,6 +14,7 @@ struct PurchaseModalView: View {
     @EnvironmentObject private var coordinator: NavigationCoordinator
     @StateObject private var viewModel = PreloadPersonaCodeViewModel()
     
+    @State private var isLoadingPurchase = false
     @State private var showErrorAlert = false
     @State private var purchaseErrorMessage: String?
     
@@ -47,8 +48,27 @@ struct PurchaseModalView: View {
                 
                 cancelButton()
             }
+            .blur(radius: isLoadingPurchase ? 3 : 0)
+            
+            if isLoadingPurchase {
+                Color.black.opacity(0.4)
+                    .ignoresSafeArea()
+                    .transition(.opacity)
+
+                VStack(spacing: 16) {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                        .scaleEffect(2)
+
+                    Text("Processing purchase…")
+                        .foregroundColor(.white)
+                        .font(.headline)
+                }
+                .transition(.opacity)
+            }
         }
         .ignoresSafeArea(edges: .top)
+        .animation(.easeInOut(duration: 0.3), value: isLoadingPurchase)
         .alert(isPresented: $showErrorAlert) {
             Alert(
                 title: Text("Error"),
@@ -75,9 +95,13 @@ struct PurchaseModalView: View {
     }
     
     private func handlePurchase(for product: SKProduct) {
+        isLoadingPurchase = true
+        
         IAPManager.shared.purchase(
             productID: product.productIdentifier,
             success: {
+                isLoadingPurchase = false
+                
                 DispatchQueue.main.async {
                     let calculatedData = PersonaCodeCalculation(
                         name: personaCode.name,
@@ -96,6 +120,8 @@ struct PurchaseModalView: View {
                 }
             },
             failure: { error in
+                isLoadingPurchase = false
+                
                 FirebaseLogsManager.shared.logPurchaseFailure()
                 purchaseErrorMessage = error?.localizedDescription
                 showErrorAlert = true

@@ -1321,6 +1321,22 @@
         }
       }
     },
+    "Processing purchase…" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Przetwarzanie zakupu…"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обработка покупки…"
+          }
+        }
+      }
+    },
     "Rate the app" : {
       "localizations" : {
         "pl" : {
