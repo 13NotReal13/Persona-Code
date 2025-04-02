@@ -95,53 +95,38 @@ struct PurchaseModalView: View {
     }
     
     private func handlePurchase(for product: SKProduct) {
-        let calculatedData = PersonaCodeCalculation(
-            name: personaCode.name,
-            dateOfBirthday: personaCode.dateOfBirthday
-        ).personaCodeData
+        isLoadingPurchase = true
         
-        viewModel.savePersonaCode(personaCode: personaCode)
-        
-        FirebaseLogsManager.shared.logPurchaseSuccess(
-            name: personaCode.name,
-            dateBirth: personaCode.dateOfBirthday.formattedDate()
+        IAPManager.shared.purchase(
+            productID: product.productIdentifier,
+            success: {
+                isLoadingPurchase = false
+                
+                DispatchQueue.main.async {
+                    let calculatedData = PersonaCodeCalculation(
+                        name: personaCode.name,
+                        dateOfBirthday: personaCode.dateOfBirthday
+                    ).personaCodeData
+                    
+                    viewModel.savePersonaCode(personaCode: personaCode)
+                    
+                    FirebaseLogsManager.shared.logPurchaseSuccess(
+                        name: personaCode.name,
+                        dateBirth: personaCode.dateOfBirthday.formattedDate()
+                    )
+                    
+                    coordinator.dismissModal()
+                    coordinator.push(.personaCode(calculatedData, isFromPreload: true))
+                }
+            },
+            failure: { error in
+                isLoadingPurchase = false
+                
+                FirebaseLogsManager.shared.logPurchaseFailure()
+                purchaseErrorMessage = error?.localizedDescription
+                showErrorAlert = true
+            }
         )
-        
-        coordinator.dismissModal()
-        coordinator.push(.personaCode(calculatedData, isFromPreload: true))
-        
-//        isLoadingPurchase = true
-//        
-//        IAPManager.shared.purchase(
-//            productID: product.productIdentifier,
-//            success: {
-//                isLoadingPurchase = false
-//                
-//                DispatchQueue.main.async {
-//                    let calculatedData = PersonaCodeCalculation(
-//                        name: personaCode.name,
-//                        dateOfBirthday: personaCode.dateOfBirthday
-//                    ).personaCodeData
-//                    
-//                    viewModel.savePersonaCode(personaCode: personaCode)
-//                    
-//                    FirebaseLogsManager.shared.logPurchaseSuccess(
-//                        name: personaCode.name,
-//                        dateBirth: personaCode.dateOfBirthday.formattedDate()
-//                    )
-//                    
-//                    coordinator.dismissModal()
-//                    coordinator.push(.personaCode(calculatedData, isFromPreload: true))
-//                }
-//            },
-//            failure: { error in
-//                isLoadingPurchase = false
-//                
-//                FirebaseLogsManager.shared.logPurchaseFailure()
-//                purchaseErrorMessage = error?.localizedDescription
-//                showErrorAlert = true
-//            }
-//        )
     }
     
     private func termsOfUseButton() -> some View {
