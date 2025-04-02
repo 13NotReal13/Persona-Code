@@ -42,7 +42,6 @@ struct EnterDataView: View {
                     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                 }
         )
-//        .ignoresSafeArea(.keyboard)
     }
 }
 

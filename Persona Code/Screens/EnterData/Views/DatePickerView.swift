@@ -34,10 +34,10 @@ struct DatePickerView: View {
                             .opacity(0.7)
                         
                         HStack {
-                            if enterDataViewModel.displayedDateText.lowercased() == localizedString("Choose a date").lowercased() {
+                            if enterDataViewModel.displayedDateText.lowercased() == localizedString("Choose a Date").lowercased() {
                                 Text(enterDataViewModel.displayedDateText)
-                                    .font(.custom(CustomFont.correctionBrush.rawValue, size: 16))
-                                    .foregroundStyle(Color.white.opacity(0.6))
+                                    .font(.custom(CustomFont.interVariable.rawValue, size: 16))
+                                    .foregroundStyle(Color.white.opacity(0.5))
                             } else {
                                 Text(enterDataViewModel.displayedDateText)
                                     .customText(fontSize: 16)
@@ -49,8 +49,8 @@ struct DatePickerView: View {
             
             VStack {
                 if !enterDataViewModel.isDateValid {
-                    Text("Choose a date")
-                        .font(.custom(CustomFont.correctionBrush.rawValue, size: 12))
+                    Text("Choose a Date")
+                        .font(.custom(CustomFont.interVariable.rawValue, size: 12))
                         .foregroundStyle(.red)
                 }
             }

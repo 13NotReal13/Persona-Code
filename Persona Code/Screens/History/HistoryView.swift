@@ -20,7 +20,7 @@ struct HistoryView: View {
                 EmptyHistoryView()
             } else {
                 Text("Hold the name to delete the entry from history")
-                    .font(.custom(CustomFont.correctionBrush.rawValue, size: 10))
+                    .font(.custom(CustomFont.interVariable.rawValue, size: 10))
                     .foregroundStyle(.gray)
                 
                 ScrollView {

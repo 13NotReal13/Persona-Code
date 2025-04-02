@@ -8,5 +8,6 @@
 import Foundation
 
 enum CustomFont: String {
-    case correctionBrush = "CorrectionBrush"
+    case interVariable = "InterVariable"
+    case interDisplaySemiBold = "InterDisplay-SemiBold"
 }

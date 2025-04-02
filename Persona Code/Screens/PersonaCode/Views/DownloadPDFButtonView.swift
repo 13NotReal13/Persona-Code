@@ -17,9 +17,9 @@ struct DownloadPDFButtonView: View {
             
             FirebaseLogsManager.shared.logButtonTapped(.downloadPDF)
         } label: {
-            HStack {
+            HStack(alignment: .center) {
                 Image(systemName: "square.and.arrow.down")
-                Text("Download .pdf")
+                Text(".pdf")
             }
             .customText(fontSize: 17)
         }

@@ -27,8 +27,8 @@ struct NameTextFieldView: View {
                 TextField(
                     "",
                     text: $name,
-                    prompt: Text("FULL NAME")
-                        .foregroundColor(Color.white.opacity(0.65))
+                    prompt: Text("Full Name")
+                        .foregroundColor(Color.white.opacity(0.5))
                 )
                 .frame(width: UIScreen.main.bounds.width * 0.7)
                 .padding(.vertical, 8)
@@ -45,7 +45,7 @@ struct NameTextFieldView: View {
             VStack {
                 if !isNameValid {
                     Text("The name can only contain letters")
-                        .font(.custom(CustomFont.correctionBrush.rawValue, size: 12))
+                        .font(.custom(CustomFont.interVariable.rawValue, size: 12))
                         .foregroundStyle(.red)
                 }
             }

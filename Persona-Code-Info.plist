@@ -6,7 +6,8 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>CorrectionBrush.ttf</string>
+		<string>InterVariable.ttf</string>
+		<string>InterDisplay-SemiBold.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

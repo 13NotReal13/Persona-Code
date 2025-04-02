@@ -38,10 +38,9 @@ struct LeftNavigationButtonsView: View {
                         }
                     }
                     .onTapGesture {
-                        
                         withAnimation {
                             personaCodeViewModel.isMenuOpen = false
-                            personaCodeViewModel.selectedSection = num
+                            personaCodeViewModel.scrollToSection.send(num)
                         }
                     }
                 

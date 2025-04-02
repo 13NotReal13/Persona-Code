@@ -20,6 +20,9 @@
         }
       }
     },
+    ".pdf" : {
+      "shouldTranslate" : false
+    },
     "%@ - %@" : {
       "localizations" : {
         "en" : {
@@ -261,6 +264,12 @@
     },
     "Background Music" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Background music"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -358,18 +367,12 @@
         }
       }
     },
-    "Choose a date" : {
+    "Choose a Date" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Choose a date"
-          }
-        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wybierz datę"
+            "value" : "Wybrać datę"
           }
         },
         "ru" : {
@@ -523,7 +526,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ввод Данных"
+            "value" : "Ввод данных"
           }
         }
       }
@@ -534,13 +537,13 @@
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ładowanie Danych"
+            "value" : "Ładowanie danych"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Загрузка Данных"
+            "value" : "Загрузка данных"
           }
         }
       }
@@ -665,22 +668,6 @@
         }
       }
     },
-    "Download .pdf" : {
-      "localizations" : {
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pobierz .pdf"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Скачать .pdf"
-          }
-        }
-      }
-    },
     "Download the complete analysis of your Persona Code in a convenient format." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -797,18 +784,18 @@
         }
       }
     },
-    "FULL NAME" : {
+    "Full Name" : {
       "localizations" : {
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PEŁNE IMIĘ"
+            "value" : "Pełne imię"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ПОЛНОЕ ИМЯ"
+            "value" : "Полное имя"
           }
         }
       }
@@ -896,6 +883,12 @@
     },
     "How does it work?" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How Does It Work?"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -963,6 +956,12 @@
     },
     "Interface Language" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Interface language"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1110,6 +1109,12 @@
     },
     "Notification settings" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notification Settings"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1323,6 +1328,12 @@
     },
     "Rate the app" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rate the App"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1519,6 +1530,12 @@
     },
     "Show only Favorites" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show only favorites"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",

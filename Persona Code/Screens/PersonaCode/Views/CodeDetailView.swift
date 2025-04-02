@@ -25,6 +25,7 @@ struct CodeDetailView: View {
                     .frame(maxWidth: .infinity, alignment: .center)
                 Text(subcategorie.shortDescription)
                     .opacity(0.8)
+                    .fixedSize(horizontal: false, vertical: true)
                 Text(subcategorie.mainDescription)
             }
         }

@@ -13,8 +13,7 @@ struct FavoritesToggleView: View {
     var body: some View {
         Toggle(isOn: $showFavoritesOnly) {
             Text("Show only Favorites")
-                .font(.caption)
-                .foregroundColor(.white)
+                .customText(fontSize: 13)
         }
         .tint(.brown)
         .padding(.horizontal, 32)

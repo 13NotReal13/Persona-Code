@@ -9,8 +9,8 @@ import Foundation
 import SwiftUI
 
 extension View {
-    func customText(fontSize: CGFloat) -> some View {
-        self.modifier(CustomFontModifier(fontSize: fontSize))
+    func customText(fontSize: CGFloat, customFont: CustomFont = .interVariable) -> some View {
+        self.modifier(CustomFontModifier(fontSize: fontSize, customFont: customFont))
     }
     
     func customButtonStyle(

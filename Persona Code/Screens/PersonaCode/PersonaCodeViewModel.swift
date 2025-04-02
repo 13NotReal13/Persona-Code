@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 final class PersonaCodeViewModel: ObservableObject {
     @Published var selectedSection = 1
@@ -14,6 +15,8 @@ final class PersonaCodeViewModel: ObservableObject {
     @Published var showShareSheet: Bool = false
     
     @Published var shareItems: [Any] = []
+    
+    var scrollToSection = PassthroughSubject<Int, Never>()
     
     func generatePDF(personaCodeData: PersonaCodeModel) {
         let pdfManager = PDFManager()

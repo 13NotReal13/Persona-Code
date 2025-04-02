@@ -33,9 +33,10 @@ struct PersonaCodeScrollView: View {
                     }
                 }
             }
-            .onChange(of: viewModel.selectedSection) { section in
+            .onReceive(viewModel.scrollToSection) { section in
                 withAnimation {
                     proxy.scrollTo(section, anchor: .top)
+                    viewModel.selectedSection = section
                 }
             }
         }

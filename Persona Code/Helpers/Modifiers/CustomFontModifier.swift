@@ -10,10 +10,11 @@ import SwiftUI
 
 struct CustomFontModifier: ViewModifier {
     var fontSize: CGFloat
+    var customFont: CustomFont
     
     func body(content: Content) -> some View {
         content
-            .font(.custom(CustomFont.correctionBrush.rawValue, size: fontSize))
+            .font(.custom(customFont.rawValue, size: fontSize))
             .foregroundStyle(.white)
     }
 }

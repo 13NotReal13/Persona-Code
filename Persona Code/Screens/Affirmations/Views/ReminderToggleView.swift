@@ -19,8 +19,7 @@ struct ReminderToggleView: View {
             // Тоггл с напоминаниями
             Toggle(isOn: $isReminderEnabled) {
                 Text("Reminder to read affirmations")
-                    .font(.caption)
-                    .foregroundColor(.white)
+                    .customText(fontSize: 13)
             }
             .tint(.brown)
             .disabled(notificationStatus == .denied)

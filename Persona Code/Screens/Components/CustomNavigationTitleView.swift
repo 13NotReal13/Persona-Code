@@ -12,6 +12,6 @@ struct CustomNavigationTitleView: View {
     
     var body: some View {
         Text(title)
-            .customText(fontSize: 28)
+            .customText(fontSize: 22, customFont: .interDisplaySemiBold)
     }
 }

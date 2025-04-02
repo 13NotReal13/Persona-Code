@@ -53,6 +53,7 @@ struct PersonaCodeView: View {
             
             ToolbarItem(placement: .topBarTrailing) {
                 DownloadPDFButtonView(viewModel: viewModel, personaCodeData: personaCodeData)
+                    .opacity(viewModel.isMenuOpen ? 0.5 : 1)
             }
         }
         .sheet(isPresented: $viewModel.showShareSheet) {
