@@ -11,26 +11,16 @@ struct HowItWorksView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                Text("Welcome to the \"Persona Code\" app!")
+                Text("Welcome!")
                     .font(.title2)
                     .bold()
                     .frame(maxWidth: .infinity, alignment: .center)
                     .multilineTextAlignment(.center)
                 
                 Text("""
-                Here you can learn more about yourself and your potential through a unique system of 22 codes. The “Persona Code” app is developed using the most advanced AI model, capable of analyzing data with high accuracy and providing personalized recommendations.
+                The “Persona Code” app is the result of synthesizing hundreds of psychological studies, dozens of books on human behavior and thinking, scientific research, and has been developed with the help of next-generation artificial intelligence capable of analyzing data with high precision and providing personalized recommendations. Every part of the app is thoughtfully designed to bring you maximum benefit without unnecessary information.
 
-                The system of 22 codes was not chosen by chance. It covers all key aspects of personality and life path, providing a comprehensive understanding of your talents, goals, and opportunities.
-                """)
-                .foregroundStyle(.white.opacity(0.8))
-                
-                Text("Why 22 codes?")
-                    .font(.headline)
-                    .bold()
-                    .frame(maxWidth: .infinity, alignment: .center)
-                
-                Text("""
-                The 22 codes help explore different aspects of personality, from innate talents and strengths to hidden potentials and obstacles. AI reveals hidden connections and provides accurate recommendations.
+                Here, you can learn more about yourself and your potential through a unique system of 22 codes.
                 """)
                 .foregroundStyle(.white.opacity(0.8))
                 
@@ -40,17 +30,30 @@ struct HowItWorksView: View {
                     .frame(maxWidth: .infinity, alignment: .center)
                 
                 Text("""
-                All you need is to enter your data. The system analyzes it using AI algorithms and creates a personal profile based on 12 categories.
-                """)
+                     The app uses the data you provide — your name and date of birth — as a starting point. This information allows the system to generate a unique numerical code, which becomes the key to your personal profile.
+                     
+                     Based on this code, the system analyzes verified sources: psychological research, scientific publications, and behavioral pattern analysis. The algorithms do not “guess” and are not based on astrology — they help reveal possible thinking patterns, strengths, and internal traits typical for your personality type.
+                     """)
                 .foregroundStyle(.white.opacity(0.8))
                 
-                Text("Final thought")
+                Text("Why 22 codes?")
                     .font(.headline)
                     .bold()
                     .frame(maxWidth: .infinity, alignment: .center)
                 
                 Text("""
-                The 22 codes symbolize different facets of your personality. Thanks to advanced AI technology, the “Persona Code” app can offer you precise and practical recommendations.
+                This system is based on the idea that personality and life path can be broken down into 22 key aspects. Each code reflects one of the essential parts of your character, potential, or internal obstacles. Together, they form a complete picture of who you are and what possibilities are hidden within you.
+                """)
+                .foregroundStyle(.white.opacity(0.8))
+                
+                Text("What will you get?")
+                    .font(.headline)
+                    .bold()
+                    .frame(maxWidth: .infinity, alignment: .center)
+                
+                Text("""
+                You will receive a structured description of the key qualities of your personality, possible inner conflicts, and areas for growth.
+                This information will become a tool for self-reflection — helping you better understand yourself, your habits, and how you interact with the world around you.
                 """)
                 .foregroundStyle(.white.opacity(0.8))
                 

@@ -204,22 +204,6 @@
         }
       }
     },
-    "All you need is to enter your data. The system analyzes it using AI algorithms and creates a personal profile based on 12 categories." : {
-      "localizations" : {
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wystarczy, że wprowadzisz swoje dane. System przeanalizuje je za pomocą algorytmów AI i stworzy osobisty profil oparty na 12 kategoriach, z których każda zawiera 22 możliwe scenariusze rozwoju."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Всё, что вам нужно — это ввести свои данные. Система проанализирует их с помощью алгоритмов ИИ и составит персональный профиль на основе 12 категорий, каждая из которых включает 22 возможных сценария развития."
-          }
-        }
-      }
-    },
     "Amazing Fact" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -779,22 +763,6 @@
         }
       }
     },
-    "Final thought" : {
-      "localizations" : {
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Końcowa myśl"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Итоговая мысль"
-          }
-        }
-      }
-    },
     "Finance" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -890,22 +858,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Здоровье"
-          }
-        }
-      }
-    },
-    "Here you can learn more about yourself and your potential through a unique system of 22 codes. The “Persona Code” app is developed using the most advanced AI model, capable of analyzing data with high accuracy and providing personalized recommendations.\n\nThe system of 22 codes was not chosen by chance. It covers all key aspects of personality and life path, providing a comprehensive understanding of your talents, goals, and opportunities." : {
-      "localizations" : {
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tutaj możesz dowiedzieć się więcej o sobie i swoim potencjale dzięki unikalnemu systemowi 22 kodów. Aplikacja “Kod Osobowości” została opracowana z wykorzystaniem najnowocześniejszego modelu AI, który analizuje dane z wysoką precyzją i oferuje spersonalizowane rekomendacje.\n\nSystem 22 kodów nie został wybrany przypadkowo. Obejmuje wszystkie kluczowe aspekty osobowości i ścieżki życiowej, zapewniając kompleksowe zrozumienie talentów, celów i możliwości."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Здесь вы сможете узнать больше о себе и своём потенциале через уникальную систему из 22 кодов. Программа “Код Личности” разработана с использованием самой совершенной модели искусственного интеллекта, способной анализировать данные с высокой точностью и предоставлять вам персонализированные рекомендации.\n\nСистема из 22 кодов выбрана не случайно. Она охватывает все ключевые аспекты личности и жизненного пути, предоставляя целостное понимание ваших талантов, целей и возможностей."
           }
         }
       }
@@ -1646,34 +1598,34 @@
         }
       }
     },
-    "The 22 codes help explore different aspects of personality, from innate talents and strengths to hidden potentials and obstacles. AI reveals hidden connections and provides accurate recommendations." : {
+    "The “Persona Code” app is the result of synthesizing hundreds of psychological studies, dozens of books on human behavior and thinking, scientific research, and has been developed with the help of next-generation artificial intelligence capable of analyzing data with high precision and providing personalized recommendations. Every part of the app is thoughtfully designed to bring you maximum benefit without unnecessary information.\n\nHere, you can learn more about yourself and your potential through a unique system of 22 codes." : {
       "localizations" : {
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "22 kody pomagają badać różne aspekty osobowości: od wrodzonych talentów i mocnych stron po ukryte potencjały i przeszkody. AI ujawnia ukryte powiązania i dostarcza trafne rekomendacje."
+            "value" : "Aplikacja „Kod Osobowości” to efekt syntezy setek badań psychologicznych, dziesiątek książek o myśleniu i zachowaniu człowieka, prac naukowych oraz została opracowana przy udziale sztucznej inteligencji nowej generacji, zdolnej do precyzyjnej analizy danych i dostarczania spersonalizowanych rekomendacji. Każdy element aplikacji został starannie przemyślany, aby zapewnić Ci maksymalne korzyści bez zbędnych informacji.\n\nTutaj możesz dowiedzieć się więcej o sobie i swoim potencjale dzięki unikalnemu systemowi 22 kodów."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "22 кода помогают исследовать разные стороны личности: от врождённых талантов и сильных сторон до скрытых потенциалов и возможных препятствий. Искусственный интеллект помогает выявлять скрытые связи и предоставлять точные рекомендации."
+            "value" : "Приложение «Код Личности» — это результат синтеза сотен психологических исследований, десятков книг о мышлении и поведении человека, научных трудов, а также разработано при участии искусственного интеллекта нового поколения, способного анализировать данные с высокой точностью и предоставлять вам персонализированные рекомендации. Каждая часть приложения продумана до мелочей, чтобы дать максимум пользы без лишней информации.\n\nЗдесь вы сможете узнать больше о себе и своём потенциале через уникальную систему из 22 кодов."
           }
         }
       }
     },
-    "The 22 codes symbolize different facets of your personality. Thanks to advanced AI technology, the “Persona Code” app can offer you precise and practical recommendations." : {
+    "The app uses the data you provide — your name and date of birth — as a starting point. This information allows the system to generate a unique numerical code, which becomes the key to your personal profile.\n\nBased on this code, the system analyzes verified sources: psychological research, scientific publications, and behavioral pattern analysis. The algorithms do not “guess” and are not based on astrology — they help reveal possible thinking patterns, strengths, and internal traits typical for your personality type." : {
       "localizations" : {
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "22 kody to symbole, które odzwierciedlają różne aspekty twojej osobowości. Dzięki zaawansowanej technologii AI aplikacja “Kod Osobowości” oferuje dokładne i praktyczne rekomendacje."
+            "value" : "Aplikacja wykorzystuje dane, które podajesz — imię i datę urodzenia — jako punkt wyjścia. Na ich podstawie tworzy unikalny kod numeryczny, który staje się kluczem do Twojego osobistego profilu.\n\nW oparciu o ten kod system analizuje informacje z wiarygodnych źródeł: badań psychologicznych, publikacji naukowych oraz analiz wzorców zachowań. Algorytmy nie „zgadują” i nie korzystają z astrologii — pomagają dostrzec możliwe schematy myślenia, mocne strony i wewnętrzne cechy charakterystyczne dla Twojego typu osobowości."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "22 кода — это символы, отражающие разные грани вашей личности. Благодаря использованию передовых технологий искусственного интеллекта, приложение “Код Личности” способно предложить вам максимально точные и практичные рекомендации."
+            "value" : "Приложение использует введённые вами данные — имя и дату рождения — в качестве отправной точки. Эти данные позволяют создать уникальный числовой код, который становится ключом к вашему персональному профилю.\n\nНа основе этого кода система сопоставляет информацию из проверенных источников: психологических исследований, научных трудов и анализа типовых поведенческих моделей. Алгоритмы приложения не «угадывают» и не используют астрологию — они помогают увидеть возможные особенности мышления, сильные стороны и внутренние установки, характерные для вашего типа личности."
           }
         }
       }
@@ -1741,6 +1693,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Время пришло!"
+          }
+        }
+      }
+    },
+    "This system is based on the idea that personality and life path can be broken down into 22 key aspects. Each code reflects one of the essential parts of your character, potential, or internal obstacles. Together, they form a complete picture of who you are and what possibilities are hidden within you." : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "System opiera się na założeniu, że osobowość i ścieżka życiowa mogą być podzielone na 22 kluczowe aspekty. Każdy kod odzwierciedla jedną z ważnych stron Twojego charakteru, potencjału lub wewnętrznych barier. Razem tworzą pełny obraz tego, kim jesteś i jakie możliwości drzemią w Tobie."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Эта система основана на идее, что личность и жизненный путь можно разложить на 22 ключевых аспекта. Каждый код отражает одну из важных сторон вашего характера, потенциала или внутренних барьеров. Вместе они создают целостную картину того, кто вы есть и какие возможности скрыты внутри вас."
           }
         }
       }
@@ -1846,18 +1814,34 @@
         }
       }
     },
-    "Welcome to the \"Persona Code\" app!" : {
+    "Welcome!" : {
       "localizations" : {
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Witamy w aplikacji “Kod Osobowości”!"
+            "value" : "Witamy!"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Добро пожаловать в приложение “Код Личности\"!"
+            "value" : "Добро пожаловать!"
+          }
+        }
+      }
+    },
+    "What will you get?" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Co otrzymasz?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Что вы получите?"
           }
         }
       }
@@ -1907,6 +1891,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Да"
+          }
+        }
+      }
+    },
+    "You will receive a structured description of the key qualities of your personality, possible inner conflicts, and areas for growth.\nThis information will become a tool for self-reflection — helping you better understand yourself, your habits, and how you interact with the world around you." : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otrzymasz uporządkowany opis kluczowych cech swojej osobowości, możliwych wewnętrznych konfliktów oraz obszarów do rozwoju.\nTe informacje staną się dla Ciebie narzędziem do autorefleksji — pomogą lepiej zrozumieć siebie, swoje nawyki i sposób, w jaki wchodzisz w relacje ze światem."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вы получите структурированное описание ключевых качеств вашей личности, возможных внутренних конфликтов и направлений развития.\nЭта информация станет для вас инструментом саморефлексии — чтобы лучше понять себя, свои привычки и то, как вы взаимодействуете с окружающим миром."
           }
         }
       }

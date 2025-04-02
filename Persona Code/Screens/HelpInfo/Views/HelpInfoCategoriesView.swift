@@ -18,7 +18,7 @@ struct HelpInfoCategoriesView: View {
                     Text(localizedString(category.title))
                         .font(.title2)
                         .bold()
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .frame(maxWidth: .infinity, alignment: .center)
                     
                     VStack(alignment: .leading, spacing: 16) {
                         ForEach(category.subcategories, id: \.title) { subcategory in

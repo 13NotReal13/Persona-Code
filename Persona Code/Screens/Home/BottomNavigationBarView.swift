@@ -10,6 +10,9 @@ import SwiftUI
 struct BottomNavigationBarView: View {
     @EnvironmentObject private var coordinator: NavigationCoordinator
     
+    @AppStorage("hasOpenedHowItWorks") private var hasOpenedHowItWorks: Bool = false
+    @State private var howDoesItWorkIsAnimating = false
+    
     var body: some View {
         VStack {
             Spacer()
@@ -47,14 +50,24 @@ struct BottomNavigationBarView: View {
             }
             
             Button {
+                hasOpenedHowItWorks = true
                 coordinator.push(.helpInfo)
             } label: {
                 Text("How does it work?")
                     .customText(fontSize: 17)
                     .customButtonStyle(width: UIScreen.main.bounds.width * 0.5, shape: .capsule)
+                    .scaleEffect(!hasOpenedHowItWorks && howDoesItWorkIsAnimating ? 1.05 : 1)
+                    .shadow(color: !hasOpenedHowItWorks ? .white.opacity(0.7) : .clear, radius: 8)
             }
         }
         .padding()
+        .onAppear {
+            if !hasOpenedHowItWorks {
+                withAnimation(Animation.easeInOut(duration: 1).repeatForever()) {
+                    howDoesItWorkIsAnimating = true
+                }
+            }
+        }
     }
 }
 
