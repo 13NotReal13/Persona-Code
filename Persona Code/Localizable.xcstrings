@@ -275,6 +275,9 @@
         }
       }
     },
+    "Background Music" : {
+
+    },
     "Birth date" : {
       "localizations" : {
         "en" : {
@@ -1074,6 +1077,9 @@
           }
         }
       }
+    },
+    "Music" : {
+
     },
     "Next" : {
       "localizations" : {

@@ -39,7 +39,6 @@ enum ButtonName: String {
 
     case confirmPurchase = "confirm_purchase"
     case cancelPurchase = "cancel_purchase"
-    case restorePurchase = "restore_purchase"
 
     case rate = "rate_app"
     case contact = "contact_support"
@@ -51,6 +50,10 @@ enum ButtonName: String {
 enum NotificationType: String {
     case fact = "fact_notification"
     case affirmation = "affirmation_notification"
+}
+
+enum MusicToogle: String {
+    case musicToggled = "music_toggled"
 }
 
 enum PDFDownload: String {
@@ -90,6 +93,10 @@ final class FirebaseLogsManager {
 //            "notification_type": type.rawValue,
 //            "state": isEnabled ? "Enabled" : "Disabled"
 //        ])
+    }
+    
+    func logMusicToogle(isEnabled: Bool) {
+//        Analytics.logEvent(MusicToogle.musicToggled.rawValue, parameters: ["state": isEnabled ? "Enabled" : "Disabled"])
     }
 
     func logPurchaseSuccess(name: String, dateBirth: String) {

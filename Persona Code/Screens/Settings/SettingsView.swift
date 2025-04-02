@@ -13,9 +13,11 @@ struct SettingsView: View {
     
     var body: some View {
         Form {
-            NotificationTogglesView()
-            
             LanguagePickerView()
+            
+            MusicToogleView()
+            
+            NotificationTogglesView()
             
             ConfidentialityButtonsView()
             
