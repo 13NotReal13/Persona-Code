@@ -39,10 +39,14 @@ struct Persona_CodeApp: App {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                             showOnboarding = true
                         }
+                    } else {
+                        _ = AudioManager.shared
+                        
                     }
                 }
                 .fullScreenCover(isPresented: $showOnboarding, onDismiss: {
                     onboardingWasShowing = true
+                    _ = AudioManager.shared
                     appSettings.getNotificationRequest()
                 }) {
                     NavigationStack {
