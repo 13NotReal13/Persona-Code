@@ -276,7 +276,20 @@
       }
     },
     "Background Music" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muzyka w tle"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Фоновая музыка"
+          }
+        }
+      }
     },
     "Birth date" : {
       "localizations" : {
@@ -1079,7 +1092,20 @@
       }
     },
     "Music" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muzyka"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Музыка"
+          }
+        }
+      }
     },
     "Next" : {
       "localizations" : {
