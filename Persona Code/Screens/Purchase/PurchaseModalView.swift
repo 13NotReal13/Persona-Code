@@ -20,14 +20,67 @@ struct PurchaseModalView: View {
     
     var body: some View {
         ZStack {
-            BackgroundImageView()
+//            BackgroundImageView()
             
             VStack(spacing: 16) {
                 Spacer()
                 
-                DescriptionPurchaseView()
+                HStack {
+                    VStack(alignment: .leading, spacing: 16) {
+                        Text("What you will get:")
+                            .customText(fontSize: 15)
+                            .padding(.leading, 6)
+                        
+                        VStack(alignment: .leading, spacing: 8) {
+                            HStack {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .foregroundColor(.green)
+                                
+                                PurchaseFeatureView(
+                                    title: localizedString("Personal analysis"),
+                                    description: localizedString("Individual calculation and in-depth analysis of your Persona Code.")
+                                )
+                            }
+                            HStack {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .foregroundColor(.green)
+                                
+                                PurchaseFeatureView(
+                                    title: localizedString("12 aspects of personality"),
+                                    description: localizedString("Includes key areas: self-realization, career, relationships, finances, strengths, and much more.")
+                                )
+                            }
+                            HStack {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .foregroundColor(.green)
+                                
+                                PurchaseFeatureView(
+                                    title: localizedString("Practical recommendations"),
+                                    description: localizedString("Tips and strategies for harmonious development, unlocking potential, and achieving goals.")
+                                )
+                            }
+                            HStack {
+                                Image(systemName: "square.and.arrow.down.fill")
+                                    .foregroundStyle(.green)
+                                
+                                PurchaseFeatureView(
+                                    title: localizedString("Personal PDF report"),
+                                    description: localizedString("Download the complete analysis of your Persona Code in a convenient format.")
+                                )
+                            }
+                        }
+                        .padding()
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color.cyan, lineWidth: 1)
+                        }
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                    }
+                    
+                    DescriptionPurchaseView()
+                }
                 
-                VStack(spacing: 16) {
+                HStack(spacing: 16) {
                     privacyPolicyButton()
                     termsOfUseButton()
                 }
@@ -51,20 +104,7 @@ struct PurchaseModalView: View {
             .blur(radius: isLoadingPurchase ? 3 : 0)
             
             if isLoadingPurchase {
-                Color.black.opacity(0.4)
-                    .ignoresSafeArea()
-                    .transition(.opacity)
-
-                VStack(spacing: 16) {
-                    ProgressView()
-                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
-                        .scaleEffect(2)
-
-                    Text("Processing purchase…")
-                        .foregroundColor(.white)
-                        .font(.headline)
-                }
-                .transition(.opacity)
+                LoadingPurchaseView()
             }
         }
         .ignoresSafeArea(edges: .top)
@@ -87,7 +127,7 @@ struct PurchaseModalView: View {
             Text("Buy for \(product.localizedPrice ?? "N/A")")
                 .font(.system(size: 19))
                 .bold()
-                .frame(width: UIScreen.main.bounds.width * 0.95)
+//                .frame(width: UIScreen.main.bounds.width * 0.95)
                 .frame(height: 50)
                 .foregroundColor(.white)
                 .cornerRadius(20)
@@ -95,38 +135,48 @@ struct PurchaseModalView: View {
     }
     
     private func handlePurchase(for product: SKProduct) {
-        isLoadingPurchase = true
+        let calculatedData = PersonaCodeCalculation(
+            name: personaCode.name,
+            dateOfBirthday: personaCode.dateOfBirthday
+        ).personaCodeData
         
-        IAPManager.shared.purchase(
-            productID: product.productIdentifier,
-            success: {
-                isLoadingPurchase = false
-                
-                DispatchQueue.main.async {
-                    let calculatedData = PersonaCodeCalculation(
-                        name: personaCode.name,
-                        dateOfBirthday: personaCode.dateOfBirthday
-                    ).personaCodeData
-                    
-                    viewModel.savePersonaCode(personaCode: personaCode)
-                    
-                    FirebaseLogsManager.shared.logPurchaseSuccess(
-                        name: personaCode.name,
-                        dateBirth: personaCode.dateOfBirthday.formattedDate()
-                    )
-                    
-                    coordinator.dismissModal()
-                    coordinator.push(.personaCode(calculatedData, isFromPreload: true))
-                }
-            },
-            failure: { error in
-                isLoadingPurchase = false
-                
-                FirebaseLogsManager.shared.logPurchaseFailure()
-                purchaseErrorMessage = error?.localizedDescription
-                showErrorAlert = true
-            }
-        )
+        viewModel.savePersonaCode(personaCode: personaCode)
+        
+        coordinator.dismissModal()
+        coordinator.push(.personaCode(calculatedData, isFromPreload: true))
+        
+//        isLoadingPurchase = true
+//        
+//        IAPManager.shared.purchase(
+//            productID: product.productIdentifier,
+//            success: {
+//                isLoadingPurchase = false
+//                
+//                DispatchQueue.main.async {
+//                    let calculatedData = PersonaCodeCalculation(
+//                        name: personaCode.name,
+//                        dateOfBirthday: personaCode.dateOfBirthday
+//                    ).personaCodeData
+//                    
+//                    viewModel.savePersonaCode(personaCode: personaCode)
+//                    
+//                    FirebaseLogsManager.shared.logPurchaseSuccess(
+//                        name: personaCode.name,
+//                        dateBirth: personaCode.dateOfBirthday.formattedDate()
+//                    )
+//                    
+//                    coordinator.dismissModal()
+//                    coordinator.push(.personaCode(calculatedData, isFromPreload: true))
+//                }
+//            },
+//            failure: { error in
+//                isLoadingPurchase = false
+//                
+//                FirebaseLogsManager.shared.logPurchaseFailure()
+//                purchaseErrorMessage = error?.localizedDescription
+//                showErrorAlert = true
+//            }
+//        )
     }
     
     private func termsOfUseButton() -> some View {

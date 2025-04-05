@@ -67,67 +67,67 @@ final class FirebaseLogsManager {
     private init() {}
 
     func logFirstLaunch() {
-        Analytics.logEvent(FirebaseLogs.appEvent.rawValue, parameters: ["event": "First Launch"])
+//        Analytics.logEvent(FirebaseLogs.appEvent.rawValue, parameters: ["event": "First Launch"])
     }
 
     func logScreenShown(_ screen: ScreenName) {
-        Analytics.logEvent(FirebaseLogs.screenShown.rawValue, parameters: [
-            "screen_name": screen.rawValue
-        ])
+//        Analytics.logEvent(FirebaseLogs.screenShown.rawValue, parameters: [
+//            "screen_name": screen.rawValue
+//        ])
     }
 
     func logButtonTapped(_ button: ButtonName) {
-        Analytics.logEvent(FirebaseLogs.buttonTapped.rawValue, parameters: [
-            "button_name": button.rawValue
-        ])
+//        Analytics.logEvent(FirebaseLogs.buttonTapped.rawValue, parameters: [
+//            "button_name": button.rawValue
+//        ])
     }
 
     func logNotificationShown(_ type: NotificationType) {
-        Analytics.logEvent(FirebaseLogs.notificationShown.rawValue, parameters: [
-            "notification_type": type.rawValue
-        ])
+//        Analytics.logEvent(FirebaseLogs.notificationShown.rawValue, parameters: [
+//            "notification_type": type.rawValue
+//        ])
     }
 
     func logNotificationToggled(_ type: NotificationType, isEnabled: Bool) {
-        Analytics.logEvent(FirebaseLogs.notificationToggled.rawValue, parameters: [
-            "notification_type": type.rawValue,
-            "state": isEnabled ? "Enabled" : "Disabled"
-        ])
+//        Analytics.logEvent(FirebaseLogs.notificationToggled.rawValue, parameters: [
+//            "notification_type": type.rawValue,
+//            "state": isEnabled ? "Enabled" : "Disabled"
+//        ])
     }
     
     func logMusicToogle(isEnabled: Bool) {
-        Analytics.logEvent(MusicToogle.musicToggled.rawValue, parameters: ["state": isEnabled ? "Enabled" : "Disabled"])
+//        Analytics.logEvent(MusicToogle.musicToggled.rawValue, parameters: ["state": isEnabled ? "Enabled" : "Disabled"])
     }
 
     func logPurchaseSuccess(name: String, dateBirth: String) {
-        Analytics.logEvent(
-            FirebaseLogs.purchaseSuccess.rawValue,
-            parameters: [
-                "name": name,
-                "date_birth": dateBirth
-            ]
-        )
+//        Analytics.logEvent(
+//            FirebaseLogs.purchaseSuccess.rawValue,
+//            parameters: [
+//                "name": name,
+//                "date_birth": dateBirth
+//            ]
+//        )
     }
 
     func logPurchaseFailure() {
-        Analytics.logEvent(FirebaseLogs.purchaseFailure.rawValue, parameters: nil)
+//        Analytics.logEvent(FirebaseLogs.purchaseFailure.rawValue, parameters: nil)
     }
     
     func logPDFDownloaded() {
-        Analytics.logEvent(FirebaseLogs.purchaseSuccess.rawValue, parameters: nil)
+//        Analytics.logEvent(FirebaseLogs.purchaseSuccess.rawValue, parameters: nil)
     }
     
     func logPDFEvent(isSuccess: Bool, errorDescription: String? = nil) {
-        var parameters: [String: Any] = [
-            "pdf_type": "persona_code",
-            "result": isSuccess ? "success" : "failure"
-        ]
-        
-        if let errorDescription = errorDescription {
-            parameters["error"] = errorDescription
-        }
-        
-        Analytics.logEvent(FirebaseLogs.pdfEvent.rawValue, parameters: parameters)
+//        var parameters: [String: Any] = [
+//            "pdf_type": "persona_code",
+//            "result": isSuccess ? "success" : "failure"
+//        ]
+//        
+//        if let errorDescription = errorDescription {
+//            parameters["error"] = errorDescription
+//        }
+//        
+//        Analytics.logEvent(FirebaseLogs.pdfEvent.rawValue, parameters: parameters)
     }
 }
 

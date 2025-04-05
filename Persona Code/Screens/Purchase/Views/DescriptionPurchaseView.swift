@@ -59,7 +59,6 @@ struct DescriptionPurchaseView: View {
             }
             .clipShape(RoundedRectangle(cornerRadius: 20))
         }
-        .padding(.horizontal)
     }
 }
 
