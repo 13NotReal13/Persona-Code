@@ -8,11 +8,18 @@
 import SwiftUI
 import StoreKit
 
+enum PlanType {
+    case demo
+    case full
+}
+
 struct PurchaseModalView: View {
     let personaCode: ShortPersonaCodeData
     
     @EnvironmentObject private var coordinator: NavigationCoordinator
     @StateObject private var viewModel = PreloadPersonaCodeViewModel()
+    
+    @State private var selectedPlan: PlanType = .demo
     
     @State private var isLoadingPurchase = false
     @State private var showErrorAlert = false
@@ -20,95 +27,57 @@ struct PurchaseModalView: View {
     
     var body: some View {
         ZStack {
-//            BackgroundImageView()
-            
             VStack(spacing: 16) {
-                Spacer()
-                
-                HStack {
-                    VStack(alignment: .leading, spacing: 16) {
-                        Text("What you will get:")
-                            .customText(fontSize: 15)
-                            .padding(.leading, 6)
-                        
-                        VStack(alignment: .leading, spacing: 8) {
-                            HStack {
-                                Image(systemName: "checkmark.circle.fill")
-                                    .foregroundColor(.green)
-                                
-                                PurchaseFeatureView(
-                                    title: localizedString("Personal analysis"),
-                                    description: localizedString("Individual calculation and in-depth analysis of your Persona Code.")
-                                )
-                            }
-                            HStack {
-                                Image(systemName: "checkmark.circle.fill")
-                                    .foregroundColor(.green)
-                                
-                                PurchaseFeatureView(
-                                    title: localizedString("12 aspects of personality"),
-                                    description: localizedString("Includes key areas: self-realization, career, relationships, finances, strengths, and much more.")
-                                )
-                            }
-                            HStack {
-                                Image(systemName: "checkmark.circle.fill")
-                                    .foregroundColor(.green)
-                                
-                                PurchaseFeatureView(
-                                    title: localizedString("Practical recommendations"),
-                                    description: localizedString("Tips and strategies for harmonious development, unlocking potential, and achieving goals.")
-                                )
-                            }
-                            HStack {
-                                Image(systemName: "square.and.arrow.down.fill")
-                                    .foregroundStyle(.green)
-                                
-                                PurchaseFeatureView(
-                                    title: localizedString("Personal PDF report"),
-                                    description: localizedString("Download the complete analysis of your Persona Code in a convenient format.")
-                                )
-                            }
-                        }
-                        .padding()
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(Color.cyan, lineWidth: 1)
-                        }
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                DemoPLanView(selectedPlan: $selectedPlan)
+                    .onTapGesture {
+                        selectedPlan = .demo
                     }
-                    
-                    DescriptionPurchaseView()
-                }
                 
+                FullPlanView(selectedPlan: $selectedPlan)
+                    .onTapGesture {
+                        selectedPlan = .full
+                    }
+                
+                Spacer()
+                                
                 HStack(spacing: 16) {
                     privacyPolicyButton()
                     termsOfUseButton()
                 }
                 
-                ZStack {
-                    if let product = IAPManager.shared.getProducts().first {
-                        purchaseButton(for: product)
-                    } else {
-                        Text("Loading price…")
-                            .frame(width: UIScreen.main.bounds.width * 0.95)
-                            .frame(height: 50)
-                            .foregroundColor(.white)
-                            .cornerRadius(20)
-                    }
-                    
-                    OutlineGradientView()
+                if let product = IAPManager.shared.getProducts().first {
+                    purchaseButton(for: product)
+                } else {
+                    Text("Loading price…")
+                        .customText(fontSize: 19, customFont: .interDisplaySemiBold)
+                        .frame(height: 50)
+                        .frame(maxWidth: .infinity)
+                        .foregroundColor(.white)
+                        .overlay {
+                            Group {
+                                if selectedPlan == .full {
+                                    OutlineGradientView()
+                                } else {
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .stroke(style: StrokeStyle(lineWidth: 2))
+                                        .foregroundStyle(.green)
+                                }
+                            }
+                        }
+                        .padding(.horizontal)
                 }
                 
                 cancelButton()
             }
+            .padding(.vertical)
             .blur(radius: isLoadingPurchase ? 3 : 0)
             
             if isLoadingPurchase {
                 LoadingPurchaseView()
             }
         }
-        .ignoresSafeArea(edges: .top)
         .animation(.easeInOut(duration: 0.3), value: isLoadingPurchase)
+        .background(BackgroundView(shadowLevel: .high))
         .alert(isPresented: $showErrorAlert) {
             Alert(
                 title: Text("Error"),
@@ -125,12 +94,22 @@ struct PurchaseModalView: View {
             FirebaseLogsManager.shared.logButtonTapped(.confirmPurchase)
         }) {
             Text("Buy for \(product.localizedPrice ?? "N/A")")
-                .font(.system(size: 19))
-                .bold()
-//                .frame(width: UIScreen.main.bounds.width * 0.95)
+                .customText(fontSize: 19, customFont: .interDisplaySemiBold)
                 .frame(height: 50)
+                .frame(maxWidth: .infinity)
                 .foregroundColor(.white)
-                .cornerRadius(20)
+                .overlay {
+                    Group {
+                        if selectedPlan == .full {
+                            OutlineGradientView()
+                        } else {
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(style: StrokeStyle(lineWidth: 2))
+                                .foregroundStyle(.green)
+                        }
+                    }
+                }
+                .padding(.horizontal)
         }
     }
     
@@ -215,20 +194,19 @@ struct PurchaseModalView: View {
         }) {
             Text("Cancel")
                 .frame(maxWidth: .infinity)
-                .padding()
                 .foregroundColor(.blue)
         }
     }
 }
 
 
-#Preview {
-    PurchaseModalView(
-        personaCode: ShortPersonaCodeData(
-            name: "Иван",
-            dateOfBirthday: Date.now,
-            dateCreationPersonaCode: Date.now
-        )
-    )
-        .preferredColorScheme(.dark)
-}
+//#Preview {
+//    PurchaseModalView(
+//        personaCode: ShortPersonaCodeData(
+//            name: "Иван",
+//            dateOfBirthday: Date.now,
+//            dateCreationPersonaCode: Date.now
+//        )
+//    )
+//        .preferredColorScheme(.dark)
+//}

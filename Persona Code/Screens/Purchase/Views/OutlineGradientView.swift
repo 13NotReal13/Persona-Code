@@ -14,23 +14,16 @@ struct OutlineGradientView: View {
         RoundedRectangle(cornerRadius: 20)
             .stroke(
                 AngularGradient(
-                    gradient: Gradient(colors: [
-                        .blue, .purple, .pink, .orange, .yellow, .blue
-                    ]),
+                    gradient: Gradient(colors: [.blue, .purple, .pink, .orange, .yellow, .blue]),
                     center: .center,
                     startAngle: .degrees(gradientStart),
                     endAngle: .degrees(gradientStart + 360)
                 ),
-                lineWidth: 3
+                lineWidth: 2
             )
-            .frame(height: 50)
-            .padding(.horizontal)
             .onAppear {
-                withAnimation(
-                    Animation.linear(duration: 4.0)
-                        .repeatForever(autoreverses: false)
-                ) {
-                    gradientStart = 360 // Постоянное движение цвета
+                withAnimation(.linear(duration: 4).repeatForever(autoreverses: false)) {
+                    gradientStart = 360
                 }
             }
     }

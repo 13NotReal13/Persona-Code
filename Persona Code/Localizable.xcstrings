@@ -1864,6 +1864,7 @@
       }
     },
     "What you will get:" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pl" : {
           "stringUnit" : {
@@ -1927,6 +1928,12 @@
           }
         }
       }
+    },
+    "Демо версия" : {
+
+    },
+    "Полная версия" : {
+
     }
   },
   "version" : "1.0"
