@@ -125,6 +125,40 @@
         }
       }
     },
+    "3 out of 12 aspects, including Persona Code, Growth Path, and Communication." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3 z 12 aspektów, w tym Kod Osobowości, Droga Rozwoju i Komunikacja."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3 из 12 аспектов, включая Код Личности, Путь Развития и Коммуникации."
+          }
+        }
+      }
+    },
+    "3 Personality Aspects" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3 aspekty osobowości"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3 аспекта личности"
+          }
+        }
+      }
+    },
     "12 aspects of personality" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -138,6 +172,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "12 аспектов личности"
+          }
+        }
+      }
+    },
+    "A limited calculation and analysis of your Persona Code." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ograniczone obliczenia i analiza Twojego Kodu Osobowości."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ограниченный расчёт и анализ вашего Кода Личности."
           }
         }
       }
@@ -302,28 +353,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Дата рождения"
-          }
-        }
-      }
-    },
-    "Buy for %@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Buy for %@"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kup za %@"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Приобрести за %@"
           }
         }
       }
@@ -586,6 +615,22 @@
         }
       }
     },
+    "Demo Version" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wersja demo"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Демо версия"
+          }
+        }
+      }
+    },
     "Describe your issue or suggestion here…" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -800,6 +845,22 @@
         }
       }
     },
+    "Full Version" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pełna wersja"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Полная версия"
+          }
+        }
+      }
+    },
     "Go to Settings" : {
       "localizations" : {
         "pl" : {
@@ -988,6 +1049,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Язык"
+          }
+        }
+      }
+    },
+    "Limited Analysis" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ograniczona analiza"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ограниченный разбор"
           }
         }
       }
@@ -1781,6 +1859,38 @@
         }
       }
     },
+    "Unlock for %@" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odblokuj za %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Разблокировать за %@"
+          }
+        }
+      }
+    },
+    "Unlock for Free" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odblokuj za darmo"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Разблокировать бесплатно"
+          }
+        }
+      }
+    },
     "Use your Personality Code as a personal guide. It will help you understand yourself, overcome internal barriers, deal with life’s challenges, and move toward your goals with clarity and confidence." : {
       "localizations" : {
         "pl" : {
@@ -1863,23 +1973,6 @@
         }
       }
     },
-    "What you will get:" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Co otrzymasz:"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Что вы получите:"
-          }
-        }
-      }
-    },
     "Why 22 codes?" : {
       "localizations" : {
         "pl" : {
@@ -1928,12 +2021,6 @@
           }
         }
       }
-    },
-    "Демо версия" : {
-
-    },
-    "Полная версия" : {
-
     }
   },
   "version" : "1.0"

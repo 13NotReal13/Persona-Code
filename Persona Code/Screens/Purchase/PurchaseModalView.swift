@@ -45,26 +45,23 @@ struct PurchaseModalView: View {
                     termsOfUseButton()
                 }
                 
-                if let product = IAPManager.shared.getProducts().first {
-                    purchaseButton(for: product)
-                } else {
-                    Text("Loading price…")
-                        .customText(fontSize: 19, customFont: .interDisplaySemiBold)
-                        .frame(height: 50)
-                        .frame(maxWidth: .infinity)
-                        .foregroundColor(.white)
-                        .overlay {
-                            Group {
-                                if selectedPlan == .full {
-                                    OutlineGradientView()
-                                } else {
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .stroke(style: StrokeStyle(lineWidth: 2))
-                                        .foregroundStyle(.green)
-                                }
+                switch selectedPlan {
+                case .demo:
+                    openDemoPersonaCodeButton()
+                case .full:
+                    if let product = IAPManager.shared.getProducts().first {
+                        purchaseButton(for: product)
+                    } else {
+                        Text("Loading price…")
+                            .customText(fontSize: 19, customFont: .interDisplaySemiBold)
+                            .frame(height: 50)
+                            .frame(maxWidth: .infinity)
+                            .foregroundColor(.white)
+                            .overlay {
+                                OutlineGradientView()
                             }
-                        }
-                        .padding(.horizontal)
+                            .padding(.horizontal)
+                    }
                 }
                 
                 cancelButton()
@@ -87,13 +84,32 @@ struct PurchaseModalView: View {
         }
     }
     
+    private func openDemoPersonaCodeButton() -> some View {
+        Button(action: {
+            
+//            FirebaseLogsManager.shared.logButtonTapped(.confirmPurchase)
+        }) {
+            Text("Unlock for Free")
+                .customText(fontSize: 19, customFont: .interDisplaySemiBold)
+                .frame(height: 50)
+                .frame(maxWidth: .infinity)
+                .foregroundColor(.white)
+                .overlay {
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(style: StrokeStyle(lineWidth: 2))
+                        .foregroundStyle(.green)
+                }
+                .padding(.horizontal)
+        }
+    }
+    
     private func purchaseButton(for product: SKProduct) -> some View {
         Button(action: {
             handlePurchase(for: product)
             
             FirebaseLogsManager.shared.logButtonTapped(.confirmPurchase)
         }) {
-            Text("Buy for \(product.localizedPrice ?? "N/A")")
+            Text("Unlock for \(product.localizedPrice ?? "N/A")")
                 .customText(fontSize: 19, customFont: .interDisplaySemiBold)
                 .frame(height: 50)
                 .frame(maxWidth: .infinity)
@@ -194,19 +210,19 @@ struct PurchaseModalView: View {
         }) {
             Text("Cancel")
                 .frame(maxWidth: .infinity)
-                .foregroundColor(.blue)
+                .foregroundColor(.red)
         }
     }
 }
 
 
-//#Preview {
-//    PurchaseModalView(
-//        personaCode: ShortPersonaCodeData(
-//            name: "Иван",
-//            dateOfBirthday: Date.now,
-//            dateCreationPersonaCode: Date.now
-//        )
-//    )
-//        .preferredColorScheme(.dark)
-//}
+#Preview {
+    PurchaseModalView(
+        personaCode: ShortPersonaCodeData(
+            name: "Иван",
+            dateOfBirthday: Date.now,
+            dateCreationPersonaCode: Date.now
+        )
+    )
+        .preferredColorScheme(.dark)
+}

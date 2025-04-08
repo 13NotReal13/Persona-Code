@@ -15,7 +15,7 @@ struct FullPlanView: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 8) {
-                Text("Полная версия")
+                Text("Full Version")
                     .frame(maxWidth: .infinity)
                     .frame(alignment: .center)
                     .customText(fontSize: 21, customFont: .interDisplaySemiBold)

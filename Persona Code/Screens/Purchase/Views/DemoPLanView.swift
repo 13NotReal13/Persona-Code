@@ -13,7 +13,7 @@ struct DemoPLanView: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 8) {
-                Text("Демо версия")
+                Text("Demo Version")
                     .frame(maxWidth: .infinity)
                     .frame(alignment: .center)
                     .customText(fontSize: 21, customFont: .interDisplaySemiBold)
@@ -23,8 +23,8 @@ struct DemoPLanView: View {
                         .foregroundColor(.green)
                     
                     PurchaseFeatureView(
-                        title: localizedString("Personal analysis"),
-                        description: localizedString("Individual calculation and in-depth analysis of your Persona Code.")
+                        title: localizedString("Limited Analysis"),
+                        description: localizedString("A limited calculation and analysis of your Persona Code.")
                     )
                 }
 
@@ -33,12 +33,10 @@ struct DemoPLanView: View {
                         .foregroundColor(.green)
                     
                     PurchaseFeatureView(
-                        title: localizedString("12 aspects of personality"),
-                        description: localizedString("Includes key areas: self-realization, career, relationships, finances, strengths, and much more.")
+                        title: localizedString("3 Personality Aspects"),
+                        description: localizedString("3 out of 12 aspects, including Persona Code, Growth Path, and Communication.")
                     )
                 }
-                
-                Spacer()
             }
             .fixedSize(horizontal: false, vertical: true)
             .padding()
