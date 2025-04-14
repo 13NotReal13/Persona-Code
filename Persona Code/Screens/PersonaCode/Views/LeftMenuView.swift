@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LeftMenuView: View {
     @StateObject var viewModel: PersonaCodeViewModel
+    var isFullVersion: Bool
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -19,11 +20,17 @@ struct LeftMenuView: View {
                 }
             
             ZStack(alignment: .leading) {
-                BackgroundLeftMenuView()
+                Color.black
+                    .cornerRadius(radius: 24, corners: [.bottomRight, .topRight])
                     .frame(width: 282)
+                    .ignoresSafeArea()
+                    .shadow(color: Color.white.opacity(0.1), radius: 10, x: 4, y: 0)
                 
                 HStack(spacing: 0) {
-                    LeftNavigationButtonsView(personaCodeViewModel: viewModel)
+                    LeftNavigationButtonsView(
+                        personaCodeViewModel: viewModel,
+                        isFullVersion: isFullVersion
+                    )
                         .frame(width: 250)
                         .padding(.horizontal)
                     
@@ -32,5 +39,14 @@ struct LeftMenuView: View {
             }
             .offset(x: viewModel.isMenuOpen ? 0 : -282)
         }
+    }
+}
+
+#Preview {
+    ZStack {
+        BackgroundView(shadowLevel: .high)
+        
+        LeftMenuView(viewModel: PersonaCodeViewModel(), isFullVersion: false)
+            .environmentObject(PersonaCodeViewModel())
     }
 }

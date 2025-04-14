@@ -14,7 +14,7 @@ enum PlanType {
 }
 
 struct PurchaseModalView: View {
-    let personaCode: ShortPersonaCodeData
+    @State var personaCode: ShortPersonaCodeData
     
     @EnvironmentObject private var coordinator: NavigationCoordinator
     @StateObject private var viewModel = PreloadPersonaCodeViewModel()
@@ -30,12 +30,16 @@ struct PurchaseModalView: View {
             VStack(spacing: 16) {
                 DemoPLanView(selectedPlan: $selectedPlan)
                     .onTapGesture {
-                        selectedPlan = .demo
+                        withAnimation(.interactiveSpring()) {
+                            selectedPlan = .demo
+                        }
                     }
                 
                 FullPlanView(selectedPlan: $selectedPlan)
                     .onTapGesture {
-                        selectedPlan = .full
+                        withAnimation(.interactiveSpring()) {
+                            selectedPlan = .full
+                        }
                     }
                 
                 Spacer()
@@ -58,7 +62,7 @@ struct PurchaseModalView: View {
                             .frame(maxWidth: .infinity)
                             .foregroundColor(.white)
                             .overlay {
-                                OutlineGradientView()
+                                OutlineGradientButtonBackgroundView()
                             }
                             .padding(.horizontal)
                     }
@@ -86,6 +90,23 @@ struct PurchaseModalView: View {
     
     private func openDemoPersonaCodeButton() -> some View {
         Button(action: {
+            personaCode.isFullVersion = false
+            
+            let calculatedData = PersonaCodeCalculation(
+                name: personaCode.name,
+                dateOfBirthday: personaCode.dateOfBirthday
+            ).personaCodeData
+            
+            viewModel.savePersonaCode(personaCode: personaCode)
+            
+            coordinator.dismissModal()
+            coordinator.push(
+                .personaCode(
+                    calculatedData,
+                    isFromPreload: true,
+                    isFullVersion: false
+                )
+            )
             
 //            FirebaseLogsManager.shared.logButtonTapped(.confirmPurchase)
         }) {
@@ -94,11 +115,17 @@ struct PurchaseModalView: View {
                 .frame(height: 50)
                 .frame(maxWidth: .infinity)
                 .foregroundColor(.white)
-                .overlay {
-                    RoundedRectangle(cornerRadius: 20)
-                        .stroke(style: StrokeStyle(lineWidth: 2))
-                        .foregroundStyle(.green)
-                }
+                .background(
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 20)
+                            .fill(Color.green)
+                            .brightness(-0.2)
+                        
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(style: StrokeStyle(lineWidth: 2))
+                            .foregroundStyle(.green)
+                    }
+                )
                 .padding(.horizontal)
         }
     }
@@ -114,17 +141,7 @@ struct PurchaseModalView: View {
                 .frame(height: 50)
                 .frame(maxWidth: .infinity)
                 .foregroundColor(.white)
-                .overlay {
-                    Group {
-                        if selectedPlan == .full {
-                            OutlineGradientView()
-                        } else {
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(style: StrokeStyle(lineWidth: 2))
-                                .foregroundStyle(.green)
-                        }
-                    }
-                }
+                .background(OutlineGradientButtonBackgroundView())
                 .padding(.horizontal)
         }
     }
@@ -138,8 +155,14 @@ struct PurchaseModalView: View {
         viewModel.savePersonaCode(personaCode: personaCode)
         
         coordinator.dismissModal()
-        coordinator.push(.personaCode(calculatedData, isFromPreload: true))
-        
+        coordinator.push(
+            .personaCode(
+                calculatedData,
+                isFromPreload: true,
+                isFullVersion: true
+            )
+        )
+//        
 //        isLoadingPurchase = true
 //        
 //        IAPManager.shared.purchase(
@@ -161,7 +184,13 @@ struct PurchaseModalView: View {
 //                    )
 //                    
 //                    coordinator.dismissModal()
-//                    coordinator.push(.personaCode(calculatedData, isFromPreload: true))
+//                    coordinator.push(
+//                        .personaCode(
+//                            calculatedData,
+//                            isFromPreload: true,
+//                            isFullVersion: true
+//                        )
+//                    )
 //                }
 //            },
 //            failure: { error in

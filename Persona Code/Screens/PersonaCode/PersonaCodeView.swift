@@ -9,7 +9,9 @@ import SwiftUI
 
 struct PersonaCodeView: View {
     @State var personaCodeData: PersonaCodeModel
+    
     var isFromPreload: Bool
+    var isFullVersion: Bool
     
     @EnvironmentObject private var coordinator: NavigationCoordinator
     @StateObject private var viewModel = PersonaCodeViewModel()
@@ -26,7 +28,7 @@ struct PersonaCodeView: View {
                 )
             }
             
-            LeftMenuView(viewModel: viewModel)
+            LeftMenuView(viewModel: viewModel, isFullVersion: isFullVersion)
         }
         .navigationBarBackButtonHidden()
         .navigationBarTitleDisplayMode(.inline)
@@ -51,6 +53,14 @@ struct PersonaCodeView: View {
                 }
             }
             
+            ToolbarItem(placement: .principal) {
+                if isFullVersion {
+                    FullVersionIconView(fontSize: 17)
+                } else {
+                    DemoVersionIconView(fontSize: 17)
+                }
+            }
+            
             ToolbarItem(placement: .topBarTrailing) {
                 DownloadPDFButtonView(viewModel: viewModel, personaCodeData: personaCodeData)
                     .opacity(viewModel.isMenuOpen ? 0.5 : 1)
@@ -70,12 +80,14 @@ struct PersonaCodeView: View {
     }
 }
 
-#Preview {
-    let dateComponents = DateComponents(year: 1994, month: 1, day: 19)
-    let calendar = Calendar.current
-    let date = calendar.date(from: dateComponents)!
-    
-    let personaCodeData = PersonaCodeCalculation(name: "Иван", dateOfBirthday: date)
-    
-    PersonaCodeView(personaCodeData: personaCodeData.personaCodeData, isFromPreload: true)
-}
+//#Preview {
+//    let dateComponents = DateComponents(year: 1994, month: 1, day: 19)
+//    let calendar = Calendar.current
+//    let date = calendar.date(from: dateComponents)!
+//    
+//    let personaCodeData = PersonaCodeCalculation(name: "Иван", dateOfBirthday: date)
+//    
+//    NavigationStack {
+//        PersonaCodeView(personaCodeData: personaCodeData.personaCodeData, isFromPreload: true, isFullVersion: false)
+//    }
+//}

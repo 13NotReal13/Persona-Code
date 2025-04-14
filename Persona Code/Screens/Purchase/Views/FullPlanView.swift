@@ -10,8 +10,6 @@ import SwiftUI
 struct FullPlanView: View {
     @Binding var selectedPlan: PlanType
     
-    @State private var gradientStart: CGFloat = 0.0
-    
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 8) {
@@ -70,25 +68,11 @@ struct FullPlanView: View {
                         .stroke(style: StrokeStyle(lineWidth: 1))
                         .foregroundStyle(.gray.opacity(0.4))
                 } else {
-                    RoundedRectangle(cornerRadius: 20)
-                        .stroke(
-                            AngularGradient(
-                                gradient: Gradient(colors: [.blue, .purple, .pink, .orange, .yellow, .blue]),
-                                center: .center,
-                                startAngle: .degrees(gradientStart),
-                                endAngle: .degrees(gradientStart + 360)
-                            ),
-                            lineWidth: 2
-                        )
+                    OutlineGradientView()
                 }
             }
         )
         .padding(.horizontal)
-        .onAppear {
-            withAnimation(.linear(duration: 4).repeatForever(autoreverses: false)) {
-                gradientStart = 360
-            }
-        }
     }
 }
 

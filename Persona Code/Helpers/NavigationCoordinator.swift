@@ -11,7 +11,7 @@ enum AppPage: Hashable {
     case home
     case enterData
     case preload(ShortPersonaCodeData)
-    case personaCode(PersonaCodeModel, isFromPreload: Bool)
+    case personaCode(PersonaCodeModel, isFromPreload: Bool, isFullVersion: Bool)
     
     case affirmation
     case history

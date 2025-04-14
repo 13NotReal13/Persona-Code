@@ -10,9 +10,17 @@ import SwiftUI
 
 struct ShortPersonaCodeData: Codable, Hashable, Identifiable {
     var id: UUID = UUID()
+    var isFullVersion: Bool? = true
+    
     let name: String
     let dateOfBirthday: Date
     let dateCreationPersonaCode: Date
+}
+
+extension ShortPersonaCodeData {
+    var isFull: Bool {
+        isFullVersion ?? true // по умолчанию считаем, что это была полная версия
+    }
 }
 
 final class StorageManager: ObservableObject {

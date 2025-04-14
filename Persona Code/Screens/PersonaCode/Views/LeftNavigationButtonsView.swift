@@ -9,6 +9,9 @@ import SwiftUI
 
 struct LeftNavigationButtonsView: View {
     @StateObject var personaCodeViewModel: PersonaCodeViewModel
+    var isFullVersion: Bool
+    
+    @EnvironmentObject private var navigationCoordinator: NavigationCoordinator
     @AppStorage("currentLanguage") private var currentLanguage = "en"
 
     var selectedCategories: [CodeInfo] {
@@ -26,18 +29,19 @@ struct LeftNavigationButtonsView: View {
             ForEach(1..<selectedCategories.count + 1, id: \.self) { num in
                 Spacer()
                 
+                let isLocked = !isFullVersion && num > 3
+                
                 Text(selectedCategories[num - 1].title)
-                    .customText(fontSize: 17)
-                    .foregroundStyle(.white)
+                    .font(.custom(CustomFont.interVariable.rawValue, size: 17))
+                    .foregroundStyle(isLocked ? .white.opacity(0.5) : .white)
                     .padding(.vertical, 8)
                     .padding(.horizontal, 12)
-                    .overlay {
-                        if num == personaCodeViewModel.selectedSectionForLeftButtons {
-                            Capsule()
-                                .stroke(Color.white, lineWidth: 1)
-                        }
-                    }
+                    .background(
+                               Capsule()
+                                   .stroke(Color.white, lineWidth: num == personaCodeViewModel.selectedSectionForLeftButtons && !isLocked ? 1 : 0)
+                           )
                     .onTapGesture {
+                        guard !isLocked else { return }
                         withAnimation {
                             personaCodeViewModel.isMenuOpen = false
                             personaCodeViewModel.scrollToSection.send(num)
@@ -50,6 +54,21 @@ struct LeftNavigationButtonsView: View {
                         .background(.white.opacity(0.4))
                 }
             }
+            
+            if !isFullVersion {
+                Button(action: {
+                    
+                }) {
+                    Text(localizedString("Разблокировать все"))
+                        .customText(fontSize: 17, customFont: .interDisplaySemiBold)
+                        .foregroundStyle(.white)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .padding(.vertical, 12)
+                        .padding(.horizontal, 12)
+                        .background(OutlineGradientButtonBackgroundView())
+                }
+                .padding(.top, 8)
+            }
         }
     }
 }
@@ -58,6 +77,9 @@ struct LeftNavigationButtonsView: View {
     ZStack {
         BackgroundView()
         
-        LeftNavigationButtonsView(personaCodeViewModel: PersonaCodeViewModel())
+        LeftNavigationButtonsView(
+            personaCodeViewModel: PersonaCodeViewModel(),
+            isFullVersion: false
+        )
     }
 }

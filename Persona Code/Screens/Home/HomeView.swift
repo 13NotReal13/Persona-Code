@@ -23,8 +23,12 @@ struct HomeView: View {
                     EnterDataView()
                 case .preload(let data):
                     PreloadPersonaCodeView(personaCode: data)
-                case .personaCode(let model, let isFromPreload):
-                    PersonaCodeView(personaCodeData: model, isFromPreload: isFromPreload)
+                case .personaCode(let model, let isFromPreload, let isFullVersion):
+                    PersonaCodeView(
+                        personaCodeData: model,
+                        isFromPreload: isFromPreload,
+                        isFullVersion: isFullVersion
+                    )
                 case .affirmation:
                     AffirmationsView()
                 case .history:
