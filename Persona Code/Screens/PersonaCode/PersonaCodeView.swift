@@ -8,14 +8,28 @@
 import SwiftUI
 
 struct PersonaCodeView: View {
-    @State var personaCodeData: PersonaCodeModel
+    let shortPersonaCode: ShortPersonaCodeData
     
     var isFromPreload: Bool
-    var isFullVersion: Bool
+    var isFullVersion: Bool {
+        shortPersonaCode.isFull
+    }
     
     @EnvironmentObject private var coordinator: NavigationCoordinator
     @StateObject private var viewModel = PersonaCodeViewModel()
     @ObservedObject private var storageManager = StorageManager.shared
+    
+    private let personaCodeData: PersonaCodeModel
+    
+    // ✅ Кастомный init
+    init(shortPersonaCode: ShortPersonaCodeData, isFromPreload: Bool) {
+        self.shortPersonaCode = shortPersonaCode
+        self.isFromPreload = isFromPreload
+        self.personaCodeData = PersonaCodeCalculation(
+            name: shortPersonaCode.name,
+            dateOfBirthday: shortPersonaCode.dateOfBirthday
+        ).personaCodeData
+    }
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -24,7 +38,8 @@ struct PersonaCodeView: View {
                 
                 PersonaCodeScrollView(
                     viewModel: viewModel,
-                    personaCodeData: personaCodeData
+                    personaCodeData: personaCodeData,
+                    isFullVersion: isFullVersion
                 )
             }
             
@@ -55,9 +70,11 @@ struct PersonaCodeView: View {
             
             ToolbarItem(placement: .principal) {
                 if isFullVersion {
-                    FullVersionIconView(fontSize: 17)
+                    FullVersionIconView(fontSize: 15)
+                        .opacity(viewModel.isMenuOpen ? 0 : 1)
                 } else {
-                    DemoVersionIconView(fontSize: 17)
+                    DemoVersionIconView(fontSize: 15)
+                        .opacity(viewModel.isMenuOpen ? 0 : 1)
                 }
             }
             

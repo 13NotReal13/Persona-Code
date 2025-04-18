@@ -33,6 +33,29 @@ final class StorageManager: ObservableObject {
         load()
     }
     
+    func add(shortPersonaCodeData: ShortPersonaCodeData) {
+        historyPersonaCodeData.append(shortPersonaCodeData)
+        historyPersonaCodeData.sort(by: { $0.dateCreationPersonaCode > $1.dateCreationPersonaCode })
+        save()
+    }
+    
+    func updateToFullVersion(shortPersonaCodeData: ShortPersonaCodeData) {
+        if let index = historyPersonaCodeData.firstIndex(
+            where: {
+                $0.name == shortPersonaCodeData.name
+                && $0.dateOfBirthday == shortPersonaCodeData.dateOfBirthday
+                && $0.dateCreationPersonaCode == shortPersonaCodeData.dateCreationPersonaCode
+            }) {
+            historyPersonaCodeData[index].isFullVersion = true
+            save()
+        }
+    }
+    
+    func delete(shortPersonaCodeData: ShortPersonaCodeData) {
+        historyPersonaCodeData.removeAll { $0.id == shortPersonaCodeData.id }
+        save()
+    }
+    
     private func load() {
         guard let data = storedData.data(using: .utf8),
               let decodedData = try? JSONDecoder().decode([ShortPersonaCodeData].self, from: data)
@@ -47,16 +70,5 @@ final class StorageManager: ObservableObject {
         if let encodedData = try? JSONEncoder().encode(historyPersonaCodeData) {
             storedData = String(data: encodedData, encoding: .utf8) ?? ""
         }
-    }
-    
-    func add(shortPersonaCodeData: ShortPersonaCodeData) {
-        historyPersonaCodeData.append(shortPersonaCodeData)
-        historyPersonaCodeData.sort(by: { $0.dateCreationPersonaCode > $1.dateCreationPersonaCode })
-        save()
-    }
-    
-    func delete(shortPersonaCodeData: ShortPersonaCodeData) {
-        historyPersonaCodeData.removeAll { $0.id == shortPersonaCodeData.id }
-        save()
     }
 }

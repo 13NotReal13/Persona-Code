@@ -59,12 +59,11 @@ struct LeftNavigationButtonsView: View {
                 Button(action: {
                     
                 }) {
-                    Text(localizedString("Разблокировать все"))
+                    Text("Unlock All")
                         .customText(fontSize: 17, customFont: .interDisplaySemiBold)
                         .foregroundStyle(.white)
                         .frame(maxWidth: .infinity, alignment: .center)
-                        .padding(.vertical, 12)
-                        .padding(.horizontal, 12)
+                        .padding(12)
                         .background(OutlineGradientButtonBackgroundView())
                 }
                 .padding(.top, 8)

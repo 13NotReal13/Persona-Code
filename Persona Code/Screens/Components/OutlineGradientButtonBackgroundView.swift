@@ -9,7 +9,6 @@ import SwiftUI
 
 struct OutlineGradientButtonBackgroundView: View {
     var cornerRadius: CGFloat = 20
-    var backgroundGradient: Gradient = Gradient(colors: [.blue.opacity(0.7), .purple.opacity(0.7)])
     
     @State private var gradientStart: CGFloat = 0.0
     
@@ -17,13 +16,7 @@ struct OutlineGradientButtonBackgroundView: View {
         ZStack {
             // Фоновый градиент
             RoundedRectangle(cornerRadius: cornerRadius)
-                .fill(
-                    LinearGradient(
-                        gradient: backgroundGradient,
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    )
-                )
+                .fill(Color.black.opacity(0.4))
 
             // Градиентная обводка с анимацией
             RoundedRectangle(cornerRadius: cornerRadius)
@@ -45,6 +38,14 @@ struct OutlineGradientButtonBackgroundView: View {
     }
 }
 
-//#Preview {
-//    OutlineGradientView()
-//}
+#Preview {
+    ZStack {
+        BackgroundView(shadowLevel: .high)
+        
+        Text("Полная версия")
+            .preferredColorScheme(.dark)
+            .customText(fontSize: 17, customFont: .interDisplaySemiBold)
+            .padding()
+            .background(OutlineGradientButtonBackgroundView())
+    }
+}

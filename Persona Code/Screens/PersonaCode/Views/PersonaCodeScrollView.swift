@@ -11,15 +11,59 @@ struct PersonaCodeScrollView: View {
     @StateObject var viewModel: PersonaCodeViewModel
     @State var personaCodeData: PersonaCodeModel
     
+    @EnvironmentObject private var navigationCoordinator: NavigationCoordinator
+    
+    let isFullVersion: Bool
+    
     var body: some View {
         ScrollViewReader { proxy in
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 30) {
-                    ForEach(1..<13) { code in
+                    let categories = isFullVersion ? 1..<13 : 1..<4
+                    
+                    ForEach(categories, id: \.self) { code in
                         SectionView(
                             number: code,
                             codeInfo: personaCodeData.allCodes[code - 1]
                         )
+                    }
+                    
+                    if !isFullVersion {
+                        VStack {
+                            if let product = IAPManager.shared.getProducts().first {
+                                Button {
+                                    navigationCoordinator.present(
+                                        .purchase(
+                                            personaCode: ShortPersonaCodeData(
+                                                name: personaCodeData.name,
+                                                dateOfBirthday: personaCodeData.dateOfBirthday,
+                                                dateCreationPersonaCode: .now
+                                            ),
+                                            isFromPreloadScreen: false
+                                        )
+                                    )
+                                } label: {
+                                    Text("Unlock All For \(product.localizedPrice ?? "N/A")")
+                                        .customText(fontSize: 17, customFont: .interDisplaySemiBold)
+                                        .padding(12)
+                                        .frame(maxWidth: .infinity)
+                                        .background(OutlineGradientButtonBackgroundView())
+                                        .padding(4)
+                                }
+                            } else {
+                                Text("Loading price…")
+                                    .customText(fontSize: 17, customFont: .interDisplaySemiBold)
+                                    .padding(12)
+                                    .frame(maxWidth: .infinity)
+                                    .background(OutlineGradientButtonBackgroundView())
+                                    .padding(4)
+                            }
+                            
+                            Text("Available instantly. No subscription. One-time purchase.")
+                                .font(.custom(CustomFont.interVariable.rawValue, size: 13))
+                                .foregroundStyle(.gray)
+                                .multilineTextAlignment(.center)
+                        }
                     }
                 }
             }
@@ -74,11 +118,15 @@ struct SectionPositionPreferenceKey: PreferenceKey {
 
 #Preview {
     ZStack {
-        BackgroundView()
+        BackgroundView(shadowLevel: .high)
         
         PersonaCodeScrollView(
             viewModel: PersonaCodeViewModel(),
-            personaCodeData: PersonaCodeCalculation(name: "Иван", dateOfBirthday: .now).personaCodeData
+            personaCodeData: PersonaCodeCalculation(
+                name: "Иван",
+                dateOfBirthday: .now
+            ).personaCodeData,
+            isFullVersion: false
         )
     }
 }

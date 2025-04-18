@@ -23,12 +23,8 @@ struct HomeView: View {
                     EnterDataView()
                 case .preload(let data):
                     PreloadPersonaCodeView(personaCode: data)
-                case .personaCode(let model, let isFromPreload, let isFullVersion):
-                    PersonaCodeView(
-                        personaCodeData: model,
-                        isFromPreload: isFromPreload,
-                        isFullVersion: isFullVersion
-                    )
+                case .personaCode(let model, let isFromPreload):
+                    PersonaCodeView(shortPersonaCode: model, isFromPreload: isFromPreload)
                 case .affirmation:
                     AffirmationsView()
                 case .history:
@@ -41,8 +37,11 @@ struct HomeView: View {
             }
             .sheet(item: $coordinator.activeModal) { modal in
                 switch modal {
-                case .purchase(let personaCode):
-                    PurchaseModalView(personaCode: personaCode)
+                case .purchase(let personaCode, let isFromEnterDataScreen):
+                    PurchaseModalView(
+                        shortPersonaCode: personaCode,
+                        isFromPreloadScreen: isFromEnterDataScreen
+                    )
                 case .reminderPicker(let reminderType):
                     ReminderPickerView(reminderType: reminderType)
                         .environmentObject(AffirmationsViewModel.shared)

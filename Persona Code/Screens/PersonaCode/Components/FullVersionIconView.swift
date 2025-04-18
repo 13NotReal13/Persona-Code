@@ -14,11 +14,12 @@ struct FullVersionIconView: View {
         Text("Full Version")
             .customText(fontSize: fontSize, customFont: .interDisplaySemiBold)
             .padding(.vertical, 4)
-            .padding(.horizontal, 8)
+            .padding(.horizontal, 12)
             .background(OutlineGradientButtonBackgroundView())
     }
 }
 
 #Preview {
     FullVersionIconView(fontSize: CGFloat(17))
+        .preferredColorScheme(.dark)
 }

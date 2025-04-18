@@ -14,7 +14,8 @@ enum PlanType {
 }
 
 struct PurchaseModalView: View {
-    @State var personaCode: ShortPersonaCodeData
+    var shortPersonaCode: ShortPersonaCodeData
+    let isFromPreloadScreen: Bool
     
     @EnvironmentObject private var coordinator: NavigationCoordinator
     @StateObject private var viewModel = PreloadPersonaCodeViewModel()
@@ -60,10 +61,7 @@ struct PurchaseModalView: View {
                             .customText(fontSize: 19, customFont: .interDisplaySemiBold)
                             .frame(height: 50)
                             .frame(maxWidth: .infinity)
-                            .foregroundColor(.white)
-                            .overlay {
-                                OutlineGradientButtonBackgroundView()
-                            }
+                            .background(OutlineGradientButtonBackgroundView())
                             .padding(.horizontal)
                     }
                 }
@@ -90,23 +88,15 @@ struct PurchaseModalView: View {
     
     private func openDemoPersonaCodeButton() -> some View {
         Button(action: {
-            personaCode.isFullVersion = false
+            var updatedCode = shortPersonaCode
+                updatedCode.isFullVersion = false
             
-            let calculatedData = PersonaCodeCalculation(
-                name: personaCode.name,
-                dateOfBirthday: personaCode.dateOfBirthday
-            ).personaCodeData
-            
-            viewModel.savePersonaCode(personaCode: personaCode)
+            if isFromPreloadScreen {
+                StorageManager.shared.add(shortPersonaCodeData: updatedCode)
+            }
             
             coordinator.dismissModal()
-            coordinator.push(
-                .personaCode(
-                    calculatedData,
-                    isFromPreload: true,
-                    isFullVersion: false
-                )
-            )
+            coordinator.push(.personaCode(updatedCode, isFromPreload: true))
             
 //            FirebaseLogsManager.shared.logButtonTapped(.confirmPurchase)
         }) {
@@ -147,22 +137,15 @@ struct PurchaseModalView: View {
     }
     
     private func handlePurchase(for product: SKProduct) {
-        let calculatedData = PersonaCodeCalculation(
-            name: personaCode.name,
-            dateOfBirthday: personaCode.dateOfBirthday
-        ).personaCodeData
-        
-        viewModel.savePersonaCode(personaCode: personaCode)
+        if isFromPreloadScreen {
+            StorageManager.shared.add(shortPersonaCodeData: shortPersonaCode)
+        } else {
+            StorageManager.shared.updateToFullVersion(shortPersonaCodeData: shortPersonaCode)
+        }
         
         coordinator.dismissModal()
-        coordinator.push(
-            .personaCode(
-                calculatedData,
-                isFromPreload: true,
-                isFullVersion: true
-            )
-        )
-//        
+        coordinator.push(.personaCode(shortPersonaCode, isFromPreload: true))
+//
 //        isLoadingPurchase = true
 //        
 //        IAPManager.shared.purchase(
@@ -247,11 +230,12 @@ struct PurchaseModalView: View {
 
 #Preview {
     PurchaseModalView(
-        personaCode: ShortPersonaCodeData(
+        shortPersonaCode: ShortPersonaCodeData(
             name: "Иван",
             dateOfBirthday: Date.now,
             dateCreationPersonaCode: Date.now
-        )
+        ),
+        isFromPreloadScreen: true
     )
         .preferredColorScheme(.dark)
 }

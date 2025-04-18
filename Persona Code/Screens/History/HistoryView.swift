@@ -25,7 +25,7 @@ struct HistoryView: View {
                 
                 ScrollView {
                     ForEach(storageManager.historyPersonaCodeData) { personaCode in
-                        HistoryCardView(personaCode: personaCode) {
+                        HistoryCardView(shortPersonaCode: personaCode) {
                             selectedPersonaCode = personaCode
                             showDeleteAlert = true
                         }

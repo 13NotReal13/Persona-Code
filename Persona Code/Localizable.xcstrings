@@ -313,6 +313,22 @@
         }
       }
     },
+    "Available instantly. No subscription. One-time purchase." : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dostępne od razu. Bez subskrypcji. Jednorazowy zakup."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Доступно сразу. Без подписки. Одноразовая покупка."
+          }
+        }
+      }
+    },
     "Background Music" : {
       "localizations" : {
         "en" : {
@@ -1855,6 +1871,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Вт"
+          }
+        }
+      }
+    },
+    "Unlock All" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odblokuj wszystko"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Разблокировать все"
+          }
+        }
+      }
+    },
+    "Unlock All For %@" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odblokuj wszystko za %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Разблокировать все за %@"
           }
         }
       }

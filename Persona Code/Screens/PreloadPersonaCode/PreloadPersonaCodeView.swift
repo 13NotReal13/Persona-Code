@@ -19,7 +19,12 @@ struct PreloadPersonaCodeView: View {
             
             if viewModel.loadWasFinished {
                 Button {
-                    coordinator.present(.purchase(personaCode: personaCode))
+                    coordinator.present(
+                        .purchase(
+                            personaCode: personaCode,
+                            isFromPreloadScreen: true
+                        )
+                    )
                 } label: {
                     Text("Open")
                         .customText(fontSize: 17)

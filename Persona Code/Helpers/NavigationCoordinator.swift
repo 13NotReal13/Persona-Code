@@ -11,7 +11,7 @@ enum AppPage: Hashable {
     case home
     case enterData
     case preload(ShortPersonaCodeData)
-    case personaCode(PersonaCodeModel, isFromPreload: Bool, isFullVersion: Bool)
+    case personaCode(ShortPersonaCodeData, isFromPreload: Bool)
     
     case affirmation
     case history
@@ -20,7 +20,7 @@ enum AppPage: Hashable {
 }
 
 enum AppModal: Identifiable, Hashable {
-    case purchase(personaCode: ShortPersonaCodeData)
+    case purchase(personaCode: ShortPersonaCodeData, isFromPreloadScreen: Bool)
     case reminderPicker(type: ReminderType)
     case datePicker
     

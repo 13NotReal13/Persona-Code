@@ -10,7 +10,7 @@ import SwiftUI
 struct HistoryCardView: View {
     @EnvironmentObject private var coordinator: NavigationCoordinator
     
-    let personaCode: ShortPersonaCodeData
+    let shortPersonaCode: ShortPersonaCodeData
     var onLongPress: () -> Void
     
     var body: some View {
@@ -20,7 +20,7 @@ struct HistoryCardView: View {
                 .shadow(color: .black.opacity(0.2), radius: 5, x: 0, y: 3)
             
             VStack {
-                if personaCode.isFull {
+                if shortPersonaCode.isFull {
                     FullVersionIconView(fontSize: 15)
                 } else {
                     DemoVersionIconView(fontSize: 15)
@@ -28,33 +28,21 @@ struct HistoryCardView: View {
                 
                 HStack {
                     VStack(alignment: .leading, spacing: 4) {
-                        
                         HStack {
-                            Text("\(personaCode.name) - \(personaCode.dateOfBirthday.formattedDate())")
+                            Text("\(shortPersonaCode.name) - \(shortPersonaCode.dateOfBirthday.formattedDate())")
                                 .font(.headline)
                                 .foregroundColor(.white)
                                 .onLongPressGesture(perform: onLongPress)
                         }
                         
-                        
-                        Text("Created: \(personaCode.dateCreationPersonaCode.formattedDate())")
+                        Text("Created: \(shortPersonaCode.dateCreationPersonaCode.formattedDate())")
                             .font(.footnote)
                             .foregroundColor(.white.opacity(0.7))
                     }
                     Spacer()
                     
                     Button {
-                        let calculatedData = PersonaCodeCalculation(
-                            name: personaCode.name,
-                            dateOfBirthday: personaCode.dateOfBirthday
-                        ).personaCodeData
-                        coordinator.push(
-                            .personaCode(
-                                calculatedData,
-                                isFromPreload: false,
-                                isFullVersion: personaCode.isFull ? true : false
-                            )
-                        )
+                        coordinator.push(.personaCode(shortPersonaCode, isFromPreload: false))
                     } label: {
                         Image(systemName: "chevron.right")
                             .foregroundColor(.white)
@@ -82,12 +70,17 @@ struct HistoryCardView_Previews: PreviewProvider {
         )
         
         ZStack {
-            Color.black.ignoresSafeArea()
-            HistoryCardView(
-                personaCode: testPersonaCodeData,
-                onLongPress: { }
-            )
-            .padding()
+            BackgroundView(shadowLevel: .high)
+            
+            VStack {
+                HistoryCardView(
+                    shortPersonaCode: testPersonaCodeData,
+                    onLongPress: { }
+                )
+                .padding()
+                
+                Spacer()
+            }
         }
         .environmentObject(NavigationCoordinator.shared)
     }

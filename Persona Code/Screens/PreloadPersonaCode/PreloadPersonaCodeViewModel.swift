@@ -16,10 +16,6 @@ final class PreloadPersonaCodeViewModel: ObservableObject {
     private var totalDuration: TimeInterval = 13.0
     private let coordinator = NavigationCoordinator.shared
     
-    func savePersonaCode(personaCode: ShortPersonaCodeData) {
-        StorageManager.shared.add(shortPersonaCodeData: personaCode)
-    }
-    
     // Начинает загрузку прогресса
     func startLoading(for personaCode: ShortPersonaCodeData) {
         progress = 0.0

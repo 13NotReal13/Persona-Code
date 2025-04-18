@@ -14,16 +14,16 @@ struct DemoVersionIconView: View {
         Text("Demo Version")
             .customText(fontSize: fontSize, customFont: .interDisplaySemiBold)
             .padding(.vertical, 4)
-            .padding(.horizontal, 8)
+            .padding(.horizontal, 12)
             .background(
                 ZStack {
                     RoundedRectangle(cornerRadius: 20)
-                        .fill(Color.green)
-                        .brightness(-0.2)
+                        .fill(Color.brown)
+                        .brightness(-0.3)
                     
                     RoundedRectangle(cornerRadius: 20)
                         .stroke(style: StrokeStyle(lineWidth: 2))
-                        .foregroundStyle(.green)
+                        .foregroundStyle(.brown)
                 }
             )
     }
@@ -31,4 +31,5 @@ struct DemoVersionIconView: View {
 
 #Preview {
     DemoVersionIconView(fontSize: CGFloat(17))
+        .preferredColorScheme(.dark)
 }
