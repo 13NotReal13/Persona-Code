@@ -9,6 +9,8 @@ import SwiftUI
 
 struct LeftMenuView: View {
     @StateObject var viewModel: PersonaCodeViewModel
+    
+    let shortPersonaCode: ShortPersonaCodeData
     var isFullVersion: Bool
     
     var body: some View {
@@ -29,6 +31,7 @@ struct LeftMenuView: View {
                 HStack(spacing: 0) {
                     LeftNavigationButtonsView(
                         personaCodeViewModel: viewModel,
+                        shortPersonaCode: shortPersonaCode,
                         isFullVersion: isFullVersion
                     )
                         .frame(width: 250)
@@ -46,7 +49,15 @@ struct LeftMenuView: View {
     ZStack {
         BackgroundView(shadowLevel: .high)
         
-        LeftMenuView(viewModel: PersonaCodeViewModel(), isFullVersion: false)
+        LeftMenuView(
+            viewModel: PersonaCodeViewModel(),
+            shortPersonaCode: ShortPersonaCodeData(
+                name: "Ivan",
+                dateOfBirthday: Date.now,
+                dateCreationPersonaCode: Date.now
+            ),
+            isFullVersion: false
+        )
             .environmentObject(PersonaCodeViewModel())
     }
 }

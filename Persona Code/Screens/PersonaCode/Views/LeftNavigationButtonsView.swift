@@ -9,6 +9,8 @@ import SwiftUI
 
 struct LeftNavigationButtonsView: View {
     @StateObject var personaCodeViewModel: PersonaCodeViewModel
+    
+    let shortPersonaCode: ShortPersonaCodeData
     var isFullVersion: Bool
     
     @EnvironmentObject private var navigationCoordinator: NavigationCoordinator
@@ -56,9 +58,14 @@ struct LeftNavigationButtonsView: View {
             }
             
             if !isFullVersion {
-                Button(action: {
-                    
-                }) {
+                Button {
+                    navigationCoordinator.present(
+                        .purchase(
+                            personaCode: shortPersonaCode,
+                            isFromPreloadScreen: false
+                        )
+                    )
+                } label: {
                     Text("Unlock All")
                         .customText(fontSize: 17, customFont: .interDisplaySemiBold)
                         .foregroundStyle(.white)
@@ -78,6 +85,11 @@ struct LeftNavigationButtonsView: View {
         
         LeftNavigationButtonsView(
             personaCodeViewModel: PersonaCodeViewModel(),
+            shortPersonaCode: ShortPersonaCodeData(
+                name: "Ivan",
+                dateOfBirthday: Date.now,
+                dateCreationPersonaCode: Date.now
+            ),
             isFullVersion: false
         )
     }

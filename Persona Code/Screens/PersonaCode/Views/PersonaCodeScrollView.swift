@@ -11,6 +11,8 @@ struct PersonaCodeScrollView: View {
     @StateObject var viewModel: PersonaCodeViewModel
     @State var personaCodeData: PersonaCodeModel
     
+    let shortPersonCodeData: ShortPersonaCodeData
+    
     @EnvironmentObject private var navigationCoordinator: NavigationCoordinator
     
     let isFullVersion: Bool
@@ -34,13 +36,7 @@ struct PersonaCodeScrollView: View {
                                 Button {
                                     navigationCoordinator.present(
                                         .purchase(
-                                            personaCode: ShortPersonaCodeData(
-                                                name: personaCodeData.name,
-                                                dateOfBirthday: personaCodeData.dateOfBirthday,
-                                                dateCreationPersonaCode: .now
-                                            ),
-                                            isFromPreloadScreen: false
-                                        )
+                                            personaCode: shortPersonCodeData, isFromPreloadScreen: false)
                                     )
                                 } label: {
                                     Text("Unlock All For \(product.localizedPrice ?? "N/A")")
@@ -126,6 +122,11 @@ struct SectionPositionPreferenceKey: PreferenceKey {
                 name: "Иван",
                 dateOfBirthday: .now
             ).personaCodeData,
+            shortPersonCodeData: ShortPersonaCodeData(
+                name: "Ivan",
+                dateOfBirthday: Date.now,
+                dateCreationPersonaCode: Date.now
+            ),
             isFullVersion: false
         )
     }

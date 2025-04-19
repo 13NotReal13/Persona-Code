@@ -39,11 +39,16 @@ struct PersonaCodeView: View {
                 PersonaCodeScrollView(
                     viewModel: viewModel,
                     personaCodeData: personaCodeData,
+                    shortPersonCodeData: shortPersonaCode,
                     isFullVersion: isFullVersion
                 )
             }
             
-            LeftMenuView(viewModel: viewModel, isFullVersion: isFullVersion)
+            LeftMenuView(
+                viewModel: viewModel,
+                shortPersonaCode: shortPersonaCode,
+                isFullVersion: isFullVersion
+            )
         }
         .navigationBarBackButtonHidden()
         .navigationBarTitleDisplayMode(.inline)

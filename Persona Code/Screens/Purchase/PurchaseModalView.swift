@@ -137,14 +137,22 @@ struct PurchaseModalView: View {
     }
     
     private func handlePurchase(for product: SKProduct) {
+        var updatedCode = shortPersonaCode
+        
         if isFromPreloadScreen {
             StorageManager.shared.add(shortPersonaCodeData: shortPersonaCode)
         } else {
-            StorageManager.shared.updateToFullVersion(shortPersonaCodeData: shortPersonaCode)
+            updatedCode.isFullVersion = true
+            StorageManager.shared.updateToFullVersion(shortPersonaCodeData: updatedCode)
         }
         
         coordinator.dismissModal()
-        coordinator.push(.personaCode(shortPersonaCode, isFromPreload: true))
+        coordinator.push(
+            .personaCode(
+                isFromPreloadScreen ? shortPersonaCode : updatedCode,
+                isFromPreload: true
+            )
+        )
 //
 //        isLoadingPurchase = true
 //        
