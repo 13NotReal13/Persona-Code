@@ -1939,6 +1939,22 @@
         }
       }
     },
+    "Unlock Full Version" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odblokuj pełną wersję"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Разблокировать полную версию"
+          }
+        }
+      }
+    },
     "Use your Personality Code as a personal guide. It will help you understand yourself, overcome internal barriers, deal with life’s challenges, and move toward your goals with clarity and confidence." : {
       "localizations" : {
         "pl" : {
@@ -2069,9 +2085,6 @@
           }
         }
       }
-    },
-    "Разблокировать полную версию" : {
-
     }
   },
   "version" : "1.0"

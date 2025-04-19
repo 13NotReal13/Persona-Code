@@ -60,6 +60,8 @@ struct PersonaCodeScrollView: View {
                                 .foregroundStyle(.gray)
                                 .multilineTextAlignment(.center)
                         }
+                    } else {
+                        
                     }
                 }
             }

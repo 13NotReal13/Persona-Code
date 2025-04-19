@@ -59,8 +59,8 @@ struct HistoryCardView: View {
                             )
                         )
                     } label: {
-                        Text("Разблокировать полную версию")
-                            .customText(fontSize: 17, customFont: .interDisplaySemiBold)
+                        Text("Unlock Full Version")
+                            .customText(fontSize: 15, customFont: .interDisplaySemiBold)
                             .padding(.vertical, 4)
                             .padding(.horizontal, 12)
                             .background(OutlineGradientButtonBackgroundView())
