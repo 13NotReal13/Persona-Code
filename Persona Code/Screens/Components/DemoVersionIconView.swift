@@ -18,12 +18,13 @@ struct DemoVersionIconView: View {
             .background(
                 ZStack {
                     RoundedRectangle(cornerRadius: 20)
-                        .fill(Color.gray)
+                        .fill(Color.gray.opacity(0.7))
                     
                     RoundedRectangle(cornerRadius: 20)
                         .stroke(style: StrokeStyle(lineWidth: 2))
                         .foregroundStyle(.gray)
                         .brightness(0.1)
+                        .opacity(0.7)
                 }
             )
     }

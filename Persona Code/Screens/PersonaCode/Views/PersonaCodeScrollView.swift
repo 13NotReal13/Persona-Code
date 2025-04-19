@@ -61,7 +61,26 @@ struct PersonaCodeScrollView: View {
                                 .multilineTextAlignment(.center)
                         }
                     } else {
-                        
+                        if ReviewRequestManager.shared.reviewPromptWasShowing() {
+                            VStack {
+                                Divider()
+                                    .padding(.bottom, 16)
+                                
+                                Text("Enjoyed it? Take a step toward change — support us with a rating. It helps the project grow and improve.")
+                                    .multilineTextAlignment(.center)
+                                
+                                Button {
+                                    ReviewRequestManager.shared.requestReview()
+                                } label: {
+                                    Text("Rate the app")
+                                        .customText(fontSize: 19, customFont: .interDisplaySemiBold)
+                                        .frame(maxWidth: .infinity)
+                                        .padding(8)
+                                        .background(OutlineGradientButtonBackgroundView())
+                                        .padding(.horizontal, 2)
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -129,7 +148,7 @@ struct SectionPositionPreferenceKey: PreferenceKey {
                 dateOfBirthday: Date.now,
                 dateCreationPersonaCode: Date.now
             ),
-            isFullVersion: false
+            isFullVersion: true
         )
     }
 }

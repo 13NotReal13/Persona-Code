@@ -762,6 +762,22 @@
         }
       }
     },
+    "Enjoyed it? Take a step toward change — support us with a rating. It helps the project grow and improve." : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Podobało się? Zrób krok w stronę zmian — wesprzyj nas oceną. To pomoże projektowi się rozwijać i aktualizować."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Понравилось? Сделайте шаг навстречу переменам — поддержите нас оценкой. Это поможет проекту расти и обновляться."
+          }
+        }
+      }
+    },
     "Enter your full name (first name only)" : {
       "localizations" : {
         "pl" : {

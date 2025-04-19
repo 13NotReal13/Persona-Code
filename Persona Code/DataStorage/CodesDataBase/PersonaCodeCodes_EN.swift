@@ -54,7 +54,7 @@ struct PersonaCodeCodes_EN {
         // MARK: - 2 Code
         2: CodeInfo(
             codeNumber: 2,
-            title: "2. Persona Code (2 Code)",
+            title: "1. Persona Code (2 Code)",
             subcategories: [
                 Subcategory(
                     title: "Code Meaning",
@@ -96,7 +96,7 @@ struct PersonaCodeCodes_EN {
         // MARK: - 3 Code
         3: CodeInfo(
             codeNumber: 3,
-            title: "3. Persona Code (3 Code)",
+            title: "1. Persona Code (3 Code)",
             subcategories: [
                 Subcategory(
                     title: "Code Meaning",
@@ -138,7 +138,7 @@ struct PersonaCodeCodes_EN {
         // MARK: - 4 Code
         4: CodeInfo(
             codeNumber: 4,
-            title: "4. Persona Code (4 Code)",
+            title: "1. Persona Code (4 Code)",
             subcategories: [
                 Subcategory(
                     title: "Code Meaning",
@@ -180,7 +180,7 @@ struct PersonaCodeCodes_EN {
         // MARK: - 5 Code
         5: CodeInfo(
             codeNumber: 5,
-            title: "5. Persona Code (5 Code)",
+            title: "1. Persona Code (5 Code)",
             subcategories: [
                 Subcategory(
                     title: "Code Meaning",
@@ -222,7 +222,7 @@ struct PersonaCodeCodes_EN {
         // MARK: - 6 Code
         6: CodeInfo(
             codeNumber: 6,
-            title: "6. Persona Code (6 Code)",
+            title: "1. Persona Code (6 Code)",
             subcategories: [
                 Subcategory(
                     title: "Code Meaning",
@@ -264,7 +264,7 @@ struct PersonaCodeCodes_EN {
         // MARK: - 7 Code
         7: CodeInfo(
             codeNumber: 7,
-            title: "7. Persona Code (7 Code)",
+            title: "1. Persona Code (7 Code)",
             subcategories: [
                 Subcategory(
                     title: "Code Meaning",
@@ -306,7 +306,7 @@ struct PersonaCodeCodes_EN {
         // MARK: - 8 Code
         8: CodeInfo(
             codeNumber: 8,
-            title: "8. Persona Code (8 Code)",
+            title: "1. Persona Code (8 Code)",
             subcategories: [
                 Subcategory(
                     title: "Code Meaning",
@@ -348,7 +348,7 @@ struct PersonaCodeCodes_EN {
         // MARK: - 9 Code
         9: CodeInfo(
             codeNumber: 9,
-            title: "9. Persona Code (9 Code)",
+            title: "1. Persona Code (9 Code)",
             subcategories: [
                 Subcategory(
                     title: "Code Meaning",
@@ -390,7 +390,7 @@ struct PersonaCodeCodes_EN {
         // MARK: - 10 Code
         10: CodeInfo(
             codeNumber: 10,
-            title: "10. Persona Code (10 Code)",
+            title: "1. Persona Code (10 Code)",
             subcategories: [
                 Subcategory(
                     title: "Code Meaning",
@@ -432,7 +432,7 @@ struct PersonaCodeCodes_EN {
         // MARK: - 11 Code
         11: CodeInfo(
             codeNumber: 11,
-            title: "11. Persona Code (11 Code)",
+            title: "1. Persona Code (11 Code)",
             subcategories: [
                 Subcategory(
                     title: "Code Meaning",
@@ -474,7 +474,7 @@ struct PersonaCodeCodes_EN {
         // MARK: - 12 Code
         12: CodeInfo(
             codeNumber: 12,
-            title: "12. Persona Code (12 Code)",
+            title: "1. Persona Code (12 Code)",
             subcategories: [
                 Subcategory(
                     title: "Code Meaning",
@@ -516,7 +516,7 @@ struct PersonaCodeCodes_EN {
         // MARK: - 13 Code
         13: CodeInfo(
             codeNumber: 13,
-            title: "13. Persona Code (13 Code)",
+            title: "1. Persona Code (13 Code)",
             subcategories: [
                 Subcategory(
                     title: "Code Meaning",
@@ -558,7 +558,7 @@ struct PersonaCodeCodes_EN {
         // MARK: - 14 Code
         14: CodeInfo(
             codeNumber: 14,
-            title: "14. Persona Code (14 Code)",
+            title: "1. Persona Code (14 Code)",
             subcategories: [
                 Subcategory(
                     title: "Code Meaning",
@@ -600,7 +600,7 @@ struct PersonaCodeCodes_EN {
         // MARK: - 15 Code
         15: CodeInfo(
             codeNumber: 15,
-            title: "15. Persona Code (15 Code)",
+            title: "1. Persona Code (15 Code)",
             subcategories: [
                 Subcategory(
                     title: "Code Meaning",
@@ -642,7 +642,7 @@ struct PersonaCodeCodes_EN {
         // MARK: - 16 Code
         16: CodeInfo(
             codeNumber: 16,
-            title: "16. Persona Code (16 Code)",
+            title: "1. Persona Code (16 Code)",
             subcategories: [
                 Subcategory(
                     title: "Code Meaning",
@@ -684,7 +684,7 @@ struct PersonaCodeCodes_EN {
         // MARK: - 17 Code
         17: CodeInfo(
             codeNumber: 17,
-            title: "17. Persona Code (17 Code)",
+            title: "1. Persona Code (17 Code)",
             subcategories: [
                 Subcategory(
                     title: "Code Meaning",
@@ -726,7 +726,7 @@ struct PersonaCodeCodes_EN {
         // MARK: - 18 Code
         18: CodeInfo(
             codeNumber: 18,
-            title: "18. Persona Code (18 Code)",
+            title: "1. Persona Code (18 Code)",
             subcategories: [
                 Subcategory(
                     title: "Code Meaning",
@@ -768,7 +768,7 @@ struct PersonaCodeCodes_EN {
         // MARK: - 19 Code
         19: CodeInfo(
             codeNumber: 19,
-            title: "19. Persona Code (19 Code)",
+            title: "1. Persona Code (19 Code)",
             subcategories: [
                 Subcategory(
                     title: "Code Meaning",
@@ -810,7 +810,7 @@ struct PersonaCodeCodes_EN {
         // MARK: - 20 Code
         20: CodeInfo(
             codeNumber: 20,
-            title: "20. Persona Code (20 Code)",
+            title: "1. Persona Code (20 Code)",
             subcategories: [
                 Subcategory(
                     title: "Code Meaning",
@@ -852,7 +852,7 @@ struct PersonaCodeCodes_EN {
         // MARK: - 21 Code
         21: CodeInfo(
             codeNumber: 21,
-            title: "21. Persona Code (21 Code)",
+            title: "1. Persona Code (21 Code)",
             subcategories: [
                 Subcategory(
                     title: "Code Meaning",
@@ -894,7 +894,7 @@ struct PersonaCodeCodes_EN {
         // MARK: - 22 Code
         22: CodeInfo(
             codeNumber: 22,
-            title: "22. Persona Code (22 Code)",
+            title: "1. Persona Code (22 Code)",
             subcategories: [
                 Subcategory(
                     title: "Code Meaning",
