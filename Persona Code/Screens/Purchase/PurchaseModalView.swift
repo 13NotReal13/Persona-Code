@@ -30,11 +30,13 @@ struct PurchaseModalView: View {
         ZStack {
             VStack(spacing: 16) {
                 DemoPLanView(selectedPlan: $selectedPlan)
+                    .opacity(isFromPreloadScreen ? 1 : 0.5)
                     .onTapGesture {
                         withAnimation(.interactiveSpring()) {
                             selectedPlan = .demo
                         }
                     }
+                    .disabled(!isFromPreloadScreen)
                 
                 FullPlanView(selectedPlan: $selectedPlan)
                     .onTapGesture {
@@ -75,6 +77,9 @@ struct PurchaseModalView: View {
                 LoadingPurchaseView()
             }
         }
+        .onAppear {
+            selectedPlan = isFromPreloadScreen ? .demo : .full
+        }
         .animation(.easeInOut(duration: 0.3), value: isLoadingPurchase)
         .background(BackgroundView(shadowLevel: .high))
         .alert(isPresented: $showErrorAlert) {
@@ -87,9 +92,9 @@ struct PurchaseModalView: View {
     }
     
     private func openDemoPersonaCodeButton() -> some View {
-        Button(action: {
+        Button {
             var updatedCode = shortPersonaCode
-                updatedCode.isFullVersion = false
+            updatedCode.isFullVersion = false
             
             if isFromPreloadScreen {
                 StorageManager.shared.add(shortPersonaCodeData: updatedCode)
@@ -98,39 +103,35 @@ struct PurchaseModalView: View {
             coordinator.dismissModal()
             coordinator.push(.personaCode(updatedCode, isFromPreload: true))
             
-//            FirebaseLogsManager.shared.logButtonTapped(.confirmPurchase)
-        }) {
+            FirebaseLogsManager.shared.logDemoPersonaCodeCreated(
+                name: updatedCode.name,
+                dateBirth: updatedCode.dateOfBirthday.formattedDate()
+            )
+        } label: {
             Text("Unlock for Free")
                 .customText(fontSize: 19, customFont: .interDisplaySemiBold)
                 .frame(height: 50)
                 .frame(maxWidth: .infinity)
                 .foregroundColor(.white)
                 .background(
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 20)
-                            .fill(Color.green)
-                            .brightness(-0.2)
-                        
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(style: StrokeStyle(lineWidth: 2))
-                            .foregroundStyle(.green)
-                    }
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(style: StrokeStyle(lineWidth: 2))
+                        .foregroundStyle(.gray.opacity(0.6))
                 )
                 .padding(.horizontal)
         }
     }
     
     private func purchaseButton(for product: SKProduct) -> some View {
-        Button(action: {
+        Button {
             handlePurchase(for: product)
             
             FirebaseLogsManager.shared.logButtonTapped(.confirmPurchase)
-        }) {
+        } label: {
             Text("Unlock for \(product.localizedPrice ?? "N/A")")
                 .customText(fontSize: 19, customFont: .interDisplaySemiBold)
                 .frame(height: 50)
                 .frame(maxWidth: .infinity)
-                .foregroundColor(.white)
                 .background(OutlineGradientButtonBackgroundView())
                 .padding(.horizontal)
         }
@@ -243,7 +244,7 @@ struct PurchaseModalView: View {
             dateOfBirthday: Date.now,
             dateCreationPersonaCode: Date.now
         ),
-        isFromPreloadScreen: true
+        isFromPreloadScreen: false
     )
         .preferredColorScheme(.dark)
 }

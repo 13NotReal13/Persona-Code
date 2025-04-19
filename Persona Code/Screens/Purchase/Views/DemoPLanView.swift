@@ -44,7 +44,7 @@ struct DemoPLanView: View {
         .overlay {
             RoundedRectangle(cornerRadius: 20)
                 .stroke(style: StrokeStyle(lineWidth: selectedPlan == .demo ? 2 : 1))
-                .foregroundColor(selectedPlan == .demo ? .green : .gray.opacity(0.4))
+                .foregroundColor(selectedPlan == .demo ? .white.opacity(0.7) : .gray.opacity(0.4))
         }
         .padding(.horizontal)
     }

@@ -49,6 +49,23 @@ struct HistoryCardView: View {
                             .padding()
                     }
                 }
+                
+                if !shortPersonaCode.isFull {
+                    Button {
+                        coordinator.present(
+                            .purchase(
+                                personaCode: shortPersonaCode,
+                                isFromPreloadScreen: false
+                            )
+                        )
+                    } label: {
+                        Text("Разблокировать полную версию")
+                            .customText(fontSize: 17, customFont: .interDisplaySemiBold)
+                            .padding(.vertical, 4)
+                            .padding(.horizontal, 12)
+                            .background(OutlineGradientButtonBackgroundView())
+                    }
+                }
             }
             .padding()
         }

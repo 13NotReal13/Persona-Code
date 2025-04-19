@@ -61,14 +61,14 @@ struct FullPlanView: View {
             .fixedSize(horizontal: false, vertical: true)
             .padding()
         }
-        .overlay(
+        .background(
             Group {
                 if selectedPlan == .demo {
                     RoundedRectangle(cornerRadius: 20)
                         .stroke(style: StrokeStyle(lineWidth: 1))
                         .foregroundStyle(.gray.opacity(0.4))
                 } else {
-                    OutlineGradientView()
+                    OutlineGradientButtonBackgroundView()
                 }
             }
         )

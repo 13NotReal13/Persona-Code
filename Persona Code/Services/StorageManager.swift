@@ -48,6 +48,11 @@ final class StorageManager: ObservableObject {
             }) {
             historyPersonaCodeData[index].isFullVersion = true
             save()
+            
+            FirebaseLogsManager.shared.logDemoUpgradedToFull(
+                name: shortPersonaCodeData.name,
+                dateBirth: shortPersonaCodeData.dateOfBirthday.formattedDate()
+            )
         }
     }
     

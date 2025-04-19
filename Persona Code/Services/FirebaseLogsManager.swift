@@ -18,6 +18,9 @@ enum FirebaseLogs: String {
     case purchaseSuccess = "purchase_success"
     case purchaseFailure = "purchase_failure"
     
+    case demoCreated = "demo_created"
+    case demoUpgraded = "demo_upgraded"
+    
     case pdfEvent = "pdf_event"
 }
 
@@ -97,6 +100,26 @@ final class FirebaseLogsManager {
     
     func logMusicToogle(isEnabled: Bool) {
 //        Analytics.logEvent(MusicToogle.musicToggled.rawValue, parameters: ["state": isEnabled ? "Enabled" : "Disabled"])
+    }
+    
+    func logDemoPersonaCodeCreated(name: String, dateBirth: String) {
+//        Analytics.logEvent(
+//            FirebaseLogs.demoCreated.rawValue,
+//            parameters: [
+//                "name": name,
+//                "date_birth": dateBirth
+//            ]
+//        )
+    }
+
+    func logDemoUpgradedToFull(name: String, dateBirth: String) {
+//        Analytics.logEvent(
+//            FirebaseLogs.demoUpgraded.rawValue,
+//            parameters: [
+//                "name": name,
+//                "date_birth": dateBirth
+//            ]
+//        )
     }
 
     func logPurchaseSuccess(name: String, dateBirth: String) {
