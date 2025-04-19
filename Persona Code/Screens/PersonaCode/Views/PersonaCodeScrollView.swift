@@ -61,7 +61,7 @@ struct PersonaCodeScrollView: View {
                                 .multilineTextAlignment(.center)
                         }
                     } else {
-                        if ReviewRequestManager.shared.reviewPromptWasShowing() {
+                        if !ReviewRequestManager.shared.reviewPromptWasShowing() {
                             VStack {
                                 Divider()
                                     .padding(.bottom, 16)

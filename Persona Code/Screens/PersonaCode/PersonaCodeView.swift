@@ -85,11 +85,24 @@ struct PersonaCodeView: View {
             
             ToolbarItem(placement: .topBarTrailing) {
                 DownloadPDFButtonView(viewModel: viewModel, personaCodeData: personaCodeData)
-                    .opacity(viewModel.isMenuOpen ? 0.5 : 1)
+                    .opacity(isFullVersion ? (viewModel.isMenuOpen ? 0.5 : 1) : 0.5)
+                    .disabled(!isFullVersion)
+                    .onTapGesture {
+                        if !isFullVersion {
+                            viewModel.showDownloadAlert = true
+                        }
+                    }
             }
         }
         .sheet(isPresented: $viewModel.showShareSheet) {
             ShareSheet(items: viewModel.shareItems)
+        }
+        .alert(isPresented: $viewModel.showDownloadAlert) {
+            Alert(
+                title: Text("Available in the full version"),
+                message: Text("To save the PDF file, please unlock the full version."),
+                dismissButton: .default(Text("OK"))
+            )
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(BackgroundView(shadowLevel: .high))

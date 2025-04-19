@@ -14,6 +14,8 @@ final class PersonaCodeViewModel: ObservableObject {
     @Published var isMenuOpen = false
     @Published var showShareSheet: Bool = false
     
+    @Published var showDownloadAlert = false
+    
     @Published var shareItems: [Any] = []
     
     var scrollToSection = PassthroughSubject<Int, Never>()

@@ -313,6 +313,22 @@
         }
       }
     },
+    "Available in the full version" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dostępne w pełnej wersji"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Доступно в полной версии"
+          }
+        }
+      }
+    },
     "Available instantly. No subscription. One-time purchase." : {
       "localizations" : {
         "pl" : {
@@ -1870,6 +1886,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Советы и стратегии для гармоничного развития, раскрытия потенциала и достижения целей."
+          }
+        }
+      }
+    },
+    "To save the PDF file, please unlock the full version." : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aby zapisać plik PDF, odblokuj pełną wersję."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Чтобы сохранить PDF-файл, разблокируйте полную версию."
           }
         }
       }
