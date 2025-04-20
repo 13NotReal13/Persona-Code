@@ -1101,6 +1101,22 @@
         }
       }
     },
+    "Later" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Później"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Позже"
+          }
+        }
+      }
+    },
     "Limited Analysis" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1180,6 +1196,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Музыка"
+          }
+        }
+      }
+    },
+    "New Version Available" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dostępna nowa wersja"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Доступна новая версия"
           }
         }
       }
@@ -1367,6 +1399,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Персональный PDF-отчёт"
+          }
+        }
+      }
+    },
+    "Please update the app to the latest version." : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zaktualizuj aplikację do najnowszej wersji."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пожалуйста, обновите приложение до последней версии."
           }
         }
       }
@@ -2003,6 +2051,22 @@
         }
       }
     },
+    "Update" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktualizuj"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обновить"
+          }
+        }
+      }
+    },
     "Use your Personality Code as a personal guide. It will help you understand yourself, overcome internal barriers, deal with life’s challenges, and move toward your goals with clarity and confidence." : {
       "localizations" : {
         "pl" : {
@@ -2020,7 +2084,20 @@
       }
     },
     "Version: %@" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wersja: %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Версия: %@"
+          }
+        }
+      }
     },
     "We value your opinion" : {
       "extractionState" : "manual",
