@@ -2019,6 +2019,9 @@
         }
       }
     },
+    "Version: %@" : {
+
+    },
     "We value your opinion" : {
       "extractionState" : "manual",
       "localizations" : {

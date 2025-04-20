@@ -24,6 +24,14 @@ struct SettingsView: View {
             RequestReviewButtonView()
             
             SupportButtonView()
+            
+            if let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+                Text("Version: \(appVersion)")
+                    .font(.custom(CustomFont.interVariable.rawValue, size: 11))
+                    .foregroundStyle(.gray)
+                    .listRowBackground(Color.clear)
+                    .frame(maxWidth: .infinity, alignment: .center)
+            }
         }
         .scrollContentBackground(.hidden)
         .navigationBarBackButtonHidden()
@@ -47,5 +55,6 @@ struct SettingsView: View {
         SettingsView()
             .preferredColorScheme(.dark)
             .environmentObject(NavigationCoordinator())
+            .environmentObject(SettingsViewModel())
     }
 }
