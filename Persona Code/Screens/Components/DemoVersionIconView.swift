@@ -18,7 +18,7 @@ struct DemoVersionIconView: View {
             .background(
                 ZStack {
                     RoundedRectangle(cornerRadius: 20)
-                        .fill(Color.gray.opacity(0.7))
+                        .fill(Color.gray.opacity(0.4))
                     
                     RoundedRectangle(cornerRadius: 20)
                         .stroke(style: StrokeStyle(lineWidth: 2))

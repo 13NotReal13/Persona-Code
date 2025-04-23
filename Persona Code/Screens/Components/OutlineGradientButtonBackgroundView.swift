@@ -45,7 +45,8 @@ struct OutlineGradientButtonBackgroundView: View {
         Text("Полная версия")
             .preferredColorScheme(.dark)
             .customText(fontSize: 17, customFont: .interDisplaySemiBold)
-            .padding()
+            .padding(.vertical, 4)
+            .padding(.horizontal, 12)
             .background(OutlineGradientButtonBackgroundView())
     }
 }

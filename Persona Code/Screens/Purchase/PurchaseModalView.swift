@@ -18,7 +18,6 @@ struct PurchaseModalView: View {
     let isFromPreloadScreen: Bool
     
     @EnvironmentObject private var coordinator: NavigationCoordinator
-    @StateObject private var viewModel = PreloadPersonaCodeViewModel()
     
     @State private var selectedPlan: PlanType = .demo
     
@@ -138,61 +137,45 @@ struct PurchaseModalView: View {
     }
     
     private func handlePurchase(for product: SKProduct) {
-        var updatedCode = shortPersonaCode
+        isLoadingPurchase = true
         
-        if isFromPreloadScreen {
-            StorageManager.shared.add(shortPersonaCodeData: shortPersonaCode)
-        } else {
-            updatedCode.isFullVersion = true
-            StorageManager.shared.updateToFullVersion(shortPersonaCodeData: updatedCode)
-        }
-        
-        coordinator.dismissModal()
-        coordinator.push(
-            .personaCode(
-                isFromPreloadScreen ? shortPersonaCode : updatedCode,
-                isFromPreload: true
-            )
+        IAPManager.shared.purchase(
+            productID: product.productIdentifier,
+            success: {
+                isLoadingPurchase = false
+                
+                DispatchQueue.main.async {
+                    var updatedCode = shortPersonaCode
+                    
+                    if isFromPreloadScreen {
+                        StorageManager.shared.add(shortPersonaCodeData: shortPersonaCode)
+                        
+                        FirebaseLogsManager.shared.logPurchaseSuccess(
+                            name: shortPersonaCode.name,
+                            dateBirth: shortPersonaCode.dateOfBirthday.formattedDate()
+                        )
+                    } else {
+                        updatedCode.isFullVersion = true
+                        StorageManager.shared.updateToFullVersion(shortPersonaCodeData: updatedCode)
+                    }
+                    
+                    coordinator.dismissModal()
+                    coordinator.push(
+                        .personaCode(
+                            isFromPreloadScreen ? shortPersonaCode : updatedCode,
+                            isFromPreload: true
+                        )
+                    )
+                }
+            },
+            failure: { error in
+                isLoadingPurchase = false
+                
+                FirebaseLogsManager.shared.logPurchaseFailure()
+                purchaseErrorMessage = error?.localizedDescription
+                showErrorAlert = true
+            }
         )
-//
-//        isLoadingPurchase = true
-//        
-//        IAPManager.shared.purchase(
-//            productID: product.productIdentifier,
-//            success: {
-//                isLoadingPurchase = false
-//                
-//                DispatchQueue.main.async {
-//                    let calculatedData = PersonaCodeCalculation(
-//                        name: personaCode.name,
-//                        dateOfBirthday: personaCode.dateOfBirthday
-//                    ).personaCodeData
-//                    
-//                    viewModel.savePersonaCode(personaCode: personaCode)
-//                    
-//                    FirebaseLogsManager.shared.logPurchaseSuccess(
-//                        name: personaCode.name,
-//                        dateBirth: personaCode.dateOfBirthday.formattedDate()
-//                    )
-//                    
-//                    coordinator.dismissModal()
-//                    coordinator.push(
-//                        .personaCode(
-//                            calculatedData,
-//                            isFromPreload: true,
-//                            isFullVersion: true
-//                        )
-//                    )
-//                }
-//            },
-//            failure: { error in
-//                isLoadingPurchase = false
-//                
-//                FirebaseLogsManager.shared.logPurchaseFailure()
-//                purchaseErrorMessage = error?.localizedDescription
-//                showErrorAlert = true
-//            }
-//        )
     }
     
     private func termsOfUseButton() -> some View {
