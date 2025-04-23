@@ -27,33 +27,47 @@ struct LeftNavigationButtonsView: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 0) {
             ForEach(1..<selectedCategories.count + 1, id: \.self) { num in
                 Spacer()
                 
                 let isLocked = !isFullVersion && num > 3
                 
-                Text(selectedCategories[num - 1].title)
-                    .font(.custom(CustomFont.interVariable.rawValue, size: 17))
-                    .foregroundStyle(isLocked ? .white.opacity(0.5) : .white)
-                    .padding(.vertical, 8)
-                    .padding(.horizontal, 12)
-                    .background(
-                               Capsule()
-                                   .stroke(Color.white, lineWidth: num == personaCodeViewModel.selectedSectionForLeftButtons && !isLocked ? 1 : 0)
-                           )
-                    .onTapGesture {
-                        guard !isLocked else { return }
-                        withAnimation {
-                            personaCodeViewModel.isMenuOpen = false
-                            personaCodeViewModel.scrollToSection.send(num)
+                HStack {
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(Color.white)
+                        .frame(maxHeight: .infinity)
+                        .frame(width: num == personaCodeViewModel.selectedSectionForLeftButtons ? 3 : 1)
+                        .opacity(num == personaCodeViewModel.selectedSectionForLeftButtons ? 1 : 0.3)
+                    
+                    Text(selectedCategories[num - 1].title)
+                        .font(.custom(CustomFont.interVariable.rawValue, size: 17))
+                        .foregroundStyle(isLocked ? .white.opacity(0.4) : .white)
+                        .padding(.vertical, 8)
+                        .padding(.horizontal, 12)
+                        .lineLimit(2)
+                        .onTapGesture {
+                            guard !isLocked else { return }
+                            withAnimation {
+                                personaCodeViewModel.isMenuOpen = false
+                                personaCodeViewModel.scrollToSection.send(num)
+                            }
                         }
-                    }
+                }
                 
                 if num != 12 {
-                    Divider()
-                        .frame(height: 1)
-                        .background(.white.opacity(0.4))
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 1)
+                            .padding(.horizontal)
+                            .frame(height: 1)
+                            .foregroundStyle(.black)
+                            .shadow(color: .black.opacity(0.2), radius: 2, x: 2, y: 2)
+                        
+                        RoundedRectangle(cornerRadius: 1)
+                            .padding(.horizontal)
+                            .frame(height: 1)
+                            .opacity(0.5)
+                    }
                 }
             }
             
@@ -72,6 +86,7 @@ struct LeftNavigationButtonsView: View {
                         .frame(maxWidth: .infinity, alignment: .center)
                         .padding(12)
                         .background(OutlineGradientButtonBackgroundView())
+                        .padding(.horizontal, 5)
                 }
                 .padding(.top, 8)
             }
@@ -81,7 +96,7 @@ struct LeftNavigationButtonsView: View {
 
 #Preview {
     ZStack {
-        BackgroundView()
+        BackgroundView(shadowLevel: .high)
         
         LeftNavigationButtonsView(
             personaCodeViewModel: PersonaCodeViewModel(),
@@ -93,4 +108,5 @@ struct LeftNavigationButtonsView: View {
             isFullVersion: false
         )
     }
+    .preferredColorScheme(.dark)
 }

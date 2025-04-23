@@ -13,20 +13,25 @@ struct CodeDetailView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             Text(codeInfo.title)
-                .font(.title2)
+                .customText(fontSize: 22)
                 .bold()
+                .opacity(0.9)
                 .multilineTextAlignment(.center)
                 .frame(maxWidth: .infinity, alignment: .center)
             
             ForEach(codeInfo.subcategories, id: \.self) { subcategorie in
                 Text(subcategorie.title)
-                    .font(.headline)
+                    .customText(fontSize: 17)
                     .bold()
+                    .opacity(0.9)
                     .frame(maxWidth: .infinity, alignment: .center)
                 Text(subcategorie.shortDescription)
-                    .opacity(0.8)
+                    .customText(fontSize: 17)
+                    .opacity(0.7)
                     .fixedSize(horizontal: false, vertical: true)
                 Text(subcategorie.mainDescription)
+                    .customText(fontSize: 17)
+                    .opacity(0.9)
             }
         }
         .foregroundStyle(.white)

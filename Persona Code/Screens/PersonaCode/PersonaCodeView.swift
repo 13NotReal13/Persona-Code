@@ -105,7 +105,7 @@ struct PersonaCodeView: View {
             )
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(BackgroundView(shadowLevel: .high))
+        .background(BackgroundView(shadowLevel: .high, blurRadius: .high))
     }
     
     private func checkReviewConditions() {

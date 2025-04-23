@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundPurchaseScreen" translatesAutoresizingMaskIntoConstraints="NO" id="6if-pJ-uST">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundForPDF" translatesAutoresizingMaskIntoConstraints="NO" id="6if-pJ-uST">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
                         </subviews>
@@ -38,7 +38,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BackgroundPurchaseScreen" width="341.33334350585938" height="597.33331298828125"/>
+        <image name="backgroundForPDF" width="274.66665649414062" height="381"/>
         <namedColor name="RingColor1">
             <color red="0.71372549019607845" green="0.72549019607843135" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

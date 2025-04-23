@@ -210,6 +210,7 @@
       }
     },
     "Affirmations" : {
+      "extractionState" : "manual",
       "localizations" : {
         "pl" : {
           "stringUnit" : {
@@ -429,6 +430,7 @@
       }
     },
     "Choose a Date" : {
+      "extractionState" : "manual",
       "localizations" : {
         "pl" : {
           "stringUnit" : {
@@ -522,6 +524,7 @@
       }
     },
     "Continue" : {
+      "extractionState" : "manual",
       "localizations" : {
         "pl" : {
           "stringUnit" : {
@@ -605,6 +608,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Загрузка данных"
+          }
+        }
+      }
+    },
+    "Date selection required" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wymagane jest wybranie daty"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Необходимо выбрать дату"
           }
         }
       }
@@ -926,6 +945,7 @@
       }
     },
     "Got it" : {
+      "extractionState" : "manual",
       "localizations" : {
         "pl" : {
           "stringUnit" : {
@@ -959,6 +979,7 @@
       }
     },
     "History" : {
+      "extractionState" : "manual",
       "localizations" : {
         "pl" : {
           "stringUnit" : {
@@ -1217,6 +1238,7 @@
       }
     },
     "Next" : {
+      "extractionState" : "manual",
       "localizations" : {
         "pl" : {
           "stringUnit" : {
@@ -1337,6 +1359,7 @@
       }
     },
     "Open" : {
+      "extractionState" : "manual",
       "localizations" : {
         "pl" : {
           "stringUnit" : {
@@ -1655,6 +1678,7 @@
       }
     },
     "Save" : {
+      "extractionState" : "manual",
       "localizations" : {
         "pl" : {
           "stringUnit" : {
@@ -1687,6 +1711,7 @@
       }
     },
     "Settings" : {
+      "extractionState" : "manual",
       "localizations" : {
         "pl" : {
           "stringUnit" : {
@@ -1725,6 +1750,7 @@
       }
     },
     "Start" : {
+      "extractionState" : "manual",
       "localizations" : {
         "pl" : {
           "stringUnit" : {

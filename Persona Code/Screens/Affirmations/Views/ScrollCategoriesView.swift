@@ -27,7 +27,7 @@ struct ScrollCategoriesView: View {
                                     : .gray
                                 )
                             Text(category.displayName)
-                                .font(.caption)
+                                .font(.custom(CustomFont.interVariable.rawValue, size: 12))
                                 .foregroundColor(
                                     selectedCategory == category
                                     ? .white

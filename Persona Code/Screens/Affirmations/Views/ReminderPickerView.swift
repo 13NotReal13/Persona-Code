@@ -58,19 +58,16 @@ struct ReminderPickerView: View {
                 .padding(.horizontal)
             }
             
-            Button("Save") {
+            Button {
                 if reminderType == .affirmation {
                     viewModel.updateReminders()
                 } else {
                     viewModel.updateFactsNotifications()
                 }
                 coordinator.dismissModal()
+            } label: {
+                ButtonLabelView(text: "Save", fontSize: 17, widthMultiplyBy: 0.4)
             }
-            .customText(fontSize: 17)
-            .customButtonStyle(
-                width: UIScreen.main.bounds.width * 0.4,
-                shape: .capsule
-            )
         }
         .background(Color.clear)
         .onAppear {

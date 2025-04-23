@@ -36,7 +36,7 @@ struct ReminderToggleView: View {
                     Button("Notification settings") {
                         coordinator.present(.reminderPicker(type: ReminderType.affirmation))
                     }
-                    .font(.caption)
+                    .font(.custom(CustomFont.interVariable.rawValue, size: 12))
                     .foregroundColor(.brown)
                     .padding(.horizontal)
                     .padding(.vertical, 4)
@@ -51,7 +51,7 @@ struct ReminderToggleView: View {
                     
                     VStack(alignment: .center, spacing: 16) {
                         Text("Notifications disabled")
-                            .font(.caption)
+                            .font(.custom(CustomFont.interVariable.rawValue, size: 12))
                             .foregroundStyle(.red)
                         
                         Button("Go to Settings") {

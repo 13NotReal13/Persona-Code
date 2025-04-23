@@ -21,24 +21,23 @@ struct LeftMenuView: View {
                     withAnimation { viewModel.isMenuOpen = false }
                 }
             
-            ZStack(alignment: .leading) {
-                Color.black
-                    .cornerRadius(radius: 24, corners: [.bottomRight, .topRight])
-                    .frame(width: 282)
-                    .ignoresSafeArea()
-                    .shadow(color: Color.white.opacity(0.1), radius: 10, x: 4, y: 0)
-                
-                HStack(spacing: 0) {
-                    LeftNavigationButtonsView(
-                        personaCodeViewModel: viewModel,
-                        shortPersonaCode: shortPersonaCode,
-                        isFullVersion: isFullVersion
-                    )
-                        .frame(width: 250)
-                        .padding(.horizontal)
-                    
-                    LeftOpenMenuButtonView(personaCodeViewModel: viewModel)
+            HStack(spacing: 0) {
+                LeftNavigationButtonsView(
+                    personaCodeViewModel: viewModel,
+                    shortPersonaCode: shortPersonaCode,
+                    isFullVersion: isFullVersion
+                )
+                .frame(width: 260)
+                .padding(.leading, 8)
+                .padding(.trailing, 14)
+                .background {
+                    RoundedRectangle(cornerRadius: 40, style: .continuous)
+                        .fill(.ultraThinMaterial)
+                        .ignoresSafeArea()
+                        .shadow(color: .white.opacity(0.3), radius: 10, x: 5, y: 0)
                 }
+                
+                LeftOpenMenuButtonView(personaCodeViewModel: viewModel)
             }
             .offset(x: viewModel.isMenuOpen ? 0 : -282)
         }
@@ -58,6 +57,8 @@ struct LeftMenuView: View {
             ),
             isFullVersion: false
         )
-            .environmentObject(PersonaCodeViewModel())
+        .environmentObject(PersonaCodeViewModel())
+        .preferredColorScheme(.light)
     }
+    .preferredColorScheme(.dark)
 }

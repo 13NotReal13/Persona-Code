@@ -18,48 +18,38 @@ struct BottomNavigationBarView: View {
     @AppStorage("hasSkippedUpdateOnce") private var hasSkippedUpdateOnce: Bool = false
     
     var body: some View {
-        VStack {
+        VStack(spacing: 16) {
             Spacer()
             
             Button {
                 coordinator.push(.enterData)
             } label: {
-                Text("Persona Code")
-                    .customText(fontSize: 17)
-                    .customButtonStyle(width: UIScreen.main.bounds.width * 0.7, shape: .capsule)
+                ButtonLabelView(text: "Persona Code", fontSize: 17, widthMultiplyBy: 0.8)
             }
             
             Button {
                 coordinator.push(.affirmation)
             } label: {
-                Text("Affirmations")
-                    .customText(fontSize: 17)
-                    .customButtonStyle(width: UIScreen.main.bounds.width * 0.65, shape: .capsule)
+                ButtonLabelView(text: "Affirmations", fontSize: 17, widthMultiplyBy: 0.75)
             }
             
             Button {
                 coordinator.push(.history)
             } label: {
-                Text("History")
-                    .customText(fontSize: 17)
-                    .customButtonStyle(width: UIScreen.main.bounds.width * 0.6, shape: .capsule)
+                ButtonLabelView(text: "History", fontSize: 17, widthMultiplyBy: 0.70)
             }
             
             Button {
                 coordinator.push(.settings)
             } label: {
-                Text("Settings")
-                    .customText(fontSize: 17)
-                    .customButtonStyle(width: UIScreen.main.bounds.width * 0.55, shape: .capsule)
+                ButtonLabelView(text: "Settings", fontSize: 17, widthMultiplyBy: 0.65)
             }
             
             Button {
                 hasOpenedHowItWorks = true
                 coordinator.push(.helpInfo)
             } label: {
-                Text("How does it work?")
-                    .customText(fontSize: 17)
-                    .customButtonStyle(width: UIScreen.main.bounds.width * 0.5, shape: .capsule)
+                ButtonLabelView(text: "How does it work?", fontSize: 17, widthMultiplyBy: 0.6)
                     .scaleEffect(!hasOpenedHowItWorks && howDoesItWorkIsAnimating ? 1.05 : 1)
                     .shadow(color: !hasOpenedHowItWorks ? .white.opacity(0.7) : .clear, radius: 8)
             }
@@ -123,4 +113,5 @@ struct BottomNavigationBarView: View {
 
 #Preview {
     BottomNavigationBarView()
+        .background(BackgroundView())
 }

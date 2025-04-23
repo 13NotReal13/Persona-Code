@@ -53,29 +53,29 @@ struct AffirmationsView: View {
         .sheet(isPresented: $showHint) {
             VStack(spacing: 24) {
                 Text("💬 What are affirmations?")
-                    .font(.title3.bold())
+                    .customText(fontSize: 20, customFont: .interDisplaySemiBold)
                     .multilineTextAlignment(.center)
                     .padding(.top)
 
                 Text("Affirmations are positive statements that help shift your mindset, boost self-confidence, and focus on your goals. By repeating them daily, you create a supportive inner state and program yourself for success.")
-                    .font(.body)
+                    .customText(fontSize: 17)
                     .multilineTextAlignment(.leading)
-                    .padding(.horizontal)
 
                 Toggle(isOn: $hasSeenHint) {
                     Text("Don't show again")
+                        .customText(fontSize: 17)
                 }
                 .toggleStyle(CheckboxToggleStyle())
                 .padding(.horizontal)
-
-                Button("Got it") {
+                
+                Button {
                     showHint = false
+                } label: {
+                    ButtonLabelView(text: "Got it", fontSize: 17, widthMultiplyBy: 0.4)
                 }
-                .customText(fontSize: 17)
-                .customButtonStyle(width: UIScreen.main.bounds.width * 0.4, shape: .capsule)
             }
             .padding()
-            .presentationDetents([.height(400)])
+            .presentationDetents([.height(380)])
             .presentationDragIndicator(.visible)
         }
     }

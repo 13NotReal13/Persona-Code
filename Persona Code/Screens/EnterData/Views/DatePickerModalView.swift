@@ -25,12 +25,7 @@ struct DatePickerModalView: View {
             Button {
                 coordinator.dismissModal()
             } label: {
-                Text("Save")
-                    .customText(fontSize: 16)
-                    .customButtonStyle(
-                        width: UIScreen.main.bounds.width * 0.4,
-                        shape: .capsule
-                    )
+                ButtonLabelView(text: "Save", fontSize: 17, widthMultiplyBy: 0.4)
             }
         }
     }

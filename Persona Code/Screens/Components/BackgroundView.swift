@@ -8,15 +8,18 @@
 import SwiftUI
 
 enum ShadowLevel: CGFloat {
-    case none = 0
-    case medium = 0.5
+    case medium = 0.4
     case high = 0.7
 }
 
+enum BlurRadius: CGFloat {
+    case medium = 3
+    case high = 10
+}
+
 struct BackgroundView: View {
-    var shadowLevel: ShadowLevel = .none
-    
-    @State private var isGlowing = false
+    var shadowLevel: ShadowLevel = .medium
+    var blurRadius: BlurRadius = .medium
     
     var body: some View {
         ZStack {
@@ -32,7 +35,7 @@ struct BackgroundView: View {
                     .scaledToFill()
                     .frame(width: geo.size.width, height: geo.size.height)
                     .clipped()
-                    .opacity(0.3)
+                    .opacity(0.6)
                     .mask(
                         LinearGradient(
                             gradient: Gradient(stops: [
@@ -44,30 +47,13 @@ struct BackgroundView: View {
                             endPoint: .bottom
                         )
                     )
+                    .blur(radius: blurRadius.rawValue)
             }
             .padding(.bottom, 50)
             
-            GeometryReader { geo in
-                Image(.backgroundSecondLayer)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: geo.size.width, height: geo.size.height)
-                    .shadow(color: .white.opacity(isGlowing ? 0.9 : 0.2), radius: 30)
-                    .opacity(isGlowing ? 0.7 : 0.2)
-                    .animation(.easeInOut(duration: 1.5).repeatForever(autoreverses: true), value: isGlowing)
-            }
-            .padding(.bottom, 50)
-            
-            if shadowLevel != .none {
-                Color.black.opacity(shadowLevel.rawValue)
-            }
+            Color.black.opacity(shadowLevel.rawValue)
         }
         .ignoresSafeArea()
-        .onAppear {
-            if shadowLevel == .none {
-                isGlowing = true
-            }
-        }
     }
 }
 

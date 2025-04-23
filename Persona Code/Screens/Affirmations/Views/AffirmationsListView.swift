@@ -15,13 +15,14 @@ struct AffirmationsListView: View {
         List(affirmations) { affirmation in
             HStack {
                 Text(affirmation.text)
-                    .lineLimit(2)
+                    .customText(fontSize: 17)
+                    .lineLimit(3)
                 
                 Spacer()
                 
-                Button(action: {
+                Button {
                     toggleFavorite(affirmation)
-                }) {
+                } label: {
                     Image(systemName: affirmation.isFavorite ? "star.fill" : "star")
                         .foregroundColor(affirmation.isFavorite ? .brown : .gray)
                 }

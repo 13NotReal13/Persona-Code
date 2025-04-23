@@ -26,9 +26,7 @@ struct PreloadPersonaCodeView: View {
                         )
                     )
                 } label: {
-                    Text("Open")
-                        .customText(fontSize: 17)
-                        .customButtonStyle(width: UIScreen.main.bounds.width * 0.6, shape: .capsule)
+                    ButtonLabelView(text: "Open", fontSize: 17, widthMultiplyBy: 0.6)
                 }
             } else {
                 LoadProgressView(viewModel: viewModel)

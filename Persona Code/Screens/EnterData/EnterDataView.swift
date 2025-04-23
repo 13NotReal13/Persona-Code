@@ -37,7 +37,7 @@ struct EnterDataView: View {
         .navigationBarBackButtonHidden()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(
-            BackgroundView(shadowLevel: .medium)
+            BackgroundView()
                 .onTapGesture {
                     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                 }
