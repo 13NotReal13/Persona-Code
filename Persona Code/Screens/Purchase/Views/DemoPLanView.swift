@@ -20,7 +20,7 @@ struct DemoPLanView: View {
                 
                 HStack {
                     Image(systemName: "checkmark.circle.fill")
-                        .foregroundColor(.green)
+                        .foregroundColor(.gray)
                     
                     PurchaseFeatureView(
                         title: localizedString("Limited Analysis"),
@@ -30,7 +30,7 @@ struct DemoPLanView: View {
 
                 HStack {
                     Image(systemName: "checkmark.circle.fill")
-                        .foregroundColor(.green)
+                        .foregroundColor(.gray)
                     
                     PurchaseFeatureView(
                         title: localizedString("3 Personality Aspects"),
