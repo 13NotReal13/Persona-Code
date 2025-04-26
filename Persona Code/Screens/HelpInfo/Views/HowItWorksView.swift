@@ -19,8 +19,6 @@ struct HowItWorksView: View {
                 
                 Text("""
                 The “Persona Code” app is the result of synthesizing hundreds of psychological studies, dozens of books on human behavior and thinking, scientific research, and has been developed with the help of next-generation artificial intelligence capable of analyzing data with high precision and providing personalized recommendations. Every part of the app is thoughtfully designed to bring you maximum benefit without unnecessary information.
-
-                Here, you can learn more about yourself and your potential through a unique system of 22 codes.
                 """)
                 .foregroundStyle(.white.opacity(0.8))
                 
@@ -34,16 +32,6 @@ struct HowItWorksView: View {
                      
                      Based on this code, the system analyzes verified sources: psychological research, scientific publications, and behavioral pattern analysis. The algorithms do not “guess” and are not based on astrology — they help reveal possible thinking patterns, strengths, and internal traits typical for your personality type.
                      """)
-                .foregroundStyle(.white.opacity(0.8))
-                
-                Text("Why 22 codes?")
-                    .font(.headline)
-                    .bold()
-                    .frame(maxWidth: .infinity, alignment: .center)
-                
-                Text("""
-                This system is based on the idea that personality and life path can be broken down into 22 key aspects. Each code reflects one of the essential parts of your character, potential, or internal obstacles. Together, they form a complete picture of who you are and what possibilities are hidden within you.
-                """)
                 .foregroundStyle(.white.opacity(0.8))
                 
                 Text("What will you get?")

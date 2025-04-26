@@ -10,8 +10,6 @@ import SwiftUI
 struct BottomNavigationBarView: View {
     @EnvironmentObject private var coordinator: NavigationCoordinator
     
-    @AppStorage("hasOpenedHowItWorks") private var hasOpenedHowItWorks: Bool = false
-    @State private var howDoesItWorkIsAnimating = false
     @State private var showUpdateAlert = false
     
     @AppStorage("lastUpdateCheckDate") private var lastUpdateCheckDate: Double = 0
@@ -46,22 +44,13 @@ struct BottomNavigationBarView: View {
             }
             
             Button {
-                hasOpenedHowItWorks = true
                 coordinator.push(.helpInfo)
             } label: {
                 ButtonLabelView(text: "How does it work?", fontSize: 17, widthMultiplyBy: 0.6)
-                    .scaleEffect(!hasOpenedHowItWorks && howDoesItWorkIsAnimating ? 1.05 : 1)
-                    .shadow(color: !hasOpenedHowItWorks ? .white.opacity(0.7) : .clear, radius: 8)
             }
         }
         .padding()
         .onAppear {
-            if !hasOpenedHowItWorks {
-                withAnimation(Animation.easeInOut(duration: 1).repeatForever()) {
-                    howDoesItWorkIsAnimating = true
-                }
-            }
-            
             let now = Date().timeIntervalSince1970
             let hoursPassed = (now - lastUpdateCheckDate) / 3600
 
