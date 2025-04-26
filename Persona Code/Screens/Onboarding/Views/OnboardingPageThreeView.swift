@@ -10,18 +10,17 @@ import SwiftUI
 struct OnboardingPageThreeView: View {
     var body: some View {
         VStack {
-            Spacer()
-            
-            FactsVisualView()
+            LifeImprovementVisualView()
             
             Spacer()
 
             VStack(spacing: 24) {
-                Text("🧠 Amazing Facts")
-                    .font(.title2.bold())
+                Text("What will you get?")
+                    .customText(fontSize: 22, customFont: .interDisplaySemiBold)
                     .multilineTextAlignment(.center)
 
-                Text("Discover what the human brain and body are capable of. Each day — a new scientific fact about the potential of the mind, body, and perception that inspires you to unlock your inner abilities.")
+                Text("A personal guide to life: a detailed portrait of your qualities, habits, potential internal conflicts, and ways to harmoniously resolve them. You will receive valuable insights to enhance every area of your life — relationships, finances, career, personal growth, and self-realization. Persona Code is your first step toward a conscious, happy, and successful life.")
+                    .customText(fontSize: 17)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal)
             }
@@ -29,32 +28,64 @@ struct OnboardingPageThreeView: View {
     }
 }
 
-struct FactsVisualView: View {
-    let icons = ["eye", "bolt", "chart.bar", "book", "waveform.path.ecg", "atom", "lightbulb"]
-
+struct LifeImprovementVisualView: View {
+    let icons = [
+        "figure.walk",                // 2. Путь Развития
+        "message",                    // 3. Коммуникация
+        "creditcard",                 // 4. Финансовый Потенциал
+        "briefcase",                  // 5. Профессиональный Рост
+        "bolt.heart",                 // 6. Ресурсное Состояние
+        "star",                       // 7. Сильные Стороны
+        "exclamationmark.triangle",  // 8. Зоны Риска
+        "book.closed",               // 9. Саморазвитие
+        "brain.head.profile",        // 10. Внутренний Баланс
+        "target",                    // 11. Жизненные Цели
+        "clock.arrow.circlepath"     // 12. Опыт и Эволюция
+    ]
+    
     var body: some View {
         GeometryReader { geo in
             let size = min(geo.size.width, geo.size.height)
             let radius = size * 0.35
-            let center = CGPoint(x: geo.size.width / 2, y: geo.size.height / 2 + 10)
+            let center = CGPoint(x: geo.size.width / 2, y: geo.size.height / 2)
+            let startOffset: CGFloat = radius * 0.4 // насколько ближе к центру начало линии
+            let endOffset: CGFloat = radius * 0.25  // насколько не доходит до иконки
 
             ZStack {
-                // Центральная иконка
-                Image(systemName: "brain.fill")
+                Image(systemName: "person.badge.key")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 80, height: 80)
-                    .foregroundColor(.ringColor1)
-                    .position(center)
-
-                // Вращающиеся факты вокруг
+                    .foregroundStyle(.ringColor1)
+                
+                // Линии от центра к иконкам
                 ForEach(0..<icons.count, id: \.self) { i in
                     let angle = Angle(degrees: Double(i) / Double(icons.count) * 360)
                     let dx = cos(angle.radians)
                     let dy = sin(angle.radians)
 
-                    let x = center.x + dx * radius
-                    let y = center.y + dy * radius
+                    let start = CGPoint(
+                        x: center.x + dx * startOffset,
+                        y: center.y + dy * startOffset
+                    )
+
+                    let end = CGPoint(
+                        x: center.x + dx * (radius - endOffset),
+                        y: center.y + dy * (radius - endOffset)
+                    )
+
+                    Path { path in
+                        path.move(to: start)
+                        path.addLine(to: end)
+                    }
+                    .stroke(Color.white.opacity(0.3), lineWidth: 1)
+                }
+
+                // Иконки по кругу
+                ForEach(0..<icons.count, id: \.self) { i in
+                    let angle = Angle(degrees: Double(i) / Double(icons.count) * 360)
+                    let x = center.x + cos(angle.radians) * radius
+                    let y = center.y + sin(angle.radians) * radius
 
                     Image(systemName: icons[i])
                         .resizable()
@@ -64,7 +95,6 @@ struct FactsVisualView: View {
                         .position(x: x, y: y)
                 }
             }
-            .frame(width: geo.size.width, height: geo.size.height)
         }
     }
 }

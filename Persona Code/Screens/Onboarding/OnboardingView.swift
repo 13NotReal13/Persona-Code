@@ -17,7 +17,6 @@ struct OnboardingView: View {
                 OnboardingPageOneView().tag(0)
                 OnboardingPageTwoView().tag(1)
                 OnboardingPageThreeView().tag(2)
-                OnboardingPageFourView().tag(3)
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             .animation(.easeInOut, value: currentPage)
@@ -27,7 +26,7 @@ struct OnboardingView: View {
                 HStack {
                     Spacer()
                     HStack(spacing: 8) {
-                        ForEach(0..<4) { index in
+                        ForEach(0..<3) { index in
                             Circle()
                                 .fill(index == currentPage ? Color.white : Color.white.opacity(0.3))
                                 .frame(width: 8, height: 8)
@@ -39,7 +38,7 @@ struct OnboardingView: View {
 
                 Button(action: {
                     withAnimation {
-                        if currentPage < 3 {
+                        if currentPage < 2 {
                             currentPage += 1
                         } else {
                             UserDefaults.standard.set(true, forKey: "onboardingWasShowing")
@@ -48,7 +47,7 @@ struct OnboardingView: View {
                     }
                 }) {
                     ButtonLabelView(
-                        text: currentPage < 3 ? "Continue" : "Start",
+                        text: currentPage < 2 ? "Continue" : "Start",
                         fontSize: 17,
                         widthMultiplyBy: 0.6
                     )

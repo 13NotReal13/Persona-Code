@@ -7,29 +7,48 @@
 
 import SwiftUI
 
-struct AffirmationVisualOne: View {
-    let icons = ["sun.max", "heart.fill", "bolt.fill", "quote.bubble", "dollarsign.circle.fill", "briefcase.fill", "heart.circle.fill"]
+struct OnboardingPageTwoView: View {
+    var body: some View {
+        VStack {
+            DecodingProcessVisualView()
+            
+            Spacer()
+
+            VStack(spacing: 24) {
+                Text("How does it work?")
+                    .customText(fontSize: 22, customFont: .interDisplaySemiBold)
+                    .multilineTextAlignment(.center)
+
+                Text("The information you provide is used to decode your unique personality code, which becomes the key to your personal profile. Our algorithms match it with verified sources — scientific research, academic studies, and behavioral models — helping you uncover your strengths, thought patterns, and internal settings.")
+                    .customText(fontSize: 17)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal)
+            }
+        }
+    }
+}
+
+struct DecodingProcessVisualView: View {
+    let icons = ["key.fill", "text.magnifyingglass", "brain", "book.closed", "list.bullet.rectangle.portrait", "arrow.triangle.branch"]
 
     var body: some View {
         GeometryReader { geo in
             let size = min(geo.size.width, geo.size.height)
             let radius = size * 0.35
-            let center = CGPoint(x: geo.size.width / 2, y: geo.size.height / 2 + 20) // чуть ниже, чтобы над ним была дуга
+            let center = CGPoint(x: geo.size.width / 2, y: geo.size.height / 2)
 
             ZStack {
-                // Центральная иконка мозга
-                Image(systemName: "brain.head.profile")
+                // Центральный открытый замок
+                Image(systemName: "lock.open")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 80, height: 80)
                     .foregroundColor(.ringColor1)
                     .position(center)
 
-                // Иконки над мозгом в дуге
+                // Иконки-этапы вокруг
                 ForEach(0..<icons.count, id: \.self) { i in
-                    let startAngle = -220.0
-                    let endAngle = 40.0
-                    let angle = Angle(degrees: startAngle + Double(i) / Double(icons.count - 1) * (endAngle - startAngle))
+                    let angle = Angle(degrees: Double(i) / Double(icons.count) * 360)
                     let dx = cos(angle.radians)
                     let dy = sin(angle.radians)
 
@@ -43,29 +62,6 @@ struct AffirmationVisualOne: View {
                         .foregroundColor(.ringColor1)
                         .position(x: x, y: y)
                 }
-            }
-            .frame(width: geo.size.width, height: geo.size.height)
-        }
-    }
-}
-
-struct OnboardingPageTwoView: View {
-    var body: some View {
-        VStack {
-            Spacer()
-            
-            AffirmationVisualOne()
-            
-            Spacer()
-
-            VStack(spacing: 24) {
-                Text("💬 Affirmations")
-                    .font(.title2.bold())
-                    .multilineTextAlignment(.center)
-
-                Text("Choose affirmations from various categories and repeat them daily. They help you maintain a positive mindset, boost confidence, and move toward your goals. To stay consistent — enable reminders.")
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal)
             }
         }
     }
